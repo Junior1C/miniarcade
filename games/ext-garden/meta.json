@@ -1,0 +1,12 @@
+{
+  "id": "ext-garden",
+  "title": "Grid Garden",
+  "emoji": "🥕",
+  "description": "Обучающая игра по CSS Grid: выращивайте морковь сеткой. Внешняя игра — код остаётся у автора.",
+  "tags": ["обучение", "css", "мост"],
+  "controls": "Печать CSS-кода",
+  "url": "https://cssgridgarden.com/",
+  "author": "thomaspark",
+  "license": "MIT",
+  "repo": "https://github.com/thomaspark/gridgarden"
+}

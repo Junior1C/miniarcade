@@ -19,6 +19,15 @@ export const FRAME_SRC_ORIGINS = [
   'https://wayou.github.io',
   'https://ellisonleao.github.io',
   'https://wwwtyro.github.io',
+  'https://iamkun.github.io',
+  'https://taniarascia.github.io',
+  'https://flexboxfroggy.com',
+  'https://cssgridgarden.com',
+  'https://sandspiel.club',
+  'https://victorribeiro.com',
+  'https://muan.co',
+  'https://demian.ferrei.ro',
+  'https://duckhuntjs.com',
 ];
 export const CSP_CORE = [
   "default-src 'none'",

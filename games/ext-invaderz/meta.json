@@ -1,0 +1,12 @@
+{
+  "id": "ext-invaderz",
+  "title": "InvaderZ",
+  "emoji": "🛸",
+  "description": "Космозахватчики с эволюцией: рой учится на ваших выстрелах через генетический алгоритм. Внешняя игра — код остаётся у автора.",
+  "tags": ["аркада", "шутер", "мост"],
+  "controls": "Мышь или стрелки",
+  "url": "https://victorribeiro.com/invaderz/",
+  "author": "victorqribeiro",
+  "license": "MIT",
+  "repo": "https://github.com/victorqribeiro/invaderz"
+}

@@ -169,6 +169,7 @@ body {
 }
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -177,12 +178,34 @@ body {
   border-radius: var(--radius);
   color: inherit;
   text-decoration: none;
+  /* Перевязь моста обрезается скруглением карточки. */
+  overflow: hidden;
   /* Сотни карточек: пропускаем внеэкранный рендеринг.
      contain-intrinsic-size: auto сохраняет последний размер
      после первого paint — без скачков layout (CLS). */
   content-visibility: auto;
   contain-intrinsic-size: auto 260px;
   transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+/* Угловая ленточка-перевязь: игра не с портала, а взята у сторонних
+   разработчиков, разрешивших бесплатное использование. Декоративна:
+   смысл дублирует текстовая строка .card__meta (aria-hidden в разметке). */
+.card__ribbon {
+  position: absolute;
+  top: 16px;
+  right: -36px;
+  width: 130px;
+  padding: 2px 0;
+  background: #7c3aed;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: uppercase;
+  transform: rotate(45deg);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.4);
 }
 
 .card:hover {

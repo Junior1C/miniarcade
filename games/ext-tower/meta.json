@@ -1,0 +1,12 @@
+{
+  "id": "ext-tower",
+  "title": "Tower Building",
+  "emoji": "🏢",
+  "description": "Стройте башню из падающих блоков: чем выше, тем капризнее кран. Внешняя игра — код остаётся у автора.",
+  "tags": ["аркада", "казуал", "мост"],
+  "controls": "Клик или тап",
+  "url": "https://iamkun.github.io/tower_game/",
+  "author": "iamkun",
+  "license": "MIT",
+  "repo": "https://github.com/iamkun/tower_game"
+}

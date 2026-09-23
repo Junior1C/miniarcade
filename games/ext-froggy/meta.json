@@ -1,0 +1,12 @@
+{
+  "id": "ext-froggy",
+  "title": "Flexbox Froggy",
+  "emoji": "🐸",
+  "description": "Обучающая игра по CSS Flexbox: расставляйте лягушек на кувшинки кодом. Внешняя игра — код остаётся у автора.",
+  "tags": ["обучение", "css", "мост"],
+  "controls": "Печать CSS-кода",
+  "url": "https://flexboxfroggy.com/",
+  "author": "thomaspark",
+  "license": "MIT",
+  "repo": "https://github.com/thomaspark/flexboxfroggy"
+}

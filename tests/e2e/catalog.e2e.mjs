@@ -9,9 +9,9 @@ test('каталог рендерит карточки и статус', async (
 
 test('поиск фильтрует каталог', async ({ page }) => {
   await page.goto('/');
-  await page.fill('#search', 'змей');
+  await page.fill('#search', 'мемори');
   await expect(page.locator('#games .card')).toHaveCount(1);
-  await expect(page.locator('#games .card__title')).toHaveText('Змейка');
+  await expect(page.locator('#games .card__title')).toHaveText('Мемори');
   await page.fill('#search', 'квццыв');
   await expect(page.locator('#empty-state')).toBeVisible();
 });
@@ -49,8 +49,13 @@ test('структурированные данные каталога вали�
   expect(ldText).toBeTruthy();
   const ld = JSON.parse(ldText);
   expect(ld['@type']).toBe('ItemList');
-  const cards = await page.locator('#games .card').count();
-  expect(ld.itemListElement.length).toBe(cards);
+  // Карточек на странице может быть меньше из-за пагинации —
+  // сверяем с полным каталогом, а не с видимыми.
+  const catalog = await page.evaluate(async () => {
+    const response = await fetch('data/catalog.json');
+    return response.json();
+  });
+  expect(ld.itemListElement.length).toBe(catalog.games.length);
   for (const entry of ld.itemListElement) {
     expect(entry.item['@type']).toBe('VideoGame');
   }

@@ -9,7 +9,9 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 const BUDGETS = [
   { file: 'data/catalog.json', maxBytes: 250 * 1024, warnBytes: 200 * 1024 },
-  { file: 'index.html', maxBytes: 15 * 1024 },
+  // 20 КБ: оболочка лёгкая, рост — за счёт JSON-LD (SEO-разметка всех игр,
+  // грузится вместе с HTML, на LCP не влияет — hero-картинки нет).
+  { file: 'index.html', maxBytes: 20 * 1024 },
   { file: 'assets/css/main.css', maxBytes: 20 * 1024 },
   { file: 'assets/og.png', maxBytes: 100 * 1024 },
 ];

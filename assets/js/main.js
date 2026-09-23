@@ -96,7 +96,8 @@ function describeCount(count) {
 function createCard(game) {
   const item = document.createElement('li');
   const link = document.createElement('a');
-  link.className = 'card';
+  // Мост: угловая ленточка-перевязь (CSS) + класс-модификатор.
+  link.className = game.url ? 'card card--bridge' : 'card';
   link.href = playHash(game.id);
 
   const emoji = document.createElement('span');
@@ -119,13 +120,19 @@ function createCard(game) {
   cta.textContent = 'Играть';
 
   if (game.url) {
+    // Декоративная перевязь сбоку: смысл для скринридеров уже есть
+    // в текстовой строке meta ниже, поэтому aria-hidden.
+    const ribbon = document.createElement('span');
+    ribbon.className = 'card__ribbon';
+    ribbon.setAttribute('aria-hidden', 'true');
+    ribbon.textContent = 'Мост';
     const meta = document.createElement('p');
     meta.className = 'card__meta';
     const badge = document.createElement('span');
     badge.className = 'card__badge';
     badge.textContent = '↗ GitHub';
     meta.append(badge, ` ${game.author} • ${game.license}`);
-    link.append(emoji, title, description, meta, cta);
+    link.append(ribbon, emoji, title, description, meta, cta);
   } else {
     link.append(emoji, title, description, cta);
   }

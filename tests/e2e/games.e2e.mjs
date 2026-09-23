@@ -35,6 +35,8 @@ test('мост: внешняя игра открывается в том же sa
   );
   await page.goto('/');
   const card = page.locator('a[href="#/play/ext-2048"]');
+  await expect(card.locator('.card__ribbon')).toHaveText('Мост');
+  await expect(card.locator('.card__ribbon')).toHaveAttribute('aria-hidden', 'true');
   await expect(card.locator('.card__badge')).toHaveText('↗ GitHub');
   await expect(card.locator('.card__meta')).toContainText('Gabriele Cirulli');
   await expect(card.locator('.card__meta')).toContainText('MIT');

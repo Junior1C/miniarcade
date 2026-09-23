@@ -307,6 +307,134 @@
       "controls": "Пробел, клик или тап"
     },
     {
+      "id": "ext-duckhunt",
+      "title": "DuckHuntJS",
+      "emoji": "🦆",
+      "description": "Охота на уток как на Dendy: успейте подстрелить, пока не улетели. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "реакция",
+        "мост"
+      ],
+      "url": "https://duckhuntjs.com/",
+      "author": "MattSurabian",
+      "license": "MIT",
+      "repo": "https://github.com/MattSurabian/DuckHunt-JS",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-emoji-mines",
+      "title": "Emoji Minesweeper",
+      "emoji": "💥",
+      "description": "Сапёр на эмодзи: классические правила, весёлое оформление. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "логика",
+        "классика",
+        "мост"
+      ],
+      "url": "https://muan.co/emoji-minesweeper/",
+      "author": "muan",
+      "license": "MIT",
+      "repo": "https://github.com/muan/emoji-minesweeper",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-froggy",
+      "title": "Flexbox Froggy",
+      "emoji": "🐸",
+      "description": "Обучающая игра по CSS Flexbox: расставляйте лягушек на кувшинки кодом. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "обучение",
+        "css",
+        "мост"
+      ],
+      "url": "https://flexboxfroggy.com/",
+      "author": "thomaspark",
+      "license": "MIT",
+      "repo": "https://github.com/thomaspark/flexboxfroggy",
+      "controls": "Печать CSS-кода"
+    },
+    {
+      "id": "ext-garden",
+      "title": "Grid Garden",
+      "emoji": "🥕",
+      "description": "Обучающая игра по CSS Grid: выращивайте морковь сеткой. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "обучение",
+        "css",
+        "мост"
+      ],
+      "url": "https://cssgridgarden.com/",
+      "author": "thomaspark",
+      "license": "MIT",
+      "repo": "https://github.com/thomaspark/gridgarden",
+      "controls": "Печать CSS-кода"
+    },
+    {
+      "id": "ext-invaderz",
+      "title": "InvaderZ",
+      "emoji": "🛸",
+      "description": "Космозахватчики с эволюцией: рой учится на ваших выстрелах через генетический алгоритм. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "шутер",
+        "мост"
+      ],
+      "url": "https://victorribeiro.com/invaderz/",
+      "author": "victorqribeiro",
+      "license": "MIT",
+      "repo": "https://github.com/victorqribeiro/invaderz",
+      "controls": "Мышь или стрелки"
+    },
+    {
+      "id": "ext-isocity",
+      "title": "IsoCity",
+      "emoji": "🏙️",
+      "description": "Изометрический градостроитель: зоны, дороги и баланс бюджета. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "стратегия",
+        "стройка",
+        "мост"
+      ],
+      "url": "https://victorribeiro.com/isocity/",
+      "author": "victorqribeiro",
+      "license": "MIT",
+      "repo": "https://github.com/victorqribeiro/isocity",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-sand",
+      "title": "Sandspiel",
+      "emoji": "⏳",
+      "description": "Песочница падающего песка: сыпьте элементы и смотрите, как они взаимодействуют. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "песочница",
+        "симуляция",
+        "мост"
+      ],
+      "url": "https://sandspiel.club/",
+      "author": "MaxBittker",
+      "license": "MIT",
+      "repo": "https://github.com/MaxBittker/sandspiel",
+      "controls": "Мышь или палец"
+    },
+    {
+      "id": "ext-sokoban",
+      "title": "Sokoban.js",
+      "emoji": "📦",
+      "description": "Классический сокобан: толкайте ящики на цели, не загоняйте в угол. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "головоломка",
+        "логика",
+        "мост"
+      ],
+      "url": "https://taniarascia.github.io/sokoban/index.html",
+      "author": "taniarascia",
+      "license": "MIT",
+      "repo": "https://github.com/taniarascia/sokoban",
+      "controls": "Стрелки/WASD"
+    },
+    {
       "id": "ext-trex",
       "title": "T-Rex Runner",
       "emoji": "🦖",
@@ -321,6 +449,38 @@
       "license": "BSD-3-Clause",
       "repo": "https://github.com/wayou/t-rex-runner",
       "controls": "Пробел/↑ — прыжок, ↓ — пригнуться"
+    },
+    {
+      "id": "ext-tower",
+      "title": "Tower Building",
+      "emoji": "🏢",
+      "description": "Стройте башню из падающих блоков: чем выше, тем капризнее кран. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "казуал",
+        "мост"
+      ],
+      "url": "https://iamkun.github.io/tower_game/",
+      "author": "iamkun",
+      "license": "MIT",
+      "repo": "https://github.com/iamkun/tower_game",
+      "controls": "Клик или тап"
+    },
+    {
+      "id": "ext-urlsnake",
+      "title": "URL Snake",
+      "emoji": "🔗",
+      "description": "Змейка, которая живёт в адресной строке браузера. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "эксперимент",
+        "мост"
+      ],
+      "url": "https://demian.ferrei.ro/snake/",
+      "author": "epidemian",
+      "license": "Unlicense",
+      "repo": "https://github.com/epidemian/snake",
+      "controls": "Стрелки"
     }
   ]
 }
