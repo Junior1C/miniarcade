@@ -14,16 +14,17 @@
 ## Структура
 
 ```
-index.html                 — оболочка каталога (CSP meta, <dialog>-плеер)
+index.html                 — оболочка каталога (CSP meta, <dialog>-плеер, JSON-LD от build)
 assets/
   css/main.css             — дизайн-токены + компоненты
   js/
     main.js                — точка входа: состояние, роутинг по hash, рендер
     catalog.js             — загрузка и валидация data/catalog.json
-    search.js              — чистые функции поиска (тестируются отдельно)
+    search.js              — поиск с мемоизированным индексом (тестируется отдельно)
     format.js              — русская плюрализация
     player.js              — <dialog>-плеер, sandbox iframe
     sandbox-tokens.js      — единый allowlist sandbox-токенов (build + player)
+    view-transition.js     — same-document View Transitions с фолбэком (main.js)
 data/catalog.json          — генерируется из games/*/meta.json (коммитится)
 games/
   <id>/
@@ -31,7 +32,7 @@ games/
     style.css, game.js     — внешние файлы (CSP требует внешних источников)
     meta.json              — метаданные: id, title, emoji, description, tags, …
 scripts/
-  build.mjs                — скан games/*/ → data/catalog.json + sitemap.xml (валидация)
+  build.mjs                — скан games/*/ → data/catalog.json + sitemap.xml + JSON-LD в index.html (валидация)
   serve.mjs                — локальный сервер с боевыми заголовками
   security-headers.mjs     — единый источник CSP/Permissions-Policy (serve, _headers, vercel.json)
   check-budgets.mjs        — perf-бюджеты размеров (npm run budgets)
@@ -83,6 +84,17 @@ npm run og       # перегенерировать assets/og.png (если ме
 поддержка (например, старые WebView) — это отдельное решение с деградацией,
 а не тихая поломка.
 
+Платформа 09/2026 — только Baseline с бесплатной деградацией:
+
+| Технология | Статус | Как используем |
+|---|---|---|
+| Same-document View Transitions | Baseline 2025 | фильтр/пагинация каталога (`view-transition.js`); без API — синхронный рендер, при `prefers-reduced-motion` — без анимации |
+| Invoker Commands (`commandfor`/`command`) | Baseline 2025 | кнопка `✕ Закрыть` закрывает `<dialog>` декларативно; JS-обработчик остаётся фолбэком |
+| `autocorrect="off"` | Baseline 08/2026 | поиск игр (рядом с `autocomplete="off"`, `spellcheck="false"`) |
+| `content-visibility: auto` | Baseline | пропуск внеэкранных карточек + `contain-intrinsic-size: auto 260px` против CLS |
+| Speculation Rules prerender | **не Baseline** (Chromium-only) | осознанно НЕ используем: навигаций между документами нет (hash + iframe), цена CSP/комплексности выше выгоды |
+| Cross-document `@view-transition` | Firefox не поддерживает | не применимо: MPA-навигаций нет |
+
 ## Производительность и бюджеты
 
 Бюджеты проверяются архитектурой, а не обещаниями (`npm run budgets` в pre-push и CI):
@@ -98,6 +110,18 @@ npm run og       # перегенерировать assets/og.png (если ме
 E2E-дым (`tests/e2e/perf.e2e.mjs`): главная с карточками <8с на CI-раннере,
 `fetch catalog.json` <2с, ноль ошибок консоли. Жёсткие миллисекунды не фиксируем —
 раннеры шумные; регрессии ловим по байтам + факту загрузки.
+
+Ориентиры Core Web Vitals 2026 (полевые данные CrUX, p75 — то, что ранжирует Google):
+LCP ≤ 2.5с, INP ≤ 200мс (с марта 2024 заменил FID), CLS ≤ 0.1. Проект под них
+спроектирован: LCP — оболочка без hero-картинки (3.7 КБ HTML + 1 CSS + 1 JS-модуль),
+INP — поиск с debounce 120мс и мемоизированным индексом (`getHaystack`), без тяжёлых
+обработчиков; CLS — `contain-intrinsic-size` у карточек, фиксированные размеры canvas,
+`about:blank` при закрытии плеера. Лабораторный Lighthouse — только диагностика,
+зачёт — по полю.
+
+SEO без цены рантайма: `npm run build` вшивает в `index.html` JSON-LD
+(`ItemList` из `VideoGame`, детерминировано из `meta.json`, пересборка идемпотентна;
+`application/ld+json` — data-блок, CSP его не режет).
 
 ## Как добавить игру (рассчитано на сотни)
 
@@ -125,8 +149,8 @@ E2E-дым (`tests/e2e/perf.e2e.mjs`): главная с карточками <8
    Допустимые ключи строго проверяются (`build` упадёт на опечатке).
    `sandbox` — только токены из белого списка; по умолчанию игре выдаётся `allow-scripts`.
    `order` — необязательный вес сортировки (по умолчанию 0), далее сортировка по названию.
-3. `npm run build && npm test` — каталог и тесты пересоберутся.
-4. Коммит и push в `main` — GitHub (основной дистрибутив) обновится первым, остальные хостинги синхронизируются сами.
+3. `npm run check` (build + test + budgets) — каталог, sitemap и JSON-LD пересоберутся.
+4. Коммит и push в `main` — GitHub (основной дистрибутив) обновится первым, остальные хостинги синхронизируются сами. `index.html` с JSON-LD коммитится вместе с игрой — build детерминирован.
 
 Правила для игр (проверяются архитектурой, не ревью):
 
@@ -156,17 +180,17 @@ E2E-дым (`tests/e2e/perf.e2e.mjs`): главная с карточками <8
 ## Безопасность (слой защиты)
 
 1. **CSP** — `default-src 'none'` везде: каталог и игры грузят только свои файлы с того же origin; игры физически не могут отдать данные наружу. Дублируется в `<meta>` (GitHub Pages) и в `_headers`/`vercel.json` (остальные). Единый источник — `scripts/security-headers.mjs`, рассинхрон ловит `tests/headers.test.mjs`.
-2. **Заголовки**: `nosniff`, `X-Frame-Options: SAMEORIGIN` + `frame-ancestors 'self'` (каталог нельзя встроить чужому сайту), `Referrer-Policy`, `Permissions-Policy` (камера/микрофон/геолокация/payment/usb выключены).
+2. **Заголовки**: `nosniff`, `X-Frame-Options: SAMEORIGIN` + `frame-ancestors 'self'` (каталог нельзя встроить чужому сайту), `Cross-Origin-Opener-Policy: same-origin` (у каталога нет popup/OAuth-флоу, плеер — `<dialog>`), `Referrer-Policy`, `Permissions-Policy` (камера/микрофон/геолокация/payment/usb выключены). `CORP: same-origin` осознанно НЕ ставим — мог бы заблокировать iframe игр в sandbox с opaque origin на части движков.
 3. **Sandbox iframe** — `allow-scripts` без `allow-same-origin`: игры изолированы в opaque origin и не могут трогать каталог, куки и storage. Дополнительные capability только по белому списку в `meta.json`. Единый allowlist — `assets/js/sandbox-tokens.js` (используют и `build.mjs`, и `player.js`); опасные `allow-same-origin/top-navigation/forms` запрещены тестом.
 4. **Ввод** — поиск и данные каталога вставляются только через `textContent`/`createElement` (не `innerHTML`), поэтому XSS через данные невозможен.
 5. **Валидация каталога** — `scripts/build.mjs` отклоняет неизвестные ключи, чужие sandbox-токены, рассинхрон id/папки.
 6. **Плеер** — нативный `<dialog>`: фокус-трап, Esc и возврат фокуса — бесплатно и по спеке; `src` сбрасывается в `about:blank` при закрытии.
 7. **Приватность** — `no-referrer` внутри игр, `strict-origin-when-cross-origin` на каталоге; account_id лежит только в `.wrangler/` (в `.gitignore`).
 
-Что не покрыто (осознанные компромиссы): GH Pages не даёт задать security-заголовки — там работает только CSP в `<meta>` (без `frame-ancestors`); `HSTS` целиком отдан хостингам.
+Что не покрыто (осознанные компромиссы): GH Pages не даёт задать security-заголовки — там работает только CSP в `<meta>` (без `frame-ancestors`, без COOP); `HSTS` целиком отдан хостингам. Service Worker для офлайна не вводим: цена (скоуп на GH Pages, инвалидация кэша, конфликт с `default-src 'none'`) выше выгоды для каталога из трёх игр — пересмотреть при x100.
 
 ## Масштабирование
 
-- **x100 (сотни игр)** — одна игра = одна папка; `catalog.json` на 1000 игр ≈ 150–200 КБ, поиск в памяти, пагинация по 24 карточки (`PAGE_SIZE` в `main.js`). Конфликтов merge на уровне общих файлов нет: правится только своя папка.
+- **x100 (сотни игр)** — одна игра = одна папка; `catalog.json` на 1000 игр ≈ 150–200 КБ, поиск в памяти по мемоизированному индексу, пагинация по 24 карточки (`PAGE_SIZE` в `main.js`), `content-visibility` срезает стоимость отрисовки. Конфликтов merge на уровне общих файлов нет: правится только своя папка.
 - **x1000** — тот же предел, плюс: при >~3000 игр поднять `PAGE_SIZE`, при росте файла — генерировать `catalog.json` с `gzip`/brotli на хостинге (CF/Vercel делают это сами).
 - **За пределами статики** — если каталог перестанет помещаться в память браузера или понадобятся рейтинги/аккаунты: вынести поиск на Cloudflare Worker + KV, карточки рендерить страницами. Код игр при этом не меняется — контракт `meta.json` стабилен.

@@ -2,6 +2,7 @@ import { loadCatalog } from './catalog.js';
 import { filterGames, normalizeQuery } from './search.js';
 import { pluralizeRu } from './format.js';
 import { createPlayer } from './player.js';
+import { renderWithTransition } from './view-transition.js';
 
 const PAGE_SIZE = 24;
 const HASH_PREFIX = '#/play/';
@@ -119,6 +120,12 @@ function createCard(game) {
 }
 
 function render() {
+  // View Transition — только анимация переключения списка;
+  // без поддержки API работаем как раньше, синхронно.
+  renderWithTransition(document, renderNow);
+}
+
+function renderNow() {
   const filtered = filterGames(state.games, state.query);
   const visible = filtered.slice(0, state.shown);
   const fragment = document.createDocumentFragment();

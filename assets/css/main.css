@@ -177,6 +177,11 @@ body {
   border-radius: var(--radius);
   color: inherit;
   text-decoration: none;
+  /* Сотни карточек: пропускаем внеэкранный рендеринг.
+     contain-intrinsic-size: auto сохраняет последний размер
+     после первого paint — без скачков layout (CLS). */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 260px;
   transition: transform 0.15s ease, background-color 0.15s ease;
 }
 

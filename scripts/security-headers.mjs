@@ -30,11 +30,18 @@ export const PERMISSIONS_POLICY =
 
 export const REFERRER_POLICY = 'strict-origin-when-cross-origin';
 
+// Изоляция верхнего контекста: у каталога нет OAuth/popup-флоу,
+// плеер — <dialog>, а не window.open, поэтому same-origin безопасен.
+// CORP осознанно НЕ ставим: игры грузятся в sandbox с opaque origin,
+// и `same-origin` мог бы заблокировать iframe на части движков.
+export const CROSS_ORIGIN_OPENER_POLICY = 'same-origin';
+
 export function devSecurityHeaders() {
   return {
     'Content-Security-Policy': CSP_DEV,
     'Permissions-Policy': PERMISSIONS_POLICY,
     'Referrer-Policy': REFERRER_POLICY,
+    'Cross-Origin-Opener-Policy': CROSS_ORIGIN_OPENER_POLICY,
     'X-Content-Type-Options': 'nosniff',
     'X-Frame-Options': 'SAMEORIGIN',
   };

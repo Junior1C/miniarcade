@@ -29,3 +29,29 @@ test('плеер открывает игру в sandbox и закрываетс�
   await expect(dialog).toBeHidden();
   await expect(page).not.toHaveURL(/#/);
 });
+
+test('кнопка закрытия плеера работает мышью (invoker + JS-фолбэк)', async ({ page }) => {
+  await page.goto('/');
+  await page.locator('#games .card').first().click();
+  const dialog = page.locator('#player');
+  await expect(dialog).toBeVisible();
+  const closeBtn = page.locator('#player-close');
+  await expect(closeBtn).toHaveAttribute('commandfor', 'player');
+  await expect(closeBtn).toHaveAttribute('command', 'close');
+  await closeBtn.click();
+  await expect(dialog).toBeHidden();
+  await expect(page.locator('#player-frame')).toHaveAttribute('src', 'about:blank');
+});
+
+test('структурированные данные каталога валидны', async ({ page }) => {
+  await page.goto('/');
+  const ldText = await page.locator('script[type="application/ld+json"]').textContent();
+  expect(ldText).toBeTruthy();
+  const ld = JSON.parse(ldText);
+  expect(ld['@type']).toBe('ItemList');
+  const cards = await page.locator('#games .card').count();
+  expect(ld.itemListElement.length).toBe(cards);
+  for (const entry of ld.itemListElement) {
+    expect(entry.item['@type']).toBe('VideoGame');
+  }
+});

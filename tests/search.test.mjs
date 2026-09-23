@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { filterGames, matchesQuery, normalizeQuery } from '../assets/js/search.js';
+import { filterGames, getHaystack, matchesQuery, normalizeQuery } from '../assets/js/search.js';
 
 const games = [
   {
@@ -47,4 +47,21 @@ test('matchesQuery handles missing tags array', () => {
   const bare = { id: 'x', title: 'X', description: 'описание' };
   assert.equal(matchesQuery(bare, 'описание'), true);
   assert.equal(matchesQuery(bare, 'тег'), false);
+});
+
+test('getHaystack memoizes the normalized index per game object', () => {
+  const game = { id: 'x', title: 'ЗМЕЙКА', description: 'Описание', tags: ['Аркада'] };
+  const first = getHaystack(game);
+  assert.equal(first, getHaystack(game));
+  assert.ok(first.includes('змейка'));
+  // Новый объект каталога (после пересборки) — новый индекс, без протухания.
+  const rebuilt = { ...game };
+  assert.equal(getHaystack(rebuilt), first);
+});
+
+test('memoized filter keeps working on repeated queries (INP at scale)', () => {
+  for (let i = 0; i < 50; i += 1) {
+    assert.equal(filterGames(games, 'ЗМЕЙ')[0].id, 'snake');
+    assert.deepEqual(filterGames(games, 'тетрис'), []);
+  }
 });

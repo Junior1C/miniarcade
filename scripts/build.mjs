@@ -125,6 +125,65 @@ function compareGames(a, b) {
   return a.title.localeCompare(b.title, 'ru');
 }
 
+const LD_START = '  <!-- LD-JSON-START -->';
+const LD_END = '  <!-- LD-JSON-END -->';
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// Структурированные данные для поисковиков (schema.org): ноль runtime-цены,
+// только SEO. application/ld+json — data-блок, CSP script-src его не режет.
+// Детерминировано: только данные каталога, без дат — повторный build
+// даёт байт-в-байт тот же index.html.
+export function buildLdJson(games) {
+  const itemListElement = games.map((game, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'VideoGame',
+      name: game.title,
+      description: game.description,
+      url: `${CANONICAL_BASE}/${game.file.replace(/index\.html$/, '')}`,
+      applicationCategory: 'Game',
+      operatingSystem: 'Web',
+      gamePlatform: 'Web browser',
+    },
+  }));
+  return JSON.stringify(
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'MiniArcade — каталог HTML5-игр',
+      itemListElement,
+    },
+    null,
+    2,
+  );
+}
+
+async function injectLdJson(rootDir, games) {
+  const indexPath = path.join(rootDir, 'index.html');
+  let html;
+  try {
+    html = await readFile(indexPath, 'utf8');
+  } catch {
+    // Фикстуры unit-тестов (только games/) — пропускаем: их контракт
+    // ограничивается catalog.json + sitemap.xml.
+    return;
+  }
+  if (!html.includes(LD_START) || !html.includes(LD_END)) {
+    throw new Error('index.html is missing LD-JSON markers (<!-- LD-JSON-START --> / <!-- LD-JSON-END -->)');
+  }
+  const indented = buildLdJson(games)
+    .split('\n')
+    .map((line) => `  ${line}`)
+    .join('\n');
+  const block = `${LD_START}\n  <script type="application/ld+json">\n${indented}\n  </script>\n${LD_END}`;
+  const pattern = new RegExp(`${escapeRegExp(LD_START)}[\\s\\S]*?${escapeRegExp(LD_END)}`);
+  await writeFile(indexPath, html.replace(pattern, () => block), 'utf8');
+}
+
 export async function buildCatalog(rootDir) {
   const gamesDir = path.join(rootDir, 'games');
   const entries = await readdir(gamesDir, { withFileTypes: true });
@@ -170,6 +229,7 @@ export async function buildCatalog(rootDir) {
     '',
   ];
   await writeFile(path.join(rootDir, 'sitemap.xml'), sitemapLines.join('\n'), 'utf8');
+  await injectLdJson(rootDir, games);
   return payload;
 }
 

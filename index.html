@@ -17,6 +17,56 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://junior1c.github.io/miniarcade/assets/og.png">
   <link rel="canonical" href="https://junior1c.github.io/miniarcade/">
+  <!-- LD-JSON-START -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "MiniArcade — каталог HTML5-игр",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "VideoGame",
+          "name": "Змейка",
+          "description": "Классика на canvas: собирай еду и не врезайся в себя. Управление — WASD или стрелки.",
+          "url": "https://junior1c.github.io/miniarcade/games/snake/",
+          "applicationCategory": "Game",
+          "operatingSystem": "Web",
+          "gamePlatform": "Web browser"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "VideoGame",
+          "name": "Кликер",
+          "description": "Накликай максимум нажатий за 10 секунд. Кнопку можно жать мышью или пробелом.",
+          "url": "https://junior1c.github.io/miniarcade/games/clicker/",
+          "applicationCategory": "Game",
+          "operatingSystem": "Web",
+          "gamePlatform": "Web browser"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "VideoGame",
+          "name": "Мемори",
+          "description": "Найди все пары карт за минимальное число ходов. Игра проверяет память и внимание.",
+          "url": "https://junior1c.github.io/miniarcade/games/memory/",
+          "applicationCategory": "Game",
+          "operatingSystem": "Web",
+          "gamePlatform": "Web browser"
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- LD-JSON-END -->
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/main.css">
   <title>MiniArcade — каталог HTML5-игр</title>
@@ -30,7 +80,7 @@
     <h1 class="site-header__title">Каталог браузерных HTML5-игр</h1>
     <div class="search" role="search">
       <label class="visually-hidden" for="search">Поиск игры</label>
-      <input id="search" class="search__input" type="search" placeholder="Поиск игры…" autocomplete="off" spellcheck="false">
+      <input id="search" class="search__input" type="search" placeholder="Поиск игры…" autocomplete="off" autocorrect="off" spellcheck="false">
     </div>
   </header>
 
@@ -60,7 +110,7 @@
         <span id="player-emoji" aria-hidden="true"></span>
         <span id="player-name"></span>
       </p>
-      <button id="player-close" class="button button--danger" type="button">✕ Закрыть</button>
+      <button id="player-close" class="button button--danger" type="button" commandfor="player" command="close">✕ Закрыть</button>
     </div>
     <iframe
       id="player-frame"

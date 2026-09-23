@@ -5,6 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import {
+  CROSS_ORIGIN_OPENER_POLICY,
   CSP_CORE,
   CSP_PROD,
   PERMISSIONS_POLICY,
@@ -54,4 +55,18 @@ test('_headers and vercel.json match the shared prod policy', async () => {
   }
   assert.ok(headersFile.includes(`Permissions-Policy: ${PERMISSIONS_POLICY}`));
   assert.equal(vercelHeaders['Permissions-Policy'], PERMISSIONS_POLICY);
+});
+
+test('COOP same-origin is set everywhere (GH Pages documents the gap)', async () => {
+  assert.equal(devSecurityHeaders()['Cross-Origin-Opener-Policy'], CROSS_ORIGIN_OPENER_POLICY);
+  assert.equal(prodSecurityHeaders()['Cross-Origin-Opener-Policy'], 'same-origin');
+  const [headersFile, vercelRaw] = await Promise.all([
+    readFile(path.join(ROOT, '_headers'), 'utf8'),
+    readFile(path.join(ROOT, 'vercel.json'), 'utf8'),
+  ]);
+  const vercelHeaders = Object.fromEntries(
+    JSON.parse(vercelRaw).headers[0].headers.map((entry) => [entry.key, entry.value]),
+  );
+  assert.ok(headersFile.includes('Cross-Origin-Opener-Policy: same-origin'));
+  assert.equal(vercelHeaders['Cross-Origin-Opener-Policy'], 'same-origin');
 });
