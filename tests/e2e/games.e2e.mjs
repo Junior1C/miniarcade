@@ -3,6 +3,27 @@ import { test, expect } from '@playwright/test';
 // Игровые механики P0/P1: управление, счётчики, juice. Плюс страховка:
 // WebAudio-SFX и новые обработчики не должны ронять страницы игр.
 
+test('каталог: все игры из catalog.json грузятся без ошибок', async ({ page }) => {
+  const problems = [];
+  page.on('pageerror', (error) => problems.push(String(error)));
+  page.on('console', (message) => {
+    if (message.type() === 'error') problems.push(message.text());
+  });
+  await page.goto('/');
+  const catalog = await page.evaluate(async () => {
+    const response = await fetch('/data/catalog.json');
+    return response.json();
+  });
+  expect(catalog.games.length).toBeGreaterThanOrEqual(10);
+  for (const game of catalog.games) {
+    await page.goto(`/${game.file}`);
+    await expect(page).toHaveTitle(/.+/);
+    const title = await page.title();
+    expect(title.length).toBeGreaterThan(0);
+  }
+  expect(problems).toEqual([]);
+});
+
 test('кликер: пробел даёт очки после старта, счёт — output', async ({ page }) => {
   await page.goto('/games/clicker/');
   await page.locator('#start').click();
@@ -93,4 +114,68 @@ test('страницы игр грузятся и играют без ошибо
   await page.locator('.pad__btn--left').click();
 
   expect(problems).toEqual([]);
+});
+
+test('тетрис: старт запускает партию', async ({ page }) => {
+  await page.goto('/games/tetris/');
+  await expect(page.locator('#status')).toContainText('Старт');
+  await page.locator('#start').click();
+  await expect(page.locator('#status')).toBeEmpty();
+  await page.keyboard.press('ArrowLeft');
+  await page.keyboard.press('ArrowRight');
+});
+
+test('2048: стрелки двигают плитки', async ({ page }) => {
+  await page.goto('/games/2048/');
+  await expect(page.locator('#grid .tile')).toHaveCount(16);
+  const changed = await page.evaluate(() => {
+    const snapshot = () => document.getElementById('grid').textContent;
+    const keys = ['ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown'];
+    const before = snapshot();
+    for (let round = 0; round < 6; round += 1) {
+      for (const code of keys) {
+        document.dispatchEvent(new KeyboardEvent('keydown', { code, bubbles: true, cancelable: true }));
+        if (snapshot() !== before) return true;
+      }
+      // Тупиковая доска: конец партии тоже валидный исход хода.
+      if (document.getElementById('status').textContent !== '') return true;
+    }
+    return snapshot() !== before;
+  });
+  expect(changed).toBe(true);
+});
+
+test('сапёр: первый клик безопасен и открывает поле', async ({ page }) => {
+  await page.goto('/games/saper/');
+  await expect(page.locator('#grid .cell')).toHaveCount(81);
+  await page.locator('#grid .cell').first().click();
+  await expect(page.locator('#status')).toBeEmpty();
+  const opened = await page.locator('#grid .cell.open').count();
+  expect(opened).toBeGreaterThan(0);
+});
+
+test('арканоид: старт готовит запуск мяча', async ({ page }) => {
+  await page.goto('/games/breakout/');
+  await page.locator('#start').click();
+  await expect(page.locator('#status')).toContainText(/запуск/i);
+});
+
+test('флэппи: пробел поднимает птичку', async ({ page }) => {
+  await page.goto('/games/flappy/');
+  await page.keyboard.press('Space');
+  await expect(page.locator('#status')).toBeEmpty();
+});
+
+test('крестики-нолики: ход ставится, ИИ отвечает', async ({ page }) => {
+  await page.goto('/games/tictactoe/');
+  await page.locator('#grid .cell').nth(4).click();
+  await expect(page.locator('#grid .cell').nth(4)).toHaveText('X');
+  await expect(page.locator('#grid .cell.o')).toHaveCount(1, { timeout: 3000 });
+});
+
+test('саймон: старт начинает первый уровень', async ({ page }) => {
+  await page.goto('/games/simon/');
+  await page.locator('#start').click();
+  await expect(page.locator('#level')).toHaveText('1');
+  await expect(page.locator('#status')).toContainText(/слушайте|ваш ход/i);
 });

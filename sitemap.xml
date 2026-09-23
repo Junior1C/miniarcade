@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://junior1c.github.io/miniarcade/</loc></url>
+  <url><loc>https://junior1c.github.io/miniarcade/games/2048/</loc></url>
+  <url><loc>https://junior1c.github.io/miniarcade/games/breakout/</loc></url>
   <url><loc>https://junior1c.github.io/miniarcade/games/snake/</loc></url>
   <url><loc>https://junior1c.github.io/miniarcade/games/clicker/</loc></url>
+  <url><loc>https://junior1c.github.io/miniarcade/games/tictactoe/</loc></url>
   <url><loc>https://junior1c.github.io/miniarcade/games/memory/</loc></url>
+  <url><loc>https://junior1c.github.io/miniarcade/games/simon/</loc></url>
+  <url><loc>https://junior1c.github.io/miniarcade/games/saper/</loc></url>
+  <url><loc>https://junior1c.github.io/miniarcade/games/tetris/</loc></url>
+  <url><loc>https://junior1c.github.io/miniarcade/games/flappy/</loc></url>
 </urlset>

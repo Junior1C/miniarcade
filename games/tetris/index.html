@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Тетрис — MiniArcade</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <header class="hud">
+    <h1><span aria-hidden="true">🧱</span> Тетрис</h1>
+    <p class="hud__score">Счёт: <output id="score">0</output> • Уровень: <output id="level">1</output> • Рекорд сессии: <output id="best">0</output></p>
+  </header>
+
+  <main>
+    <canvas id="board" width="200" height="400" role="img" aria-label="Стакан тетриса"></canvas>
+    <p id="status" class="status" role="status" aria-live="polite">Нажмите «Старт» или любую игровую клавишу.</p>
+    <div class="pad" role="group" aria-label="Кнопки управления">
+      <button class="pad__btn" type="button" data-act="left" aria-label="Влево">◀</button>
+      <button class="pad__btn" type="button" data-act="rotate" aria-label="Повернуть">⟳</button>
+      <button class="pad__btn" type="button" data-act="right" aria-label="Вправо">▶</button>
+      <button class="pad__btn" type="button" data-act="down" aria-label="Вниз">▼</button>
+      <button class="pad__btn" type="button" data-act="drop" aria-label="Сбросить вниз">⤓</button>
+      <button id="start" class="pad__btn pad__btn--wide" type="button">Старт</button>
+    </div>
+    <p class="hint">Управление: стрелки/WASD, свайпы или кнопки. Пробел — сброс, P — пауза</p>
+  </main>
+</body>
+</html>

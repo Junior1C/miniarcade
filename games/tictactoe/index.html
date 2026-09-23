@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Крестики-нолики — MiniArcade</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <header class="hud">
+    <h1><span aria-hidden="true">⭕</span> Крестики-нолики</h1>
+    <p class="hud__score">Вы <output id="wins">0</output> • ИИ <output id="losses">0</output> • Ничьи <output id="draws">0</output></p>
+  </header>
+
+  <main>
+    <div id="grid" class="grid" role="group" aria-label="Поле три на три"></div>
+    <p id="status" class="status" role="status" aria-live="polite">Ваш ход — вы играете крестиками.</p>
+    <button id="restart" class="button" type="button">Новая партия</button>
+    <p class="hint">Три в ряд побеждают. ИИ иногда ошибается — пользуйтесь</p>
+  </main>
+</body>
+</html>
