@@ -333,3 +333,42 @@ test('ударь крота: старт выпускает кротов, уда�
   });
   expect(scored).toBe('1');
 });
+
+async function setHidden(page, hidden) {
+  await page.evaluate((value) => {
+    Object.defineProperty(document, 'hidden', { value, configurable: true });
+    document.dispatchEvent(new Event('visibilitychange'));
+  }, hidden);
+}
+
+test('кликер: сворачивание ставит паузу и не съедает время', async ({ page }) => {
+  await page.goto('/games/clicker/');
+  await page.locator('#start').click();
+  await setHidden(page, true);
+  await expect(page.locator('#result')).toContainText('Пауза');
+  const frozen = await page.locator('#time').textContent();
+  await page.waitForTimeout(700);
+  expect(await page.locator('#time').textContent()).toBe(frozen);
+  await setHidden(page, false);
+  await expect(page.locator('#result')).toBeEmpty();
+  // Цикл ожил: счётчик снова тикает вниз.
+  await expect
+    .poll(async () => page.locator('#time').textContent(), { timeout: 4000 })
+    .not.toBe(frozen);
+});
+
+test('ударь крота: сворачивание ставит паузу и держит кротов', async ({ page }) => {
+  await page.goto('/games/whack/');
+  await page.locator('#start').click();
+  await expect(page.locator('#field .hole.up').first()).toBeVisible({ timeout: 4000 });
+  await setHidden(page, true);
+  await expect(page.locator('#status')).toContainText('Пауза');
+  const frozen = await page.locator('#time').textContent();
+  await page.waitForTimeout(700);
+  expect(await page.locator('#time').textContent()).toBe(frozen);
+  await setHidden(page, false);
+  await expect(page.locator('#status')).toBeEmpty();
+  await expect
+    .poll(async () => page.locator('#time').textContent(), { timeout: 4000 })
+    .not.toBe(frozen);
+});

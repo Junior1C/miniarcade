@@ -17,6 +17,7 @@
   let endAt = 0;
   let frameId = 0;
   let shownSeconds = 10;
+  let hiddenAt = 0;
 
   // SFX без ассетов: чистый WebAudio, офлайн и CSP-safe (нет внешних файлов).
   // Контекст ленивый — создаётся по первому жесту (требование autoplay-политики).
@@ -57,6 +58,7 @@
 
   function finish() {
     cancelAnimationFrame(frameId);
+    hiddenAt = 0;
     setRunning(false);
     timeEl.textContent = 'Осталось: 0';
     timeEl.classList.remove('urgent');
@@ -99,6 +101,7 @@
     resultEl.textContent = '';
     setRunning(true);
     endAt = performance.now() + DURATION_MS;
+    hiddenAt = 0;
     beep(660, 100);
     frameId = requestAnimationFrame(tick);
   }
@@ -111,6 +114,22 @@
   }
 
   hitBtn.addEventListener('click', hit);
+
+  // Пауза по visibilitychange: в фоне rAF стоит, а wall-clock идёт —
+  // без сдвига дедлайна сворачивание съедало бы время раунда.
+  document.addEventListener('visibilitychange', () => {
+    if (!running) return;
+    if (document.hidden) {
+      hiddenAt = performance.now();
+      cancelAnimationFrame(frameId);
+      resultEl.textContent = 'Пауза — вернитесь во вкладку';
+    } else if (hiddenAt > 0) {
+      endAt += performance.now() - hiddenAt;
+      hiddenAt = 0;
+      resultEl.textContent = '';
+      frameId = requestAnimationFrame(tick);
+    }
+  });
 
   document.addEventListener('keydown', (event) => {
     // Только Space: Enter на сфокусированной кнопке и так даёт click на keyup —

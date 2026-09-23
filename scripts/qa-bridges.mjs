@@ -14,10 +14,10 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const TIMEOUT_MS = 15000;
 const CONCURRENCY = 8;
 
-function fetchHead(url, timeoutMs) {
+function fetchHead(url, timeoutMs, redirects = 3) {
   return new Promise((resolve) => {
-    const lib = url.startsWith('https:') ? 'node:https' : 'node:http';
     const timer = setTimeout(() => resolve({ error: 'timeout' }), timeoutMs);
+    const lib = url.startsWith('https:') ? 'node:https' : 'node:http';
     import(lib)
       .then(({ request }) => {
         const req = request(
@@ -26,9 +26,15 @@ function fetchHead(url, timeoutMs) {
           (res) => {
             clearTimeout(timer);
             res.resume();
-            res.on('end', () =>
-              resolve({ status: res.statusCode, headers: res.headers }),
-            );
+            res.on('end', () => {
+              const location = res.headers.location;
+              if ([301, 302, 303, 307, 308].includes(res.statusCode) && location && redirects > 0) {
+                clearTimeout(timer);
+                resolve(fetchHead(new URL(location, url).href, timeoutMs, redirects - 1));
+                return;
+              }
+              resolve({ status: res.statusCode, headers: res.headers });
+            });
           },
         );
         req.on('error', (error) => {
@@ -57,7 +63,11 @@ export function framingVerdict(headers = {}) {
 }
 
 export async function checkBridge(meta, timeoutMs = TIMEOUT_MS) {
-  const { status, headers, error } = await fetchHead(meta.url, timeoutMs);
+  let result = await fetchHead(meta.url, timeoutMs);
+  // Сетевой шум (сброс соединения, таймаут) — одна попытка повтора:
+  // детерминированные HTTP-статусы не повторяем.
+  if (result.error) result = await fetchHead(meta.url, timeoutMs);
+  const { status, headers, error } = result;
   if (error) return { id: meta.id, url: meta.url, verdict: `не отвечает: ${error}` };
   if (status < 200 || status >= 400) return { id: meta.id, url: meta.url, verdict: `HTTP ${status}` };
   const framing = framingVerdict(headers);

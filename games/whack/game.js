@@ -18,6 +18,7 @@
   let frameId = 0;
   let spawnTimer = 0;
   let shownSeconds = 30;
+  let hiddenAt = 0;
   let holes = [];
 
   let audioCtx = null;
@@ -86,6 +87,7 @@
 
   function finish() {
     cancelAnimationFrame(frameId);
+    hiddenAt = 0;
     hideAll();
     setRunning(false);
     timeEl.textContent = '0';
@@ -135,6 +137,7 @@
     statusEl.textContent = '';
     setRunning(true);
     endAt = performance.now() + DURATION_MS;
+    hiddenAt = 0;
     spawnTimer = 0;
     beep(660, 100);
     frameId = requestAnimationFrame(tick);
@@ -158,6 +161,26 @@
     fragment.append(btn);
   }
   fieldEl.replaceChildren(fragment);
+
+  // Пауза по visibilitychange: сдвигаем дедлайн раунда и выглядывания
+  // кротов на время в фоне, иначе сворачивание наказывало бы игрока.
+  document.addEventListener('visibilitychange', () => {
+    if (!running) return;
+    if (document.hidden) {
+      hiddenAt = performance.now();
+      cancelAnimationFrame(frameId);
+      statusEl.textContent = 'Пауза — вернитесь во вкладку';
+    } else if (hiddenAt > 0) {
+      const away = performance.now() - hiddenAt;
+      endAt += away;
+      for (const hole of holes) {
+        if (hole.up) hole.hideAt += away;
+      }
+      hiddenAt = 0;
+      statusEl.textContent = '';
+      frameId = requestAnimationFrame(tick);
+    }
+  });
 
   startBtn.addEventListener('click', start);
 })();
