@@ -1,0 +1,16 @@
+.github/
+.wrangler/
+dist/
+wrangler-out/
+scripts/
+tests/
+*.md
+*.log
+package.json
+package-lock.json
+wrangler.jsonc
+vercel.json
+.gitignore
+.editorconfig
+.nojekyll
+**/meta.json

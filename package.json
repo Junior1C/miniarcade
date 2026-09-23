@@ -1,0 +1,17 @@
+{
+  "name": "miniarcade",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Каталог браузерных HTML5-игр. Статика, без runtime-зависимостей.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test",
+    "check": "npm run build && npm test",
+    "package": "node scripts/build.mjs && node scripts/package.mjs"
+  }
+}

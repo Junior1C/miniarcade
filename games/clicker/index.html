@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Кликер — MiniArcade</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <header class="hud">
+    <h1><span aria-hidden="true">👆</span> Кликер</h1>
+    <p>Успей накликать за 10 секунд!</p>
+  </header>
+
+  <main>
+    <p id="score" class="score">0</p>
+
+    <button id="hit" class="hit" type="button" disabled>Жми!</button>
+
+    <div class="controls">
+      <button id="start" class="button" type="button">Старт</button>
+      <p id="time" class="time" role="timer" aria-live="polite">Осталось: 10</p>
+    </div>
+
+    <p id="result" class="result" role="status" aria-live="polite"></p>
+  </main>
+</body>
+</html>

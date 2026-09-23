@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; frame-src 'self' about:; object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="MiniArcade — каталог браузерных HTML5-игр: змейка, кликер, мемори и другие.">
+  <meta name="theme-color" content="#220d0d">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MiniArcade — каталог HTML5-игр">
+  <meta property="og:description" content="Каталог браузерных HTML5-игр: змейка, кликер, мемори и другие.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <title>MiniArcade — каталог HTML5-игр</title>
+  <script type="module" src="assets/js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#games">К каталогу игр</a>
+
+  <header class="site-header">
+    <p class="site-header__brand"><span aria-hidden="true">🎮</span> MiniArcade</p>
+    <h1 class="site-header__title">Каталог браузерных HTML5-игр</h1>
+    <div class="search" role="search">
+      <label class="visually-hidden" for="search">Поиск игры</label>
+      <input id="search" class="search__input" type="search" placeholder="Поиск игры…" autocomplete="off" spellcheck="false">
+    </div>
+  </header>
+
+  <main class="site-main" id="main">
+    <h2 class="visually-hidden">Игры</h2>
+    <p id="results-status" class="results-status" role="status" aria-live="polite"></p>
+
+    <ul id="games" class="game-grid"></ul>
+
+    <p id="empty-state" class="empty-state" hidden>Ничего не найдено — попробуйте другой запрос.</p>
+
+    <div id="load-more-wrap" class="load-more" hidden>
+      <button id="load-more" class="button button--secondary" type="button">Показать ещё</button>
+    </div>
+
+    <div id="error-state" class="error-state" hidden>
+      <p>Не удалось загрузить каталог игр.</p>
+      <button id="retry" class="button" type="button">Повторить</button>
+    </div>
+
+    <noscript><p class="empty-state">Для работы каталога нужен JavaScript.</p></noscript>
+  </main>
+
+  <dialog id="player" class="player" aria-labelledby="player-name">
+    <div class="player__bar">
+      <p class="player__title">
+        <span id="player-emoji" aria-hidden="true"></span>
+        <span id="player-name"></span>
+      </p>
+      <button id="player-close" class="button button--danger" type="button">✕ Закрыть</button>
+    </div>
+    <iframe
+      id="player-frame"
+      class="player__frame"
+      title="Игра"
+      src="about:blank"
+      sandbox="allow-scripts"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+    ></iframe>
+  </dialog>
+
+  <footer class="site-footer">
+    <p>Добавить игру: создайте <code>games/&lt;id&gt;/</code> с <code>index.html</code> и <code>meta.json</code>, затем выполните <code>npm run build</code>. Подробнее — в README.</p>
+  </footer>
+</body>
+</html>

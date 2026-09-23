@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.wrangler/
+web_lead_dev_system_prompt.md
+*.log
+.DS_Store
+Thumbs.db
