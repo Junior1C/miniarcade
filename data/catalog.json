@@ -291,6 +291,38 @@
       "controls": "Стрелки/WASD"
     },
     {
+      "id": "ext-battleboat",
+      "title": "Battleboat",
+      "emoji": "🚢",
+      "description": "Морской бой против ИИ, который обыгрывает людей. Расставьте флот и потопите врага. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "стратегия",
+        "классика",
+        "мост"
+      ],
+      "url": "https://billmei.github.io/battleboat",
+      "author": "billmei",
+      "license": "MIT",
+      "repo": "https://github.com/billmei/battleboat",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-breaklock",
+      "title": "BreakLock",
+      "emoji": "🔓",
+      "description": "Гибрид мастермайнда и графического ключа: взломайте код из цветных точек. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "головоломка",
+        "логика",
+        "мост"
+      ],
+      "url": "https://maxwellito.github.io/breaklock/",
+      "author": "maxwellito",
+      "license": "MIT",
+      "repo": "https://github.com/maxwellito/breaklock",
+      "controls": "Мышь или Tab+Enter"
+    },
+    {
       "id": "ext-clumsy",
       "title": "Clumsy Bird",
       "emoji": "🐤",
@@ -371,6 +403,38 @@
       "controls": "Печать CSS-кода"
     },
     {
+      "id": "ext-checkers",
+      "title": "HTML5 Checkers",
+      "emoji": "♟️",
+      "description": "Английские шашки против компьютера. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "настолки",
+        "логика",
+        "мост"
+      ],
+      "url": "https://jasonlawrencewong.com/checkers/",
+      "author": "codethejason",
+      "license": "GPL-2.0",
+      "repo": "https://github.com/codethejason/checkers",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-td",
+      "title": "HTML5 Tower Defense",
+      "emoji": "🗼",
+      "description": "Стройте башни и держите волны врагов. Классика жанра tower defense. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "стратегия",
+        "tower-defense",
+        "мост"
+      ],
+      "url": "https://oldj.net/static/html5-tower-defense/td.html",
+      "author": "oldj",
+      "license": "MIT",
+      "repo": "https://github.com/oldj/html5-tower-defense",
+      "controls": "Мышь"
+    },
+    {
       "id": "ext-invaderz",
       "title": "InvaderZ",
       "emoji": "🛸",
@@ -403,6 +467,70 @@
       "controls": "Мышь"
     },
     {
+      "id": "ext-lightsout",
+      "title": "Lights Out",
+      "emoji": "💡",
+      "description": "Погасите все огни: клик переключает клетку и соседей. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "головоломка",
+        "логика",
+        "мост"
+      ],
+      "url": "https://www.lightsout.ir/",
+      "author": "sepandhaghighi",
+      "license": "MIT",
+      "repo": "https://github.com/sepandhaghighi/lightsout",
+      "controls": "Мышь или Tab+Enter"
+    },
+    {
+      "id": "ext-nonogram",
+      "title": "Nonogram",
+      "emoji": "⬛",
+      "description": "Библиотека японских кроссвордов с решателем и игровыми примерами. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "головоломка",
+        "логика",
+        "мост"
+      ],
+      "url": "https://monkeyarms.github.io/nonogram/",
+      "author": "monkeyArms",
+      "license": "MIT",
+      "repo": "https://github.com/monkeyArms/nonogram",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-mpacman",
+      "title": "Pac-Man (mumuy)",
+      "emoji": "👻",
+      "description": "Классический Пакман на HTML5 (интерфейс на китайском, но всё понятно). Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "классика",
+        "мост"
+      ],
+      "url": "https://passer-by.com/pacman/",
+      "author": "mumuy",
+      "license": "MIT",
+      "repo": "https://github.com/mumuy/pacman",
+      "controls": "Стрелки/WASD"
+    },
+    {
+      "id": "ext-solitaire",
+      "title": "React Solitaire",
+      "emoji": "🎴",
+      "description": "Пасьянс «Косынка» на React с drag-and-drop. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "карты",
+        "пасьянс",
+        "мост"
+      ],
+      "url": "https://gcedo.github.io/react-solitaire/",
+      "author": "gcedo",
+      "license": "MIT",
+      "repo": "https://github.com/gcedo/react-solitaire",
+      "controls": "Мышь (drag-and-drop)"
+    },
+    {
       "id": "ext-sand",
       "title": "Sandspiel",
       "emoji": "⏳",
@@ -417,6 +545,22 @@
       "license": "MIT",
       "repo": "https://github.com/MaxBittker/sandspiel",
       "controls": "Мышь или палец"
+    },
+    {
+      "id": "ext-serversurv",
+      "title": "Server Survival",
+      "emoji": "☁️",
+      "description": "Tower defense про облачную архитектуру: стройте инфраструктуру и отбивайте атаки. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "стратегия",
+        "tower-defense",
+        "мост"
+      ],
+      "url": "https://pshenok.github.io/server-survival/",
+      "author": "pshenok",
+      "license": "MIT",
+      "repo": "https://github.com/pshenok/server-survival",
+      "controls": "Мышь"
     },
     {
       "id": "ext-sokoban",
@@ -481,6 +625,22 @@
       "license": "Unlicense",
       "repo": "https://github.com/epidemian/snake",
       "controls": "Стрелки"
+    },
+    {
+      "id": "ext-wordle",
+      "title": "Wordled",
+      "emoji": "📝",
+      "description": "Угадайте слово из пяти букв за шесть попыток. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "слова",
+        "логика",
+        "мост"
+      ],
+      "url": "https://milsaware.github.io/wordled/",
+      "author": "milsaware",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/milsaware/wordled",
+      "controls": "Печать букв"
     }
   ]
 }

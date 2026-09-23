@@ -1,0 +1,12 @@
+{
+  "id": "ext-wordle",
+  "title": "Wordled",
+  "emoji": "📝",
+  "description": "Угадайте слово из пяти букв за шесть попыток. Внешняя игра — код остаётся у автора.",
+  "tags": ["слова", "логика", "мост"],
+  "controls": "Печать букв",
+  "url": "https://milsaware.github.io/wordled/",
+  "author": "milsaware",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/milsaware/wordled"
+}

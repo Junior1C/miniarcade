@@ -1,0 +1,12 @@
+{
+  "id": "ext-nonogram",
+  "title": "Nonogram",
+  "emoji": "⬛",
+  "description": "Библиотека японских кроссвордов с решателем и игровыми примерами. Внешняя игра — код остаётся у автора.",
+  "tags": ["головоломка", "логика", "мост"],
+  "controls": "Мышь",
+  "url": "https://monkeyarms.github.io/nonogram/",
+  "author": "monkeyArms",
+  "license": "MIT",
+  "repo": "https://github.com/monkeyArms/nonogram"
+}

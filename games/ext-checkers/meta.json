@@ -1,0 +1,12 @@
+{
+  "id": "ext-checkers",
+  "title": "HTML5 Checkers",
+  "emoji": "♟️",
+  "description": "Английские шашки против компьютера. Внешняя игра — код остаётся у автора.",
+  "tags": ["настолки", "логика", "мост"],
+  "controls": "Мышь",
+  "url": "https://jasonlawrencewong.com/checkers/",
+  "author": "codethejason",
+  "license": "GPL-2.0",
+  "repo": "https://github.com/codethejason/checkers"
+}

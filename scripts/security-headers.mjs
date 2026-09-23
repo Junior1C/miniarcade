@@ -28,6 +28,16 @@ export const FRAME_SRC_ORIGINS = [
   'https://muan.co',
   'https://demian.ferrei.ro',
   'https://duckhuntjs.com',
+  'https://oldj.net',
+  'https://milsaware.github.io',
+  'https://monkeyarms.github.io',
+  'https://passer-by.com',
+  'https://gcedo.github.io',
+  'https://pshenok.github.io',
+  'https://maxwellito.github.io',
+  'https://billmei.github.io',
+  'https://jasonlawrencewong.com',
+  'https://www.lightsout.ir',
 ];
 export const CSP_CORE = [
   "default-src 'none'",

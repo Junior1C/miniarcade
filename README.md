@@ -104,7 +104,7 @@ npm run og       # перегенерировать assets/og.png (если ме
 | `data/catalog.json` | 250 КБ (warn 200 КБ) | поиск в памяти, LCP каталога |
 | `assets/js/*.js` суммарно | 30 КБ | критический путь каталога |
 | `assets/css/main.css` | 20 КБ | один CSS на каталог |
-| `index.html` | 20 КБ | оболочка + JSON-LD всех игр (на LCP не влияет) |
+| `index.html` | 25 КБ | оболочка + JSON-LD и frame-src всех игр (на LCP не влияет) |
 | `assets/og.png` | 100 КБ | превью ссылок |
 
 E2E-дым (`tests/e2e/perf.e2e.mjs`): главная с карточками <8с на CI-раннере,

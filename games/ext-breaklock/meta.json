@@ -1,0 +1,12 @@
+{
+  "id": "ext-breaklock",
+  "title": "BreakLock",
+  "emoji": "🔓",
+  "description": "Гибрид мастермайнда и графического ключа: взломайте код из цветных точек. Внешняя игра — код остаётся у автора.",
+  "tags": ["головоломка", "логика", "мост"],
+  "controls": "Мышь или Tab+Enter",
+  "url": "https://maxwellito.github.io/breaklock/",
+  "author": "maxwellito",
+  "license": "MIT",
+  "repo": "https://github.com/maxwellito/breaklock"
+}
