@@ -1,0 +1,12 @@
+{
+  "id": "ext-boc-domino",
+  "title": "Domino",
+  "emoji": "🁫",
+  "description": "Классическое домино: выкладывайте кости по мастям. Внешняя игра — код остаётся у автора.",
+  "tags": ["настолки", "классика", "мост"],
+  "controls": "Мышь",
+  "url": "https://bocaletto-luca.github.io/Domino/",
+  "author": "Bocaletto Luca",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/bocaletto-luca/Domino"
+}

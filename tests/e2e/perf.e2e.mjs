@@ -34,6 +34,6 @@ test('каталог грузится быстро и без ошибок кон
 test('поиск остаётся отзывчивым (debounce 120мс)', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('#games .card').first()).toBeVisible();
-  await page.fill('#search', 'мемори');
+  await page.fill('#search', 'пятнашки');
   await expect(page.locator('#games .card')).toHaveCount(1);
 });

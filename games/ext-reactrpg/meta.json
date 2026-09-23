@@ -1,0 +1,12 @@
+{
+  "id": "ext-reactrpg",
+  "title": "React RPG",
+  "emoji": "🗡️",
+  "description": "Пошаговое подземелье: исследование, бои и лут. Внешняя игра — код остаётся у автора.",
+  "tags": ["rpg", "подземелье", "мост"],
+  "controls": "Стрелки/WASD",
+  "url": "https://react-rpg.com/",
+  "author": "ASteinheiser",
+  "license": "MIT",
+  "repo": "https://github.com/ASteinheiser/react-rpg.com"
+}

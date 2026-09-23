@@ -1,0 +1,12 @@
+{
+  "id": "ext-boc-hangman",
+  "title": "Hangman (Bocaletto)",
+  "emoji": "🪢",
+  "description": "Виселица: угадайте слово по буквам раньше шести ошибок. Внешняя игра — код остаётся у автора.",
+  "tags": ["слова", "логика", "мост"],
+  "controls": "Мышь + буквы",
+  "url": "https://bocaletto-luca.github.io/hangman-two-player/",
+  "author": "Bocaletto Luca",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/bocaletto-luca/hangman-two-player"
+}

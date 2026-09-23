@@ -1,0 +1,12 @@
+{
+  "id": "ext-minimax",
+  "title": "Minimax TicTacToe",
+  "emoji": "⭕",
+  "description": "Крестики-нолики на минимаксе: ИИ не прощает ошибок. Внешняя игра — код остаётся у автора.",
+  "tags": ["логика", "нейросеть", "мост"],
+  "controls": "Мышь",
+  "url": "https://ucfx.github.io/minimax-game-ai/",
+  "author": "ucfx",
+  "license": "MIT",
+  "repo": "https://github.com/ucfx/minimax-game-ai"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "ext-boc-quizplayer",
+  "title": "Quiz Player",
+  "emoji": "❓",
+  "description": "Викторина с вопросами на эрудицию и счёт. Внешняя игра — код остаётся у автора.",
+  "tags": ["викторина", "казуал", "мост"],
+  "controls": "Мышь",
+  "url": "https://bocaletto-luca.github.io/QuizCreatorPlayer/",
+  "author": "Bocaletto Luca",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/bocaletto-luca/QuizCreatorPlayer"
+}

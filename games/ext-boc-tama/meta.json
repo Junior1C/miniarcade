@@ -1,0 +1,12 @@
+{
+  "id": "ext-boc-tama",
+  "title": "Tama-Pets",
+  "emoji": "🐣",
+  "description": "Виртуальный питомец: кормите, играйте и укладывайте спать. Внешняя игра — код остаётся у автора.",
+  "tags": ["казуал", "симулятор", "мост"],
+  "controls": "Мышь",
+  "url": "https://bocaletto-luca.github.io/Tama-Pets/",
+  "author": "Bocaletto Luca",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/bocaletto-luca/Tama-Pets"
+}

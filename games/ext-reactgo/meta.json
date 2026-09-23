@@ -1,0 +1,12 @@
+{
+  "id": "ext-reactgo",
+  "title": "React Go",
+  "emoji": "⚫",
+  "description": "Игра Го в браузере: окружайте территорию. Внешняя игра — код остаётся у автора.",
+  "tags": ["настолки", "логика", "мост"],
+  "controls": "Мышь",
+  "url": "https://cjlarose.com/react-go",
+  "author": "cjlarose",
+  "license": "Unlicense",
+  "repo": "https://github.com/cjlarose/react-go"
+}

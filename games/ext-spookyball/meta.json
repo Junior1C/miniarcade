@@ -1,0 +1,12 @@
+{
+  "id": "ext-spookyball",
+  "title": "SpookyBall",
+  "emoji": "🎃",
+  "description": "Хэллоуин-арканоид на WebGPU: отбивайте тыквы платформой. Внешняя игра — код остаётся у автора.",
+  "tags": ["аркада", "webgpu", "мост"],
+  "controls": "Мышь",
+  "url": "https://toji.github.io/spookyball/",
+  "author": "toji",
+  "license": "MIT",
+  "repo": "https://github.com/toji/spookyball"
+}

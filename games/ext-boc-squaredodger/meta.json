@@ -1,0 +1,12 @@
+{
+  "id": "ext-boc-squaredodger",
+  "title": "Square Dodger",
+  "emoji": "🟥",
+  "description": "Уворачивайтесь квадратом от летящих препятствий. Внешняя игра — код остаётся у автора.",
+  "tags": ["аркада", "реакция", "мост"],
+  "controls": "Стрелки/мышь",
+  "url": "https://bocaletto-luca.github.io/Square-Dodger/",
+  "author": "Bocaletto Luca",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/bocaletto-luca/Square-Dodger"
+}

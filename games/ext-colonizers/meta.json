@@ -1,0 +1,12 @@
+{
+  "id": "ext-colonizers",
+  "title": "Colonizers",
+  "emoji": "🏝️",
+  "description": "Осваивайте острова: поселения и торговля в духе Катана. Внешняя игра — код остаётся у автора.",
+  "tags": ["стратегия", "настолки", "мост"],
+  "controls": "Мышь",
+  "url": "https://sibartlett.github.io/colonizers/",
+  "author": "sibartlett",
+  "license": "AGPL-3.0",
+  "repo": "https://github.com/sibartlett/colonizers"
+}

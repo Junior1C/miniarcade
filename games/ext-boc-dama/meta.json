@@ -1,0 +1,12 @@
+{
+  "id": "ext-boc-dama",
+  "title": "Dama",
+  "emoji": "⚫",
+  "description": "Итальянские шашки против компьютера по полным правилам. Внешняя игра — код остаётся у автора.",
+  "tags": ["настолки", "логика", "мост"],
+  "controls": "Мышь",
+  "url": "https://bocaletto-luca.github.io/Dama/",
+  "author": "Bocaletto Luca",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/bocaletto-luca/Dama"
+}

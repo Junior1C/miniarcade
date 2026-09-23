@@ -1,0 +1,12 @@
+{
+  "id": "ext-blasteroids",
+  "title": "Blasteroids",
+  "emoji": "💥",
+  "description": "Неоновые астероиды: вращайтесь и палите во всё. Внешняя игра — код остаётся у автора.",
+  "tags": ["аркада", "шутер", "мост"],
+  "controls": "Стрелки + пробел",
+  "url": "https://rfranks.github.io/blasteroids/",
+  "author": "rfranks",
+  "license": "MIT",
+  "repo": "https://github.com/rfranks/blasteroids"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "ext-milttt",
+  "title": "Tic Tac Toe (milsaware)",
+  "emoji": "⭕",
+  "description": "Простые крестики-нолики на JavaScript. Внешняя игра — код остаётся у автора.",
+  "tags": ["логика", "классика", "мост"],
+  "controls": "Мышь",
+  "url": "https://milsaware.github.io/javascript-tic-tac-toe/",
+  "author": "milsaware",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/milsaware/javascript-tic-tac-toe"
+}

@@ -224,8 +224,11 @@ function escapeRegExp(value) {
 // Компактная форма (без отступов): блок растёт с числом игр, байты в бюджете.
 // Детерминировано: только данные каталога, без дат — повторный build
 // даёт байт-в-байт тот же index.html.
+//
+// Только свои страницы: внешние URL в разметку не включаем (как и в sitemap) —
+// иначе блок рос бы с каждым мостом и ломал бюджет index.html.
 export function buildLdJson(games) {
-  const itemListElement = games.map((game, index) => ({
+  const itemListElement = games.filter((game) => game.file).map((game, index) => ({
     '@type': 'ListItem',
     position: index + 1,
     item: {

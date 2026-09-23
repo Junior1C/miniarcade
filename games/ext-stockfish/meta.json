@@ -1,0 +1,12 @@
+{
+  "id": "ext-stockfish",
+  "title": "Stockfish Web GUI",
+  "emoji": "♟️",
+  "description": "Анализ шахмат движком Stockfish прямо в браузере. Внешняя игра — код остаётся у автора.",
+  "tags": ["шахматы", "анализ", "мост"],
+  "controls": "Мышь",
+  "url": "https://labinatorsolutions.github.io/stockfish-chess-web-gui/",
+  "author": "LabinatorSolutions",
+  "license": "AGPL-3.0",
+  "repo": "https://github.com/LabinatorSolutions/stockfish-chess-web-gui"
+}

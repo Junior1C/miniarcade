@@ -1,0 +1,12 @@
+{
+  "id": "ext-alphagottt",
+  "title": "AlphaGo TicTacToe",
+  "emoji": "🧠",
+  "description": "Крестики-нолики с алгоритмом AlphaGo: попробуйте обыграть. Внешняя игра — код остаётся у автора.",
+  "tags": ["логика", "нейросеть", "мост"],
+  "controls": "Мышь",
+  "url": "https://grimmerk.github.io/alphago-zero-tictactoe-js/",
+  "author": "grimmerk",
+  "license": "MIT",
+  "repo": "https://github.com/grimmerk/alphago-zero-tictactoe-js"
+}

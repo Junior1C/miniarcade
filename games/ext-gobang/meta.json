@@ -1,0 +1,12 @@
+{
+  "id": "ext-gobang",
+  "title": "Gobang",
+  "emoji": "⚫",
+  "description": "Гомоку против ИИ: соберите пять камней в ряд. Внешняя игра — код остаётся у автора.",
+  "tags": ["настолки", "логика", "мост"],
+  "controls": "Мышь",
+  "url": "https://passer-by.com/gobang/",
+  "author": "mumuy",
+  "license": "MIT",
+  "repo": "https://github.com/mumuy/gobang"
+}

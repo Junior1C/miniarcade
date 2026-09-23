@@ -1,0 +1,12 @@
+{
+  "id": "ext-blockrain",
+  "title": "Blockrain",
+  "emoji": "🟪",
+  "description": "Тетрис на jQuery с автоигрой для разминки. Внешняя игра — код остаётся у автора.",
+  "tags": ["аркада", "головоломка", "мост"],
+  "controls": "Стрелки",
+  "url": "https://aerolab.github.io/blockrain.js",
+  "author": "Aerolab",
+  "license": "MIT",
+  "repo": "https://github.com/Aerolab/blockrain.js"
+}

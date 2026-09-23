@@ -35,7 +35,7 @@ test('плеер — модальный dialog с возвратом фокус�
   await page.goto('/');
   // Каталог с пагинацией: отфильтровываем заведомо свою игру,
   // иначе первой может оказаться внешняя ссылка без плеера.
-  await page.fill('#search', 'мемори');
+  await page.fill('#search', 'пятнашки');
   await expect(page.locator('#games .card')).toHaveCount(1);
   const firstCard = page.locator('#games .card').first();
   await expect(firstCard).toBeVisible();

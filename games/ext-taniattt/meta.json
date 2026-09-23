@@ -1,0 +1,12 @@
+{
+  "id": "ext-taniattt",
+  "title": "Tic Tac Toe (Tania)",
+  "emoji": "⭕",
+  "description": "Крестики-нолики из знаменитого туториала. Внешняя игра — код остаётся у автора.",
+  "tags": ["логика", "классика", "мост"],
+  "controls": "Мышь",
+  "url": "https://taniarascia.github.io/tictactoe/",
+  "author": "taniarascia",
+  "license": "MIT",
+  "repo": "https://github.com/taniarascia/tictactoe"
+}

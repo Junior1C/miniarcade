@@ -1,0 +1,12 @@
+{
+  "id": "ext-spinhook",
+  "title": "SpinHook",
+  "emoji": "🪝",
+  "description": "Гиперказуальный крюк: цепляйтесь и крутитесь по орбите. Внешняя игра — код остаётся у автора.",
+  "tags": ["аркада", "казуал", "мост"],
+  "controls": "Клик/тап",
+  "url": "https://spinhook.ir/",
+  "author": "sepandhaghighi",
+  "license": "MIT",
+  "repo": "https://github.com/sepandhaghighi/spinhook"
+}

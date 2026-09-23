@@ -1,0 +1,12 @@
+{
+  "id": "ext-shogi",
+  "title": "Shogi Player",
+  "emoji": "♞",
+  "description": "Японские шахматы сёги: доска и разбор партий. Внешняя игра — код остаётся у автора.",
+  "tags": ["шахматы", "логика", "мост"],
+  "controls": "Мышь",
+  "url": "https://akicho8.github.io/shogi-player/",
+  "author": "akicho8",
+  "license": "AGPL-3.0",
+  "repo": "https://github.com/akicho8/shogi-player"
+}

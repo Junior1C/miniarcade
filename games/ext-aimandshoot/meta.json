@@ -1,0 +1,12 @@
+{
+  "id": "ext-aimandshoot",
+  "title": "Aim and Shoot",
+  "emoji": "🎯",
+  "description": "Нейроэволюционный тир: точность против алгоритма. Внешняя игра — код остаётся у автора.",
+  "tags": ["аркада", "нейросеть", "мост"],
+  "controls": "Мышь",
+  "url": "https://victorribeiro.com/aimAndShoot",
+  "author": "victorqribeiro",
+  "license": "MIT",
+  "repo": "https://github.com/victorqribeiro/aimAndShoot"
+}

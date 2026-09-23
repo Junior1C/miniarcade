@@ -1,0 +1,12 @@
+{
+  "id": "ext-boc-chess",
+  "title": "Chess (Bocaletto)",
+  "emoji": "♟️",
+  "description": "Шахматы против компьютера со всеми правилами. Внешняя игра — код остаётся у автора.",
+  "tags": ["шахматы", "логика", "мост"],
+  "controls": "Мышь",
+  "url": "https://bocaletto-luca.github.io/Chess/",
+  "author": "Bocaletto Luca",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/bocaletto-luca/Chess"
+}

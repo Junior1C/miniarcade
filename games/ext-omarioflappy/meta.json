@@ -1,0 +1,12 @@
+{
+  "id": "ext-omarioflappy",
+  "title": "Flappy Bird Tutorial",
+  "emoji": "🐤",
+  "description": "Флэппи из туториала: взмахи между трубами. Внешняя игра — код остаётся у автора.",
+  "tags": ["аркада", "казуал", "мост"],
+  "controls": "Пробел/клик",
+  "url": "https://omariosouto.github.io/flappy-bird-devsoutinho/",
+  "author": "omariosouto",
+  "license": "MIT",
+  "repo": "https://github.com/omariosouto/flappy-bird-devsoutinho"
+}

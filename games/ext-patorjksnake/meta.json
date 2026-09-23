@@ -1,0 +1,12 @@
+{
+  "id": "ext-patorjksnake",
+  "title": "JavaScript Snake",
+  "emoji": "🐍",
+  "description": "Классическая змейка на чистом JavaScript. Внешняя игра — код остаётся у автора.",
+  "tags": ["аркада", "классика", "мост"],
+  "controls": "Стрелки",
+  "url": "https://patorjk.github.io/JavaScript-Snake/",
+  "author": "patorjk",
+  "license": "MIT",
+  "repo": "https://github.com/patorjk/JavaScript-Snake"
+}

@@ -45,6 +45,22 @@
       "controls": "Стрелки/WASD или свайпы"
     },
     {
+      "id": "ext-2048react",
+      "title": "2048 in React",
+      "emoji": "🔢",
+      "description": "Легендарные 2048 на React: сдвигайте и складывайте. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "головоломка",
+        "логика",
+        "мост"
+      ],
+      "url": "https://mateuszsokola.github.io/2048-in-react/",
+      "author": "mateuszsokola",
+      "license": "MIT",
+      "repo": "https://github.com/mateuszsokola/2048-in-react",
+      "controls": "Стрелки/WASD"
+    },
+    {
       "id": "connect4",
       "title": "4 в ряд",
       "emoji": "🔴",
@@ -289,6 +305,165 @@
       "controls": "Пробел, клик или тап"
     },
     {
+      "id": "ext-abgame",
+      "title": "AB Game",
+      "emoji": "🔢",
+      "description": "Угадайте число: быки и коровы в минимализме. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "логика",
+        "казуал",
+        "мост"
+      ],
+      "url": "https://ab.muan.co",
+      "author": "muan",
+      "license": "MIT",
+      "repo": "https://github.com/muan/ab",
+      "controls": "Мышь + цифры"
+    },
+    {
+      "id": "ext-acesup",
+      "title": "Aces Up Solitaire",
+      "emoji": "🂡",
+      "description": "Пасьянс «Тузы вверх»: сбрасывайте младшие карты мастей. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "карты",
+        "пасьянс",
+        "мост"
+      ],
+      "url": "https://milsaware.github.io/Javascript-Aces-Up-Solitaire/",
+      "author": "milsaware",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/milsaware/Javascript-Aces-Up-Solitaire",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-aiasteroids",
+      "title": "AI Asteroids",
+      "emoji": "🤖",
+      "description": "Астероиды с автопилотом: смотрите, как ИИ уворачивается. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "нейросеть",
+        "мост"
+      ],
+      "url": "https://richlewis007.github.io/AI-Asteroids/",
+      "author": "RichLewis007",
+      "license": "MIT",
+      "repo": "https://github.com/RichLewis007/AI-Asteroids",
+      "controls": "Наблюдение"
+    },
+    {
+      "id": "ext-airps",
+      "title": "AI Rock Paper Scissors",
+      "emoji": "🤖",
+      "description": "Камень-ножницы-бумага против обучающегося ИИ. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "казуал",
+        "нейросеть",
+        "мост"
+      ],
+      "url": "https://milsaware.github.io/Javascript-AI-Rock-Paper-Scissors/",
+      "author": "milsaware",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/milsaware/Javascript-AI-Rock-Paper-Scissors",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-aimandshoot",
+      "title": "Aim and Shoot",
+      "emoji": "🎯",
+      "description": "Нейроэволюционный тир: точность против алгоритма. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "нейросеть",
+        "мост"
+      ],
+      "url": "https://victorribeiro.com/aimAndShoot",
+      "author": "victorqribeiro",
+      "license": "MIT",
+      "repo": "https://github.com/victorqribeiro/aimAndShoot",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-alphagottt",
+      "title": "AlphaGo TicTacToe",
+      "emoji": "🧠",
+      "description": "Крестики-нолики с алгоритмом AlphaGo: попробуйте обыграть. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "логика",
+        "нейросеть",
+        "мост"
+      ],
+      "url": "https://grimmerk.github.io/alphago-zero-tictactoe-js/",
+      "author": "grimmerk",
+      "license": "MIT",
+      "repo": "https://github.com/grimmerk/alphago-zero-tictactoe-js",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-antipacman",
+      "title": "AntiPacMan",
+      "emoji": "👻",
+      "description": "Вы — привидение: ловите пакмана в его же лабиринте. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "лабиринт",
+        "мост"
+      ],
+      "url": "https://vmikhav.github.io/AntiPacMan/",
+      "author": "vmikhav",
+      "license": "MIT",
+      "repo": "https://github.com/vmikhav/AntiPacMan",
+      "controls": "Стрелки/WASD"
+    },
+    {
+      "id": "ext-boc-arkanoid",
+      "title": "Arkanoid (Bocaletto)",
+      "emoji": "🔷",
+      "description": "Современный ремейк арканоида: отбивайте мяч и разбивайте кирпичи. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Arkanoid/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Arkanoid",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-3kh0asteroids",
+      "title": "Asteroids (3kh0)",
+      "emoji": "☄️",
+      "description": "Расстреливайте астероиды и уворачивайтесь от осколков. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "шутер",
+        "мост"
+      ],
+      "url": "https://3kh0.github.io/asteroids/",
+      "author": "3kh0",
+      "license": "MIT",
+      "repo": "https://github.com/3kh0/asteroids",
+      "controls": "Стрелки + пробел"
+    },
+    {
+      "id": "ext-ryanasteroids",
+      "title": "Asteroids (Ryan)",
+      "emoji": "🛸",
+      "description": "Классика жанра: корабль против каменного роя. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "шутер",
+        "мост"
+      ],
+      "url": "https://ryan-menezes.github.io/Asteroids/",
+      "author": "Ryan-Menezes",
+      "license": "MIT",
+      "repo": "https://github.com/Ryan-Menezes/Asteroids",
+      "controls": "Стрелки + пробел"
+    },
+    {
       "id": "ext-astray",
       "title": "Astray",
       "emoji": "🏎️",
@@ -303,6 +478,70 @@
       "license": "Unlicense",
       "repo": "https://github.com/wwwtyro/Astray",
       "controls": "Стрелки/WASD"
+    },
+    {
+      "id": "ext-aureliasol",
+      "title": "Aurelia Solitaire",
+      "emoji": "🃏",
+      "description": "Косынка на Aurelia с drag-and-drop. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "карты",
+        "пасьянс",
+        "мост"
+      ],
+      "url": "https://jdanyow.github.io/aurelia-solitaire/",
+      "author": "jdanyow",
+      "license": "MIT",
+      "repo": "https://github.com/jdanyow/aurelia-solitaire",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-boc-backgammon",
+      "title": "Backgammon",
+      "emoji": "🎲",
+      "description": "Нарды против бота по полным правилам: шашки, кубы, вывод. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "настолки",
+        "логика",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Backgammon/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Backgammon",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-ballwall",
+      "title": "Ball And Wall",
+      "emoji": "🧱",
+      "description": "Арканоид в минимализме: платформа, мяч и стена кирпичей. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "казуал",
+        "мост"
+      ],
+      "url": "https://budnix.github.io/ball-and-wall",
+      "author": "budnix",
+      "license": "MIT",
+      "repo": "https://github.com/budnix/ball-and-wall",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-bangbang",
+      "title": "BangBang",
+      "emoji": "🎯",
+      "description": "Тир против нейросети: стреляйте точнее алгоритма. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "нейросеть",
+        "мост"
+      ],
+      "url": "https://victorribeiro.com/bangBang/",
+      "author": "victorqribeiro",
+      "license": "MIT",
+      "repo": "https://github.com/victorqribeiro/bangBang",
+      "controls": "Мышь"
     },
     {
       "id": "ext-basketball",
@@ -336,6 +575,38 @@
       "controls": "Мышь"
     },
     {
+      "id": "ext-blasteroids",
+      "title": "Blasteroids",
+      "emoji": "💥",
+      "description": "Неоновые астероиды: вращайтесь и палите во всё. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "шутер",
+        "мост"
+      ],
+      "url": "https://rfranks.github.io/blasteroids/",
+      "author": "rfranks",
+      "license": "MIT",
+      "repo": "https://github.com/rfranks/blasteroids",
+      "controls": "Стрелки + пробел"
+    },
+    {
+      "id": "ext-blockrain",
+      "title": "Blockrain",
+      "emoji": "🟪",
+      "description": "Тетрис на jQuery с автоигрой для разминки. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "головоломка",
+        "мост"
+      ],
+      "url": "https://aerolab.github.io/blockrain.js",
+      "author": "Aerolab",
+      "license": "MIT",
+      "repo": "https://github.com/Aerolab/blockrain.js",
+      "controls": "Стрелки"
+    },
+    {
       "id": "ext-bloxd",
       "title": "Bloxd.io",
       "emoji": "⛏️",
@@ -349,6 +620,54 @@
       "author": "Bloxd.io",
       "license": "Free to play",
       "controls": "WASD + мышь"
+    },
+    {
+      "id": "ext-boc-bomberman",
+      "title": "Bomberman",
+      "emoji": "💣",
+      "description": "Динабластер: закладывайте бомбы и открывайте проход. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "лабиринт",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Bomberman/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Bomberman",
+      "controls": "Стрелки/WASD"
+    },
+    {
+      "id": "ext-boc-bouble",
+      "title": "Bouble",
+      "emoji": "🫧",
+      "description": "Бабл-шутер: цельтесь и лопайте цветные шары. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "казуал",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Bouble/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Bouble",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-bounceback",
+      "title": "BounceBack",
+      "emoji": "🪃",
+      "description": "Бумеранг в духе Zelda: кидайте и ловите на возврате. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "приключение",
+        "мост"
+      ],
+      "url": "https://killedbyapixel.github.io/BounceBack/",
+      "author": "KilledByAPixel",
+      "license": "GPL-2.0",
+      "repo": "https://github.com/KilledByAPixel/BounceBack",
+      "controls": "Стрелки/WASD"
     },
     {
       "id": "ext-breaklock",
@@ -367,6 +686,70 @@
       "controls": "Мышь или Tab+Enter"
     },
     {
+      "id": "ext-bullethell",
+      "title": "Bullet Hell",
+      "emoji": "🔥",
+      "description": "Уворачивайтесь от плотного огня в аду пуль. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "шутер",
+        "мост"
+      ],
+      "url": "https://selenebun.github.io/bullethell/",
+      "author": "selenebun",
+      "license": "MIT",
+      "repo": "https://github.com/selenebun/bullethell",
+      "controls": "Стрелки/WASD"
+    },
+    {
+      "id": "ext-calc24",
+      "title": "Calc24",
+      "emoji": "🧮",
+      "description": "Соберите 24 из четырёх чисел действиями. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "математика",
+        "логика",
+        "мост"
+      ],
+      "url": "https://passer-by.com/calc24/",
+      "author": "mumuy",
+      "license": "MIT",
+      "repo": "https://github.com/mumuy/calc24",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-cardmemory",
+      "title": "Card Memory (milsaware)",
+      "emoji": "🃏",
+      "description": "Карточное мемори с бесконечными уровнями. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "память",
+        "казуал",
+        "мост"
+      ],
+      "url": "https://milsaware.github.io/Javascript-Card-Memory-Game/",
+      "author": "milsaware",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/milsaware/Javascript-Card-Memory-Game",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-boc-chess",
+      "title": "Chess (Bocaletto)",
+      "emoji": "♟️",
+      "description": "Шахматы против компьютера со всеми правилами. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "шахматы",
+        "логика",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Chess/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Chess",
+      "controls": "Мышь"
+    },
+    {
       "id": "ext-chess",
       "title": "Chess.com — шахматы",
       "emoji": "👑",
@@ -378,6 +761,54 @@
       ],
       "link": "https://www.chess.com/",
       "source": "Chess.com",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-itlweichess",
+      "title": "Chinese Chess",
+      "emoji": "♟️",
+      "description": "Китайские шахматы сянци в HTML5. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "шахматы",
+        "логика",
+        "мост"
+      ],
+      "url": "https://itlwei.github.io/Chess/",
+      "author": "itlwei",
+      "license": "MIT",
+      "repo": "https://github.com/itlwei/Chess",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-clashjs",
+      "title": "ClashJS",
+      "emoji": "⚔️",
+      "description": "Программируйте бойца на JavaScript и отправляйте на арену. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "код",
+        "арена",
+        "мост"
+      ],
+      "url": "https://clashjs.com/",
+      "author": "javierbyte",
+      "license": "BSD-3-Clause",
+      "repo": "https://github.com/javierbyte/clashjs",
+      "controls": "Печать кода"
+    },
+    {
+      "id": "ext-clock",
+      "title": "Clock Patience",
+      "emoji": "🕐",
+      "description": "Пасьянс «Часы»: разложите колоду по циферблату. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "карты",
+        "пасьянс",
+        "мост"
+      ],
+      "url": "https://milsaware.github.io/Javascript-Clock-Patience-Solitaire/",
+      "author": "milsaware",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/milsaware/Javascript-Clock-Patience-Solitaire",
       "controls": "Мышь"
     },
     {
@@ -397,6 +828,86 @@
       "controls": "Пробел, клик или тап"
     },
     {
+      "id": "ext-colonizers",
+      "title": "Colonizers",
+      "emoji": "🏝️",
+      "description": "Осваивайте острова: поселения и торговля в духе Катана. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "стратегия",
+        "настолки",
+        "мост"
+      ],
+      "url": "https://sibartlett.github.io/colonizers/",
+      "author": "sibartlett",
+      "license": "AGPL-3.0",
+      "repo": "https://github.com/sibartlett/colonizers",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-boc-crossword",
+      "title": "Cruciverba",
+      "emoji": "✏️",
+      "description": "Профессиональный кроссворд: разгадывайте слова по определениям. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "слова",
+        "логика",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Crossword/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Crossword",
+      "controls": "Мышь + печать"
+    },
+    {
+      "id": "ext-boc-dama",
+      "title": "Dama",
+      "emoji": "⚫",
+      "description": "Итальянские шашки против компьютера по полным правилам. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "настолки",
+        "логика",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Dama/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Dama",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-datacenter",
+      "title": "Datacenter Survival",
+      "emoji": "🖥️",
+      "description": "Выживание дата-центра: питание, тепло и аптайм. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "стратегия",
+        "симулятор",
+        "мост"
+      ],
+      "url": "https://pshenok.github.io/datacenter-survival/",
+      "author": "pshenok",
+      "license": "MIT",
+      "repo": "https://github.com/pshenok/datacenter-survival",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-demogame",
+      "title": "Demo Game (ASteinheiser)",
+      "emoji": "🎮",
+      "description": "Демо-игра на Phaser: пример жанра для изучения кода. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "демо",
+        "мост"
+      ],
+      "url": "https://asteinheiser.github.io/demo-game/",
+      "author": "ASteinheiser",
+      "license": "MIT",
+      "repo": "https://github.com/ASteinheiser/demo-game",
+      "controls": "Стрелки"
+    },
+    {
       "id": "ext-diepio",
       "title": "Diep.io",
       "emoji": "🎯",
@@ -410,6 +921,22 @@
       "author": "Diep.io",
       "license": "Free to play",
       "controls": "WASD + мышь"
+    },
+    {
+      "id": "ext-boc-domino",
+      "title": "Domino",
+      "emoji": "🁫",
+      "description": "Классическое домино: выкладывайте кости по мастям. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "настолки",
+        "классика",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Domino/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Domino",
+      "controls": "Мышь"
     },
     {
       "id": "ext-drivemad",
@@ -459,6 +986,22 @@
       "controls": "Мышь"
     },
     {
+      "id": "ext-omarioflappy",
+      "title": "Flappy Bird Tutorial",
+      "emoji": "🐤",
+      "description": "Флэппи из туториала: взмахи между трубами. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "казуал",
+        "мост"
+      ],
+      "url": "https://omariosouto.github.io/flappy-bird-devsoutinho/",
+      "author": "omariosouto",
+      "license": "MIT",
+      "repo": "https://github.com/omariosouto/flappy-bird-devsoutinho",
+      "controls": "Пробел/клик"
+    },
+    {
       "id": "ext-froggy",
       "title": "Flexbox Froggy",
       "emoji": "🐸",
@@ -475,6 +1018,86 @@
       "controls": "Печать CSS-кода"
     },
     {
+      "id": "ext-boc-connect4",
+      "title": "Forza 4",
+      "emoji": "🔴",
+      "description": "Соберите четыре фишки в линию раньше соперника. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "логика",
+        "классика",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Connect-Four/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Connect-Four",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-boc-c42p",
+      "title": "Forza 4 2P",
+      "emoji": "🔴",
+      "description": "Четыре в ряд для двоих на одном экране. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "логика",
+        "для двоих",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Connect-Four-Two-Player/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Connect-Four-Two-Player",
+      "controls": "Мышь, хотсит"
+    },
+    {
+      "id": "ext-adrianfrogger",
+      "title": "Frogger",
+      "emoji": "🐸",
+      "description": "Переведите лягушку через дорогу и реку. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "классика",
+        "мост"
+      ],
+      "url": "https://adrianeyre.github.io/frogger/",
+      "author": "adrianeyre",
+      "license": "MIT",
+      "repo": "https://github.com/adrianeyre/frogger",
+      "controls": "Стрелки"
+    },
+    {
+      "id": "ext-fruitmatcher",
+      "title": "Fruit Matcher",
+      "emoji": "🍎",
+      "description": "Найдите парные фрукты за минимум ходов. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "память",
+        "казуал",
+        "мост"
+      ],
+      "url": "https://mmenavas.github.io/memory-game/",
+      "author": "mmenavas",
+      "license": "MIT",
+      "repo": "https://github.com/mmenavas/memory-game",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-boc-games2vs",
+      "title": "Games 2VS",
+      "emoji": "⚔️",
+      "description": "Соревновательная платформа мини-игр для двоих. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "для двоих",
+        "казуал",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Games-2VS/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Games-2VS",
+      "controls": "Два игрока, хотсит"
+    },
+    {
       "id": "ext-gartic",
       "title": "Gartic.io",
       "emoji": "🎨",
@@ -487,6 +1110,54 @@
       "link": "https://gartic.io/",
       "source": "Gartic",
       "controls": "Мышь + печать"
+    },
+    {
+      "id": "ext-gobang",
+      "title": "Gobang",
+      "emoji": "⚫",
+      "description": "Гомоку против ИИ: соберите пять камней в ряд. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "настолки",
+        "логика",
+        "мост"
+      ],
+      "url": "https://passer-by.com/gobang/",
+      "author": "mumuy",
+      "license": "MIT",
+      "repo": "https://github.com/mumuy/gobang",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-golfsol",
+      "title": "Golf Solitaire",
+      "emoji": "⛳",
+      "description": "Гольф-пасьянс: уберите все карты со стола по старшинству. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "карты",
+        "пасьянс",
+        "мост"
+      ],
+      "url": "https://milsaware.github.io/Javascript-Golf-Solitaire/",
+      "author": "milsaware",
+      "license": "GPL-2.0",
+      "repo": "https://github.com/milsaware/Javascript-Golf-Solitaire",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-boc-goose",
+      "title": "Goose Game",
+      "emoji": "🪿",
+      "description": "Игра гусёк: кидайте кубик и мчитесь к финишу. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "настолки",
+        "казуал",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Goose-Game-Two-Player/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Goose-Game-Two-Player",
+      "controls": "Мышь"
     },
     {
       "id": "ext-garden",
@@ -503,6 +1174,102 @@
       "license": "MIT",
       "repo": "https://github.com/thomaspark/gridgarden",
       "controls": "Печать CSS-кода"
+    },
+    {
+      "id": "ext-boc-flag",
+      "title": "Guess the Flag",
+      "emoji": "🏳️",
+      "description": "Угадайте страну по флагу: география-викторина. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "викторина",
+        "география",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Guess-The-Flag/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Guess-The-Flag",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-boc-guesspair",
+      "title": "Guess the Pair",
+      "emoji": "🃏",
+      "description": "Найдите все парные карты за минимум ходов. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "память",
+        "казуал",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Guess-the-pair-two-player/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Guess-the-pair-two-player",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-boc-guesswho",
+      "title": "Guess Who",
+      "emoji": "🕵️",
+      "description": "Угадайте персонажа вопросами «да/нет». Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "логика",
+        "казуал",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Guess-Who/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Guess-Who",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-boc-hangman",
+      "title": "Hangman (Bocaletto)",
+      "emoji": "🪢",
+      "description": "Виселица: угадайте слово по буквам раньше шести ошибок. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "слова",
+        "логика",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/hangman-two-player/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/hangman-two-player",
+      "controls": "Мышь + буквы"
+    },
+    {
+      "id": "ext-hanoi",
+      "title": "Hanoi",
+      "emoji": "🗼",
+      "description": "Ханойская башня: перенесите диски за минимум ходов. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "головоломка",
+        "логика",
+        "мост"
+      ],
+      "url": "https://ajlovechina.github.io/Hanoi/",
+      "author": "AJLoveChina",
+      "license": "MIT",
+      "repo": "https://github.com/AJLoveChina/Hanoi",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-headbreaker",
+      "title": "Headbreaker",
+      "emoji": "🧩",
+      "description": "Фреймворк-головоломка: соберите мозаику из фрагментов. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "головоломка",
+        "казуал",
+        "мост"
+      ],
+      "url": "https://flbulgarelli.github.io/headbreaker/",
+      "author": "flbulgarelli",
+      "license": "ISC",
+      "repo": "https://github.com/flbulgarelli/headbreaker",
+      "controls": "Мышь"
     },
     {
       "id": "ext-checkers",
@@ -569,6 +1336,86 @@
       "controls": "Мышь"
     },
     {
+      "id": "ext-boc-itadv",
+      "title": "IT Adventures",
+      "emoji": "💻",
+      "description": "Терминальная киберпанк-RPG: команды вместо меча. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "rpg",
+        "текст",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/IT-Adventures/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/IT-Adventures",
+      "controls": "Печать команд"
+    },
+    {
+      "id": "ext-patorjksnake",
+      "title": "JavaScript Snake",
+      "emoji": "🐍",
+      "description": "Классическая змейка на чистом JavaScript. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "классика",
+        "мост"
+      ],
+      "url": "https://patorjk.github.io/JavaScript-Snake/",
+      "author": "patorjk",
+      "license": "MIT",
+      "repo": "https://github.com/patorjk/JavaScript-Snake",
+      "controls": "Стрелки"
+    },
+    {
+      "id": "ext-jokenpo",
+      "title": "JoKePo",
+      "emoji": "✊",
+      "description": "Камень-ножницы-бумага против нейросети, угадывающей ходы. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "казуал",
+        "нейросеть",
+        "мост"
+      ],
+      "url": "https://victorribeiro.com/jokenpo",
+      "author": "victorqribeiro",
+      "license": "MIT",
+      "repo": "https://github.com/victorqribeiro/jokenpo",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-boc-solitaire",
+      "title": "Klondike Solitaire",
+      "emoji": "🃏",
+      "description": "Пасьянс «Косынка»: разложите колоду по мастям. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "карты",
+        "пасьянс",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Solitaire/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Solitaire",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-boc-labyrinth",
+      "title": "Labyrinth",
+      "emoji": "🌀",
+      "description": "Исследователь лабиринта: найдите выход из закоулков. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "лабиринт",
+        "казуал",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Labyrinth/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Labyrinth",
+      "controls": "Стрелки"
+    },
+    {
       "id": "ext-devil",
       "title": "Level Devil",
       "emoji": "😈",
@@ -613,6 +1460,118 @@
       "controls": "Мышь или Tab+Enter"
     },
     {
+      "id": "ext-boc-ludo",
+      "title": "Ludo",
+      "emoji": "🎲",
+      "description": "Классическое лудо: выведите все фишки домой первым. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "настолки",
+        "классика",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Ludo/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Ludo",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-boc-mahjong",
+      "title": "Mahjong Solitaire",
+      "emoji": "🀄",
+      "description": "Маджонг-пасьянс: разбирайте пирамиду парными костями. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "пасьянс",
+        "логика",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Mahjong-Solitaire/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Mahjong-Solitaire",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-taniamemory",
+      "title": "Memory Game (Tania)",
+      "emoji": "🃏",
+      "description": "Культовое мемори из туториала: пары карт на поле. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "память",
+        "казуал",
+        "мост"
+      ],
+      "url": "https://taniarascia.github.io/memory/",
+      "author": "taniarascia",
+      "license": "MIT",
+      "repo": "https://github.com/taniarascia/memory",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-boc-millionaire",
+      "title": "Millionaire Quiz",
+      "emoji": "💰",
+      "description": "Викторина «Кто хочет стать миллионером»: вопросы и несгораемые суммы. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "викторина",
+        "казуал",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Who-Wants-To-Be-A-Millionaire/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Who-Wants-To-Be-A-Millionaire",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-boc-minesweeper",
+      "title": "Minesweeper 2.0",
+      "emoji": "💥",
+      "description": "Современный сапёр: откройте все клетки без мин. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "логика",
+        "классика",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Mine-Sweeper/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Mine-Sweeper",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-minimax",
+      "title": "Minimax TicTacToe",
+      "emoji": "⭕",
+      "description": "Крестики-нолики на минимаксе: ИИ не прощает ошибок. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "логика",
+        "нейросеть",
+        "мост"
+      ],
+      "url": "https://ucfx.github.io/minimax-game-ai/",
+      "author": "ucfx",
+      "license": "MIT",
+      "repo": "https://github.com/ucfx/minimax-game-ai",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-mnimi",
+      "title": "Mnimi",
+      "emoji": "🧠",
+      "description": "Игра на память и внимание с нарастающей сложностью. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "память",
+        "казуал",
+        "мост"
+      ],
+      "url": "https://www.mnimi.ir/",
+      "author": "sepandhaghighi",
+      "license": "MIT",
+      "repo": "https://github.com/sepandhaghighi/mnimi",
+      "controls": "Мышь"
+    },
+    {
       "id": "ext-monkeymart",
       "title": "Monkey Mart",
       "emoji": "🐵",
@@ -625,6 +1584,22 @@
       "link": "https://poki.com/en/g/monkey-mart",
       "source": "Poki",
       "controls": "WASD/стрелки"
+    },
+    {
+      "id": "ext-montyhall",
+      "title": "Monty Hall",
+      "emoji": "🚪",
+      "description": "Парадокс Монти Холла: меняйте выбор и побеждайте статистику. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "логика",
+        "эксперимент",
+        "мост"
+      ],
+      "url": "https://victorribeiro.com/montyhall",
+      "author": "victorqribeiro",
+      "license": "MIT",
+      "repo": "https://github.com/victorqribeiro/montyhall",
+      "controls": "Мышь"
     },
     {
       "id": "ext-motox3m",
@@ -657,6 +1632,22 @@
       "controls": "Мышь"
     },
     {
+      "id": "ext-handsomenonogram",
+      "title": "Nonogram (HandsomeOne)",
+      "emoji": "⬛",
+      "description": "Японский кроссворд: закрашивайте клетки по числам. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "головоломка",
+        "логика",
+        "мост"
+      ],
+      "url": "https://handsomeone.github.io/Nonogram/",
+      "author": "HandsomeOne",
+      "license": "MIT",
+      "repo": "https://github.com/HandsomeOne/Nonogram",
+      "controls": "Мышь"
+    },
+    {
       "id": "ext-mpacman",
       "title": "Pac-Man (mumuy)",
       "emoji": "👻",
@@ -670,6 +1661,22 @@
       "author": "mumuy",
       "license": "MIT",
       "repo": "https://github.com/mumuy/pacman",
+      "controls": "Стрелки/WASD"
+    },
+    {
+      "id": "ext-masonicpacman",
+      "title": "Pac-Man Tribute",
+      "emoji": "👻",
+      "description": "Исторический трибьют пакману: лабиринт и привидения. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "классика",
+        "мост"
+      ],
+      "url": "https://masonicgit.github.io/pacman/",
+      "author": "masonicgit",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/masonicgit/pacman",
       "controls": "Стрелки/WASD"
     },
     {
@@ -688,6 +1695,102 @@
       "controls": "Мышь (тайминг)"
     },
     {
+      "id": "ext-boc-pong",
+      "title": "Pong (Bocaletto)",
+      "emoji": "🏓",
+      "description": "Классический понг против компьютера. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "классика",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Pong/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Pong",
+      "controls": "Мышь/стрелки"
+    },
+    {
+      "id": "ext-boc-pong2p",
+      "title": "Pong 2 Players",
+      "emoji": "🏓",
+      "description": "Понг для двоих на одной клавиатуре. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "для двоих",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Pong-Two-Player/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Pong-Two-Player",
+      "controls": "Два игрока, хотсит"
+    },
+    {
+      "id": "ext-boc-puzzlenumbers",
+      "title": "Puzzle Numbers",
+      "emoji": "🔢",
+      "description": "Числовые головоломки: логика и счёт в каждой задаче. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "головоломка",
+        "математика",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Puzzle-Numbers/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Puzzle-Numbers",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-boc-quizplayer",
+      "title": "Quiz Player",
+      "emoji": "❓",
+      "description": "Викторина с вопросами на эрудицию и счёт. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "викторина",
+        "казуал",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/QuizCreatorPlayer/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/QuizCreatorPlayer",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-reactgo",
+      "title": "React Go",
+      "emoji": "⚫",
+      "description": "Игра Го в браузере: окружайте территорию. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "настолки",
+        "логика",
+        "мост"
+      ],
+      "url": "https://cjlarose.com/react-go",
+      "author": "cjlarose",
+      "license": "Unlicense",
+      "repo": "https://github.com/cjlarose/react-go",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-reactrpg",
+      "title": "React RPG",
+      "emoji": "🗡️",
+      "description": "Пошаговое подземелье: исследование, бои и лут. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "rpg",
+        "подземелье",
+        "мост"
+      ],
+      "url": "https://react-rpg.com/",
+      "author": "ASteinheiser",
+      "license": "MIT",
+      "repo": "https://github.com/ASteinheiser/react-rpg.com",
+      "controls": "Стрелки/WASD"
+    },
+    {
       "id": "ext-solitaire",
       "title": "React Solitaire",
       "emoji": "🎴",
@@ -702,6 +1805,38 @@
       "license": "MIT",
       "repo": "https://github.com/gcedo/react-solitaire",
       "controls": "Мышь (drag-and-drop)"
+    },
+    {
+      "id": "ext-reacteroids",
+      "title": "Reacteroids",
+      "emoji": "🚀",
+      "description": "Астероиды на React: вращайтесь и расстреливайте камни. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "шутер",
+        "мост"
+      ],
+      "url": "https://chriz001.github.io/Reacteroids",
+      "author": "chriz001",
+      "license": "CC0-1.0",
+      "repo": "https://github.com/chriz001/Reacteroids",
+      "controls": "Стрелки + пробел"
+    },
+    {
+      "id": "ext-boc-rps",
+      "title": "Rock Paper Scissors",
+      "emoji": "✌️",
+      "description": "Камень-ножницы-бумага против компьютера. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "казуал",
+        "классика",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Rock-Paper-Scissors/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Rock-Paper-Scissors",
+      "controls": "Мышь"
     },
     {
       "id": "ext-run3",
@@ -735,6 +1870,22 @@
       "controls": "Мышь или палец"
     },
     {
+      "id": "ext-boc-scopa",
+      "title": "Scopa",
+      "emoji": "🂡",
+      "description": "Итальянская карточная скопа: забирайте карты со стола. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "карты",
+        "классика",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Scopa/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Scopa",
+      "controls": "Мышь"
+    },
+    {
       "id": "ext-serversurv",
       "title": "Server Survival",
       "emoji": "☁️",
@@ -748,6 +1899,54 @@
       "author": "pshenok",
       "license": "MIT",
       "repo": "https://github.com/pshenok/server-survival",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-shenzhen",
+      "title": "SHENZHEN Solitaire",
+      "emoji": "🀄",
+      "description": "Пасьянс в духе Shenzhen I/O: карты и логические цепочки. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "карты",
+        "пасьянс",
+        "мост"
+      ],
+      "url": "https://nickardson.github.io/shenzhen-solitaire/",
+      "author": "Nickardson",
+      "license": "MIT",
+      "repo": "https://github.com/Nickardson/shenzhen-solitaire",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-shogi",
+      "title": "Shogi Player",
+      "emoji": "♞",
+      "description": "Японские шахматы сёги: доска и разбор партий. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "шахматы",
+        "логика",
+        "мост"
+      ],
+      "url": "https://akicho8.github.io/shogi-player/",
+      "author": "akicho8",
+      "license": "AGPL-3.0",
+      "repo": "https://github.com/akicho8/shogi-player",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-boc-simon",
+      "title": "Simon Says",
+      "emoji": "🔴",
+      "description": "Повторяйте растущую мелодию цветных кнопок. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "память",
+        "музыка",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Symon-Says/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Symon-Says",
       "controls": "Мышь"
     },
     {
@@ -780,6 +1979,22 @@
       "controls": "WASD/стрелки"
     },
     {
+      "id": "ext-boc-snake",
+      "title": "Snake (Bocaletto)",
+      "emoji": "🐍",
+      "description": "Змейка: ешьте и растите, не врезайтесь. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "классика",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Snake/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Snake",
+      "controls": "Стрелки"
+    },
+    {
       "id": "ext-sokoban",
       "title": "Sokoban.js",
       "emoji": "📦",
@@ -796,6 +2011,118 @@
       "controls": "Стрелки/WASD"
     },
     {
+      "id": "ext-milsolitaire",
+      "title": "Solitaire (milsaware)",
+      "emoji": "🃏",
+      "description": "Пасьянс «Косынка» на чистом JavaScript без картинок. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "карты",
+        "пасьянс",
+        "мост"
+      ],
+      "url": "https://milsaware.github.io/Javascript-Solitaire/",
+      "author": "milsaware",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/milsaware/Javascript-Solitaire",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-boc-invaders",
+      "title": "Space Invaders (Bocaletto)",
+      "emoji": "👾",
+      "description": "Классические захватчики: держите строй под огнём. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "шутер",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Space-Invaders/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Space-Invaders",
+      "controls": "Стрелки + пробел"
+    },
+    {
+      "id": "ext-spacehuggers",
+      "title": "SpaceHuggers",
+      "emoji": "👾",
+      "description": "Роглайк-платформер с разрушаемым окружением. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "рогалик",
+        "платформер",
+        "мост"
+      ],
+      "url": "https://killedbyapixel.github.io/SpaceHuggers/",
+      "author": "KilledByAPixel",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/KilledByAPixel/SpaceHuggers",
+      "controls": "Стрелки/WASD + пробел"
+    },
+    {
+      "id": "ext-spinhook",
+      "title": "SpinHook",
+      "emoji": "🪝",
+      "description": "Гиперказуальный крюк: цепляйтесь и крутитесь по орбите. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "казуал",
+        "мост"
+      ],
+      "url": "https://spinhook.ir/",
+      "author": "sepandhaghighi",
+      "license": "MIT",
+      "repo": "https://github.com/sepandhaghighi/spinhook",
+      "controls": "Клик/тап"
+    },
+    {
+      "id": "ext-spookyball",
+      "title": "SpookyBall",
+      "emoji": "🎃",
+      "description": "Хэллоуин-арканоид на WebGPU: отбивайте тыквы платформой. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "webgpu",
+        "мост"
+      ],
+      "url": "https://toji.github.io/spookyball/",
+      "author": "toji",
+      "license": "MIT",
+      "repo": "https://github.com/toji/spookyball",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-boc-squaredodger",
+      "title": "Square Dodger",
+      "emoji": "🟥",
+      "description": "Уворачивайтесь квадратом от летящих препятствий. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "реакция",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Square-Dodger/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Square-Dodger",
+      "controls": "Стрелки/мышь"
+    },
+    {
+      "id": "ext-mrdoobracing",
+      "title": "Starter Kit Racing",
+      "emoji": "🏎️",
+      "description": "Минималистичная гонка-шаблон: круги и лучшее время. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "гонки",
+        "казуал",
+        "мост"
+      ],
+      "url": "https://mrdoob.github.io/Starter-Kit-Racing/",
+      "author": "mrdoob",
+      "license": "MIT",
+      "repo": "https://github.com/mrdoob/Starter-Kit-Racing",
+      "controls": "Стрелки"
+    },
+    {
       "id": "ext-stickman",
       "title": "Stickman Hook",
       "emoji": "🪝",
@@ -810,6 +2137,22 @@
       "controls": "Клик/тап (удержание)"
     },
     {
+      "id": "ext-stockfish",
+      "title": "Stockfish Web GUI",
+      "emoji": "♟️",
+      "description": "Анализ шахмат движком Stockfish прямо в браузере. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "шахматы",
+        "анализ",
+        "мост"
+      ],
+      "url": "https://labinatorsolutions.github.io/stockfish-chess-web-gui/",
+      "author": "LabinatorSolutions",
+      "license": "AGPL-3.0",
+      "repo": "https://github.com/LabinatorSolutions/stockfish-chess-web-gui",
+      "controls": "Мышь"
+    },
+    {
       "id": "ext-subway",
       "title": "Subway Surfers",
       "emoji": "🚇",
@@ -822,6 +2165,22 @@
       "link": "https://poki.com/en/g/subway-surfers",
       "source": "Poki",
       "controls": "Стрелки/свайпы"
+    },
+    {
+      "id": "ext-boc-sudoku",
+      "title": "Sudoku (Bocaletto)",
+      "emoji": "🔢",
+      "description": "Судоку: заполните сетку 9×9 без повторов. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "головоломка",
+        "логика",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Sudoku/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Sudoku",
+      "controls": "Мышь + цифры"
     },
     {
       "id": "ext-trex",
@@ -840,6 +2199,22 @@
       "controls": "Пробел/↑ — прыжок, ↓ — пригнуться"
     },
     {
+      "id": "ext-boc-tama",
+      "title": "Tama-Pets",
+      "emoji": "🐣",
+      "description": "Виртуальный питомец: кормите, играйте и укладывайте спать. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "казуал",
+        "симулятор",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Tama-Pets/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Tama-Pets",
+      "controls": "Мышь"
+    },
+    {
       "id": "ext-tetrio",
       "title": "TETR.IO",
       "emoji": "🟪",
@@ -852,6 +2227,102 @@
       "link": "https://tetr.io/",
       "source": "TETR.IO",
       "controls": "Стрелки, Z/X — поворот"
+    },
+    {
+      "id": "ext-boc-tetris",
+      "title": "Tetris (Bocaletto)",
+      "emoji": "🟪",
+      "description": "Падающие фигуры и линии: классика жанра. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "головоломка",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Tetris/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Tetris",
+      "controls": "Стрелки"
+    },
+    {
+      "id": "ext-boc-tictactoe",
+      "title": "Tic Tac Toe (Bocaletto)",
+      "emoji": "⭕",
+      "description": "Крестики-нолики против компьютера. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "логика",
+        "классика",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Tic-Tac-Toe/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Tic-Tac-Toe",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-milttt",
+      "title": "Tic Tac Toe (milsaware)",
+      "emoji": "⭕",
+      "description": "Простые крестики-нолики на JavaScript. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "логика",
+        "классика",
+        "мост"
+      ],
+      "url": "https://milsaware.github.io/javascript-tic-tac-toe/",
+      "author": "milsaware",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/milsaware/javascript-tic-tac-toe",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-taniattt",
+      "title": "Tic Tac Toe (Tania)",
+      "emoji": "⭕",
+      "description": "Крестики-нолики из знаменитого туториала. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "логика",
+        "классика",
+        "мост"
+      ],
+      "url": "https://taniarascia.github.io/tictactoe/",
+      "author": "taniarascia",
+      "license": "MIT",
+      "repo": "https://github.com/taniarascia/tictactoe",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-boc-ttt2p",
+      "title": "Tic Tac Toe 2P",
+      "emoji": "⭕",
+      "description": "Крестики-нолики для двоих на одном экране. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "логика",
+        "для двоих",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Tic-Tac-Toe-Two-Player/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Tic-Tac-Toe-Two-Player",
+      "controls": "Мышь, хотсит"
+    },
+    {
+      "id": "ext-ramattt",
+      "title": "Tic-Tac-Toe AI",
+      "emoji": "⭕",
+      "description": "Крестики-нолики против эвристического ИИ. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "логика",
+        "нейросеть",
+        "мост"
+      ],
+      "url": "https://ramazancetinkaya.github.io/tictactoe/",
+      "author": "ramazancetinkaya",
+      "license": "MIT",
+      "repo": "https://github.com/ramazancetinkaya/tictactoe",
+      "controls": "Мышь"
     },
     {
       "id": "ext-tower",
@@ -870,6 +2341,70 @@
       "controls": "Клик или тап"
     },
     {
+      "id": "ext-selenebuntd",
+      "title": "Tower Defense (Selenebun)",
+      "emoji": "🗼",
+      "description": "Башенная оборона: стройте турели против волн. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "стратегия",
+        "tower-defense",
+        "мост"
+      ],
+      "url": "https://selenebun.github.io/towerdefense/",
+      "author": "selenebun",
+      "license": "MIT",
+      "repo": "https://github.com/selenebun/towerdefense",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-ttc",
+      "title": "TTC TicTacToe",
+      "emoji": "⭕",
+      "description": "Минималистичные крестики-нолики: партия за минуту. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "логика",
+        "классика",
+        "мост"
+      ],
+      "url": "https://yelynn1.github.io/tictactoe/",
+      "author": "yelynn1",
+      "license": "MIT",
+      "repo": "https://github.com/yelynn1/tictactoe",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-typer",
+      "title": "Typer",
+      "emoji": "⌨️",
+      "description": "Печатайте код башен быстрее волн врагов. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "печать",
+        "tower-defense",
+        "мост"
+      ],
+      "url": "https://berkerol.github.io/typer/",
+      "author": "berkerol",
+      "license": "GPL",
+      "repo": "https://github.com/berkerol/typer",
+      "controls": "Печать"
+    },
+    {
+      "id": "ext-boc-typing",
+      "title": "Typing Tutor",
+      "emoji": "⌨️",
+      "description": "Тренажёр слепой печати на скорость и точность. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "обучение",
+        "печать",
+        "мост"
+      ],
+      "url": "https://bocaletto-luca.github.io/Typing-Tutor/",
+      "author": "Bocaletto Luca",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/bocaletto-luca/Typing-Tutor",
+      "controls": "Печать"
+    },
+    {
       "id": "ext-urlsnake",
       "title": "URL Snake",
       "emoji": "🔗",
@@ -886,6 +2421,22 @@
       "controls": "Стрелки"
     },
     {
+      "id": "ext-urlife",
+      "title": "URLife",
+      "emoji": "🧬",
+      "description": "Жизнь Конвея прямо в адресной строке браузера. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "эксперимент",
+        "симуляция",
+        "мост"
+      ],
+      "url": "https://demian.ferrei.ro/URLife",
+      "author": "epidemian",
+      "license": "Unlicense",
+      "repo": "https://github.com/epidemian/URLife",
+      "controls": "Наблюдение"
+    },
+    {
       "id": "ext-vex7",
       "title": "Vex 7",
       "emoji": "🤸",
@@ -899,6 +2450,38 @@
       "author": "Vex",
       "license": "Free to play",
       "controls": "WASD/стрелки"
+    },
+    {
+      "id": "ext-vuesolitaire",
+      "title": "Vue Solitaire",
+      "emoji": "🃏",
+      "description": "Пасьянс на Vue: классическая косынка в браузере. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "карты",
+        "пасьянс",
+        "мост"
+      ],
+      "url": "https://silent-lad.github.io/VueSolitaire/",
+      "author": "silent-lad",
+      "license": "MIT",
+      "repo": "https://github.com/silent-lad/VueSolitaire",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-vuetetris",
+      "title": "Vue Tetris",
+      "emoji": "🟪",
+      "description": "Тетрис на Vue с красивой анимацией (интерфейс на китайском, но всё понятно). Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "головоломка",
+        "мост"
+      ],
+      "url": "https://binaryify.github.io/vue-tetris/",
+      "author": "Binaryify",
+      "license": "MIT",
+      "repo": "https://github.com/Binaryify/vue-tetris",
+      "controls": "Стрелки"
     },
     {
       "id": "ext-wordle",
@@ -930,6 +2513,22 @@
       "author": "WorldGuessr",
       "license": "Free to play",
       "controls": "Мышь"
+    },
+    {
+      "id": "ext-xx142",
+      "title": "xx142-b2.exe",
+      "emoji": "👾",
+      "description": "Js13k-игра 2019 года в 13 килобайт. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "js13k",
+        "мост"
+      ],
+      "url": "https://bencoder.github.io/js13k-2019",
+      "author": "bencoder",
+      "license": "MIT",
+      "repo": "https://github.com/bencoder/js13k-2019",
+      "controls": "Стрелки"
     }
   ]
 }

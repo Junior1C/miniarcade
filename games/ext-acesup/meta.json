@@ -1,0 +1,12 @@
+{
+  "id": "ext-acesup",
+  "title": "Aces Up Solitaire",
+  "emoji": "🂡",
+  "description": "Пасьянс «Тузы вверх»: сбрасывайте младшие карты мастей. Внешняя игра — код остаётся у автора.",
+  "tags": ["карты", "пасьянс", "мост"],
+  "controls": "Мышь",
+  "url": "https://milsaware.github.io/Javascript-Aces-Up-Solitaire/",
+  "author": "milsaware",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/milsaware/Javascript-Aces-Up-Solitaire"
+}

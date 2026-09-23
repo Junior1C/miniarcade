@@ -1,0 +1,12 @@
+{
+  "id": "ext-demogame",
+  "title": "Demo Game (ASteinheiser)",
+  "emoji": "🎮",
+  "description": "Демо-игра на Phaser: пример жанра для изучения кода. Внешняя игра — код остаётся у автора.",
+  "tags": ["аркада", "демо", "мост"],
+  "controls": "Стрелки",
+  "url": "https://asteinheiser.github.io/demo-game/",
+  "author": "ASteinheiser",
+  "license": "MIT",
+  "repo": "https://github.com/ASteinheiser/demo-game"
+}

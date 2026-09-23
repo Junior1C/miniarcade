@@ -1,0 +1,12 @@
+{
+  "id": "ext-cardmemory",
+  "title": "Card Memory (milsaware)",
+  "emoji": "🃏",
+  "description": "Карточное мемори с бесконечными уровнями. Внешняя игра — код остаётся у автора.",
+  "tags": ["память", "казуал", "мост"],
+  "controls": "Мышь",
+  "url": "https://milsaware.github.io/Javascript-Card-Memory-Game/",
+  "author": "milsaware",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/milsaware/Javascript-Card-Memory-Game"
+}

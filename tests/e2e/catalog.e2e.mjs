@@ -9,16 +9,16 @@ test('каталог рендерит карточки и статус', async (
 
 test('поиск фильтрует каталог', async ({ page }) => {
   await page.goto('/');
-  await page.fill('#search', 'мемори');
+  await page.fill('#search', 'пятнашки');
   await expect(page.locator('#games .card')).toHaveCount(1);
-  await expect(page.locator('#games .card__title')).toHaveText('Мемори');
+  await expect(page.locator('#games .card__title')).toHaveText('Пятнашки');
   await page.fill('#search', 'квццыв');
   await expect(page.locator('#empty-state')).toBeVisible();
 });
 
 test('плеер открывает игру в sandbox и закрывается по Esc', async ({ page }) => {
   await page.goto('/');
-  await page.fill('#search', 'мемори');
+  await page.fill('#search', 'пятнашки');
   await expect(page.locator('#games .card')).toHaveCount(1);
   await page.locator('#games .card').first().click();
   const dialog = page.locator('#player');
@@ -34,7 +34,7 @@ test('плеер открывает игру в sandbox и закрываетс�
 
 test('кнопка закрытия плеера работает мышью (invoker + JS-фолбэк)', async ({ page }) => {
   await page.goto('/');
-  await page.fill('#search', 'мемори');
+  await page.fill('#search', 'пятнашки');
   await expect(page.locator('#games .card')).toHaveCount(1);
   await page.locator('#games .card').first().click();
   const dialog = page.locator('#player');
@@ -53,13 +53,15 @@ test('структурированные данные каталога вали�
   expect(ldText).toBeTruthy();
   const ld = JSON.parse(ldText);
   expect(ld['@type']).toBe('ItemList');
-  // Карточек на странице может быть меньше из-за пагинации —
-  // сверяем с полным каталогом, а не с видимыми.
+  // Карточек на странице может быть меньше из-за пагинации,
+  // а разметка покрывает только свои игры (мосты/ссылки — нет) —
+  // сверяем с числом локальных игр каталога, а не с видимыми.
   const catalog = await page.evaluate(async () => {
     const response = await fetch('data/catalog.json');
     return response.json();
   });
-  expect(ld.itemListElement.length).toBe(catalog.games.length);
+  const localCount = catalog.games.filter((game) => game.file).length;
+  expect(ld.itemListElement.length).toBe(localCount);
   for (const entry of ld.itemListElement) {
     expect(entry.item['@type']).toBe('VideoGame');
   }

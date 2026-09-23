@@ -1,0 +1,12 @@
+{
+  "id": "ext-airps",
+  "title": "AI Rock Paper Scissors",
+  "emoji": "🤖",
+  "description": "Камень-ножницы-бумага против обучающегося ИИ. Внешняя игра — код остаётся у автора.",
+  "tags": ["казуал", "нейросеть", "мост"],
+  "controls": "Мышь",
+  "url": "https://milsaware.github.io/Javascript-AI-Rock-Paper-Scissors/",
+  "author": "milsaware",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/milsaware/Javascript-AI-Rock-Paper-Scissors"
+}

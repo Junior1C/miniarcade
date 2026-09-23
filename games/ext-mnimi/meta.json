@@ -1,0 +1,12 @@
+{
+  "id": "ext-mnimi",
+  "title": "Mnimi",
+  "emoji": "🧠",
+  "description": "Игра на память и внимание с нарастающей сложностью. Внешняя игра — код остаётся у автора.",
+  "tags": ["память", "казуал", "мост"],
+  "controls": "Мышь",
+  "url": "https://www.mnimi.ir/",
+  "author": "sepandhaghighi",
+  "license": "MIT",
+  "repo": "https://github.com/sepandhaghighi/mnimi"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "ext-ballwall",
+  "title": "Ball And Wall",
+  "emoji": "🧱",
+  "description": "Арканоид в минимализме: платформа, мяч и стена кирпичей. Внешняя игра — код остаётся у автора.",
+  "tags": ["аркада", "казуал", "мост"],
+  "controls": "Мышь",
+  "url": "https://budnix.github.io/ball-and-wall",
+  "author": "budnix",
+  "license": "MIT",
+  "repo": "https://github.com/budnix/ball-and-wall"
+}

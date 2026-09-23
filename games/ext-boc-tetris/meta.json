@@ -1,0 +1,12 @@
+{
+  "id": "ext-boc-tetris",
+  "title": "Tetris (Bocaletto)",
+  "emoji": "🟪",
+  "description": "Падающие фигуры и линии: классика жанра. Внешняя игра — код остаётся у автора.",
+  "tags": ["аркада", "головоломка", "мост"],
+  "controls": "Стрелки",
+  "url": "https://bocaletto-luca.github.io/Tetris/",
+  "author": "Bocaletto Luca",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/bocaletto-luca/Tetris"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "ext-headbreaker",
+  "title": "Headbreaker",
+  "emoji": "🧩",
+  "description": "Фреймворк-головоломка: соберите мозаику из фрагментов. Внешняя игра — код остаётся у автора.",
+  "tags": ["головоломка", "казуал", "мост"],
+  "controls": "Мышь",
+  "url": "https://flbulgarelli.github.io/headbreaker/",
+  "author": "flbulgarelli",
+  "license": "ISC",
+  "repo": "https://github.com/flbulgarelli/headbreaker"
+}

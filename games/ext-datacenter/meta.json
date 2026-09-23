@@ -1,0 +1,12 @@
+{
+  "id": "ext-datacenter",
+  "title": "Datacenter Survival",
+  "emoji": "🖥️",
+  "description": "Выживание дата-центра: питание, тепло и аптайм. Внешняя игра — код остаётся у автора.",
+  "tags": ["стратегия", "симулятор", "мост"],
+  "controls": "Мышь",
+  "url": "https://pshenok.github.io/datacenter-survival/",
+  "author": "pshenok",
+  "license": "MIT",
+  "repo": "https://github.com/pshenok/datacenter-survival"
+}

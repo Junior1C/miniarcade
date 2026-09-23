@@ -1,0 +1,12 @@
+{
+  "id": "ext-aureliasol",
+  "title": "Aurelia Solitaire",
+  "emoji": "🃏",
+  "description": "Косынка на Aurelia с drag-and-drop. Внешняя игра — код остаётся у автора.",
+  "tags": ["карты", "пасьянс", "мост"],
+  "controls": "Мышь",
+  "url": "https://jdanyow.github.io/aurelia-solitaire/",
+  "author": "jdanyow",
+  "license": "MIT",
+  "repo": "https://github.com/jdanyow/aurelia-solitaire"
+}

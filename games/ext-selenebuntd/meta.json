@@ -1,0 +1,12 @@
+{
+  "id": "ext-selenebuntd",
+  "title": "Tower Defense (Selenebun)",
+  "emoji": "🗼",
+  "description": "Башенная оборона: стройте турели против волн. Внешняя игра — код остаётся у автора.",
+  "tags": ["стратегия", "tower-defense", "мост"],
+  "controls": "Мышь",
+  "url": "https://selenebun.github.io/towerdefense/",
+  "author": "selenebun",
+  "license": "MIT",
+  "repo": "https://github.com/selenebun/towerdefense"
+}

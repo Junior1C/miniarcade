@@ -1,0 +1,12 @@
+{
+  "id": "ext-bangbang",
+  "title": "BangBang",
+  "emoji": "🎯",
+  "description": "Тир против нейросети: стреляйте точнее алгоритма. Внешняя игра — код остаётся у автора.",
+  "tags": ["аркада", "нейросеть", "мост"],
+  "controls": "Мышь",
+  "url": "https://victorribeiro.com/bangBang/",
+  "author": "victorqribeiro",
+  "license": "MIT",
+  "repo": "https://github.com/victorqribeiro/bangBang"
+}

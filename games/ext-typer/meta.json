@@ -1,0 +1,12 @@
+{
+  "id": "ext-typer",
+  "title": "Typer",
+  "emoji": "⌨️",
+  "description": "Печатайте код башен быстрее волн врагов. Внешняя игра — код остаётся у автора.",
+  "tags": ["печать", "tower-defense", "мост"],
+  "controls": "Печать",
+  "url": "https://berkerol.github.io/typer/",
+  "author": "berkerol",
+  "license": "GPL",
+  "repo": "https://github.com/berkerol/typer"
+}

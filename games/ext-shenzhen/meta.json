@@ -1,0 +1,12 @@
+{
+  "id": "ext-shenzhen",
+  "title": "SHENZHEN Solitaire",
+  "emoji": "🀄",
+  "description": "Пасьянс в духе Shenzhen I/O: карты и логические цепочки. Внешняя игра — код остаётся у автора.",
+  "tags": ["карты", "пасьянс", "мост"],
+  "controls": "Мышь",
+  "url": "https://nickardson.github.io/shenzhen-solitaire/",
+  "author": "Nickardson",
+  "license": "MIT",
+  "repo": "https://github.com/Nickardson/shenzhen-solitaire"
+}

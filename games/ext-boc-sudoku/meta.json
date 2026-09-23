@@ -1,0 +1,12 @@
+{
+  "id": "ext-boc-sudoku",
+  "title": "Sudoku (Bocaletto)",
+  "emoji": "🔢",
+  "description": "Судоку: заполните сетку 9×9 без повторов. Внешняя игра — код остаётся у автора.",
+  "tags": ["головоломка", "логика", "мост"],
+  "controls": "Мышь + цифры",
+  "url": "https://bocaletto-luca.github.io/Sudoku/",
+  "author": "Bocaletto Luca",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/bocaletto-luca/Sudoku"
+}

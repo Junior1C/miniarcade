@@ -1,0 +1,12 @@
+{
+  "id": "ext-reacteroids",
+  "title": "Reacteroids",
+  "emoji": "🚀",
+  "description": "Астероиды на React: вращайтесь и расстреливайте камни. Внешняя игра — код остаётся у автора.",
+  "tags": ["аркада", "шутер", "мост"],
+  "controls": "Стрелки + пробел",
+  "url": "https://chriz001.github.io/Reacteroids",
+  "author": "chriz001",
+  "license": "CC0-1.0",
+  "repo": "https://github.com/chriz001/Reacteroids"
+}

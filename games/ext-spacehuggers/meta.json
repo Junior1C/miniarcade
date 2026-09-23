@@ -1,0 +1,12 @@
+{
+  "id": "ext-spacehuggers",
+  "title": "SpaceHuggers",
+  "emoji": "👾",
+  "description": "Роглайк-платформер с разрушаемым окружением. Внешняя игра — код остаётся у автора.",
+  "tags": ["рогалик", "платформер", "мост"],
+  "controls": "Стрелки/WASD + пробел",
+  "url": "https://killedbyapixel.github.io/SpaceHuggers/",
+  "author": "KilledByAPixel",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/KilledByAPixel/SpaceHuggers"
+}

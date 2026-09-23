@@ -1,0 +1,12 @@
+{
+  "id": "ext-clock",
+  "title": "Clock Patience",
+  "emoji": "🕐",
+  "description": "Пасьянс «Часы»: разложите колоду по циферблату. Внешняя игра — код остаётся у автора.",
+  "tags": ["карты", "пасьянс", "мост"],
+  "controls": "Мышь",
+  "url": "https://milsaware.github.io/Javascript-Clock-Patience-Solitaire/",
+  "author": "milsaware",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/milsaware/Javascript-Clock-Patience-Solitaire"
+}

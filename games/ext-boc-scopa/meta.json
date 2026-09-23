@@ -1,0 +1,12 @@
+{
+  "id": "ext-boc-scopa",
+  "title": "Scopa",
+  "emoji": "🂡",
+  "description": "Итальянская карточная скопа: забирайте карты со стола. Внешняя игра — код остаётся у автора.",
+  "tags": ["карты", "классика", "мост"],
+  "controls": "Мышь",
+  "url": "https://bocaletto-luca.github.io/Scopa/",
+  "author": "Bocaletto Luca",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/bocaletto-luca/Scopa"
+}

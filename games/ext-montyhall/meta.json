@@ -1,0 +1,12 @@
+{
+  "id": "ext-montyhall",
+  "title": "Monty Hall",
+  "emoji": "🚪",
+  "description": "Парадокс Монти Холла: меняйте выбор и побеждайте статистику. Внешняя игра — код остаётся у автора.",
+  "tags": ["логика", "эксперимент", "мост"],
+  "controls": "Мышь",
+  "url": "https://victorribeiro.com/montyhall",
+  "author": "victorqribeiro",
+  "license": "MIT",
+  "repo": "https://github.com/victorqribeiro/montyhall"
+}

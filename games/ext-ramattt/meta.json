@@ -1,0 +1,12 @@
+{
+  "id": "ext-ramattt",
+  "title": "Tic-Tac-Toe AI",
+  "emoji": "⭕",
+  "description": "Крестики-нолики против эвристического ИИ. Внешняя игра — код остаётся у автора.",
+  "tags": ["логика", "нейросеть", "мост"],
+  "controls": "Мышь",
+  "url": "https://ramazancetinkaya.github.io/tictactoe/",
+  "author": "ramazancetinkaya",
+  "license": "MIT",
+  "repo": "https://github.com/ramazancetinkaya/tictactoe"
+}
