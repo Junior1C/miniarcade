@@ -30,8 +30,7 @@ games/
     style.css, game.js     — внешние файлы (CSP требует внешних источников)
     meta.json              — метаданные: id, title, emoji, description, tags, …
 scripts/
-  build.mjs                — скан games/*/ → data/catalog.json (валидация)
-  package.mjs              — dist/<id>-itch.zip для каждой игры
+  build.mjs                — скан games/*/ → data/catalog.json + sitemap.xml (валидация)
   serve.mjs                — локальный сервер с боевыми заголовками
 tests/                     — node --test, без зависимостей
 tests/e2e/                 — Playwright: смоук каталога (npm run test:e2e)
@@ -67,7 +66,6 @@ npm run test:e2e # Playwright: каталог, поиск, плеер (сам п
 npm run smoke    # проверить все 4 живых хостинга
 npm run new -- <id> "Название"  # скелетер новой игры
 npm start        # http://localhost:4173 с боевыми security-заголовками
-npm run package  # dist/<id>-itch.zip для каждой игры
 npm run check    # build + test (запускает pre-push hook)
 npm run og       # перегенерировать assets/og.png (если меняется палитра)
 ```
@@ -117,7 +115,6 @@ npm run og       # перегенерировать assets/og.png (если ме
 | Cloudflare Pages | Git-интеграция CF (автодеплой из репо); Actions: build + test, шаг wrangler — при наличии секрета `CLOUDFLARE_API_TOKEN` | `_headers` |
 | Vercel | git-integration | `vercel.json` |
 | GitHub Pages | git-integration | только CSP `<meta>` (Pages не умеет custom headers) |
-| itch.io | `dist/<id>-itch.zip` для каждой игры | — |
 
 `data/catalog.json` закоммичен, поэтому хостинги без build-шага работают сразу. После изменения игр перегенерируйте его (`npm run build`) и коммитьте вместе с игрой — Actions пересобирает и тестирует каталог на каждый push (deploy через wrangler включится автоматически, как только в Secrets репозитория появится `CLOUDFLARE_API_TOKEN`).
 

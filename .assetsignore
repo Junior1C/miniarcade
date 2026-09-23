@@ -1,7 +1,5 @@
 .github/
 .wrangler/
-dist/
-wrangler-out/
 scripts/
 tests/
 *.md
