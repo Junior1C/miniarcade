@@ -8,6 +8,7 @@ import {
   CROSS_ORIGIN_OPENER_POLICY,
   CSP_CORE,
   CSP_PROD,
+  FRAME_SRC_ORIGINS,
   PERMISSIONS_POLICY,
   devSecurityHeaders,
   prodSecurityHeaders,
@@ -69,4 +70,36 @@ test('COOP same-origin is set everywhere (GH Pages documents the gap)', async ()
   );
   assert.ok(headersFile.includes('Cross-Origin-Opener-Policy: same-origin'));
   assert.equal(vercelHeaders['Cross-Origin-Opener-Policy'], 'same-origin');
+});
+
+test('bridge origins are allowlisted exactly once in both directions', async () => {
+  const { readdir } = await import('node:fs/promises');
+  const entries = await readdir(path.join(ROOT, 'games'), { withFileTypes: true });
+  const bridges = [];
+  for (const entry of entries.filter((e) => e.isDirectory() && !e.name.startsWith('.'))) {
+    const meta = JSON.parse(await readFile(path.join(ROOT, 'games', entry.name, 'meta.json'), 'utf8'));
+    if (meta.url) bridges.push(meta);
+  }
+  assert.ok(bridges.length > 0, 'at least one bridge entry expected');
+  const used = new Set();
+  for (const meta of bridges) {
+    const origin = new URL(meta.url).origin;
+    assert.ok(
+      FRAME_SRC_ORIGINS.includes(origin),
+      `${meta.id}: origin ${origin} must be in FRAME_SRC_ORIGINS`,
+    );
+    used.add(origin);
+  }
+  for (const origin of FRAME_SRC_ORIGINS) {
+    assert.ok(used.has(origin), `${origin} is allowlisted but unused — trim the allowlist`);
+  }
+});
+
+test('index.html meta CSP carries the bridge origins (GH Pages has no headers)', async () => {
+  const html = await readFile(path.join(ROOT, 'index.html'), 'utf8');
+  const match = html.match(/<meta http-equiv="Content-Security-Policy" content="([^"]+)">/);
+  assert.ok(match, 'CSP meta tag must exist');
+  for (const origin of FRAME_SRC_ORIGINS) {
+    assert.ok(match[1].includes(origin), `meta CSP must allow framing ${origin}`);
+  }
 });

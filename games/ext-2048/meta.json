@@ -1,0 +1,12 @@
+{
+  "id": "ext-2048",
+  "title": "2048 — оригинал",
+  "emoji": "🔢",
+  "description": "Та самая 2048 Гэбриела Чирулли: соберите плитку 2048. Внешняя игра — код остаётся у автора.",
+  "tags": ["головоломка", "логика", "мост"],
+  "controls": "Стрелки/WASD или свайпы",
+  "url": "https://gabrielecirulli.github.io/2048/",
+  "author": "Gabriele Cirulli",
+  "license": "MIT",
+  "repo": "https://github.com/gabrielecirulli/2048"
+}

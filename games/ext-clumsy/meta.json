@@ -1,0 +1,12 @@
+{
+  "id": "ext-clumsy",
+  "title": "Clumsy Bird",
+  "emoji": "🐤",
+  "description": "Оригинальный клон Flappy Bird на HTML5: ведите птичку сквозь трубы. Внешняя игра — код остаётся у автора.",
+  "tags": ["аркада", "реакция", "мост"],
+  "controls": "Пробел, клик или тап",
+  "url": "https://ellisonleao.github.io/clumsy-bird/",
+  "author": "ellisonleao",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/ellisonleao/clumsy-bird"
+}

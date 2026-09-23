@@ -9,6 +9,17 @@
 // - prod добавляет `upgrade-insecure-requests` (там всегда HTTPS);
 // - локально (`http://localhost:4173`) этот токен запрещён — иначе браузер
 //   попытается уйти на https://localhost и dev-стенд сломается.
+//
+// Мост к внешним играм (каталог ссылается, код не копирует):
+// frame-src разрешает ТОЛЬКО эти origins. build.mjs сверяет hostname
+// каждого моста с этим списком, tests/headers.test.mjs — оба направления
+// (мост без origin и origin без моста валят тесты).
+export const FRAME_SRC_ORIGINS = [
+  'https://gabrielecirulli.github.io',
+  'https://wayou.github.io',
+  'https://ellisonleao.github.io',
+  'https://wwwtyro.github.io',
+];
 export const CSP_CORE = [
   "default-src 'none'",
   "base-uri 'none'",
@@ -17,7 +28,7 @@ export const CSP_CORE = [
   "style-src 'self'",
   "img-src 'self'",
   "connect-src 'self'",
-  "frame-src 'self' about:",
+  `frame-src 'self' about: ${FRAME_SRC_ORIGINS.join(' ')}`,
   "object-src 'none'",
   "frame-ancestors 'self'",
 ].join('; ');

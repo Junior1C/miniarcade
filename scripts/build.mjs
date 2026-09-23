@@ -2,6 +2,7 @@ import { mkdir, readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { SANDBOX_TOKENS } from '../assets/js/sandbox-tokens.js';
+import { FRAME_SRC_ORIGINS } from './security-headers.mjs';
 
 const ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const CANONICAL_BASE = 'https://junior1c.github.io/miniarcade';
@@ -14,6 +15,11 @@ const META_KEYS = new Set([
   'controls',
   'sandbox',
   'order',
+  // Мост к внешней игре (код не копируется): url + атрибуция обязательны.
+  'url',
+  'author',
+  'license',
+  'repo',
 ]);
 const SANDBOX_ALLOWLIST = new Set(SANDBOX_TOKENS);
 
@@ -48,6 +54,39 @@ function validateSandbox(meta, errors) {
     }
   }
   return meta.sandbox;
+}
+
+function validateBridgeUrl(meta, errors) {
+  if (meta.url === undefined) return null;
+  let parsed = null;
+  try {
+    parsed = new URL(meta.url);
+  } catch {
+    parsed = null;
+  }
+  if (!parsed || parsed.protocol !== 'https:') {
+    errors.push('"url" must be an https URL');
+    return null;
+  }
+  if (!FRAME_SRC_ORIGINS.includes(parsed.origin)) {
+    errors.push(`"url" origin ${parsed.origin} is not in FRAME_SRC_ORIGINS (scripts/security-headers.mjs)`);
+    return null;
+  }
+  for (const key of ['author', 'license', 'repo']) {
+    const value = meta[key];
+    if (typeof value !== 'string' || value.trim() === '') {
+      errors.push(`"${key}" is required for bridge entries (attribution)`);
+    }
+  }
+  if (typeof meta.repo === 'string' && meta.repo !== '') {
+    try {
+      const repo = new URL(meta.repo);
+      if (repo.protocol !== 'https:') errors.push('"repo" must be an https URL');
+    } catch {
+      errors.push('"repo" must be an https URL');
+    }
+  }
+  return meta.url;
 }
 
 function validateOrder(meta, errors) {
@@ -89,6 +128,7 @@ async function readGame(gamesDir, folder) {
   const tags = validateTags(meta, errors);
   const sandbox = validateSandbox(meta, errors);
   const order = validateOrder(meta, errors);
+  const url = validateBridgeUrl(meta, errors);
 
   if (typeof meta.controls === 'string') {
     // optional, no validation beyond type
@@ -96,10 +136,12 @@ async function readGame(gamesDir, folder) {
     errors.push('"controls" must be a string');
   }
 
-  try {
-    await stat(path.join(gamesDir, folder, 'index.html'));
-  } catch {
-    errors.push('index.html is missing');
+  if (!url) {
+    try {
+      await stat(path.join(gamesDir, folder, 'index.html'));
+    } catch {
+      errors.push('index.html is missing');
+    }
   }
 
   if (errors.length > 0) {
@@ -111,10 +153,18 @@ async function readGame(gamesDir, folder) {
     title,
     emoji,
     description,
-    file: `games/${folder}/index.html`,
     tags,
     order,
   };
+  if (url) {
+    // Мост: локального файла нет — плеер откроет внешний URL в том же sandbox.
+    game.url = url;
+    game.author = meta.author;
+    game.license = meta.license;
+    game.repo = meta.repo;
+  } else {
+    game.file = `games/${folder}/index.html`;
+  }
   if (typeof meta.controls === 'string') game.controls = meta.controls;
   if (sandbox && sandbox.length > 0) game.sandbox = sandbox;
   return game;
@@ -145,7 +195,7 @@ export function buildLdJson(games) {
       '@type': 'VideoGame',
       name: game.title,
       description: game.description,
-      url: `${CANONICAL_BASE}/${game.file.replace(/index\.html$/, '')}`,
+      url: game.url ?? `${CANONICAL_BASE}/${game.file.replace(/index\.html$/, '')}`,
       applicationCategory: 'Game',
       operatingSystem: 'Web',
       gamePlatform: 'Web browser',
@@ -217,7 +267,10 @@ export async function buildCatalog(rootDir) {
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     `  <url><loc>${CANONICAL_BASE}/</loc></url>`,
-    ...games.map((game) => `  <url><loc>${CANONICAL_BASE}/${game.file.replace(/index\.html$/, '')}</loc></url>`),
+    // Sitemap — только свои страницы: чужие URL поисковикам не отдаём.
+    ...games
+      .filter((game) => game.file)
+      .map((game) => `  <url><loc>${CANONICAL_BASE}/${game.file.replace(/index\.html$/, '')}</loc></url>`),
     '</urlset>',
     '',
   ];

@@ -22,6 +22,7 @@ const elements = {
   title: document.getElementById('player-name'),
   emoji: document.getElementById('player-emoji'),
   closeBtn: document.getElementById('player-close'),
+  sourceLink: document.getElementById('player-source'),
 };
 
 const state = {
@@ -37,6 +38,7 @@ const player = createPlayer({
   titleEl: elements.title,
   emojiEl: elements.emoji,
   closeBtn: elements.closeBtn,
+  sourceLink: elements.sourceLink,
   onOpen: (game) => {
     document.title = `${game.title} — ${BASE_TITLE}`;
   },
@@ -110,11 +112,23 @@ function createCard(game) {
   description.className = 'card__desc';
   description.textContent = game.description;
 
+  // Мост: честная атрибуция прямо на карточке — автор и лицензия,
+  // код остаётся у автора, мы только ссылаемся.
   const cta = document.createElement('span');
   cta.className = 'card__cta';
   cta.textContent = 'Играть';
 
-  link.append(emoji, title, description, cta);
+  if (game.url) {
+    const meta = document.createElement('p');
+    meta.className = 'card__meta';
+    const badge = document.createElement('span');
+    badge.className = 'card__badge';
+    badge.textContent = '↗ GitHub';
+    meta.append(badge, ` ${game.author} • ${game.license}`);
+    link.append(emoji, title, description, meta, cta);
+  } else {
+    link.append(emoji, title, description, cta);
+  }
   item.append(link);
   return item;
 }

@@ -10,7 +10,7 @@ function buildSandbox(game) {
   return [...BASE_SANDBOX, ...allowed].join(' ');
 }
 
-export function createPlayer({ dialog, frame, titleEl, emojiEl, closeBtn, onOpen, onClose }) {
+export function createPlayer({ dialog, frame, titleEl, emojiEl, closeBtn, sourceLink, onOpen, onClose }) {
   let currentId = null;
 
   function open(game) {
@@ -18,7 +18,19 @@ export function createPlayer({ dialog, frame, titleEl, emojiEl, closeBtn, onOpen
     emojiEl.textContent = game.emoji ?? '';
     titleEl.textContent = game.title;
     frame.setAttribute('sandbox', buildSandbox(game));
-    frame.src = game.file;
+    // Мост: внешний URL грузится в том же sandbox; referrer режем —
+    // чужому сайту не отдаём даже путь каталога.
+    frame.referrerPolicy = game.url ? 'no-referrer' : 'strict-origin-when-cross-origin';
+    frame.src = game.url ?? game.file;
+    if (sourceLink) {
+      if (game.repo) {
+        sourceLink.href = game.repo;
+        sourceLink.hidden = false;
+      } else {
+        sourceLink.removeAttribute('href');
+        sourceLink.hidden = true;
+      }
+    }
     if (!dialog.open) {
       dialog.showModal();
     }

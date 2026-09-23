@@ -42,10 +42,18 @@ test('buildCatalog succeeds on the real games folder', async (t) => {
   assert.ok(ids.includes('clicker'));
   assert.ok(ids.includes('memory'));
   for (const game of payload.games) {
-    assert.equal(typeof game.file, 'string');
-    assert.ok(game.file.startsWith('games/'));
+    if (game.url) {
+      assert.equal(typeof game.author, 'string');
+      assert.equal(typeof game.license, 'string');
+      assert.equal(typeof game.repo, 'string');
+      assert.equal('file' in game, false);
+    } else {
+      assert.equal(typeof game.file, 'string');
+      assert.ok(game.file.startsWith('games/'));
+    }
     assert.equal('order' in game, false);
   }
+  assert.ok(ids.includes('ext-2048'));
 });
 
 test('buildCatalog rejects id that does not match folder', async (t) => {
@@ -89,4 +97,48 @@ test('buildCatalog rejects stray files in games/', async (t) => {
   const dir = await makeFixture(t, {});
   await writeFile(path.join(dir, 'games', 'leftover.html'), '<!DOCTYPE html>', 'utf8');
   await assert.rejects(() => buildCatalog(dir), /unexpected files/);
+});
+
+const bridgeMeta = {
+  id: 'ext-demo',
+  title: 'Демо',
+  emoji: '🚀',
+  description: 'Описание',
+  url: 'https://gabrielecirulli.github.io/2048/',
+  author: 'Автор',
+  license: 'MIT',
+  repo: 'https://github.com/example/demo',
+};
+
+test('buildCatalog accepts a bridge entry without index.html', async (t) => {
+  const dir = await makeFixture(t, {
+    'ext-demo': { 'meta.json': JSON.stringify(bridgeMeta) },
+  });
+  const payload = await buildCatalog(dir);
+  assert.equal(payload.games.length, 1);
+  assert.equal(payload.games[0].url, bridgeMeta.url);
+  assert.equal(payload.games[0].author, 'Автор');
+  assert.equal('file' in payload.games[0], false);
+});
+
+test('buildCatalog rejects bridge with non-https url', async (t) => {
+  const dir = await makeFixture(t, {
+    'ext-demo': { 'meta.json': JSON.stringify({ ...bridgeMeta, url: 'http://example.com/game' }) },
+  });
+  await assert.rejects(() => buildCatalog(dir), /https URL/);
+});
+
+test('buildCatalog rejects bridge with non-allowlisted origin', async (t) => {
+  const dir = await makeFixture(t, {
+    'ext-demo': { 'meta.json': JSON.stringify({ ...bridgeMeta, url: 'https://evil.example/game' }) },
+  });
+  await assert.rejects(() => buildCatalog(dir), /FRAME_SRC_ORIGINS/);
+});
+
+test('buildCatalog rejects bridge without attribution', async (t) => {
+  const { author, ...noAuthor } = bridgeMeta;
+  const dir = await makeFixture(t, {
+    'ext-demo': { 'meta.json': JSON.stringify(noAuthor) },
+  });
+  await assert.rejects(() => buildCatalog(dir), /attribution/);
 });

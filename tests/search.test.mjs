@@ -49,6 +49,12 @@ test('matchesQuery handles missing tags array', () => {
   assert.equal(matchesQuery(bare, 'тег'), false);
 });
 
+test('search matches bridge author', () => {
+  const bridges = [{ id: 'ext', title: 'Игра', description: 'Описание', author: 'Gabriele Cirulli' }];
+  assert.equal(filterGames(bridges, 'cirulli')[0].id, 'ext');
+  assert.deepEqual(filterGames(bridges, 'тетрис'), []);
+});
+
 test('getHaystack memoizes the normalized index per game object', () => {
   const game = { id: 'x', title: 'ЗМЕЙКА', description: 'Описание', tags: ['Аркада'] };
   const first = getHaystack(game);

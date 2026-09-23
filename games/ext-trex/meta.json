@@ -1,0 +1,12 @@
+{
+  "id": "ext-trex",
+  "title": "T-Rex Runner",
+  "emoji": "🦖",
+  "description": "Легендарный бегущий динозавр из Chrome: прыгайте через кактусы. Внешняя игра — код остаётся у автора.",
+  "tags": ["аркада", "раннер", "мост"],
+  "controls": "Пробел/↑ — прыжок, ↓ — пригнуться",
+  "url": "https://wayou.github.io/t-rex-runner/",
+  "author": "wayou",
+  "license": "BSD-3-Clause",
+  "repo": "https://github.com/wayou/t-rex-runner"
+}

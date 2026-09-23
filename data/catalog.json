@@ -6,12 +6,28 @@
       "title": "2048",
       "emoji": "🔢",
       "description": "Сдвигайте плитки и складывайте одинаковые, пока не соберёте 2048. Просто снаружи, глубоко внутри.",
-      "file": "games/2048/index.html",
       "tags": [
         "головоломка",
         "логика",
         "классика"
       ],
+      "file": "games/2048/index.html",
+      "controls": "Стрелки/WASD или свайпы"
+    },
+    {
+      "id": "ext-2048",
+      "title": "2048 — оригинал",
+      "emoji": "🔢",
+      "description": "Та самая 2048 Гэбриела Чирулли: соберите плитку 2048. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "головоломка",
+        "логика",
+        "мост"
+      ],
+      "url": "https://gabrielecirulli.github.io/2048/",
+      "author": "Gabriele Cirulli",
+      "license": "MIT",
+      "repo": "https://github.com/gabrielecirulli/2048",
       "controls": "Стрелки/WASD или свайпы"
     },
     {
@@ -19,11 +35,11 @@
       "title": "4 в ряд",
       "emoji": "🔴",
       "description": "Кидайте фишки в колонки и соберите линию из четырёх раньше ИИ.",
-      "file": "games/connect4/index.html",
       "tags": [
         "логика",
         "классика"
       ],
+      "file": "games/connect4/index.html",
       "controls": "Мышь, Tab+Enter или клавиши 1–7"
     },
     {
@@ -31,12 +47,12 @@
       "title": "Арканоид",
       "emoji": "🏓",
       "description": "Отбивайте мяч платформой и разбивайте кирпичи. Три жизни, уровни с ускорением.",
-      "file": "games/breakout/index.html",
       "tags": [
         "аркада",
         "классика",
         "реакция"
       ],
+      "file": "games/breakout/index.html",
       "controls": "Мышь, стрелки или палец"
     },
     {
@@ -44,12 +60,12 @@
       "title": "Астероиды",
       "emoji": "🚀",
       "description": "Векторная классика: вращайте корабль, сжигайте камни в пыль и не попадите под осколки.",
-      "file": "games/asteroids/index.html",
       "tags": [
         "аркада",
         "классика",
         "шутер"
       ],
+      "file": "games/asteroids/index.html",
       "controls": "Стрелки/WASD + пробел"
     },
     {
@@ -57,12 +73,12 @@
       "title": "Виселица",
       "emoji": "🔤",
       "description": "Угадывайте слово по буквам раньше, чем рисунок дорисуется. Шесть ошибок — проигрыш.",
-      "file": "games/hangman/index.html",
       "tags": [
         "слова",
         "логика",
         "классика"
       ],
+      "file": "games/hangman/index.html",
       "controls": "Мышь или печать букв"
     },
     {
@@ -70,12 +86,12 @@
       "title": "Дино-раннер",
       "emoji": "🦖",
       "description": "Бесконечный раннер: прыгайте через кактусы и пригибайтесь под птерами. Скорость растёт.",
-      "file": "games/dino/index.html",
       "tags": [
         "аркада",
         "раннер",
         "реакция"
       ],
+      "file": "games/dino/index.html",
       "controls": "Пробел/↑/тап — прыжок, ↓ — пригнуться"
     },
     {
@@ -83,12 +99,12 @@
       "title": "Змейка",
       "emoji": "🐍",
       "description": "Классика на canvas: собирай еду и не врезайся в себя. Скорость растёт с каждым очком. Управление — WASD, стрелки, свайпы или кнопки.",
-      "file": "games/snake/index.html",
       "tags": [
         "аркада",
         "классика",
         "canvas"
       ],
+      "file": "games/snake/index.html",
       "controls": "WASD, стрелки, свайпы или кнопки"
     },
     {
@@ -96,12 +112,12 @@
       "title": "Кликер",
       "emoji": "👆",
       "description": "Накликай максимум нажатий за 10 секунд. Кнопку можно жать мышью или пробелом.",
-      "file": "games/clicker/index.html",
       "tags": [
         "казуал",
         "реакция",
         "скорость"
       ],
+      "file": "games/clicker/index.html",
       "controls": "Клик, тап или пробел"
     },
     {
@@ -109,12 +125,12 @@
       "title": "Космозахватчики",
       "emoji": "👾",
       "description": "Отбейте волны пришельцев из лазерной пушки. Рой движется всё быстрее и стреляет в ответ.",
-      "file": "games/invaders/index.html",
       "tags": [
         "аркада",
         "классика",
         "шутер"
       ],
+      "file": "games/invaders/index.html",
       "controls": "Стрелки/A,D, пробел или тап"
     },
     {
@@ -122,11 +138,11 @@
       "title": "Крестики-нолики",
       "emoji": "⭕",
       "description": "Вечная классика против честного ИИ: соберите три крестика раньше, чем нолики.",
-      "file": "games/tictactoe/index.html",
       "tags": [
         "логика",
         "классика"
       ],
+      "file": "games/tictactoe/index.html",
       "controls": "Мышь или Tab+Enter"
     },
     {
@@ -134,12 +150,12 @@
       "title": "Мемори",
       "emoji": "🃏",
       "description": "Найди все пары карт за минимальное число ходов. Игра проверяет память и внимание.",
-      "file": "games/memory/index.html",
       "tags": [
         "логика",
         "память",
         "казуал"
       ],
+      "file": "games/memory/index.html",
       "controls": "Мышь или клавиша Tab"
     },
     {
@@ -147,12 +163,12 @@
       "title": "Пакман",
       "emoji": "🟡",
       "description": "Съешьте все точки в лабиринте, уворачиваясь от привидений. Энерготочки делают охотником вас.",
-      "file": "games/pacman/index.html",
       "tags": [
         "аркада",
         "классика",
         "лабиринт"
       ],
+      "file": "games/pacman/index.html",
       "controls": "Стрелки/WASD или свайпы"
     },
     {
@@ -160,12 +176,12 @@
       "title": "Понг",
       "emoji": "🏓",
       "description": "Прародитель видеоигр: отбивайте мяч ракеткой против ИИ. Матч до 7 очков.",
-      "file": "games/pong/index.html",
       "tags": [
         "аркада",
         "классика",
         "спорт"
       ],
+      "file": "games/pong/index.html",
       "controls": "Мышь, стрелки или палец"
     },
     {
@@ -173,12 +189,12 @@
       "title": "Пятнашки",
       "emoji": "🧩",
       "description": "Соберите числа от 1 до 15 по порядку, двигая костяшки в пустую клетку.",
-      "file": "games/fifteen/index.html",
       "tags": [
         "головоломка",
         "логика",
         "классика"
       ],
+      "file": "games/fifteen/index.html",
       "controls": "Мышь, Tab+Enter или стрелки"
     },
     {
@@ -186,12 +202,12 @@
       "title": "Саймон",
       "emoji": "🎹",
       "description": "Слушайте мелодию из цветных нот и повторяйте без ошибок. Каждый уровень — на ноту длиннее.",
-      "file": "games/simon/index.html",
       "tags": [
         "память",
         "музыка",
         "классика"
       ],
+      "file": "games/simon/index.html",
       "controls": "Мышь, Tab+Enter или клавиши 1–4"
     },
     {
@@ -199,11 +215,11 @@
       "title": "Сапёр",
       "emoji": "💣",
       "description": "Классика жанра: откройте все клетки без мин. Первый клик всегда безопасен, дальше — логика.",
-      "file": "games/saper/index.html",
       "tags": [
         "логика",
         "классика"
       ],
+      "file": "games/saper/index.html",
       "controls": "Мышь, Tab+Enter; флаг — правая кнопка или режим"
     },
     {
@@ -211,12 +227,12 @@
       "title": "Судоку",
       "emoji": "🔢",
       "description": "Заполните сетку 9×9 так, чтобы цифры не повторялись в строках, столбцах и квадратах.",
-      "file": "games/sudoku/index.html",
       "tags": [
         "головоломка",
         "логика",
         "классика"
       ],
+      "file": "games/sudoku/index.html",
       "controls": "Мышь, Tab+Enter или клавиши 1–9"
     },
     {
@@ -224,12 +240,12 @@
       "title": "Тетрис",
       "emoji": "🧱",
       "description": "Легендарная головоломка: собирайте линии из падающих фигур. Скорость растёт с уровнем.",
-      "file": "games/tetris/index.html",
       "tags": [
         "аркада",
         "классика",
         "головоломка"
       ],
+      "file": "games/tetris/index.html",
       "controls": "Стрелки/WASD, свайпы или кнопки"
     },
     {
@@ -237,12 +253,12 @@
       "title": "Ударь крота",
       "emoji": "🐹",
       "description": "Кроты выглядывают из норок меньше чем на секунду — стукните как можно больше за 30 секунд.",
-      "file": "games/whack/index.html",
       "tags": [
         "аркада",
         "реакция",
         "казуал"
       ],
+      "file": "games/whack/index.html",
       "controls": "Мышь, тап или Tab+Enter"
     },
     {
@@ -250,13 +266,61 @@
       "title": "Флэппи",
       "emoji": "🐤",
       "description": "Один тап — один взмах: ведите птичку сквозь трубы. Просто начать, трудно остановиться.",
-      "file": "games/flappy/index.html",
       "tags": [
         "аркада",
         "реакция",
         "казуал"
       ],
+      "file": "games/flappy/index.html",
       "controls": "Пробел, клик или тап"
+    },
+    {
+      "id": "ext-astray",
+      "title": "Astray",
+      "emoji": "🏎️",
+      "description": "Минималистичная 3D-гонка по бесконечному лабиринту. Нужен WebGL. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "гонка",
+        "3d",
+        "мост"
+      ],
+      "url": "https://wwwtyro.github.io/Astray/",
+      "author": "wwwtyro",
+      "license": "Unlicense",
+      "repo": "https://github.com/wwwtyro/Astray",
+      "controls": "Стрелки/WASD"
+    },
+    {
+      "id": "ext-clumsy",
+      "title": "Clumsy Bird",
+      "emoji": "🐤",
+      "description": "Оригинальный клон Flappy Bird на HTML5: ведите птичку сквозь трубы. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "реакция",
+        "мост"
+      ],
+      "url": "https://ellisonleao.github.io/clumsy-bird/",
+      "author": "ellisonleao",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/ellisonleao/clumsy-bird",
+      "controls": "Пробел, клик или тап"
+    },
+    {
+      "id": "ext-trex",
+      "title": "T-Rex Runner",
+      "emoji": "🦖",
+      "description": "Легендарный бегущий динозавр из Chrome: прыгайте через кактусы. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "раннер",
+        "мост"
+      ],
+      "url": "https://wayou.github.io/t-rex-runner/",
+      "author": "wayou",
+      "license": "BSD-3-Clause",
+      "repo": "https://github.com/wayou/t-rex-runner",
+      "controls": "Пробел/↑ — прыжок, ↓ — пригнуться"
     }
   ]
 }

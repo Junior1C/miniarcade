@@ -218,6 +218,21 @@ body {
   font-weight: 600;
 }
 
+.card__meta {
+  margin: var(--space-2) 0 0;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.card__badge {
+  display: inline-block;
+  padding: 0 var(--space-2);
+  border-radius: 999px;
+  background: var(--surface-hover);
+  color: var(--text);
+  font-weight: 700;
+}
+
 .card:hover .card__cta {
   background: var(--accent-hover);
 }
@@ -271,6 +286,12 @@ body {
   margin: 0;
   font-size: 1rem;
   font-weight: 600;
+}
+
+.player__source {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-muted);
 }
 
 .player__frame {

@@ -15,13 +15,40 @@ test('каталог: все игры из catalog.json грузятся без 
     return response.json();
   });
   expect(catalog.games.length).toBeGreaterThanOrEqual(10);
-  for (const game of catalog.games) {
+  // Мосты грузятся с чужих хостингов — их обходит отдельный стаб-тест ниже,
+  // здесь только свои файлы (чужая доступность — не наша ответственность).
+  for (const game of catalog.games.filter((entry) => entry.file)) {
     await page.goto(`/${game.file}`);
     await expect(page).toHaveTitle(/.+/);
     const title = await page.title();
     expect(title.length).toBeGreaterThan(0);
   }
   expect(problems).toEqual([]);
+});
+
+test('мост: внешняя игра открывается в том же sandbox-плеере', async ({ page }) => {
+  await page.route('https://gabrielecirulli.github.io/2048/', (route) =>
+    route.fulfill({
+      contentType: 'text/html',
+      body: '<!doctype html><html><head><title>stub</title></head><body>stub</body></html>',
+    }),
+  );
+  await page.goto('/');
+  const card = page.locator('a[href="#/play/ext-2048"]');
+  await expect(card.locator('.card__badge')).toHaveText('↗ GitHub');
+  await expect(card.locator('.card__meta')).toContainText('Gabriele Cirulli');
+  await expect(card.locator('.card__meta')).toContainText('MIT');
+  await card.click();
+  const dialog = page.locator('#player');
+  await expect(dialog).toBeVisible();
+  const frame = page.locator('#player-frame');
+  await expect(frame).toHaveAttribute('src', 'https://gabrielecirulli.github.io/2048/');
+  const sandbox = await frame.getAttribute('sandbox');
+  expect(sandbox).toContain('allow-scripts');
+  expect(sandbox).not.toContain('allow-same-origin');
+  const source = page.locator('#player-source');
+  await expect(source).toBeVisible();
+  await expect(source).toHaveAttribute('href', 'https://github.com/gabrielecirulli/2048');
 });
 
 test('кликер: пробел даёт очки после старта, счёт — output', async ({ page }) => {
