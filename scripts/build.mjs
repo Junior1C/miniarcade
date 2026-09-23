@@ -173,6 +173,14 @@ async function readGame(gamesDir, folder) {
   }
   if (typeof meta.controls === 'string') game.controls = meta.controls;
   if (sandbox && sandbox.length > 0) game.sandbox = sandbox;
+  // Превью карточки: games/<id>/thumb.webp (генерирует gen-thumbs.mjs,
+  // мосты и игры без превью показывают эмодзи). Проверяется qa-links.
+  try {
+    await stat(path.join(gamesDir, folder, 'thumb.webp'));
+    game.thumb = `games/${folder}/thumb.webp`;
+  } catch {
+    // Превью нет — штатно, карточка покажет эмодзи.
+  }
   return game;
 }
 

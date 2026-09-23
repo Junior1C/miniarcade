@@ -115,6 +115,23 @@ function createCard(game) {
   emoji.setAttribute('aria-hidden', 'true');
   emoji.textContent = game.emoji ?? '🎮';
 
+  // Превью вместо эмодзи, если игра его сгенерировала (gen-thumbs.mjs):
+  // ленивая загрузка, фиксированный аспект против CLS, alt пустой —
+  // название уже есть в заголовке рядом (как aria-hidden у эмодзи).
+  let visual = emoji;
+  if (typeof game.thumb === 'string' && game.thumb) {
+    const shot = document.createElement('img');
+    shot.className = 'card__thumb';
+    shot.src = game.thumb;
+    shot.alt = '';
+    shot.setAttribute('aria-hidden', 'true');
+    shot.loading = 'lazy';
+    shot.decoding = 'async';
+    shot.width = 440;
+    shot.height = 330;
+    visual = shot;
+  }
+
   const title = document.createElement('h3');
   title.className = 'card__title';
   title.textContent = game.title;
@@ -141,9 +158,9 @@ function createCard(game) {
     badge.className = 'card__badge';
     badge.textContent = '↗ GitHub';
     meta.append(badge, ` ${game.author} • ${game.license}`);
-    link.append(ribbon, emoji, title, description, meta, cta);
+    link.append(ribbon, visual, title, description, meta, cta);
   } else {
-    link.append(emoji, title, description, cta);
+    link.append(visual, title, description, cta);
   }
   item.append(link);
   return item;

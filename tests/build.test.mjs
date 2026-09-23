@@ -146,6 +146,15 @@ test('buildCatalog rejects bridge without attribution', async (t) => {
   await assert.rejects(() => buildCatalog(dir), /attribution/);
 });
 
+test('buildCatalog подхватывает thumb.webp в превью карточки', async (t) => {
+  const dir = await makeFixture(t, {
+    demo: { 'meta.json': validMeta, 'index.html': '<!DOCTYPE html>' },
+  });
+  await writeFile(path.join(dir, 'games', 'demo', 'thumb.webp'), 'RIFF-fake', 'utf8');
+  const payload = await buildCatalog(dir);
+  assert.equal(payload.games[0].thumb, 'games/demo/thumb.webp');
+});
+
 test('buildCspMeta emits the shared prod policy', () => {
   const tag = buildCspMeta();
   assert.ok(tag.startsWith('<meta http-equiv="Content-Security-Policy"'));

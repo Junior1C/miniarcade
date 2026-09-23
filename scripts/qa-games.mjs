@@ -4,7 +4,7 @@
 // Ноль зависимостей. FAIL валит `npm run qa`, WARN только шумит.
 //
 // Запуск: node scripts/qa-games.mjs
-import { readdir, readFile } from 'node:fs/promises';
+import { readdir, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -104,7 +104,11 @@ export async function auditGames(rootDir = ROOT) {
     if (typeof meta.controls !== 'string' || !meta.controls.trim()) {
       fails.push(`games/${id}: нет controls (описание управления обязательно)`);
     }
-    let html = null;
+    try {
+      await stat(path.join(gamesDir, id, 'thumb.webp'));
+    } catch {
+      warns.push(`games/${id}: нет thumb.webp — сгенерировать npm run thumbs`);
+    }let html = null;
     try {
       html = await readFile(path.join(gamesDir, id, 'index.html'), 'utf8');
     } catch {

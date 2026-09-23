@@ -236,6 +236,16 @@ body {
   line-height: 1;
 }
 
+/* WebP-превью игры вместо эмодзи: фиксированный аспект 4:3 резервирует
+   место до загрузки (без CLS), cover обрезает лишнее, lazy — в main.js. */
+.card__thumb {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #000;
+}
+
 .card__title {
   margin: var(--space-3) 0 var(--space-1);
   font-size: 1.125rem;

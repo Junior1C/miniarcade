@@ -21,6 +21,11 @@ const BUDGETS = [
 ];
 
 const JS_BUDGET = { dir: 'assets/js', maxBytes: 30 * 1024 };
+// WebP-превью карточек (gen-thumbs.mjs): каждое лёгкое по отдельности,
+// сумма держится с запасом — мосты превью не имеют (эмодзи), рост только
+// от новых своих игр.
+const THUMB_FILE_MAX = 25 * 1024;
+const THUMBS_TOTAL_MAX = 600 * 1024;
 // При >3000 игр каталог перестанет помещаться в разумный бюджет —
 // сигнал к переходу на Worker+KV (см. README § "Масштабирование").
 const CATALOG_COUNT_WARN = 3000;
@@ -53,6 +58,30 @@ const jsBytes = await jsTotal();
   const status = jsBytes > JS_BUDGET.maxBytes ? 'FAIL' : 'ok';
   console.log(`${status.padEnd(4)} ${JS_BUDGET.dir}/*.js — ${jsBytes} bytes total (max ${JS_BUDGET.maxBytes})`);
   if (status === 'FAIL') failed += 1;
+}
+
+{
+  const gamesDir = path.join(ROOT, 'games');
+  const entries = await readdir(gamesDir, { withFileTypes: true });
+  let thumbsTotal = 0;
+  let thumbsCount = 0;
+  for (const entry of entries.filter((e) => e.isDirectory())) {
+    const thumb = path.join(gamesDir, entry.name, 'thumb.webp');
+    try {
+      const size = (await stat(thumb)).size;
+      thumbsTotal += size;
+      thumbsCount += 1;
+      if (size > THUMB_FILE_MAX) {
+        console.error(`FAIL games/${entry.name}/thumb.webp — ${size} bytes (max ${THUMB_FILE_MAX})`);
+        failed += 1;
+      }
+    } catch {
+      // Превью нет (мосты) — штатно.
+    }
+  }
+  const totalStatus = thumbsTotal > THUMBS_TOTAL_MAX ? 'FAIL' : 'ok';
+  console.log(`${totalStatus.padEnd(4)} games/*/thumb.webp — ${thumbsTotal} bytes in ${thumbsCount} file(s) (max ${THUMBS_TOTAL_MAX})`);
+  if (totalStatus === 'FAIL') failed += 1;
 }
 
 {

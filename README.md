@@ -38,6 +38,7 @@ games/
   <id>/
     index.html             — игра (standalone)
     style.css, game.js     — внешние файлы (CSP требует внешних источников)
+    thumb.webp             — превью карточки 440px (генерирует npm run thumbs; у мостов нет)
     meta.json              — метаданные: id, title, emoji, description, tags, …
 scripts/
   build.mjs                — скан games/*/ → data/catalog.json + sitemap.xml + JSON-LD в index.html + CSP meta в index.html/stats.html (валидация)
@@ -50,6 +51,7 @@ playwright.config.mjs      — конфиг e2e (webServer сам поднима
 scripts/new-game.mjs       — скелетер игры (npm run new)
 scripts/smoke.mjs          — проверка живых хостингов (npm run smoke)
 scripts/gen-og.mjs         — генератор превью assets/og.png (npm run og)
+scripts/gen-thumbs.mjs     — WebP-превью игр 440px (npm run thumbs; нужен cwebp)
 robots.txt                 — индексация + ссылка на sitemap
 sitemap.xml                — генерируется build.mjs: корень + stats.html + свои игры (URLы основного хостинга)
 assets/og.png              — превью ссылок (og:image)
@@ -114,6 +116,7 @@ npm run og       # перегенерировать assets/og.png (если ме
 | `assets/css/main.css` | 20 КБ | один CSS на каталог |
 | `index.html` | 35 КБ | оболочка + JSON-LD и frame-src всех игр (на LCP не влияет) |
 | `stats.html` | 35 КБ | витрина статистики: та же CSP meta, без JSON-LD |
+| `games/*/thumb.webp` | 25 КБ/файл, 600 КБ суммарно | WebP-превью карточек (свои игры; мосты — эмодзи) |
 | `assets/og.png` | 100 КБ | превью ссылок |
 
 E2E-дым (`tests/e2e/perf.e2e.mjs`): главная с карточками <8с на CI-раннере,
@@ -159,6 +162,8 @@ SEO без цены рантайма: `npm run build` вшивает в `index.h
    `sandbox` — только токены из белого списка; по умолчанию игре выдаётся `allow-scripts`.
    `order` — необязательный вес сортировки (по умолчанию 0), далее сортировка по названию.
 3. `npm run check` (build + test + budgets) — каталог, sitemap и JSON-LD пересоберутся.
+   Превью карточки: `npm run thumbs` (нужен cwebp; инкрементально, только изменённые игры).
+   После правок визуала игры превью перегенерируйте и коммитьте вместе с игрой.
 4. Коммит и push в `main` — GitHub (основной дистрибутив) обновится первым, остальные хостинги синхронизируются сами. `index.html` с JSON-LD коммитится вместе с игрой — build детерминирован.
 
 Правила для игр (проверяются архитектурой, не ревью):
@@ -217,7 +222,7 @@ Chess.com, TETR.IO), и проприетарные free-to-play без репо�
 
 | Бот | Что ловит | FAIL | WARN |
 |---|---|---|---|
-| `qa-games` | Свои игры: CSP meta, инлайн `<script>/<style>/on*`, сеть (`fetch`/WS…), storage (бросает в sandbox), `alert`, ES-модули, `innerHTML`, `e.key` вместо `e.code`, `controls` в meta | нарушение контракта | realtime-цикл без `visibilitychange` |
+| `qa-games` | Свои игры: CSP meta, инлайн `<script>/<style>/on*`, сеть (`fetch`/WS…), storage (бросает в sandbox), `alert`, ES-модули, `innerHTML`, `e.key` вместо `e.code`, `controls` в meta | нарушение контракта | realtime-цикл без `visibilitychange`, нет `thumb.webp` |
 | `qa-links` | `catalog.json → файлы`, страницы → ассеты, `sitemap → файлы` (чужие URL — FAIL), `robots.txt`, `og.png`/`favicon` | битая внутренняя ссылка | — |
 | `qa-repo` | Сигнатуры секретов, смешанные окончания строк, висячие пробелы, вес игр и `data/stats` | секреты, mixed-EOL, хвосты | CRLF-история, игра >100 КБ |
 | `qa-bridges` | Живость мостов: HTTP-статус, `X-Frame-Options`/`frame-ancestors`-запреты | только с `--strict` | мёртвый/закрытый мост |

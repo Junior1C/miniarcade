@@ -12,7 +12,8 @@
         "классика"
       ],
       "file": "games/2048/index.html",
-      "controls": "Стрелки/WASD или свайпы"
+      "controls": "Стрелки/WASD или свайпы",
+      "thumb": "games/2048/thumb.webp"
     },
     {
       "id": "ext-2048",
@@ -56,7 +57,8 @@
         "классика"
       ],
       "file": "games/connect4/index.html",
-      "controls": "Мышь, Tab+Enter или клавиши 1–7"
+      "controls": "Мышь, Tab+Enter или клавиши 1–7",
+      "thumb": "games/connect4/thumb.webp"
     },
     {
       "id": "breakout",
@@ -69,7 +71,8 @@
         "реакция"
       ],
       "file": "games/breakout/index.html",
-      "controls": "Мышь, стрелки или палец"
+      "controls": "Мышь, стрелки или палец",
+      "thumb": "games/breakout/thumb.webp"
     },
     {
       "id": "asteroids",
@@ -82,7 +85,8 @@
         "шутер"
       ],
       "file": "games/asteroids/index.html",
-      "controls": "Стрелки/WASD + пробел"
+      "controls": "Стрелки/WASD + пробел",
+      "thumb": "games/asteroids/thumb.webp"
     },
     {
       "id": "hangman",
@@ -95,7 +99,8 @@
         "классика"
       ],
       "file": "games/hangman/index.html",
-      "controls": "Мышь или печать букв"
+      "controls": "Мышь или печать букв",
+      "thumb": "games/hangman/thumb.webp"
     },
     {
       "id": "dino",
@@ -108,7 +113,8 @@
         "реакция"
       ],
       "file": "games/dino/index.html",
-      "controls": "Пробел/↑/тап — прыжок, ↓ — пригнуться"
+      "controls": "Пробел/↑/тап — прыжок, ↓ — пригнуться",
+      "thumb": "games/dino/thumb.webp"
     },
     {
       "id": "snake",
@@ -121,7 +127,8 @@
         "canvas"
       ],
       "file": "games/snake/index.html",
-      "controls": "WASD, стрелки, свайпы или кнопки"
+      "controls": "WASD, стрелки, свайпы или кнопки",
+      "thumb": "games/snake/thumb.webp"
     },
     {
       "id": "clicker",
@@ -134,7 +141,8 @@
         "скорость"
       ],
       "file": "games/clicker/index.html",
-      "controls": "Клик, тап или пробел"
+      "controls": "Клик, тап или пробел",
+      "thumb": "games/clicker/thumb.webp"
     },
     {
       "id": "invaders",
@@ -147,7 +155,8 @@
         "шутер"
       ],
       "file": "games/invaders/index.html",
-      "controls": "Стрелки/A,D, пробел или тап"
+      "controls": "Стрелки/A,D, пробел или тап",
+      "thumb": "games/invaders/thumb.webp"
     },
     {
       "id": "tictactoe",
@@ -159,7 +168,8 @@
         "классика"
       ],
       "file": "games/tictactoe/index.html",
-      "controls": "Мышь или Tab+Enter"
+      "controls": "Мышь или Tab+Enter",
+      "thumb": "games/tictactoe/thumb.webp"
     },
     {
       "id": "memory",
@@ -172,7 +182,8 @@
         "казуал"
       ],
       "file": "games/memory/index.html",
-      "controls": "Мышь или клавиша Tab"
+      "controls": "Мышь или клавиша Tab",
+      "thumb": "games/memory/thumb.webp"
     },
     {
       "id": "pacman",
@@ -185,7 +196,8 @@
         "лабиринт"
       ],
       "file": "games/pacman/index.html",
-      "controls": "Стрелки/WASD или свайпы"
+      "controls": "Стрелки/WASD или свайпы",
+      "thumb": "games/pacman/thumb.webp"
     },
     {
       "id": "pong",
@@ -198,7 +210,8 @@
         "спорт"
       ],
       "file": "games/pong/index.html",
-      "controls": "Мышь, стрелки или палец"
+      "controls": "Мышь, стрелки или палец",
+      "thumb": "games/pong/thumb.webp"
     },
     {
       "id": "fifteen",
@@ -211,7 +224,8 @@
         "классика"
       ],
       "file": "games/fifteen/index.html",
-      "controls": "Мышь, Tab+Enter или стрелки"
+      "controls": "Мышь, Tab+Enter или стрелки",
+      "thumb": "games/fifteen/thumb.webp"
     },
     {
       "id": "simon",
@@ -224,7 +238,8 @@
         "классика"
       ],
       "file": "games/simon/index.html",
-      "controls": "Мышь, Tab+Enter или клавиши 1–4"
+      "controls": "Мышь, Tab+Enter или клавиши 1–4",
+      "thumb": "games/simon/thumb.webp"
     },
     {
       "id": "saper",
@@ -236,7 +251,8 @@
         "классика"
       ],
       "file": "games/saper/index.html",
-      "controls": "Мышь, Tab+Enter; флаг — правая кнопка или режим"
+      "controls": "Мышь, Tab+Enter; флаг — правая кнопка или режим",
+      "thumb": "games/saper/thumb.webp"
     },
     {
       "id": "sudoku",
@@ -249,7 +265,8 @@
         "классика"
       ],
       "file": "games/sudoku/index.html",
-      "controls": "Мышь, Tab+Enter или клавиши 1–9"
+      "controls": "Мышь, Tab+Enter или клавиши 1–9",
+      "thumb": "games/sudoku/thumb.webp"
     },
     {
       "id": "tetris",
@@ -262,7 +279,8 @@
         "головоломка"
       ],
       "file": "games/tetris/index.html",
-      "controls": "Стрелки/WASD, свайпы или кнопки"
+      "controls": "Стрелки/WASD, свайпы или кнопки",
+      "thumb": "games/tetris/thumb.webp"
     },
     {
       "id": "whack",
@@ -275,7 +293,8 @@
         "казуал"
       ],
       "file": "games/whack/index.html",
-      "controls": "Мышь, тап или Tab+Enter"
+      "controls": "Мышь, тап или Tab+Enter",
+      "thumb": "games/whack/thumb.webp"
     },
     {
       "id": "flappy",
@@ -288,7 +307,8 @@
         "казуал"
       ],
       "file": "games/flappy/index.html",
-      "controls": "Пробел, клик или тап"
+      "controls": "Пробел, клик или тап",
+      "thumb": "games/flappy/thumb.webp"
     },
     {
       "id": "ext-abgame",

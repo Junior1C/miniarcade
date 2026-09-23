@@ -51,6 +51,9 @@ export async function auditLinks(rootDir = ROOT) {
     if (game.file && !(await exists(rootDir, game.file))) {
       fails.push(`catalog ссылается на ${game.file}, файла нет`);
     }
+    if (game.thumb && !(await exists(rootDir, game.thumb))) {
+      fails.push(`catalog ссылается на превью ${game.thumb}, файла нет`);
+    }
   }
   for (const page of ['index.html', 'stats.html']) {
     let html = null;

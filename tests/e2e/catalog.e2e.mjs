@@ -7,6 +7,16 @@ test('каталог рендерит карточки и статус', async (
   await expect(page.locator('#error-state')).toBeHidden();
 });
 
+test('карточки: свои игры с WebP-превью, мосты с эмодзи', async ({ page }) => {
+  await page.goto('/');
+  const thumbs = page.locator('#games .card__thumb');
+  expect(await thumbs.count()).toBeGreaterThan(0);
+  await expect(thumbs.first()).toHaveAttribute('loading', 'lazy');
+  await expect(thumbs.first()).toHaveAttribute('alt', '');
+  // Мосты превью не имеют — у них остаётся эмодзи.
+  expect(await page.locator('#games .card__emoji').count()).toBeGreaterThan(0);
+});
+
 test('поиск фильтрует каталог', async ({ page }) => {
   await page.goto('/');
   await page.fill('#search', 'пятнашки');
