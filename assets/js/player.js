@@ -27,7 +27,6 @@ export function createPlayer({ dialog, frame, titleEl, emojiEl, closeBtn, onOpen
     if (!dialog.open) {
       dialog.showModal();
     }
-    frame.focus();
     onOpen(game);
   }
 

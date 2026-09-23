@@ -3,6 +3,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 const ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const CANONICAL_BASE = 'https://junior1c.github.io/miniarcade';
 const META_KEYS = new Set([
   'id',
   'title',
@@ -165,6 +166,16 @@ export async function buildCatalog(rootDir) {
   const outDir = path.join(rootDir, 'data');
   await mkdir(outDir, { recursive: true });
   await writeFile(path.join(outDir, 'catalog.json'), `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
+
+  const sitemapLines = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    `  <url><loc>${CANONICAL_BASE}/</loc></url>`,
+    ...games.map((game) => `  <url><loc>${CANONICAL_BASE}/${game.file.replace(/index\.html$/, '')}</loc></url>`),
+    '</urlset>',
+    '',
+  ];
+  await writeFile(path.join(rootDir, 'sitemap.xml'), sitemapLines.join('\n'), 'utf8');
   return payload;
 }
 

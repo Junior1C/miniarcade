@@ -7,11 +7,11 @@
 
 Каталог браузерных HTML5-игр. Статика, ноль runtime-зависимостей, один скрипт сборки каталога.
 
-**Live:**
-- Cloudflare Pages: https://miniarcade.pages.dev/
-- Vercel: https://miniarcades.vercel.app/
-- Netlify: https://miniarcades.netlify.app/
-- GitHub Pages: https://junior1c.github.io/miniarcade/
+**Live (GitHub — основной дистрибутив, остальные — зеркала из того же репозитория):**
+- GitHub Pages (основной): https://junior1c.github.io/miniarcade/
+- Cloudflare Pages (зеркало): https://miniarcade.pages.dev/
+- Netlify (зеркало): https://miniarcades.netlify.app/
+- Vercel (зеркало): https://miniarcades.vercel.app/
 
 ## Структура
 
@@ -36,6 +36,16 @@ scripts/
   package.mjs              — dist/*.zip для itch.io и Netlify Drop
   serve.mjs                — локальный сервер с боевыми заголовками
 tests/                     — node --test, без зависимостей
+tests/e2e/                 — Playwright: смоук каталога (npm run test:e2e)
+playwright.config.mjs      — конфиг e2e (webServer сам поднимает dev-сервер)
+scripts/new-game.mjs       — скелетер игры (npm run new)
+scripts/smoke.mjs          — проверка живых хостингов (npm run smoke)
+scripts/gen-og.mjs         — генератор превью assets/og.png (npm run og)
+robots.txt                 — индексация + ссылка на sitemap
+sitemap.xml                — генерируется build.mjs (URLы основного хостинга)
+assets/og.png              — превью ссылок (og:image)
+.githooks/pre-push         — npm run check перед каждым push
+.github/workflows/         — deploy-cloudflare (build+test), e2e (Playwright), smoke (cron)
 _headers, vercel.json      — security-заголовки для Netlify / Vercel / Cloudflare
 .assetsignore              — что НЕ загружать на Cloudflare (gitignore-синтаксис)
 wrangler.jsonc             — Cloudflare Workers Assets (directory: ".")
@@ -44,19 +54,29 @@ wrangler.jsonc             — Cloudflare Workers Assets (directory: ".")
 
 ## Локальная разработка
 
-Требуется Node.js 20+. Зависимости не нужны (`npm install` можно не выполнять).
+Требуется Node.js 20+. Runtime-зависимостей нет. dev-зависимости нужны только для e2e:
 
 ```bash
-npm run build    # сгенерировать data/catalog.json из games/*/
+npm ci                      # один раз: ставит @playwright/test
+npx playwright install chromium
+git config core.hooksPath .githooks   # один раз: pre-push гоняет npm run check
+```
+
+```bash
+npm run build    # сгенерировать data/catalog.json + sitemap.xml
 npm test         # unit-тесты (node --test)
+npm run test:e2e # Playwright: каталог, поиск, плеер (сам поднимает сервер)
+npm run smoke    # проверить все 4 живых хостинга
+npm run new -- <id> "Название"  # скелетер новой игры
 npm start        # http://localhost:4173 с боевыми security-заголовками
 npm run package  # dist/miniarcade-netlify.zip + dist/<id>-itch.zip
-npm run check    # build + test
+npm run check    # build + test (запускает pre-push hook)
+npm run og       # перегенерировать assets/og.png (если меняется палитра)
 ```
 
 ## Как добавить игру (рассчитано на сотни)
 
-1. Создайте папку `games/<id>/` (id — kebab-case, латиница):
+1. Скелетер: `npm run new -- moya-igra "Моя игра"` — создаст папку из образца (CSP meta, IIFE-каркас, валидный meta.json) и пересоберёт каталог. Либо создайте папку вручную — build валидирует:
    ```
    games/moya-igra/
      index.html   — standalone, CSP meta уже нужен (см. образец)
@@ -81,7 +101,7 @@ npm run check    # build + test
    `sandbox` — только токены из белого списка; по умолчанию игре выдаётся `allow-scripts`.
    `order` — необязательный вес сортировки (по умолчанию 0), далее сортировка по названию.
 3. `npm run build && npm test` — каталог и тесты пересоберутся.
-4. Коммит в `main` — все четыре хостинга задеплоят сами.
+4. Коммит и push в `main` — GitHub (основной дистрибутив) обновится первым, остальные хостинги синхронизируются сами.
 
 Правила для игр (проверяются архитектурой, не ревью):
 
@@ -91,6 +111,8 @@ npm run check    # build + test
 - `e.code` вместо `e.key` для клавиш (раскладка/Caps Lock не ломают управление).
 
 ## Деплой
+
+**GitHub — источник истины**: репозиторий + GitHub Pages (основной дистрибутив). Остальные хостинги — зеркала: тот же push синхронизирует их git-интеграциями. CI на каждый push: build + unit-тесты (Actions), e2e (Playwright); ежедневный cron — smoke-проверка живых сайтов (`scripts/smoke.mjs`: 200, маркеры контента, CSP).
 
 | Хостинг | Механизм | Заголовки |
 |---|---|---|
