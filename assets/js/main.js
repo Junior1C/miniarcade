@@ -129,12 +129,11 @@ function createCard(game) {
   cta.textContent = game.link ? 'Открыть ↗' : 'Играть';
 
   if (isExternal) {
-    // Декоративная перевязь сбоку: смысл для скринридеров уже есть
-    // в текстовой строке meta ниже, поэтому aria-hidden.
+    // Декоративная перевязь сбоку без текста: распределяет визуально
+    // внешние игры; смысл для скринридеров уже есть в строке meta ниже.
     const ribbon = document.createElement('span');
     ribbon.className = 'card__ribbon';
     ribbon.setAttribute('aria-hidden', 'true');
-    ribbon.textContent = 'External';
     const meta = document.createElement('p');
     meta.className = 'card__meta';
     const badge = document.createElement('span');

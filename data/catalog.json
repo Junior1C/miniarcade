@@ -2,20 +2,6 @@
   "version": 1,
   "games": [
     {
-      "id": "ext-1v1lol",
-      "title": "1v1.LOL",
-      "emoji": "🔫",
-      "description": "Стройте и стреляйте: арена-шутер с механикой строительства. Сайт запрещает встраивание — откроется в новой вкладке.",
-      "tags": [
-        "шутер",
-        "pvp",
-        "ссылка"
-      ],
-      "link": "https://1v1.lol/",
-      "source": "1v1.lol",
-      "controls": "WASD + мышь"
-    },
-    {
       "id": "2048",
       "title": "2048",
       "emoji": "🔢",
@@ -750,20 +736,6 @@
       "controls": "Мышь"
     },
     {
-      "id": "ext-chess",
-      "title": "Chess.com — шахматы",
-      "emoji": "👑",
-      "description": "Крупнейший шахматный сайт: партии с людьми и ботами. Сайт запрещает встраивание — откроется в новой вкладке.",
-      "tags": [
-        "шахматы",
-        "pvp",
-        "ссылка"
-      ],
-      "link": "https://www.chess.com/",
-      "source": "Chess.com",
-      "controls": "Мышь"
-    },
-    {
       "id": "ext-itlweichess",
       "title": "Chinese Chess",
       "emoji": "♟️",
@@ -1098,20 +1070,6 @@
       "controls": "Два игрока, хотсит"
     },
     {
-      "id": "ext-gartic",
-      "title": "Gartic.io",
-      "emoji": "🎨",
-      "description": "Рисуйте и угадывайте слова с игроками со всего мира. Сайт запрещает встраивание — откроется в новой вкладке.",
-      "tags": [
-        "рисование",
-        "pvp",
-        "ссылка"
-      ],
-      "link": "https://gartic.io/",
-      "source": "Gartic",
-      "controls": "Мышь + печать"
-    },
-    {
       "id": "ext-gobang",
       "title": "Gobang",
       "emoji": "⚫",
@@ -1416,34 +1374,6 @@
       "controls": "Стрелки"
     },
     {
-      "id": "ext-devil",
-      "title": "Level Devil",
-      "emoji": "😈",
-      "description": "Платформер-ловушка: уровень убивает самыми подлыми способами. Сайт запрещает встраивание — откроется в новой вкладке.",
-      "tags": [
-        "платформер",
-        "хардкор",
-        "ссылка"
-      ],
-      "link": "https://poki.com/en/g/level-devil",
-      "source": "Poki",
-      "controls": "Стрелки/WASD"
-    },
-    {
-      "id": "ext-lichess",
-      "title": "Lichess — шахматы",
-      "emoji": "♞",
-      "description": "Бесплатные шахматы без рекламы: партии, задачи и обучение. Сайт запрещает встраивание — откроется в новой вкладке.",
-      "tags": [
-        "шахматы",
-        "pvp",
-        "ссылка"
-      ],
-      "link": "https://lichess.org/",
-      "source": "lichess.org",
-      "controls": "Мышь"
-    },
-    {
       "id": "ext-lightsout",
       "title": "Lights Out",
       "emoji": "💡",
@@ -1572,20 +1502,6 @@
       "controls": "Мышь"
     },
     {
-      "id": "ext-monkeymart",
-      "title": "Monkey Mart",
-      "emoji": "🐵",
-      "description": "Управляйте обезьяньим супермаркетом: полки, кассы, покупатели. Сайт запрещает встраивание — откроется в новой вкладке.",
-      "tags": [
-        "симулятор",
-        "казуал",
-        "ссылка"
-      ],
-      "link": "https://poki.com/en/g/monkey-mart",
-      "source": "Poki",
-      "controls": "WASD/стрелки"
-    },
-    {
       "id": "ext-montyhall",
       "title": "Monty Hall",
       "emoji": "🚪",
@@ -1600,20 +1516,6 @@
       "license": "MIT",
       "repo": "https://github.com/victorqribeiro/montyhall",
       "controls": "Мышь"
-    },
-    {
-      "id": "ext-motox3m",
-      "title": "Moto X3M",
-      "emoji": "🏍️",
-      "description": "Трюковые мотогонки с переворотами и ловушками. Сайт запрещает встраивание — откроется в новой вкладке.",
-      "tags": [
-        "гонки",
-        "мото",
-        "ссылка"
-      ],
-      "link": "https://poki.com/en/g/moto-x3m",
-      "source": "Poki",
-      "controls": "Стрелки/WASD"
     },
     {
       "id": "ext-nonogram",
@@ -1950,20 +1852,6 @@
       "controls": "Мышь"
     },
     {
-      "id": "ext-slither",
-      "title": "Slither.io",
-      "emoji": "🪱",
-      "description": "Станьте самой длинной змейкой на арене. Сайт запрещает встраивание — откроется в новой вкладке.",
-      "tags": [
-        "mmo",
-        "змейка",
-        "ссылка"
-      ],
-      "link": "https://slither.io/",
-      "source": "Slither.io",
-      "controls": "Мышь"
-    },
-    {
       "id": "ext-smashkarts",
       "title": "Smash Karts",
       "emoji": "🏎️",
@@ -2123,20 +2011,6 @@
       "controls": "Стрелки"
     },
     {
-      "id": "ext-stickman",
-      "title": "Stickman Hook",
-      "emoji": "🪝",
-      "description": "Цепляйтесь крюком и раскачивайтесь до финиша. Сайт запрещает встраивание — откроется в новой вкладке.",
-      "tags": [
-        "аркада",
-        "физика",
-        "ссылка"
-      ],
-      "link": "https://poki.com/en/g/stickman-hook",
-      "source": "Poki",
-      "controls": "Клик/тап (удержание)"
-    },
-    {
       "id": "ext-stockfish",
       "title": "Stockfish Web GUI",
       "emoji": "♟️",
@@ -2151,20 +2025,6 @@
       "license": "AGPL-3.0",
       "repo": "https://github.com/LabinatorSolutions/stockfish-chess-web-gui",
       "controls": "Мышь"
-    },
-    {
-      "id": "ext-subway",
-      "title": "Subway Surfers",
-      "emoji": "🚇",
-      "description": "Убегайте от инспектора по крышам вагонов. Сайт запрещает встраивание — откроется в новой вкладке.",
-      "tags": [
-        "раннер",
-        "аркада",
-        "ссылка"
-      ],
-      "link": "https://poki.com/en/g/subway-surfers",
-      "source": "Poki",
-      "controls": "Стрелки/свайпы"
     },
     {
       "id": "ext-boc-sudoku",
@@ -2213,20 +2073,6 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Tama-Pets",
       "controls": "Мышь"
-    },
-    {
-      "id": "ext-tetrio",
-      "title": "TETR.IO",
-      "emoji": "🟪",
-      "description": "Современный соревновательный тетрис: комбо, мусор, ранкед-матчи. Сайт запрещает встраивание — откроется в новой вкладке.",
-      "tags": [
-        "тетрис",
-        "pvp",
-        "ссылка"
-      ],
-      "link": "https://tetr.io/",
-      "source": "TETR.IO",
-      "controls": "Стрелки, Z/X — поворот"
     },
     {
       "id": "ext-boc-tetris",

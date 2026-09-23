@@ -17,8 +17,18 @@ async function checkHome(host) {
   for (const marker of BODY_MARKERS) {
     if (!text.includes(marker)) throw new Error(`home page is missing marker "${marker}" (stale content?)`);
   }
-  if (host.cspHeader && !response.headers.get('content-security-policy')) {
-    throw new Error('missing Content-Security-Policy header');
+  if (host.cspHeader) {
+    const csp = response.headers.get('content-security-policy');
+    if (!csp) {
+      throw new Error('missing Content-Security-Policy header');
+    }
+    // Распределённость: зеркало обязано разрешать фреймы мостов,
+    // иначе каталог един, а игры на нём не открываются.
+    for (const token of ['frame-src', 'bocaletto-luca.github.io']) {
+      if (!csp.includes(token)) {
+        throw new Error(`CSP header is missing "${token}" (bridge origins out of sync?)`);
+      }
+    }
   }
 }
 
