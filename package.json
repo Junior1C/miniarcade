@@ -14,7 +14,10 @@
     "test": "node --test",
     "test:e2e": "playwright test",
     "budgets": "node scripts/check-budgets.mjs",
-    "check": "npm run build && npm test && npm run budgets",
+    "qa": "node scripts/qa-games.mjs && node scripts/qa-links.mjs && node scripts/qa-repo.mjs",
+    "qa:fix": "node scripts/qa-repo.mjs --fix",
+    "qa:bridges": "node scripts/qa-bridges.mjs",
+    "check": "npm run build && npm test && npm run budgets && npm run qa",
     "smoke": "node scripts/smoke.mjs",
     "og": "node scripts/gen-og.mjs"
   },

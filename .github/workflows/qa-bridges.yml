@@ -1,0 +1,22 @@
+name: QA Bridges
+
+# Еженедельный обход внешних мостов: отвечают ли, разрешают ли встраивание.
+# REPORT-ONLY: аптайм третьих сторон — не наша ответственность
+# (см. README § "Мосты"), воркфлоу не валит CI, только печатает отчёт.
+# Ручной строгий прогон: node scripts/qa-bridges.mjs --strict
+on:
+  schedule:
+    - cron: '41 5 * * 1'
+  workflow_dispatch:
+
+jobs:
+  bridges:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - run: node scripts/qa-bridges.mjs

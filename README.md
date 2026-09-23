@@ -211,6 +211,25 @@ Chess.com, TETR.IO), и проприетарные free-to-play без репо�
   (`page.route`), а не живой сетью. Зато `smoke.mjs` проверяет, что зеркала
   отдают CSP с `frame-src` мостов — иначе каталог един, а игры на нём молчат.
 
+## Стенд QA-ботов
+
+Четыре скрипта без зависимостей — ловят то, что не видят unit/e2e: нарушение контрактов игр, битые внутренние ссылки, секреты в коде, протухшие мосты. FAIL валит `npm run qa` (а значит pre-push и CI), WARN только шумит.
+
+| Бот | Что ловит | FAIL | WARN |
+|---|---|---|---|
+| `qa-games` | Свои игры: CSP meta, инлайн `<script>/<style>/on*`, сеть (`fetch`/WS…), storage (бросает в sandbox), `alert`, ES-модули, `innerHTML`, `e.key` вместо `e.code`, `controls` в meta | нарушение контракта | realtime-цикл без `visibilitychange` |
+| `qa-links` | `catalog.json → файлы`, страницы → ассеты, `sitemap → файлы` (чужие URL — FAIL), `robots.txt`, `og.png`/`favicon` | битая внутренняя ссылка | — |
+| `qa-repo` | Сигнатуры секретов, смешанные окончания строк, висячие пробелы, вес игр и `data/stats` | секреты, mixed-EOL, хвосты | CRLF-история, игра >100 КБ |
+| `qa-bridges` | Живость мостов: HTTP-статус, `X-Frame-Options`/`frame-ancestors`-запреты | только с `--strict` | мёртвый/закрытый мост |
+
+```bash
+npm run qa          # все локальные боты (входит в npm run check, pre-push и CI)
+npm run qa:fix      # безопасный автофикс: только висячие пробелы
+npm run qa:bridges  # живой обход 124 мостов (сеть; в CI — еженедельный cron qa-bridges.yml, report-only)
+```
+
+Исключения документируются кодом, а не молчанием: `hangman` вправе использовать `e.key` (буквенный ввод), `clicker`/`whack` живут без `visibilitychange` (wall-clock на `performance.now` — сворачивание вкладки безопасно). Комментарии-пояснения боты режут перед сканом, оправдания в коде их не обманывают.
+
 ## Деплой
 
 **GitHub — источник истины**: репозиторий + GitHub Pages (основной дистрибутив). Остальные хостинги — зеркала: тот же push синхронизирует их git-интеграциями. CI на каждый push: build + unit-тесты (Actions), e2e (Playwright); ежедневный cron — smoke-проверка живых сайтов (`scripts/smoke.mjs`: 200, маркеры контента, CSP).

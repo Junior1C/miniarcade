@@ -5,6 +5,8 @@ playwright-report/
 .known_hosts
 web_lead_dev_system_prompt.md
 web_gamedev_lead_dev_system_prompt_2026.md
+web_lead_gamedev_unified_system_prompt_2026.md
+/Clipboard_*.png
 *.log
 .DS_Store
 Thumbs.db

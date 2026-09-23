@@ -214,6 +214,7 @@ async function syncFileCsp(filePath, { allowPlaceholder }) {
     // реальные index.html/stats.html проверяет tests/headers.test.mjs.
     return;
   }
+  next = normalizeEol(next, detectEol(html));
   if (next !== html) await writeFile(filePath, next, 'utf8');
 }
 
@@ -224,6 +225,19 @@ async function syncCspMeta(rootDir) {
 
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// Сборка обязана сохранять окончания строк файла: часть файлов репо — CRLF,
+// а вшиваемые блоки мы строим с \n. Без нормализации index.html превращается
+// в mixed-EOL (патч-опасность, шум в диффах) — ловит scripts/qa-repo.mjs.
+function detectEol(html) {
+  const crlf = (html.match(/\r\n/g) || []).length;
+  const lf = (html.match(/(^|[^\r])\n/g) || []).length;
+  return crlf > lf ? '\r\n' : '\n';
+}
+
+function normalizeEol(text, eol) {
+  return text.replace(/\r\n/g, '\n').replace(/\n/g, eol);
 }
 
 // Структурированные данные для поисковиков (schema.org): ноль runtime-цены,
@@ -269,9 +283,11 @@ async function injectLdJson(rootDir, games) {
   if (!html.includes(LD_START) || !html.includes(LD_END)) {
     throw new Error('index.html is missing LD-JSON markers (<!-- LD-JSON-START --> / <!-- LD-JSON-END -->)');
   }
-  const block = `${LD_START}\n  <script type="application/ld+json">${buildLdJson(games)}</script>\n${LD_END}`;
+  const eol = detectEol(html);
+  const block = `${LD_START}${eol}  <script type="application/ld+json">${buildLdJson(games)}</script>${eol}${LD_END}`;
   const pattern = new RegExp(`${escapeRegExp(LD_START)}[\\s\\S]*?${escapeRegExp(LD_END)}`);
-  await writeFile(indexPath, html.replace(pattern, () => block), 'utf8');
+  const next = normalizeEol(html.replace(pattern, () => block), eol);
+  if (next !== html) await writeFile(indexPath, next, 'utf8');
 }
 
 export async function buildCatalog(rootDir) {
