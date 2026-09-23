@@ -94,13 +94,13 @@ npm run check    # build + test
 
 | Хостинг | Механизм | Заголовки |
 |---|---|---|
-| Cloudflare Pages / Workers | GH Actions `deploy-cloudflare.yml` (build → test → wrangler) | `_headers` |
+| Cloudflare Pages | Git-интеграция CF (автодеплой из репо); Actions: build + test, шаг wrangler — при наличии секрета `CLOUDFLARE_API_TOKEN` | `_headers` |
 | Netlify | git-integration или Drop `dist/miniarcade-netlify.zip` | `_headers` |
 | Vercel | git-integration | `vercel.json` |
 | GitHub Pages | git-integration | только CSP `<meta>` (Pages не умеет custom headers) |
 | itch.io | `dist/<id>-itch.zip` для каждой игры | — |
 
-`data/catalog.json` закоммичен, поэтому хостинги без build-шага работают сразу. После изменения игр перегенерируйте его (`npm run build`) и коммитьте вместе с игрой — CI пересобирает каталог на деплое в Cloudflare.
+`data/catalog.json` закоммичен, поэтому хостинги без build-шага работают сразу. После изменения игр перегенерируйте его (`npm run build`) и коммитьте вместе с игрой — Actions пересобирает и тестирует каталог на каждый push (deploy через wrangler включится автоматически, как только в Secrets репозитория появится `CLOUDFLARE_API_TOKEN`).
 
 ## Безопасность (слой защиты)
 
