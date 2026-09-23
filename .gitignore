@@ -3,6 +3,7 @@ dist/
 .wrangler/
 test-results/
 playwright-report/
+.known_hosts
 web_lead_dev_system_prompt.md
 *.log
 .DS_Store
