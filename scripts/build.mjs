@@ -2,7 +2,7 @@ import { mkdir, readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { SANDBOX_TOKENS } from '../assets/js/sandbox-tokens.js';
-import { FRAME_SRC_ORIGINS } from './security-headers.mjs';
+import { CSP_META, FRAME_SRC_ORIGINS } from './security-headers.mjs';
 
 const ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const CANONICAL_BASE = 'https://junior1c.github.io/miniarcade';
@@ -184,6 +184,44 @@ function compareGames(a, b) {
 const LD_START = '  <!-- LD-JSON-START -->';
 const LD_END = '  <!-- LD-JSON-END -->';
 
+const CSP_PLACEHOLDER = '<!-- CSP-META -->';
+const CSP_META_PATTERN = /<meta http-equiv="Content-Security-Policy" content="[^"]*">/;
+
+// CSP meta-тег для GitHub Pages (там нет HTTP-заголовков):
+// единый источник — scripts/security-headers.mjs (CSP_META —
+// prod-политика без frame-ancestors: в <meta> спека его игнорирует).
+// Никаких копипаст. Идемпотентно: повторный build даёт байт-в-байт тот же файл.
+export function buildCspMeta() {
+  return `<meta http-equiv="Content-Security-Policy" content="${CSP_META}">`;
+}
+
+async function syncFileCsp(filePath, { allowPlaceholder }) {
+  let html;
+  try {
+    html = await readFile(filePath, 'utf8');
+  } catch {
+    // Фикстуры unit-тестов (только games/) — пропускаем.
+    return;
+  }
+  const tag = buildCspMeta();
+  let next = html;
+  if (CSP_META_PATTERN.test(next)) {
+    next = next.replace(CSP_META_PATTERN, () => tag);
+  } else if (allowPlaceholder && next.includes(CSP_PLACEHOLDER)) {
+    next = next.replace(CSP_PLACEHOLDER, () => tag);
+  } else {
+    // Минимальные фикстуры LD-JSON-тестов без CSP — пропускаем:
+    // реальные index.html/stats.html проверяет tests/headers.test.mjs.
+    return;
+  }
+  if (next !== html) await writeFile(filePath, next, 'utf8');
+}
+
+async function syncCspMeta(rootDir) {
+  await syncFileCsp(path.join(rootDir, 'index.html'), { allowPlaceholder: false });
+  await syncFileCsp(path.join(rootDir, 'stats.html'), { allowPlaceholder: true });
+}
+
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -276,6 +314,7 @@ export async function buildCatalog(rootDir) {
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     `  <url><loc>${CANONICAL_BASE}/</loc></url>`,
+    `  <url><loc>${CANONICAL_BASE}/stats.html</loc></url>`,
     // Sitemap — только свои страницы: чужие URL поисковикам не отдаём.
     ...games
       .filter((game) => game.file)
@@ -285,6 +324,7 @@ export async function buildCatalog(rootDir) {
   ];
   await writeFile(path.join(rootDir, 'sitemap.xml'), sitemapLines.join('\n'), 'utf8');
   await injectLdJson(rootDir, games);
+  await syncCspMeta(rootDir);
   return payload;
 }
 

@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url';
 import {
   CROSS_ORIGIN_OPENER_POLICY,
   CSP_CORE,
+  CSP_META,
   CSP_PROD,
   FRAME_SRC_ORIGINS,
   PERMISSIONS_POLICY,
@@ -128,4 +129,36 @@ test('index.html meta CSP carries the bridge origins (GH Pages has no headers)',
   for (const origin of FRAME_SRC_ORIGINS) {
     assert.ok(match[1].includes(origin), `meta CSP must allow framing ${origin}`);
   }
+});
+
+test('stats.html meta CSP matches index.html (same single-page policy)', async () => {
+  const [indexHtml, statsHtml] = await Promise.all([
+    readFile(path.join(ROOT, 'index.html'), 'utf8'),
+    readFile(path.join(ROOT, 'stats.html'), 'utf8'),
+  ]);
+  const pick = (html) => html.match(/<meta http-equiv="Content-Security-Policy" content="([^"]+)">/);
+  const indexMeta = pick(indexHtml);
+  const statsMeta = pick(statsHtml);
+  assert.ok(indexMeta && statsMeta, 'both pages must carry a CSP meta tag');
+  assert.equal(statsMeta[1], indexMeta[1]);
+  assert.equal(statsMeta[1], CSP_META);
+});
+
+test('meta CSP omits frame-ancestors (spec ignores it in <meta>), headers keep it', async () => {
+  assert.ok(!CSP_META.includes('frame-ancestors'), 'meta must not carry frame-ancestors');
+  assert.ok(CSP_META.includes('upgrade-insecure-requests'), 'meta keeps upgrade-insecure-requests');
+  assert.ok(CSP_PROD.includes('frame-ancestors'), 'prod headers keep frame-ancestors');
+  assert.ok(CSP_CORE.includes('frame-ancestors'), 'dev headers keep frame-ancestors');
+  const [headersFile, vercelRaw] = await Promise.all([
+    readFile(path.join(ROOT, '_headers'), 'utf8'),
+    readFile(path.join(ROOT, 'vercel.json'), 'utf8'),
+  ]);
+  const vercelHeaders = Object.fromEntries(
+    JSON.parse(vercelRaw).headers[0].headers.map((entry) => [entry.key, entry.value]),
+  );
+  assert.ok(headersFile.includes('frame-ancestors'), '_headers keep frame-ancestors');
+  assert.ok(
+    vercelHeaders['Content-Security-Policy'].includes('frame-ancestors'),
+    'vercel.json keeps frame-ancestors',
+  );
 });

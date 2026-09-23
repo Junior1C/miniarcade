@@ -44,10 +44,19 @@ async function checkSitemap(host) {
   if (!text.includes('<urlset')) throw new Error('sitemap.xml is not a sitemap');
 }
 
+async function checkStats(host) {
+  const { response, text } = await fetchText(new URL('stats.html', host.url));
+  if (response.status !== 200) throw new Error(`stats.html returned ${response.status}`);
+  for (const marker of ['stats-empty', 'Content-Security-Policy']) {
+    if (!text.includes(marker)) throw new Error(`stats.html is missing marker "${marker}" (stale content?)`);
+  }
+}
+
 const CHECKS = [
   ['home page', checkHome],
   ['robots.txt', checkRobots],
   ['sitemap.xml', checkSitemap],
+  ['stats.html', checkStats],
 ];
 
 const failures = [];

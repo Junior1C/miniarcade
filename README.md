@@ -15,6 +15,7 @@
 
 ```
 index.html                 — оболочка каталога (CSP meta, <dialog>-плеер, JSON-LD от build)
+stats.html                 — витрина аналитики: карточки, бары по дням/играм/хостам (CSP meta от build)
 assets/
   css/main.css             — дизайн-токены + компоненты
   js/
@@ -26,6 +27,7 @@ assets/
     sandbox-tokens.js      — единый allowlist sandbox-токенов (build + player)
     view-transition.js     — same-document View Transitions с фолбэком (main.js)
     stats.js               — beacon аналитики: pv/open/close, без cookies (см. § Аналитика)
+    stats-page.js          — витрина статистики: чистые функции + DOM-рендер (тестируется отдельно)
 data/catalog.json          — генерируется из games/*/meta.json (коммитится)
 data/stats/                — агрегаты аналитики из nightly Action (коммитятся)
 functions/api/hit.js       — приёмник beacon на Cloudflare Pages (POST /api/hit)
@@ -38,7 +40,7 @@ games/
     style.css, game.js     — внешние файлы (CSP требует внешних источников)
     meta.json              — метаданные: id, title, emoji, description, tags, …
 scripts/
-  build.mjs                — скан games/*/ → data/catalog.json + sitemap.xml + JSON-LD в index.html (валидация)
+  build.mjs                — скан games/*/ → data/catalog.json + sitemap.xml + JSON-LD в index.html + CSP meta в index.html/stats.html (валидация)
   serve.mjs                — локальный сервер с боевыми заголовками
   security-headers.mjs     — единый источник CSP/Permissions-Policy (serve, _headers, vercel.json)
   check-budgets.mjs        — perf-бюджеты размеров (npm run budgets)
@@ -49,7 +51,7 @@ scripts/new-game.mjs       — скелетер игры (npm run new)
 scripts/smoke.mjs          — проверка живых хостингов (npm run smoke)
 scripts/gen-og.mjs         — генератор превью assets/og.png (npm run og)
 robots.txt                 — индексация + ссылка на sitemap
-sitemap.xml                — генерируется build.mjs (URLы основного хостинга)
+sitemap.xml                — генерируется build.mjs: корень + stats.html + свои игры (URLы основного хостинга)
 assets/og.png              — превью ссылок (og:image)
 .githooks/pre-push         — npm run check перед каждым push
 .github/workflows/         — deploy-cloudflare (build+test+budgets), e2e (Playwright+budgets), smoke (cron), stats (ночной забор аналитики)
@@ -111,6 +113,7 @@ npm run og       # перегенерировать assets/og.png (если ме
 | `assets/js/*.js` суммарно | 30 КБ | критический путь каталога |
 | `assets/css/main.css` | 20 КБ | один CSS на каталог |
 | `index.html` | 35 КБ | оболочка + JSON-LD и frame-src всех игр (на LCP не влияет) |
+| `stats.html` | 35 КБ | витрина статистики: та же CSP meta, без JSON-LD |
 | `assets/og.png` | 100 КБ | превью ссылок |
 
 E2E-дым (`tests/e2e/perf.e2e.mjs`): главная с карточками <8с на CI-раннере,
@@ -217,7 +220,17 @@ Chess.com, TETR.IO), и проприетарные free-to-play без репо�
 Сквозной учёт визитов и игр со всех зеркал: каталог шлёт beacon на
 `POST https://miniarcade.pages.dev/api/hit` (Pages Function + D1),
 ночной Action (`stats.yml`) забирает агрегаты и коммитит их в
-`data/stats/daily.json` + `data/stats/totals.json`. События:
+`data/stats/daily.json` + `data/stats/totals.json`.
+
+### Где смотреть графики и цифры
+
+| Что | Где |
+|---|---|
+| 📊 Графики (витрина) | `/stats.html` на любом зеркале: карточки итого, визиты по дням, топ игр, разбивка по хостингам. Полоски — DOM-бары через `data-v` (CSP-safe, доступны скринридерам); без данных страница честно показывает пустое состояние |
+| Суммированные данные (навсегда) | `data/stats/daily.json` (по дням) и `data/stats/totals.json` (итоги) в репозитории — обновляет ночной Action; до первого забора лежат пустые плейсхолдеры, витрина честно показывает «данных пока нет» |
+| Сырые события (120 дней) | Cloudflare dashboard → D1 → `miniarcade_stats` → таблица `events` (SQL вручную) |
+
+События:
 
 | Событие | Когда | Поля |
 |---|---|---|
@@ -256,7 +269,7 @@ Chess.com, TETR.IO), и проприетарные free-to-play без репо�
 
 ## Безопасность (слой защиты)
 
-1. **CSP** — `default-src 'none'` везде: каталог и игры грузят только свои файлы с того же origin; игры физически не могут отдать данные наружу. Дублируется в `<meta>` (GitHub Pages) и в `_headers`/`vercel.json` (остальные). Единый источник — `scripts/security-headers.mjs`, рассинхрон ловит `tests/headers.test.mjs`.
+1. **CSP** — `default-src 'none'` везде: каталог и игры грузят только свои файлы с того же origin; игры физически не могут отдать данные наружу. Дублируется в `<meta>` (`index.html` и `stats.html` — ставит `build.mjs` из единого источника; без `frame-ancestors` — спека его в `<meta>` игнорирует, только шумит в консоль) и в `_headers`/`vercel.json` (остальные, там `frame-ancestors` есть и работает). Единый источник — `scripts/security-headers.mjs`, рассинхрон ловит `tests/headers.test.mjs`.
 2. **Заголовки**: `nosniff`, `X-Frame-Options: SAMEORIGIN` + `frame-ancestors 'self'` (каталог нельзя встроить чужому сайту), `Cross-Origin-Opener-Policy: same-origin` (у каталога нет popup/OAuth-флоу, плеер — `<dialog>`), `Referrer-Policy`, `Permissions-Policy` (камера/микрофон/геолокация/payment/usb выключены). `CORP: same-origin` осознанно НЕ ставим — мог бы заблокировать iframe игр в sandbox с opaque origin на части движков.
 3. **Sandbox iframe** — `allow-scripts` без `allow-same-origin`: игры изолированы в opaque origin и не могут трогать каталог, куки и storage. Дополнительные capability только по белому списку в `meta.json`. Единый allowlist — `assets/js/sandbox-tokens.js` (используют и `build.mjs`, и `player.js`); опасные `allow-same-origin/top-navigation/forms` запрещены тестом.
 4. **Ввод** — поиск и данные каталога вставляются только через `textContent`/`createElement` (не `innerHTML`), поэтому XSS через данные невозможен.

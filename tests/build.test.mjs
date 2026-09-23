@@ -1,11 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { buildCatalog } from '../scripts/build.mjs';
+import { buildCatalog, buildCspMeta } from '../scripts/build.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -144,4 +144,43 @@ test('buildCatalog rejects bridge without attribution', async (t) => {
     'ext-demo': { 'meta.json': JSON.stringify(noAuthor) },
   });
   await assert.rejects(() => buildCatalog(dir), /attribution/);
+});
+
+test('buildCspMeta emits the shared prod policy', () => {
+  const tag = buildCspMeta();
+  assert.ok(tag.startsWith('<meta http-equiv="Content-Security-Policy"'));
+  assert.ok(tag.includes('frame-src'));
+  assert.ok(tag.includes('upgrade-insecure-requests'));
+  assert.ok(!tag.includes('frame-ancestors'), 'meta must omit frame-ancestors (spec ignores it)');
+});
+
+test('buildCatalog syncs CSP meta into index.html/stats.html and lists stats in sitemap', async (t) => {
+  const dir = await makeFixture(t, {
+    demo: { 'meta.json': validMeta, 'index.html': '<!DOCTYPE html>' },
+  });
+  await writeFile(
+    path.join(dir, 'index.html'),
+    '<!DOCTYPE html><head><meta http-equiv="Content-Security-Policy" content="old">\n  <!-- LD-JSON-START -->\n  <!-- LD-JSON-END --></head>',
+    'utf8',
+  );
+  await writeFile(
+    path.join(dir, 'stats.html'),
+    '<!DOCTYPE html><head><!-- CSP-META --></head>',
+    'utf8',
+  );
+  await buildCatalog(dir);
+  const [indexHtml, statsHtml, sitemap] = await Promise.all([
+    readFile(path.join(dir, 'index.html'), 'utf8'),
+    readFile(path.join(dir, 'stats.html'), 'utf8'),
+    readFile(path.join(dir, 'sitemap.xml'), 'utf8'),
+  ]);
+  assert.ok(!indexHtml.includes('content="old"'), 'stale CSP meta must be replaced');
+  assert.ok(indexHtml.includes(buildCspMeta()));
+  assert.ok(!statsHtml.includes('CSP-META'), 'placeholder must be replaced');
+  assert.ok(statsHtml.includes(buildCspMeta()));
+  assert.ok(sitemap.includes('/stats.html'), 'sitemap must list the stats vitrine');
+  // Идемпотентность: второй прогон ничего не меняет.
+  await buildCatalog(dir);
+  assert.equal(await readFile(path.join(dir, 'stats.html'), 'utf8'), statsHtml);
+  assert.equal(await readFile(path.join(dir, 'index.html'), 'utf8'), indexHtml);
 });

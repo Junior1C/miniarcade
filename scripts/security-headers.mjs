@@ -102,6 +102,15 @@ export const CSP_CORE = [
 export const CSP_PROD = `${CSP_CORE}; upgrade-insecure-requests`;
 export const CSP_DEV = CSP_CORE;
 
+// CSP для <meta>-тега (GitHub Pages не умеет HTTP-заголовки):
+// та же prod-политика, но БЕЗ frame-ancestors — спека его в <meta>
+// игнорирует, браузер только шумит в консоль («ignored when delivered
+// via a <meta> element»), защиты ноль. В HTTP-заголовках (_headers,
+// vercel.json, serve.mjs) frame-ancestors остаётся и работает.
+export const CSP_META = CSP_PROD.split('; ')
+  .filter((directive) => !directive.startsWith('frame-ancestors'))
+  .join('; ');
+
 export const PERMISSIONS_POLICY =
   'camera=(), microphone=(), geolocation=(), payment=(), usb=()';
 

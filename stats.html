@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self' https://miniarcade.pages.dev; frame-src 'self' about: https://gabrielecirulli.github.io https://wayou.github.io https://ellisonleao.github.io https://wwwtyro.github.io https://iamkun.github.io https://taniarascia.github.io https://flexboxfroggy.com https://cssgridgarden.com https://sandspiel.club https://victorribeiro.com https://muan.co https://demian.ferrei.ro https://duckhuntjs.com https://oldj.net https://milsaware.github.io https://monkeyarms.github.io https://passer-by.com https://gcedo.github.io https://pshenok.github.io https://maxwellito.github.io https://billmei.github.io https://jasonlawrencewong.com https://www.lightsout.ir https://killedbyapixel.github.io https://bocaletto-luca.github.io https://www.mnimi.ir https://spinhook.ir https://ab.muan.co https://vmikhav.github.io https://budnix.github.io https://aerolab.github.io https://patorjk.github.io https://react-rpg.com https://toji.github.io https://binaryify.github.io https://masonicgit.github.io https://flbulgarelli.github.io https://bencoder.github.io https://chriz001.github.io https://silent-lad.github.io https://mateuszsokola.github.io https://selenebun.github.io https://handsomeone.github.io https://sibartlett.github.io https://itlwei.github.io https://clashjs.com https://mrdoob.github.io https://cjlarose.com https://adrianeyre.github.io https://3kh0.github.io https://rfranks.github.io https://ryan-menezes.github.io https://richlewis007.github.io https://omariosouto.github.io https://jdanyow.github.io https://mmenavas.github.io https://ramazancetinkaya.github.io https://yelynn1.github.io https://grimmerk.github.io https://ucfx.github.io https://akicho8.github.io https://nickardson.github.io https://asteinheiser.github.io https://labinatorsolutions.github.io https://berkerol.github.io https://ajlovechina.github.io; object-src 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="MiniArcade — статистика посещений и игр: визиты по дням, топ игр, разбивка по хостингам.">
+  <meta name="theme-color" content="#220d0d">
+  <link rel="canonical" href="https://junior1c.github.io/miniarcade/stats.html">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <title>MiniArcade — статистика</title>
+  <script type="module" src="assets/js/stats-page.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#stats-main">К статистике</a>
+
+  <header class="site-header">
+    <p class="site-header__brand"><a class="site-header__home" href="index.html"><span aria-hidden="true">🎮</span> MiniArcade</a></p>
+    <h1 class="site-header__title">Статистика посещений и игр</h1>
+    <nav class="site-nav" aria-label="Разделы сайта">
+      <a class="site-nav__link" href="index.html">← К каталогу</a>
+    </nav>
+  </header>
+
+  <main class="site-main" id="stats-main">
+    <p id="stats-status" class="results-status" role="status" aria-live="polite">Загрузка статистики…</p>
+
+    <section aria-labelledby="stats-summary-title">
+      <h2 id="stats-summary-title" class="stats-section-title">Итого за 90 дней</h2>
+      <ul id="stats-summary" class="stats-cards"></ul>
+    </section>
+
+    <section aria-labelledby="stats-days-title">
+      <h2 id="stats-days-title" class="stats-section-title">Визиты по дням</h2>
+      <ol id="stats-days" class="stats-bars stats-bars--columns"></ol>
+    </section>
+
+    <section aria-labelledby="stats-games-title">
+      <h2 id="stats-games-title" class="stats-section-title">Топ игр по запускам</h2>
+      <ol id="stats-games" class="stats-bars"></ol>
+    </section>
+
+    <section aria-labelledby="stats-hosts-title">
+      <h2 id="stats-hosts-title" class="stats-section-title">Визиты по хостингам</h2>
+      <ol id="stats-hosts" class="stats-bars"></ol>
+    </section>
+
+    <p id="stats-empty" class="empty-state" hidden>Данных пока нет — статистика появится после первого ночного забора.</p>
+
+    <noscript><p class="empty-state">Для витрины статистики нужен JavaScript; сырые данные лежат в data/stats/.</p></noscript>
+  </main>
+</body>
+</html>

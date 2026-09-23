@@ -13,6 +13,9 @@ const BUDGETS = [
   // масштабируется с каталогом) и frame-src allowlist мостов.
   // На LCP не влияет — hero-картинки нет, критический путь тот же.
   { file: 'index.html', maxBytes: 35 * 1024 },
+  // Витрина статистики: та же CSP meta, что в index.html (от build.mjs),
+  // без JSON-LD — растёт только с allowlist мостов.
+  { file: 'stats.html', maxBytes: 35 * 1024 },
   { file: 'assets/css/main.css', maxBytes: 20 * 1024 },
   { file: 'assets/og.png', maxBytes: 100 * 1024 },
 ];
