@@ -54,6 +54,16 @@ export function createPlayer({ dialog, frame, titleEl, emojiEl, closeBtn, source
   dialog.addEventListener('close', finalize);
   closeBtn.addEventListener('click', close);
 
+  // Игра вправе увести фокус в свой iframe при загрузке (автофокус) —
+  // тогда Esc уходит в игру, а не в диалог, и модалка «не закрывается».
+  // Возвращаем фокус на крестик, пока диалог открыт: по семантике
+  // showModal фокус принадлежит диалогу, в игру пользователь табнет сам.
+  frame.addEventListener('load', () => {
+    if (dialog.open) {
+      closeBtn.focus({ preventScroll: true });
+    }
+  });
+
   return {
     open,
     close,

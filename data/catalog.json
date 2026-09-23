@@ -2,6 +2,20 @@
   "version": 1,
   "games": [
     {
+      "id": "ext-1v1lol",
+      "title": "1v1.LOL",
+      "emoji": "🔫",
+      "description": "Стройте и стреляйте: арена-шутер с механикой строительства. Сайт запрещает встраивание — откроется в новой вкладке.",
+      "tags": [
+        "шутер",
+        "pvp",
+        "ссылка"
+      ],
+      "link": "https://1v1.lol/",
+      "source": "1v1.lol",
+      "controls": "WASD + мышь"
+    },
+    {
       "id": "2048",
       "title": "2048",
       "emoji": "🔢",
@@ -291,6 +305,21 @@
       "controls": "Стрелки/WASD"
     },
     {
+      "id": "ext-basketball",
+      "title": "Basketball Stars",
+      "emoji": "🏀",
+      "description": "Баскетбол один на один: обводите и забивайте сверху. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "спорт",
+        "pvp",
+        "мост"
+      ],
+      "url": "https://basketballstars.io/",
+      "author": "Basketball Stars",
+      "license": "Free to play",
+      "controls": "Мышь или свайпы"
+    },
+    {
       "id": "ext-battleboat",
       "title": "Battleboat",
       "emoji": "🚢",
@@ -305,6 +334,21 @@
       "license": "MIT",
       "repo": "https://github.com/billmei/battleboat",
       "controls": "Мышь"
+    },
+    {
+      "id": "ext-bloxd",
+      "title": "Bloxd.io",
+      "emoji": "⛏️",
+      "description": "Кубическая песочница в браузере: стройте и играйте в мини-режимы. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "песочница",
+        "стройка",
+        "мост"
+      ],
+      "url": "https://bloxd.io/",
+      "author": "Bloxd.io",
+      "license": "Free to play",
+      "controls": "WASD + мышь"
     },
     {
       "id": "ext-breaklock",
@@ -323,6 +367,20 @@
       "controls": "Мышь или Tab+Enter"
     },
     {
+      "id": "ext-chess",
+      "title": "Chess.com — шахматы",
+      "emoji": "👑",
+      "description": "Крупнейший шахматный сайт: партии с людьми и ботами. Сайт запрещает встраивание — откроется в новой вкладке.",
+      "tags": [
+        "шахматы",
+        "pvp",
+        "ссылка"
+      ],
+      "link": "https://www.chess.com/",
+      "source": "Chess.com",
+      "controls": "Мышь"
+    },
+    {
       "id": "ext-clumsy",
       "title": "Clumsy Bird",
       "emoji": "🐤",
@@ -337,6 +395,36 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/ellisonleao/clumsy-bird",
       "controls": "Пробел, клик или тап"
+    },
+    {
+      "id": "ext-diepio",
+      "title": "Diep.io",
+      "emoji": "🎯",
+      "description": "Прокачивайте танк и доминируйте на арене. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "шутер",
+        "pvp",
+        "мост"
+      ],
+      "url": "https://diep.io/",
+      "author": "Diep.io",
+      "license": "Free to play",
+      "controls": "WASD + мышь"
+    },
+    {
+      "id": "ext-drivemad",
+      "title": "Drive Mad",
+      "emoji": "🚗",
+      "description": "Физика и рампы: довезите машину до финиша, не перевернувшись. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "гонки",
+        "физика",
+        "мост"
+      ],
+      "url": "https://www.drivemad.com/",
+      "author": "DriveMad",
+      "license": "Free to play",
+      "controls": "Стрелки/WASD"
     },
     {
       "id": "ext-duckhunt",
@@ -385,6 +473,20 @@
       "license": "MIT",
       "repo": "https://github.com/thomaspark/flexboxfroggy",
       "controls": "Печать CSS-кода"
+    },
+    {
+      "id": "ext-gartic",
+      "title": "Gartic.io",
+      "emoji": "🎨",
+      "description": "Рисуйте и угадывайте слова с игроками со всего мира. Сайт запрещает встраивание — откроется в новой вкладке.",
+      "tags": [
+        "рисование",
+        "pvp",
+        "ссылка"
+      ],
+      "link": "https://gartic.io/",
+      "source": "Gartic",
+      "controls": "Мышь + печать"
     },
     {
       "id": "ext-garden",
@@ -467,6 +569,34 @@
       "controls": "Мышь"
     },
     {
+      "id": "ext-devil",
+      "title": "Level Devil",
+      "emoji": "😈",
+      "description": "Платформер-ловушка: уровень убивает самыми подлыми способами. Сайт запрещает встраивание — откроется в новой вкладке.",
+      "tags": [
+        "платформер",
+        "хардкор",
+        "ссылка"
+      ],
+      "link": "https://poki.com/en/g/level-devil",
+      "source": "Poki",
+      "controls": "Стрелки/WASD"
+    },
+    {
+      "id": "ext-lichess",
+      "title": "Lichess — шахматы",
+      "emoji": "♞",
+      "description": "Бесплатные шахматы без рекламы: партии, задачи и обучение. Сайт запрещает встраивание — откроется в новой вкладке.",
+      "tags": [
+        "шахматы",
+        "pvp",
+        "ссылка"
+      ],
+      "link": "https://lichess.org/",
+      "source": "lichess.org",
+      "controls": "Мышь"
+    },
+    {
       "id": "ext-lightsout",
       "title": "Lights Out",
       "emoji": "💡",
@@ -481,6 +611,34 @@
       "license": "MIT",
       "repo": "https://github.com/sepandhaghighi/lightsout",
       "controls": "Мышь или Tab+Enter"
+    },
+    {
+      "id": "ext-monkeymart",
+      "title": "Monkey Mart",
+      "emoji": "🐵",
+      "description": "Управляйте обезьяньим супермаркетом: полки, кассы, покупатели. Сайт запрещает встраивание — откроется в новой вкладке.",
+      "tags": [
+        "симулятор",
+        "казуал",
+        "ссылка"
+      ],
+      "link": "https://poki.com/en/g/monkey-mart",
+      "source": "Poki",
+      "controls": "WASD/стрелки"
+    },
+    {
+      "id": "ext-motox3m",
+      "title": "Moto X3M",
+      "emoji": "🏍️",
+      "description": "Трюковые мотогонки с переворотами и ловушками. Сайт запрещает встраивание — откроется в новой вкладке.",
+      "tags": [
+        "гонки",
+        "мото",
+        "ссылка"
+      ],
+      "link": "https://poki.com/en/g/moto-x3m",
+      "source": "Poki",
+      "controls": "Стрелки/WASD"
     },
     {
       "id": "ext-nonogram",
@@ -515,6 +673,21 @@
       "controls": "Стрелки/WASD"
     },
     {
+      "id": "ext-penalty",
+      "title": "Penalty Shooters 2",
+      "emoji": "⚽",
+      "description": "Серия пенальти: бейте и ловите мячи на тайминге. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "спорт",
+        "футбол",
+        "мост"
+      ],
+      "url": "https://penaltyshooters2.com/",
+      "author": "Penalty Shooters 2",
+      "license": "Free to play",
+      "controls": "Мышь (тайминг)"
+    },
+    {
       "id": "ext-solitaire",
       "title": "React Solitaire",
       "emoji": "🎴",
@@ -529,6 +702,21 @@
       "license": "MIT",
       "repo": "https://github.com/gcedo/react-solitaire",
       "controls": "Мышь (drag-and-drop)"
+    },
+    {
+      "id": "ext-run3",
+      "title": "Run 3",
+      "emoji": "🏃",
+      "description": "Бегите по туннелю в невесомости: стены становятся полом. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "платформер",
+        "раннер",
+        "мост"
+      ],
+      "url": "https://run3.io/",
+      "author": "Run 3",
+      "license": "Free to play",
+      "controls": "Стрелки/WASD"
     },
     {
       "id": "ext-sand",
@@ -563,6 +751,35 @@
       "controls": "Мышь"
     },
     {
+      "id": "ext-slither",
+      "title": "Slither.io",
+      "emoji": "🪱",
+      "description": "Станьте самой длинной змейкой на арене. Сайт запрещает встраивание — откроется в новой вкладке.",
+      "tags": [
+        "mmo",
+        "змейка",
+        "ссылка"
+      ],
+      "link": "https://slither.io/",
+      "source": "Slither.io",
+      "controls": "Мышь"
+    },
+    {
+      "id": "ext-smashkarts",
+      "title": "Smash Karts",
+      "emoji": "🏎️",
+      "description": "Гонки на картах с бонусами: взрывайте соперников и приходите первым. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "гонки",
+        "pvp",
+        "мост"
+      ],
+      "url": "https://smashkarts.io/",
+      "author": "SmashKarts",
+      "license": "Free to play",
+      "controls": "WASD/стрелки"
+    },
+    {
       "id": "ext-sokoban",
       "title": "Sokoban.js",
       "emoji": "📦",
@@ -579,6 +796,34 @@
       "controls": "Стрелки/WASD"
     },
     {
+      "id": "ext-stickman",
+      "title": "Stickman Hook",
+      "emoji": "🪝",
+      "description": "Цепляйтесь крюком и раскачивайтесь до финиша. Сайт запрещает встраивание — откроется в новой вкладке.",
+      "tags": [
+        "аркада",
+        "физика",
+        "ссылка"
+      ],
+      "link": "https://poki.com/en/g/stickman-hook",
+      "source": "Poki",
+      "controls": "Клик/тап (удержание)"
+    },
+    {
+      "id": "ext-subway",
+      "title": "Subway Surfers",
+      "emoji": "🚇",
+      "description": "Убегайте от инспектора по крышам вагонов. Сайт запрещает встраивание — откроется в новой вкладке.",
+      "tags": [
+        "раннер",
+        "аркада",
+        "ссылка"
+      ],
+      "link": "https://poki.com/en/g/subway-surfers",
+      "source": "Poki",
+      "controls": "Стрелки/свайпы"
+    },
+    {
       "id": "ext-trex",
       "title": "T-Rex Runner",
       "emoji": "🦖",
@@ -593,6 +838,20 @@
       "license": "BSD-3-Clause",
       "repo": "https://github.com/wayou/t-rex-runner",
       "controls": "Пробел/↑ — прыжок, ↓ — пригнуться"
+    },
+    {
+      "id": "ext-tetrio",
+      "title": "TETR.IO",
+      "emoji": "🟪",
+      "description": "Современный соревновательный тетрис: комбо, мусор, ранкед-матчи. Сайт запрещает встраивание — откроется в новой вкладке.",
+      "tags": [
+        "тетрис",
+        "pvp",
+        "ссылка"
+      ],
+      "link": "https://tetr.io/",
+      "source": "TETR.IO",
+      "controls": "Стрелки, Z/X — поворот"
     },
     {
       "id": "ext-tower",
@@ -627,6 +886,21 @@
       "controls": "Стрелки"
     },
     {
+      "id": "ext-vex7",
+      "title": "Vex 7",
+      "emoji": "🤸",
+      "description": "Паркур стикмена: прыжки по стенам, шипы и чекпоинты. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "платформер",
+        "паркур",
+        "мост"
+      ],
+      "url": "https://www.vex7.com/",
+      "author": "Vex",
+      "license": "Free to play",
+      "controls": "WASD/стрелки"
+    },
+    {
       "id": "ext-wordle",
       "title": "Wordled",
       "emoji": "📝",
@@ -641,6 +915,21 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/milsaware/wordled",
       "controls": "Печать букв"
+    },
+    {
+      "id": "ext-worldguessr",
+      "title": "WorldGuessr",
+      "emoji": "🌍",
+      "description": "Угадайте страну по панораме улицы. География-викторина. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "викторина",
+        "география",
+        "мост"
+      ],
+      "url": "https://www.worldguessr.com/",
+      "author": "WorldGuessr",
+      "license": "Free to play",
+      "controls": "Мышь"
     }
   ]
 }

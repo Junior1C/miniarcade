@@ -1,0 +1,11 @@
+{
+  "id": "ext-diepio",
+  "title": "Diep.io",
+  "emoji": "🎯",
+  "description": "Прокачивайте танк и доминируйте на арене. Внешняя игра — код остаётся у автора.",
+  "tags": ["шутер", "pvp", "мост"],
+  "controls": "WASD + мышь",
+  "url": "https://diep.io/",
+  "author": "Diep.io",
+  "license": "Free to play"
+}

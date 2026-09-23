@@ -1,0 +1,11 @@
+{
+  "id": "ext-penalty",
+  "title": "Penalty Shooters 2",
+  "emoji": "⚽",
+  "description": "Серия пенальти: бейте и ловите мячи на тайминге. Внешняя игра — код остаётся у автора.",
+  "tags": ["спорт", "футбол", "мост"],
+  "controls": "Мышь (тайминг)",
+  "url": "https://penaltyshooters2.com/",
+  "author": "Penalty Shooters 2",
+  "license": "Free to play"
+}

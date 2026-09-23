@@ -96,9 +96,18 @@ function describeCount(count) {
 function createCard(game) {
   const item = document.createElement('li');
   const link = document.createElement('a');
-  // Мост: угловая ленточка-перевязь (CSS) + класс-модификатор.
-  link.className = game.url ? 'card card--bridge' : 'card';
-  link.href = playHash(game.id);
+  // External-запись: та же ленточка-перевязь, что у мостов.
+  const isExternal = Boolean(game.url || game.link);
+  link.className = isExternal ? 'card card--bridge' : 'card';
+  if (game.link) {
+    // Сайт не разрешает встраивание — уходим наружу в новой вкладке,
+    // плеер и hash-роутинг не участвуют.
+    link.href = game.link;
+    link.target = '_blank';
+    link.rel = 'noopener';
+  } else {
+    link.href = playHash(game.id);
+  }
 
   const emoji = document.createElement('span');
   emoji.className = 'card__emoji';
@@ -117,21 +126,26 @@ function createCard(game) {
   // код остаётся у автора, мы только ссылаемся.
   const cta = document.createElement('span');
   cta.className = 'card__cta';
-  cta.textContent = 'Играть';
+  cta.textContent = game.link ? 'Открыть ↗' : 'Играть';
 
-  if (game.url) {
+  if (isExternal) {
     // Декоративная перевязь сбоку: смысл для скринридеров уже есть
     // в текстовой строке meta ниже, поэтому aria-hidden.
     const ribbon = document.createElement('span');
     ribbon.className = 'card__ribbon';
     ribbon.setAttribute('aria-hidden', 'true');
-    ribbon.textContent = 'Мост';
+    ribbon.textContent = 'External';
     const meta = document.createElement('p');
     meta.className = 'card__meta';
     const badge = document.createElement('span');
     badge.className = 'card__badge';
-    badge.textContent = '↗ GitHub';
-    meta.append(badge, ` ${game.author} • ${game.license}`);
+    if (game.link) {
+      badge.textContent = '↗ Сайт';
+      meta.append(badge, ` ${game.source}`);
+    } else {
+      badge.textContent = '↗ GitHub';
+      meta.append(badge, ` ${game.author} • ${game.license}`);
+    }
     link.append(ribbon, emoji, title, description, meta, cta);
   } else {
     link.append(emoji, title, description, cta);

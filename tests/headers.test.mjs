@@ -73,6 +73,11 @@ test('COOP same-origin is set everywhere (GH Pages documents the gap)', async ()
 });
 
 test('bridge origins are allowlisted exactly once in both directions', async () => {
+  assert.equal(
+    new Set(FRAME_SRC_ORIGINS).size,
+    FRAME_SRC_ORIGINS.length,
+    'FRAME_SRC_ORIGINS must not contain duplicates',
+  );
   const { readdir } = await import('node:fs/promises');
   const entries = await readdir(path.join(ROOT, 'games'), { withFileTypes: true });
   const bridges = [];

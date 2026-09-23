@@ -20,6 +20,10 @@ const META_KEYS = new Set([
   'author',
   'license',
   'repo',
+  // Внешняя ссылка: сайт запрещает встраивание (X-Frame-Options) —
+  // карточка ведёт наружу в новой вкладке, фрейма и CSP-origin не нужно.
+  'link',
+  'source',
 ]);
 const SANDBOX_ALLOWLIST = new Set(SANDBOX_TOKENS);
 
@@ -72,21 +76,46 @@ function validateBridgeUrl(meta, errors) {
     errors.push(`"url" origin ${parsed.origin} is not in FRAME_SRC_ORIGINS (scripts/security-headers.mjs)`);
     return null;
   }
-  for (const key of ['author', 'license', 'repo']) {
+  for (const key of ['author', 'license']) {
     const value = meta[key];
     if (typeof value !== 'string' || value.trim() === '') {
       errors.push(`"${key}" is required for bridge entries (attribution)`);
     }
   }
-  if (typeof meta.repo === 'string' && meta.repo !== '') {
-    try {
-      const repo = new URL(meta.repo);
-      if (repo.protocol !== 'https:') errors.push('"repo" must be an https URL');
-    } catch {
-      errors.push('"repo" must be an https URL');
+  // repo необязателен: у проприетарных free-to-play игр его нет.
+  // Если есть — только https (ссылка «исходник» в плеере).
+  if (meta.repo !== undefined) {
+    if (typeof meta.repo !== 'string' || meta.repo.trim() === '') {
+      errors.push('"repo" must be a non-empty https URL or omitted');
+    } else {
+      try {
+        const repo = new URL(meta.repo);
+        if (repo.protocol !== 'https:') errors.push('"repo" must be an https URL');
+      } catch {
+        errors.push('"repo" must be an https URL');
+      }
     }
   }
   return meta.url;
+}
+
+function validateOutgoingLink(meta, errors) {
+  if (meta.link === undefined) return null;
+  let parsed = null;
+  try {
+    parsed = new URL(meta.link);
+  } catch {
+    parsed = null;
+  }
+  if (!parsed || parsed.protocol !== 'https:') {
+    errors.push('"link" must be an https URL');
+    return null;
+  }
+  const source = meta.source;
+  if (typeof source !== 'string' || source.trim() === '') {
+    errors.push('"source" is required for outbound link entries (site name)');
+  }
+  return meta.link;
 }
 
 function validateOrder(meta, errors) {
@@ -129,6 +158,10 @@ async function readGame(gamesDir, folder) {
   const sandbox = validateSandbox(meta, errors);
   const order = validateOrder(meta, errors);
   const url = validateBridgeUrl(meta, errors);
+  const link = validateOutgoingLink(meta, errors);
+  if (url && link) {
+    errors.push('only one of "url" (iframe bridge) or "link" (outbound link) is allowed');
+  }
 
   if (typeof meta.controls === 'string') {
     // optional, no validation beyond type
@@ -136,7 +169,7 @@ async function readGame(gamesDir, folder) {
     errors.push('"controls" must be a string');
   }
 
-  if (!url) {
+  if (!url && !link) {
     try {
       await stat(path.join(gamesDir, folder, 'index.html'));
     } catch {
@@ -161,7 +194,11 @@ async function readGame(gamesDir, folder) {
     game.url = url;
     game.author = meta.author;
     game.license = meta.license;
-    game.repo = meta.repo;
+    if (meta.repo !== undefined) game.repo = meta.repo;
+  } else if (link) {
+    // Исходящая ссылка: игра не встраивается — карточка ведёт наружу.
+    game.link = link;
+    game.source = meta.source;
   } else {
     game.file = `games/${folder}/index.html`;
   }
@@ -195,7 +232,7 @@ export function buildLdJson(games) {
       '@type': 'VideoGame',
       name: game.title,
       description: game.description,
-      url: game.url ?? `${CANONICAL_BASE}/${game.file.replace(/index\.html$/, '')}`,
+      url: game.url ?? game.link ?? `${CANONICAL_BASE}/${game.file.replace(/index\.html$/, '')}`,
       applicationCategory: 'Game',
       operatingSystem: 'Web',
       gamePlatform: 'Web browser',

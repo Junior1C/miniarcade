@@ -13,7 +13,7 @@ export async function loadCatalog(url = 'data/catalog.json') {
     if (
       typeof entry.id !== 'string' ||
       typeof entry.title !== 'string' ||
-      (typeof entry.file !== 'string' && typeof entry.url !== 'string')
+      (typeof entry.file !== 'string' && typeof entry.url !== 'string' && typeof entry.link !== 'string')
     ) {
       throw new Error('Catalog contains an invalid game entry');
     }

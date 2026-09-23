@@ -1,0 +1,11 @@
+{
+  "id": "ext-bloxd",
+  "title": "Bloxd.io",
+  "emoji": "⛏️",
+  "description": "Кубическая песочница в браузере: стройте и играйте в мини-режимы. Внешняя игра — код остаётся у автора.",
+  "tags": ["песочница", "стройка", "мост"],
+  "controls": "WASD + мышь",
+  "url": "https://bloxd.io/",
+  "author": "Bloxd.io",
+  "license": "Free to play"
+}

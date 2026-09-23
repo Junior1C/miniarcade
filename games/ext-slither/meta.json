@@ -1,0 +1,10 @@
+{
+  "id": "ext-slither",
+  "title": "Slither.io",
+  "emoji": "🪱",
+  "description": "Станьте самой длинной змейкой на арене. Сайт запрещает встраивание — откроется в новой вкладке.",
+  "tags": ["mmo", "змейка", "ссылка"],
+  "controls": "Мышь",
+  "link": "https://slither.io/",
+  "source": "Slither.io"
+}

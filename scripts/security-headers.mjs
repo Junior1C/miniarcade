@@ -38,6 +38,15 @@ export const FRAME_SRC_ORIGINS = [
   'https://billmei.github.io',
   'https://jasonlawrencewong.com',
   'https://www.lightsout.ir',
+  'https://smashkarts.io',
+  'https://bloxd.io',
+  'https://www.drivemad.com',
+  'https://diep.io',
+  'https://www.worldguessr.com',
+  'https://run3.io',
+  'https://www.vex7.com',
+  'https://basketballstars.io',
+  'https://penaltyshooters2.com',
 ];
 export const CSP_CORE = [
   "default-src 'none'",

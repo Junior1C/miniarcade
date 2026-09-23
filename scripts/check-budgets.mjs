@@ -9,10 +9,10 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 const BUDGETS = [
   { file: 'data/catalog.json', maxBytes: 250 * 1024, warnBytes: 200 * 1024 },
-  // 25 КБ: оболочка лёгкая, рост — за счёт JSON-LD (SEO-разметка всех игр,
+  // 35 КБ: оболочка лёгкая, рост — за счёт JSON-LD (SEO-разметка всех игр,
   // масштабируется с каталогом) и frame-src allowlist мостов.
   // На LCP не влияет — hero-картинки нет, критический путь тот же.
-  { file: 'index.html', maxBytes: 25 * 1024 },
+  { file: 'index.html', maxBytes: 35 * 1024 },
   { file: 'assets/css/main.css', maxBytes: 20 * 1024 },
   { file: 'assets/og.png', maxBytes: 100 * 1024 },
 ];

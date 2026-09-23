@@ -33,6 +33,10 @@ test('каталог доступен с клавиатуры и скринри�
 
 test('плеер — модальный dialog с возвратом фокуса', async ({ page }) => {
   await page.goto('/');
+  // Каталог с пагинацией: отфильтровываем заведомо свою игру,
+  // иначе первой может оказаться внешняя ссылка без плеера.
+  await page.fill('#search', 'мемори');
+  await expect(page.locator('#games .card')).toHaveCount(1);
   const firstCard = page.locator('#games .card').first();
   await expect(firstCard).toBeVisible();
   await firstCard.focus();

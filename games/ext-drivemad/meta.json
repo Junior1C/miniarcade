@@ -1,0 +1,11 @@
+{
+  "id": "ext-drivemad",
+  "title": "Drive Mad",
+  "emoji": "🚗",
+  "description": "Физика и рампы: довезите машину до финиша, не перевернувшись. Внешняя игра — код остаётся у автора.",
+  "tags": ["гонки", "физика", "мост"],
+  "controls": "Стрелки/WASD",
+  "url": "https://www.drivemad.com/",
+  "author": "DriveMad",
+  "license": "Free to play"
+}

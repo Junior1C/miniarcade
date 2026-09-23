@@ -1,0 +1,11 @@
+{
+  "id": "ext-basketball",
+  "title": "Basketball Stars",
+  "emoji": "🏀",
+  "description": "Баскетбол один на один: обводите и забивайте сверху. Внешняя игра — код остаётся у автора.",
+  "tags": ["спорт", "pvp", "мост"],
+  "controls": "Мышь или свайпы",
+  "url": "https://basketballstars.io/",
+  "author": "Basketball Stars",
+  "license": "Free to play"
+}

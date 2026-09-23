@@ -1,0 +1,10 @@
+{
+  "id": "ext-monkeymart",
+  "title": "Monkey Mart",
+  "emoji": "🐵",
+  "description": "Управляйте обезьяньим супермаркетом: полки, кассы, покупатели. Сайт запрещает встраивание — откроется в новой вкладке.",
+  "tags": ["симулятор", "казуал", "ссылка"],
+  "controls": "WASD/стрелки",
+  "link": "https://poki.com/en/g/monkey-mart",
+  "source": "Poki"
+}

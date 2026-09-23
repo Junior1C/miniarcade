@@ -34,8 +34,9 @@ test('мост: внешняя игра открывается в том же sa
     }),
   );
   await page.goto('/');
+  await page.fill('#search', '2048');
   const card = page.locator('a[href="#/play/ext-2048"]');
-  await expect(card.locator('.card__ribbon')).toHaveText('Мост');
+  await expect(card.locator('.card__ribbon')).toHaveText('External');
   await expect(card.locator('.card__ribbon')).toHaveAttribute('aria-hidden', 'true');
   await expect(card.locator('.card__badge')).toHaveText('↗ GitHub');
   await expect(card.locator('.card__meta')).toContainText('Gabriele Cirulli');
@@ -51,6 +52,20 @@ test('мост: внешняя игра открывается в том же sa
   const source = page.locator('#player-source');
   await expect(source).toBeVisible();
   await expect(source).toHaveAttribute('href', 'https://github.com/gabrielecirulli/2048');
+});
+
+test('внешняя ссылка: карточка ведёт наружу, плеер не участвует', async ({ page }) => {
+  await page.goto('/');
+  await page.fill('#search', 'lichess');
+  await expect(page.locator('#games .card')).toHaveCount(1);
+  const card = page.locator('a[href="https://lichess.org/"]');
+  await expect(card).toHaveAttribute('target', '_blank');
+  await expect(card).toHaveAttribute('rel', 'noopener');
+  await expect(card.locator('.card__ribbon')).toHaveText('External');
+  await expect(card.locator('.card__meta')).toContainText('lichess.org');
+  await expect(card.locator('.card__cta')).toHaveText('Открыть ↗');
+  // Плеер для ссылок не открывается — только новая вкладка.
+  await expect(page.locator('#player')).toBeHidden();
 });
 
 test('кликер: пробел даёт очки после старта, счёт — output', async ({ page }) => {

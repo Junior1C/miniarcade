@@ -1,0 +1,10 @@
+{
+  "id": "ext-stickman",
+  "title": "Stickman Hook",
+  "emoji": "🪝",
+  "description": "Цепляйтесь крюком и раскачивайтесь до финиша. Сайт запрещает встраивание — откроется в новой вкладке.",
+  "tags": ["аркада", "физика", "ссылка"],
+  "controls": "Клик/тап (удержание)",
+  "link": "https://poki.com/en/g/stickman-hook",
+  "source": "Poki"
+}

@@ -18,6 +18,8 @@ test('поиск фильтрует каталог', async ({ page }) => {
 
 test('плеер открывает игру в sandbox и закрывается по Esc', async ({ page }) => {
   await page.goto('/');
+  await page.fill('#search', 'мемори');
+  await expect(page.locator('#games .card')).toHaveCount(1);
   await page.locator('#games .card').first().click();
   const dialog = page.locator('#player');
   await expect(dialog).toBeVisible();
@@ -32,6 +34,8 @@ test('плеер открывает игру в sandbox и закрываетс�
 
 test('кнопка закрытия плеера работает мышью (invoker + JS-фолбэк)', async ({ page }) => {
   await page.goto('/');
+  await page.fill('#search', 'мемори');
+  await expect(page.locator('#games .card')).toHaveCount(1);
   await page.locator('#games .card').first().click();
   const dialog = page.locator('#player');
   await expect(dialog).toBeVisible();

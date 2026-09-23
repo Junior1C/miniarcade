@@ -12,7 +12,7 @@ export function normalizeQuery(value) {
 export function getHaystack(game) {
   let cached = haystackCache.get(game);
   if (cached === undefined) {
-    cached = [game.title, game.description, ...(game.tags ?? []), ...(game.author ? [game.author] : [])]
+    cached = [game.title, game.description, ...(game.tags ?? []), ...(game.author ? [game.author] : []), ...(game.source ? [game.source] : [])]
       .join('\n')
       .toLocaleLowerCase('ru');
     haystackCache.set(game, cached);
