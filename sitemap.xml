@@ -2,13 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://junior1c.github.io/miniarcade/</loc></url>
   <url><loc>https://junior1c.github.io/miniarcade/games/2048/</loc></url>
+  <url><loc>https://junior1c.github.io/miniarcade/games/connect4/</loc></url>
   <url><loc>https://junior1c.github.io/miniarcade/games/breakout/</loc></url>
+  <url><loc>https://junior1c.github.io/miniarcade/games/asteroids/</loc></url>
+  <url><loc>https://junior1c.github.io/miniarcade/games/hangman/</loc></url>
+  <url><loc>https://junior1c.github.io/miniarcade/games/dino/</loc></url>
   <url><loc>https://junior1c.github.io/miniarcade/games/snake/</loc></url>
   <url><loc>https://junior1c.github.io/miniarcade/games/clicker/</loc></url>
+  <url><loc>https://junior1c.github.io/miniarcade/games/invaders/</loc></url>
   <url><loc>https://junior1c.github.io/miniarcade/games/tictactoe/</loc></url>
   <url><loc>https://junior1c.github.io/miniarcade/games/memory/</loc></url>
+  <url><loc>https://junior1c.github.io/miniarcade/games/pacman/</loc></url>
+  <url><loc>https://junior1c.github.io/miniarcade/games/pong/</loc></url>
+  <url><loc>https://junior1c.github.io/miniarcade/games/fifteen/</loc></url>
   <url><loc>https://junior1c.github.io/miniarcade/games/simon/</loc></url>
   <url><loc>https://junior1c.github.io/miniarcade/games/saper/</loc></url>
+  <url><loc>https://junior1c.github.io/miniarcade/games/sudoku/</loc></url>
   <url><loc>https://junior1c.github.io/miniarcade/games/tetris/</loc></url>
+  <url><loc>https://junior1c.github.io/miniarcade/games/whack/</loc></url>
   <url><loc>https://junior1c.github.io/miniarcade/games/flappy/</loc></url>
 </urlset>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Понг — MiniArcade</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <header class="hud">
+    <h1><span aria-hidden="true">🏓</span> Понг</h1>
+    <p class="hud__score"><output id="score">0 : 0</output> — матч до 7 очков</p>
+  </header>
+
+  <main>
+    <canvas id="board" width="320" height="220" role="img" aria-label="Стол понга"></canvas>
+    <p id="status" class="status" role="status" aria-live="polite">Вы слева. Мышь, стрелки или палец — движение.</p>
+    <button id="start" class="button" type="button">Старт</button>
+    <p class="hint">Угол отбития зависит от места удара о ракетку</p>
+  </main>
+</body>
+</html>

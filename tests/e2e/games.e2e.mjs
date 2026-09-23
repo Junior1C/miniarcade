@@ -179,3 +179,94 @@ test('саймон: старт начинает первый уровень', as
   await expect(page.locator('#level')).toHaveText('1');
   await expect(page.locator('#status')).toContainText(/слушайте|ваш ход/i);
 });
+
+test('дино: пробел начинает забег', async ({ page }) => {
+  await page.goto('/games/dino/');
+  await page.keyboard.press('Space');
+  await expect(page.locator('#status')).toBeEmpty();
+});
+
+test('пакман: стрелка начинает партию', async ({ page }) => {
+  await page.goto('/games/pacman/');
+  await page.keyboard.press('ArrowRight');
+  await expect(page.locator('#status')).toBeEmpty();
+});
+
+test('инвейдеры: старт запускает рой', async ({ page }) => {
+  await page.goto('/games/invaders/');
+  await page.locator('#start').click();
+  await expect(page.locator('#status')).toBeEmpty();
+});
+
+test('астероиды: старт выводит корабль', async ({ page }) => {
+  await page.goto('/games/asteroids/');
+  await page.locator('#start').click();
+  await expect(page.locator('#status')).toBeEmpty();
+  await page.keyboard.press('Space');
+});
+
+test('понг: старт начинает матч', async ({ page }) => {
+  await page.goto('/games/pong/');
+  await page.locator('#start').click();
+  await expect(page.locator('#status')).toBeEmpty();
+  await expect(page.locator('#score')).toHaveText('0 : 0');
+});
+
+test('судоку: даны предзаполнены, цифра вводится', async ({ page }) => {
+  await page.goto('/games/sudoku/');
+  await expect(page.locator('#grid .cell')).toHaveCount(81);
+  const givens = await page.locator('#grid .cell.given').count();
+  expect(givens).toBeGreaterThan(20);
+  // Первая не данная клетка + цифра 1 с пада.
+  const target = page.locator('#grid .cell:not(.given)').first();
+  await target.click();
+  await page.locator('#pad .pad__btn').first().click();
+  await expect(target).toHaveText('1');
+});
+
+test('4 в ряд: ход ставится, ИИ отвечает', async ({ page }) => {
+  await page.goto('/games/connect4/');
+  await page.locator('.cols__btn').nth(3).click();
+  await expect(page.locator('#grid .cell.r')).toHaveCount(1);
+  await expect(page.locator('#grid .cell.y')).toHaveCount(1, { timeout: 4000 });
+});
+
+test('виселица: 32 буквы, ход засчитывается', async ({ page }) => {
+  await page.goto('/games/hangman/');
+  await expect(page.locator('#letters .letter')).toHaveCount(32);
+  const wordBefore = await page.locator('#word').textContent();
+  await page.locator('#letters .letter').first().click();
+  await expect
+    .poll(async () => {
+      const word = await page.locator('#word').textContent();
+      const errors = await page.locator('#errors').textContent();
+      return word !== wordBefore || errors !== '0';
+    })
+    .toBe(true);
+});
+
+test('пятнашки: сосед дырки двигается, ходы растут', async ({ page }) => {
+  await page.goto('/games/fifteen/');
+  const moved = await page.evaluate(() => {
+    const cells = [...document.querySelectorAll('#grid .tile')];
+    const hole = cells.findIndex((cell) => cell.classList.contains('hole'));
+    const x = hole % 4;
+    const y = Math.floor(hole / 4);
+    const neighbour = cells[x > 0 ? hole - 1 : hole + 1] ?? cells[y > 0 ? hole - 4 : hole + 4];
+    neighbour.click();
+    return document.getElementById('moves').textContent;
+  });
+  expect(moved).toBe('1');
+});
+
+test('ударь крота: старт выпускает кротов, удар даёт очко', async ({ page }) => {
+  await page.goto('/games/whack/');
+  await page.locator('#start').click();
+  await expect(page.locator('#field .hole.up').first()).toBeVisible({ timeout: 4000 });
+  const scored = await page.evaluate(() => {
+    const up = document.querySelector('#field .hole.up');
+    if (up) up.click();
+    return document.getElementById('score').textContent;
+  });
+  expect(scored).toBe('1');
+});

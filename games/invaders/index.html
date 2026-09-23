@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Космозахватчики — MiniArcade</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <header class="hud">
+    <h1><span aria-hidden="true">👾</span> Космозахватчики</h1>
+    <p class="hud__score">Счёт: <output id="score">0</output> • Рекорд сессии: <output id="best">0</output></p>
+  </header>
+
+  <main>
+    <canvas id="board" width="300" height="360" role="img" aria-label="Рой захватчиков над пушкой"></canvas>
+    <p id="status" class="status" role="status" aria-live="polite">Стрелки — движение, пробел/тап — огонь.</p>
+    <button id="start" class="button" type="button">Старт</button>
+    <p class="hint">Рой ускоряется с каждой волной. Не дайте им спуститься</p>
+  </main>
+</body>
+</html>

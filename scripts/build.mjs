@@ -134,6 +134,7 @@ function escapeRegExp(value) {
 
 // Структурированные данные для поисковиков (schema.org): ноль runtime-цены,
 // только SEO. application/ld+json — data-блок, CSP script-src его не режет.
+// Компактная форма (без отступов): блок растёт с числом игр, байты в бюджете.
 // Детерминировано: только данные каталога, без дат — повторный build
 // даёт байт-в-байт тот же index.html.
 export function buildLdJson(games) {
@@ -150,16 +151,12 @@ export function buildLdJson(games) {
       gamePlatform: 'Web browser',
     },
   }));
-  return JSON.stringify(
-    {
-      '@context': 'https://schema.org',
-      '@type': 'ItemList',
-      name: 'MiniArcade — каталог HTML5-игр',
-      itemListElement,
-    },
-    null,
-    2,
-  );
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'MiniArcade — каталог HTML5-игр',
+    itemListElement,
+  });
 }
 
 async function injectLdJson(rootDir, games) {
@@ -175,11 +172,7 @@ async function injectLdJson(rootDir, games) {
   if (!html.includes(LD_START) || !html.includes(LD_END)) {
     throw new Error('index.html is missing LD-JSON markers (<!-- LD-JSON-START --> / <!-- LD-JSON-END -->)');
   }
-  const indented = buildLdJson(games)
-    .split('\n')
-    .map((line) => `  ${line}`)
-    .join('\n');
-  const block = `${LD_START}\n  <script type="application/ld+json">\n${indented}\n  </script>\n${LD_END}`;
+  const block = `${LD_START}\n  <script type="application/ld+json">${buildLdJson(games)}</script>\n${LD_END}`;
   const pattern = new RegExp(`${escapeRegExp(LD_START)}[\\s\\S]*?${escapeRegExp(LD_END)}`);
   await writeFile(indexPath, html.replace(pattern, () => block), 'utf8');
 }

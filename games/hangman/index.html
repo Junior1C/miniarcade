@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Виселица — MiniArcade</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <header class="hud">
+    <h1><span aria-hidden="true">🔤</span> Виселица</h1>
+    <p class="hud__score">Победы: <output id="wins">0</output> • Ошибки: <output id="errors">0</output>/6</p>
+  </header>
+
+  <main>
+    <svg id="gallows" viewBox="0 0 120 110" role="img" aria-label="Виселица">
+      <line x1="10" y1="105" x2="70" y2="105" />
+      <line x1="30" y1="105" x2="30" y2="10" />
+      <line x1="30" y1="10" x2="80" y2="10" />
+      <line x1="80" y1="10" x2="80" y2="25" />
+      <circle id="part-head" cx="80" cy="35" r="10" hidden />
+      <line id="part-body" x1="80" y1="45" x2="80" y2="75" hidden />
+      <line id="part-arm-l" x1="80" y1="55" x2="66" y2="65" hidden />
+      <line id="part-arm-r" x1="80" y1="55" x2="94" y2="65" hidden />
+      <line id="part-leg-l" x1="80" y1="75" x2="68" y2="92" hidden />
+      <line id="part-leg-r" x1="80" y1="75" x2="92" y2="92" hidden />
+    </svg>
+    <p id="word" class="word" aria-live="polite"></p>
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+    <div id="letters" class="letters" role="group" aria-label="Буквы алфавита"></div>
+    <button id="restart" class="button" type="button">Новое слово</button>
+    <p class="hint">Угадайте слово по буквам. Можно кликать или печатать с клавиатуры</p>
+  </main>
+</body>
+</html>

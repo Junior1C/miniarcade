@@ -34,8 +34,9 @@ async function makeRoot(t) {
 }
 
 function extractLd(html) {
-  const match = html.match(/<script type="application\/ld\+json">\n([\s\S]*?)\n  <\/script>/);
+  const match = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
   assert.ok(match, 'index.html must contain an ld+json block');
+  assert.ok(!match[1].includes('\n'), 'ld+json block must be compact (byte budget)');
   return JSON.parse(match[1]);
 }
 
