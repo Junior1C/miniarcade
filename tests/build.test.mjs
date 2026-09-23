@@ -145,39 +145,3 @@ test('buildCatalog rejects bridge without attribution', async (t) => {
   });
   await assert.rejects(() => buildCatalog(dir), /attribution/);
 });
-
-const linkMeta = {
-  id: 'ext-link',
-  title: 'Ссылка',
-  emoji: '🔗',
-  description: 'Описание',
-  link: 'https://www.chess.com/',
-  source: 'Chess.com',
-};
-
-test('buildCatalog accepts an outbound link without index.html or CSP origin', async (t) => {
-  const dir = await makeFixture(t, {
-    'ext-link': { 'meta.json': JSON.stringify(linkMeta) },
-  });
-  const payload = await buildCatalog(dir);
-  assert.equal(payload.games.length, 1);
-  assert.equal(payload.games[0].link, linkMeta.link);
-  assert.equal(payload.games[0].source, 'Chess.com');
-  assert.equal('file' in payload.games[0], false);
-  assert.equal('url' in payload.games[0], false);
-});
-
-test('buildCatalog rejects outbound link without source', async (t) => {
-  const { source, ...noSource } = linkMeta;
-  const dir = await makeFixture(t, {
-    'ext-link': { 'meta.json': JSON.stringify(noSource) },
-  });
-  await assert.rejects(() => buildCatalog(dir), /"source"/);
-});
-
-test('buildCatalog rejects entry with both url and link', async (t) => {
-  const dir = await makeFixture(t, {
-    'ext-demo': { 'meta.json': JSON.stringify({ ...bridgeMeta, ...linkMeta, id: 'ext-demo' }) },
-  });
-  await assert.rejects(() => buildCatalog(dir), /only one of "url"/);
-});

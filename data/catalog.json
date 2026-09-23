@@ -530,21 +530,6 @@
       "controls": "Мышь"
     },
     {
-      "id": "ext-basketball",
-      "title": "Basketball Stars",
-      "emoji": "🏀",
-      "description": "Баскетбол один на один: обводите и забивайте сверху. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "спорт",
-        "pvp",
-        "мост"
-      ],
-      "url": "https://basketballstars.io/",
-      "author": "Basketball Stars",
-      "license": "Free to play",
-      "controls": "Мышь или свайпы"
-    },
-    {
       "id": "ext-battleboat",
       "title": "Battleboat",
       "emoji": "🚢",
@@ -591,21 +576,6 @@
       "license": "MIT",
       "repo": "https://github.com/Aerolab/blockrain.js",
       "controls": "Стрелки"
-    },
-    {
-      "id": "ext-bloxd",
-      "title": "Bloxd.io",
-      "emoji": "⛏️",
-      "description": "Кубическая песочница в браузере: стройте и играйте в мини-режимы. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "песочница",
-        "стройка",
-        "мост"
-      ],
-      "url": "https://bloxd.io/",
-      "author": "Bloxd.io",
-      "license": "Free to play",
-      "controls": "WASD + мышь"
     },
     {
       "id": "ext-boc-bomberman",
@@ -880,21 +850,6 @@
       "controls": "Стрелки"
     },
     {
-      "id": "ext-diepio",
-      "title": "Diep.io",
-      "emoji": "🎯",
-      "description": "Прокачивайте танк и доминируйте на арене. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "шутер",
-        "pvp",
-        "мост"
-      ],
-      "url": "https://diep.io/",
-      "author": "Diep.io",
-      "license": "Free to play",
-      "controls": "WASD + мышь"
-    },
-    {
       "id": "ext-boc-domino",
       "title": "Domino",
       "emoji": "🁫",
@@ -909,21 +864,6 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Domino",
       "controls": "Мышь"
-    },
-    {
-      "id": "ext-drivemad",
-      "title": "Drive Mad",
-      "emoji": "🚗",
-      "description": "Физика и рампы: довезите машину до финиша, не перевернувшись. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "гонки",
-        "физика",
-        "мост"
-      ],
-      "url": "https://www.drivemad.com/",
-      "author": "DriveMad",
-      "license": "Free to play",
-      "controls": "Стрелки/WASD"
     },
     {
       "id": "ext-duckhunt",
@@ -1582,21 +1522,6 @@
       "controls": "Стрелки/WASD"
     },
     {
-      "id": "ext-penalty",
-      "title": "Penalty Shooters 2",
-      "emoji": "⚽",
-      "description": "Серия пенальти: бейте и ловите мячи на тайминге. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "спорт",
-        "футбол",
-        "мост"
-      ],
-      "url": "https://penaltyshooters2.com/",
-      "author": "Penalty Shooters 2",
-      "license": "Free to play",
-      "controls": "Мышь (тайминг)"
-    },
-    {
       "id": "ext-boc-pong",
       "title": "Pong (Bocaletto)",
       "emoji": "🏓",
@@ -1741,21 +1666,6 @@
       "controls": "Мышь"
     },
     {
-      "id": "ext-run3",
-      "title": "Run 3",
-      "emoji": "🏃",
-      "description": "Бегите по туннелю в невесомости: стены становятся полом. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "платформер",
-        "раннер",
-        "мост"
-      ],
-      "url": "https://run3.io/",
-      "author": "Run 3",
-      "license": "Free to play",
-      "controls": "Стрелки/WASD"
-    },
-    {
       "id": "ext-sand",
       "title": "Sandspiel",
       "emoji": "⏳",
@@ -1850,21 +1760,6 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Symon-Says",
       "controls": "Мышь"
-    },
-    {
-      "id": "ext-smashkarts",
-      "title": "Smash Karts",
-      "emoji": "🏎️",
-      "description": "Гонки на картах с бонусами: взрывайте соперников и приходите первым. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "гонки",
-        "pvp",
-        "мост"
-      ],
-      "url": "https://smashkarts.io/",
-      "author": "SmashKarts",
-      "license": "Free to play",
-      "controls": "WASD/стрелки"
     },
     {
       "id": "ext-boc-snake",
@@ -2283,21 +2178,6 @@
       "controls": "Наблюдение"
     },
     {
-      "id": "ext-vex7",
-      "title": "Vex 7",
-      "emoji": "🤸",
-      "description": "Паркур стикмена: прыжки по стенам, шипы и чекпоинты. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "платформер",
-        "паркур",
-        "мост"
-      ],
-      "url": "https://www.vex7.com/",
-      "author": "Vex",
-      "license": "Free to play",
-      "controls": "WASD/стрелки"
-    },
-    {
       "id": "ext-vuesolitaire",
       "title": "Vue Solitaire",
       "emoji": "🃏",
@@ -2344,21 +2224,6 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/milsaware/wordled",
       "controls": "Печать букв"
-    },
-    {
-      "id": "ext-worldguessr",
-      "title": "WorldGuessr",
-      "emoji": "🌍",
-      "description": "Угадайте страну по панораме улицы. География-викторина. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "викторина",
-        "география",
-        "мост"
-      ],
-      "url": "https://www.worldguessr.com/",
-      "author": "WorldGuessr",
-      "license": "Free to play",
-      "controls": "Мышь"
     },
     {
       "id": "ext-xx142",

@@ -38,15 +38,6 @@ export const FRAME_SRC_ORIGINS = [
   'https://billmei.github.io',
   'https://jasonlawrencewong.com',
   'https://www.lightsout.ir',
-  'https://smashkarts.io',
-  'https://bloxd.io',
-  'https://www.drivemad.com',
-  'https://diep.io',
-  'https://www.worldguessr.com',
-  'https://run3.io',
-  'https://www.vex7.com',
-  'https://basketballstars.io',
-  'https://penaltyshooters2.com',
   'https://killedbyapixel.github.io',
   'https://bocaletto-luca.github.io',
   'https://www.mnimi.ir',
@@ -91,6 +82,10 @@ export const FRAME_SRC_ORIGINS = [
   'https://berkerol.github.io',
   'https://ajlovechina.github.io',
 ];
+// Приёмник аналитики: один origin на все зеркала (Pages Function
+// живёт на miniarcade.pages.dev и принимает beacon отовсюду).
+// Тест проверяет, что connect-src его содержит во всех трёх носителях.
+export const STATS_ORIGIN = 'https://miniarcade.pages.dev';
 export const CSP_CORE = [
   "default-src 'none'",
   "base-uri 'none'",
@@ -98,7 +93,7 @@ export const CSP_CORE = [
   "script-src 'self'",
   "style-src 'self'",
   "img-src 'self'",
-  "connect-src 'self'",
+  `connect-src 'self' ${STATS_ORIGIN}`,
   `frame-src 'self' about: ${FRAME_SRC_ORIGINS.join(' ')}`,
   "object-src 'none'",
   "frame-ancestors 'self'",

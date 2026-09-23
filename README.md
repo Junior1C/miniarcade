@@ -25,7 +25,13 @@ assets/
     player.js              — <dialog>-плеер, sandbox iframe
     sandbox-tokens.js      — единый allowlist sandbox-токенов (build + player)
     view-transition.js     — same-document View Transitions с фолбэком (main.js)
+    stats.js               — beacon аналитики: pv/open/close, без cookies (см. § Аналитика)
 data/catalog.json          — генерируется из games/*/meta.json (коммитится)
+data/stats/                — агрегаты аналитики из nightly Action (коммитятся)
+functions/api/hit.js       — приёмник beacon на Cloudflare Pages (POST /api/hit)
+stats/
+  hit.mjs                  — чистая логика приёмника (тестируется отдельно)
+  schema.sql               — D1-схема (применяется идемпотентно)
 games/
   <id>/
     index.html             — игра (standalone)
@@ -46,7 +52,7 @@ robots.txt                 — индексация + ссылка на sitemap
 sitemap.xml                — генерируется build.mjs (URLы основного хостинга)
 assets/og.png              — превью ссылок (og:image)
 .githooks/pre-push         — npm run check перед каждым push
-.github/workflows/         — deploy-cloudflare (build+test+budgets), e2e (Playwright+budgets), smoke (cron)
+.github/workflows/         — deploy-cloudflare (build+test+budgets), e2e (Playwright+budgets), smoke (cron), stats (ночной забор аналитики)
 _headers, vercel.json      — security-заголовки для Vercel / Cloudflare
 .assetsignore              — что НЕ загружать на Cloudflare (gitignore-синтаксис)
 wrangler.jsonc             — Cloudflare Workers Assets (directory: ".")
@@ -183,9 +189,8 @@ Cloudflare/Vercel — зеркала из того же коммита), а са
 Политика отбора: только встраиваемые игры (без `X-Frame-Options` /
 `frame-ancestors`-запрета) из GitHub-репозиториев со свободной лицензией —
 ученические, песочницы, рабочие. Сайты, запрещающие встраивание (вроде Poki,
-Chess.com, TETR.IO), в каталог не берём: это были бы не встроенные игры, а
-уводы наружу. Проприетарные free-to-play мосты живут «как есть»: могут
-сломаться без предупреждения — чинятся удалением записи. Чужие URL никогда
+Chess.com, TETR.IO), и проприетарные free-to-play без репозитория в каталог
+не берём: это были бы не встроенные игры, а уводы наружу. Чужие URL никогда
 не попадают в `sitemap.xml`.
 
 Правила моста (проверяются архитектурой, не ревью):
@@ -207,7 +212,41 @@ Chess.com, TETR.IO), в каталог не берём: это были бы н�
 
 **GitHub — источник истины**: репозиторий + GitHub Pages (основной дистрибутив). Остальные хостинги — зеркала: тот же push синхронизирует их git-интеграциями. CI на каждый push: build + unit-тесты (Actions), e2e (Playwright); ежедневный cron — smoke-проверка живых сайтов (`scripts/smoke.mjs`: 200, маркеры контента, CSP).
 
-| Хостинг | Механизм | Заголовки |
+## Аналитика
+
+Сквозной учёт визитов и игр со всех зеркал: каталог шлёт beacon на
+`POST https://miniarcade.pages.dev/api/hit` (Pages Function + D1),
+ночной Action (`stats.yml`) забирает агрегаты и коммитит их в
+`data/stats/daily.json` + `data/stats/totals.json`. События:
+
+| Событие | Когда | Поля |
+|---|---|---|
+| `pv` | загрузка каталога | host |
+| `open` | открыт плеер | host, game |
+| `close` | закрыт плеер | host, game, secs (секунды игры) |
+
+Хостинг определяется по `location.hostname` — так видно, с какого зеркала
+играют. Личностей нет и не будет: без cookies, storage и отпечатков, IP
+не хранится вообще, реферер режется до hostname, страна — только код
+из заголовка CF. Уважаем DNT (и клиентом, и сервером), ботов и headless
+режем, свои e2e в статистику не попадают (localhost молчит без `?stats=1`).
+Сырьё живёт 120 дней, дальше — только агрегаты в git.
+
+Разовая настройка (без неё beacon тихо no-op, сайт работает как раньше):
+
+1. `npx wrangler d1 create miniarcade_stats` — создать базу;
+2. в dashboard Cloudflare Pages-проекта привязать D1 как `STATS_DB`
+   (Settings → Functions → D1 database bindings) — иначе `/api/hit`
+   отвечает 503, что тоже тихо;
+3. проверить: `curl -X POST https://miniarcade.pages.dev/api/hit -d '{"v":1,"event":"pv","host":"test"}'`
+   → ждём 204;
+4. секреты `CLOUDFLARE_API_TOKEN` (+ `CLOUDFLARE_ACCOUNT_ID`) уже
+   используются деплоем — Action статистики переиспользует их; без секрета
+   шаг вежливо пропускается.
+
+Если зеркало Cloudflare работает через Workers Assets, а не Pages, —
+`functions/` игнорируется: тогда тот же `stats/hit.mjs` переносится
+в worker-роут (код чистый, без привязки к Pages).| Хостинг | Механизм | Заголовки |
 |---|---|---|
 | Cloudflare Pages | Git-интеграция CF (автодеплой из репо); Actions: build + test, шаг wrangler — при наличии секрета `CLOUDFLARE_API_TOKEN` | `_headers` |
 | Vercel | git-integration | `vercel.json` |

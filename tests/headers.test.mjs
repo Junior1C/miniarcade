@@ -10,6 +10,7 @@ import {
   CSP_PROD,
   FRAME_SRC_ORIGINS,
   PERMISSIONS_POLICY,
+  STATS_ORIGIN,
   devSecurityHeaders,
   prodSecurityHeaders,
 } from '../scripts/security-headers.mjs';
@@ -56,6 +57,26 @@ test('_headers and vercel.json match the shared prod policy', async () => {
   }
   assert.ok(headersFile.includes(`Permissions-Policy: ${PERMISSIONS_POLICY}`));
   assert.equal(vercelHeaders['Permissions-Policy'], PERMISSIONS_POLICY);
+});
+
+test('stats endpoint is allowed in connect-src on all carriers', async () => {
+  const expected = `connect-src 'self' ${STATS_ORIGIN}`;
+  assert.ok(devSecurityHeaders()['Content-Security-Policy'].includes(expected));
+  const [headersFile, vercelRaw, indexHtml] = await Promise.all([
+    readFile(path.join(ROOT, '_headers'), 'utf8'),
+    readFile(path.join(ROOT, 'vercel.json'), 'utf8'),
+    readFile(path.join(ROOT, 'index.html'), 'utf8'),
+  ]);
+  const vercelHeaders = Object.fromEntries(
+    JSON.parse(vercelRaw).headers[0].headers.map((entry) => [entry.key, entry.value]),
+  );
+  for (const [source, csp] of [
+    ['_headers', headersFile],
+    ['vercel.json', vercelHeaders['Content-Security-Policy']],
+    ['index.html', indexHtml],
+  ]) {
+    assert.ok(csp.includes(expected), `${source} must allow the stats beacon origin`);
+  }
 });
 
 test('COOP same-origin is set everywhere (GH Pages documents the gap)', async () => {

@@ -3,6 +3,7 @@ import { filterGames, normalizeQuery } from './search.js';
 import { pluralizeRu } from './format.js';
 import { createPlayer } from './player.js';
 import { renderWithTransition } from './view-transition.js';
+import { sendStats, statsEnabled } from './stats.js';
 
 const PAGE_SIZE = 24;
 const HASH_PREFIX = '#/play/';
@@ -30,6 +31,8 @@ const state = {
   query: '',
   shown: PAGE_SIZE,
   openedInternally: false,
+  playStart: 0,
+  statsOn: false,
 };
 
 const player = createPlayer({
@@ -41,9 +44,15 @@ const player = createPlayer({
   sourceLink: elements.sourceLink,
   onOpen: (game) => {
     document.title = `${game.title} — ${BASE_TITLE}`;
+    state.playStart = Date.now();
+    if (state.statsOn) sendStats('open', { game: game.id });
   },
   onClose: (id) => {
     document.title = BASE_TITLE;
+    if (state.statsOn && state.playStart) {
+      sendStats('close', { game: id, secs: (Date.now() - state.playStart) / 1000 });
+    }
+    state.playStart = 0;
     const openedInternally = state.openedInternally;
     state.openedInternally = false;
     if (location.hash === playHash(id)) {
@@ -96,18 +105,10 @@ function describeCount(count) {
 function createCard(game) {
   const item = document.createElement('li');
   const link = document.createElement('a');
-  // External-запись: та же ленточка-перевязь, что у мостов.
-  const isExternal = Boolean(game.url || game.link);
+  // Мост: угловая ленточка-перевязь (CSS) + класс-модификатор.
+  const isExternal = Boolean(game.url);
   link.className = isExternal ? 'card card--bridge' : 'card';
-  if (game.link) {
-    // Сайт не разрешает встраивание — уходим наружу в новой вкладке,
-    // плеер и hash-роутинг не участвуют.
-    link.href = game.link;
-    link.target = '_blank';
-    link.rel = 'noopener';
-  } else {
-    link.href = playHash(game.id);
-  }
+  link.href = playHash(game.id);
 
   const emoji = document.createElement('span');
   emoji.className = 'card__emoji';
@@ -126,7 +127,7 @@ function createCard(game) {
   // код остаётся у автора, мы только ссылаемся.
   const cta = document.createElement('span');
   cta.className = 'card__cta';
-  cta.textContent = game.link ? 'Открыть ↗' : 'Играть';
+  cta.textContent = 'Играть';
 
   if (isExternal) {
     // Декоративная перевязь сбоку без текста: распределяет визуально
@@ -138,13 +139,8 @@ function createCard(game) {
     meta.className = 'card__meta';
     const badge = document.createElement('span');
     badge.className = 'card__badge';
-    if (game.link) {
-      badge.textContent = '↗ Сайт';
-      meta.append(badge, ` ${game.source}`);
-    } else {
-      badge.textContent = '↗ GitHub';
-      meta.append(badge, ` ${game.author} • ${game.license}`);
-    }
+    badge.textContent = '↗ GitHub';
+    meta.append(badge, ` ${game.author} • ${game.license}`);
     link.append(ribbon, emoji, title, description, meta, cta);
   } else {
     link.append(emoji, title, description, cta);
@@ -186,6 +182,8 @@ function showError() {
 }
 
 async function init() {
+  state.statsOn = statsEnabled();
+  if (state.statsOn) sendStats('pv');
   try {
     state.games = await loadCatalog();
     elements.error.hidden = true;

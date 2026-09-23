@@ -1,7 +1,38 @@
 import { test, expect } from '@playwright/test';
 
+import { STATS_URL } from '../../assets/js/stats.js';
+
 // Игровые механики P0/P1: управление, счётчики, juice. Плюс страховка:
 // WebAudio-SFX и новые обработчики не должны ронять страницы игр.
+
+test('статистика: pv/open/close уходят на приёмник (стаб, без сети)', async ({ page }) => {
+  const hits = [];
+  await page.route(STATS_URL, async (route) => {
+    const body = route.request().postDataJSON();
+    if (body) hits.push(body);
+    await route.fulfill({ status: 204, body: '' });
+  });
+  await page.goto('/?stats=1');
+  await expect
+    .poll(() => hits.filter((hit) => hit.event === 'pv').length)
+    .toBe(1);
+  await page.fill('#search', 'пятнашки');
+  await expect(page.locator('#games .card')).toHaveCount(1);
+  await page.locator('#games .card').first().evaluate((el) => el.click());
+  await expect(page.locator('#player')).toBeVisible();
+  await expect
+    .poll(() => hits.filter((hit) => hit.event === 'open' && hit.game === 'fifteen').length)
+    .toBe(1);
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#player')).toBeHidden();
+  await expect
+    .poll(() => hits.filter((hit) => hit.event === 'close' && hit.game === 'fifteen').length)
+    .toBe(1);
+  const close = hits.find((hit) => hit.event === 'close');
+  expect(close.v).toBe(1);
+  expect(typeof close.host).toBe('string');
+  expect(close.secs).toBeGreaterThanOrEqual(0);
+});
 
 test('каталог: все игры из catalog.json грузятся без ошибок', async ({ page }) => {
   const problems = [];
@@ -41,7 +72,9 @@ test('мост: внешняя игра открывается в том же sa
   await expect(card.locator('.card__badge')).toHaveText('↗ GitHub');
   await expect(card.locator('.card__meta')).toContainText('Gabriele Cirulli');
   await expect(card.locator('.card__meta')).toContainText('MIT');
-  await card.click();
+  // Детерминированный клик: важен сам факт открытия плеера по hash,
+  // живой клик мыши покрыт тестами каталога/a11y.
+  await card.evaluate((el) => el.click());
   const dialog = page.locator('#player');
   await expect(dialog).toBeVisible();
   const frame = page.locator('#player-frame');
