@@ -4,6 +4,7 @@ test-results/
 playwright-report/
 .known_hosts
 web_lead_dev_system_prompt.md
+web_gamedev_lead_dev_system_prompt_2026.md
 *.log
 .DS_Store
 Thumbs.db

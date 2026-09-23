@@ -18,7 +18,13 @@
   <main>
     <canvas id="board" width="300" height="300" role="img" aria-label="Игровое поле змейки"></canvas>
     <p id="status" class="status" role="status" aria-live="polite"></p>
-    <p class="hint">Управление: WASD или стрелки</p>
+    <div class="pad" role="group" aria-label="Кнопки управления змейкой">
+      <button class="pad__btn pad__btn--up" type="button" data-code="ArrowUp" aria-label="Вверх">▲</button>
+      <button class="pad__btn pad__btn--left" type="button" data-code="ArrowLeft" aria-label="Влево">◀</button>
+      <button class="pad__btn pad__btn--down" type="button" data-code="ArrowDown" aria-label="Вниз">▼</button>
+      <button class="pad__btn pad__btn--right" type="button" data-code="ArrowRight" aria-label="Вправо">▶</button>
+    </div>
+    <p class="hint">Управление: WASD, стрелки, свайпы или кнопки</p>
   </main>
 </body>
 </html>

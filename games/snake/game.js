@@ -5,7 +5,10 @@
   const CELL = 15;
   const COLS = BOARD_SIZE / CELL;
   const STEP_MS = 120;
+  const MIN_STEP_MS = 60;
+  const SPEEDUP_PER_FOOD = 3;
   const MAX_DELTA_MS = 100;
+  const SWIPE_MIN_PX = 24;
 
   const DIRECTIONS = {
     ArrowUp: { x: 0, y: -1 },
@@ -22,6 +25,36 @@
   const context = canvas.getContext('2d');
   const scoreEl = document.getElementById('score');
   const statusEl = document.getElementById('status');
+  const padBtns = [...document.querySelectorAll('.pad__btn')];
+
+  // SFX без ассетов: чистый WebAudio, офлайн и CSP-safe.
+  let audioCtx = null;
+
+  function beep(freq, ms = 80) {
+    try {
+      if (!audioCtx) {
+        const AC = window.AudioContext || window.webkitAudioContext;
+        if (!AC) return;
+        audioCtx = new AC();
+      }
+      if (audioCtx.state === 'suspended') {
+        void audioCtx.resume();
+      }
+      const now = audioCtx.currentTime;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(0.09, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + ms / 1000);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start(now);
+      osc.stop(now + ms / 1000);
+    } catch {
+      // Без звука игра продолжается как раньше.
+    }
+  }
 
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
   canvas.width = BOARD_SIZE * dpr;
@@ -57,11 +90,18 @@
     scoreEl.textContent = '0';
     statusEl.textContent = '';
     placeFood();
+    beep(520, 90);
   }
 
   function endGame() {
     gameState = 'over';
-    statusEl.textContent = `Игра окончена. Счёт: ${score}. Нажмите любую клавишу, чтобы начать заново.`;
+    statusEl.textContent = `Игра окончена. Счёт: ${score}. Нажмите клавишу или кнопку, чтобы начать заново.`;
+    beep(160, 250);
+  }
+
+  // Разгон: каждая еда ускоряет шаг, пол — 60мс. Кривая сложности без левел-дизайна.
+  function stepInterval() {
+    return Math.max(MIN_STEP_MS, STEP_MS - score * SPEEDUP_PER_FOOD);
   }
 
   function step() {
@@ -87,6 +127,7 @@
     if (head.x === food.x && head.y === food.y) {
       score += 1;
       scoreEl.textContent = String(score);
+      beep(600 + Math.min(score, 20) * 15, 70);
       placeFood();
     } else {
       snake.pop();
@@ -100,10 +141,13 @@
     queuedDirection = next;
   }
 
-  function onKeyDown(event) {
-    const turn = DIRECTIONS[event.code];
+  // Единая точка ввода: клавиатура, dpad-кнопки и свайпы идут сюда.
+  function press(code) {
+    const turn = DIRECTIONS[code];
     if (turn) {
-      event.preventDefault();
+      if (gameState === 'paused') {
+        resumeGame();
+      }
       if (gameState !== 'running') {
         startGame();
         queueTurn(turn);
@@ -114,7 +158,30 @@
     }
     if (gameState === 'over') {
       startGame();
+    } else if (gameState === 'paused') {
+      resumeGame();
     }
+  }
+
+  function onKeyDown(event) {
+    if (DIRECTIONS[event.code]) {
+      event.preventDefault();
+    }
+    press(event.code);
+  }
+
+  function pauseGame() {
+    if (gameState !== 'running') return;
+    gameState = 'paused';
+    statusEl.textContent = 'Пауза — нажмите клавишу или кнопку, чтобы продолжить.';
+  }
+
+  function resumeGame() {
+    if (gameState !== 'paused') return;
+    gameState = 'running';
+    statusEl.textContent = '';
+    lastTime = 0;
+    accumulator = 0;
   }
 
   function draw() {
@@ -140,10 +207,11 @@
 
     if (gameState === 'running') {
       accumulator += delta;
-      while (accumulator >= STEP_MS) {
+      const interval = stepInterval();
+      while (accumulator >= interval) {
         if (gameState !== 'running') break;
         step();
-        accumulator -= STEP_MS;
+        accumulator -= interval;
       }
     } else {
       accumulator = 0;
@@ -152,6 +220,49 @@
     draw();
     requestAnimationFrame(frame);
   }
+
+  // Dpad: pointerdown ради latency; preventDefault гасит фокус-скролл и даблтапы.
+  for (const btn of padBtns) {
+    btn.addEventListener('pointerdown', (event) => {
+      event.preventDefault();
+      press(btn.dataset.code);
+    });
+  }
+
+  // Свайпы по полю: мобильный ввод без кнопок.
+  let touchStart = null;
+  canvas.addEventListener(
+    'touchstart',
+    (event) => {
+      const touch = event.changedTouches[0];
+      touchStart = { x: touch.clientX, y: touch.clientY };
+    },
+    { passive: true },
+  );
+  canvas.addEventListener('touchend', (event) => {
+    if (!touchStart) return;
+    const touch = event.changedTouches[0];
+    const dx = touch.clientX - touchStart.x;
+    const dy = touch.clientY - touchStart.y;
+    touchStart = null;
+    if (Math.max(Math.abs(dx), Math.abs(dy)) < SWIPE_MIN_PX) return;
+    press(
+      Math.abs(dx) > Math.abs(dy)
+        ? dx > 0
+          ? 'ArrowRight'
+          : 'ArrowLeft'
+        : dy > 0
+          ? 'ArrowDown'
+          : 'ArrowUp',
+    );
+  });
+
+  // Вкладка скрыта — пауза вместо тихого проигрыша за кадром.
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      pauseGame();
+    }
+  });
 
   document.addEventListener('keydown', onKeyDown);
   startGame();

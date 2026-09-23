@@ -11,6 +11,39 @@
   let firstCard = null;
   let locked = false;
   let matchedPairs = 0;
+  let moves = 0;
+  // Токен партии: протухший setTimeout несовпадения после рестарта
+  // трогает только откреплённые ноды и не разблокирует новое поле раньше времени.
+  let round = 0;
+
+  // SFX без ассетов: чистый WebAudio, офлайн и CSP-safe.
+  let audioCtx = null;
+
+  function beep(freq, ms = 80) {
+    try {
+      if (!audioCtx) {
+        const AC = window.AudioContext || window.webkitAudioContext;
+        if (!AC) return;
+        audioCtx = new AC();
+      }
+      if (audioCtx.state === 'suspended') {
+        void audioCtx.resume();
+      }
+      const now = audioCtx.currentTime;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(0.09, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + ms / 1000);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start(now);
+      osc.stop(now + ms / 1000);
+    } catch {
+      // Без звука игра продолжается как раньше.
+    }
+  }
 
   function shuffle(values) {
     const result = [...values];
@@ -22,7 +55,8 @@
   }
 
   function updateStatus(message) {
-    statusEl.textContent = message ?? `Найдено пар: ${matchedPairs} из ${EMOJIS.length}`;
+    statusEl.textContent =
+      message ?? `Найдено пар: ${matchedPairs} из ${EMOJIS.length} • Ходов: ${moves}`;
   }
 
   function reveal(card) {
@@ -42,8 +76,11 @@
     second.disabled = true;
     matchedPairs += 1;
     firstCard = null;
+    beep(660, 90);
+    setTimeout(() => beep(880, 120), 90);
     if (matchedPairs === EMOJIS.length) {
-      updateStatus('Победа! Все пары найдены.');
+      updateStatus(`Победа за ${moves} ходов! Все пары найдены. 🎉`);
+      setTimeout(() => beep(784, 160), 220);
       return;
     }
     updateStatus();
@@ -51,7 +88,11 @@
 
   function mismatch(first, second) {
     locked = true;
+    const token = round;
+    beep(200, 120);
+    updateStatus();
     setTimeout(() => {
+      if (token !== round) return;
       hide(first);
       hide(second);
       firstCard = null;
@@ -62,11 +103,13 @@
   function onCardClick(card) {
     if (locked || card.disabled || card === firstCard) return;
     reveal(card);
+    beep(520, 60);
     if (!firstCard) {
       firstCard = card;
       return;
     }
     const first = firstCard;
+    moves += 1;
     if (first.dataset.emoji === card.dataset.emoji) {
       match(first, card);
     } else {
@@ -75,9 +118,11 @@
   }
 
   function newGame() {
+    round += 1;
     firstCard = null;
     locked = false;
     matchedPairs = 0;
+    moves = 0;
 
     const deck = shuffle([...EMOJIS, ...EMOJIS]);
     const fragment = document.createDocumentFragment();

@@ -51,6 +51,8 @@ const TEMPLATE_CSS = `body {
   font-family: system-ui, Arial, sans-serif;
   background: #111827;
   color: #f3f4f6;
+  /* Кнопки без 300мс дабл-тап-зума на мобильных. */
+  touch-action: manipulation;
 }
 
 .hud {

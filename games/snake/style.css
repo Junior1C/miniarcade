@@ -47,10 +47,50 @@ canvas {
   display: block;
   width: 300px;
   height: 300px;
+  max-width: 100%;
   background: #111;
   border: 2px solid #22c55e;
   border-radius: 4px;
+  /* Свайпы управляют змейкой — скролл страницы жестом по полю запрещён. */
+  touch-action: none;
 }
+
+.pad {
+  display: grid;
+  grid-template-columns: repeat(3, 56px);
+  grid-template-rows: repeat(2, 48px);
+  grid-template-areas:
+    '. up .'
+    'left down right';
+  gap: 6px;
+  margin-top: 0.5rem;
+}
+
+.pad__btn {
+  border: 0;
+  border-radius: 10px;
+  background: #064e3b;
+  color: #f0fdf4;
+  font: inherit;
+  font-size: 1.25rem;
+  cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.pad__btn:hover {
+  background: #065f46;
+}
+
+.pad__btn:active {
+  background: #047857;
+}
+
+.pad__btn--up { grid-area: up; }
+.pad__btn--left { grid-area: left; }
+.pad__btn--down { grid-area: down; }
+.pad__btn--right { grid-area: right; }
 
 .status {
   min-height: 1.5rem;

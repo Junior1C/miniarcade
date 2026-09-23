@@ -63,7 +63,8 @@ main {
   color: inherit;
   font-size: 1.75rem;
   cursor: pointer;
-  transition: background-color 0.15s ease;
+  touch-action: manipulation;
+  transition: transform 0.15s ease, background-color 0.15s ease, opacity 0.15s ease;
 }
 
 .card:hover:not(:disabled) {
@@ -72,6 +73,7 @@ main {
 
 .card.open {
   background: #fff;
+  transform: scale(1.06);
 }
 
 .card.matched {
@@ -98,5 +100,9 @@ main {
 @media (prefers-reduced-motion: reduce) {
   .card {
     transition: none;
+  }
+
+  .card.open {
+    transform: none;
   }
 }

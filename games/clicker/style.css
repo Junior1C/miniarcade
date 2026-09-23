@@ -44,10 +44,12 @@ main {
 }
 
 .score {
+  display: block;
   margin: 0;
   font-size: 4rem;
   font-weight: 700;
   line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 
 .hit {
@@ -62,10 +64,17 @@ main {
   font-size: 2rem;
   font-weight: 700;
   cursor: pointer;
+  /* Убирает 300мс дабл-тап-зум на мобильных — критично для игры на скорость. */
+  touch-action: manipulation;
+  transition: transform 0.06s ease, background-color 0.15s ease;
 }
 
 .hit:hover:not(:disabled) {
   background: #d97706;
+}
+
+.hit:active:not(:disabled) {
+  transform: scale(0.94);
 }
 
 .hit:disabled {
@@ -105,8 +114,29 @@ main {
   font-variant-numeric: tabular-nums;
 }
 
+.time.urgent {
+  color: #dc2626;
+  font-weight: 700;
+}
+
 .result {
   min-height: 1.5rem;
   margin: 0;
   font-weight: 600;
+}
+
+.best {
+  margin: 0;
+  color: #92400e;
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hit {
+    transition: none;
+  }
+
+  .hit:active:not(:disabled) {
+    transform: none;
+  }
 }
