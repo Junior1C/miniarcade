@@ -2,6 +2,7 @@ import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { devSecurityHeaders } from './security-headers.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PORT = Number(process.env.PORT) || 4173;
@@ -22,14 +23,7 @@ const MIME = {
   '.woff2': 'font/woff2',
 };
 
-const SECURITY_HEADERS = {
-  'Content-Security-Policy':
-    "default-src 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; frame-src 'self' about:; object-src 'none'; frame-ancestors 'self'",
-  'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
-  'Referrer-Policy': 'strict-origin-when-cross-origin',
-  'X-Content-Type-Options': 'nosniff',
-  'X-Frame-Options': 'SAMEORIGIN',
-};
+const SECURITY_HEADERS = devSecurityHeaders();
 
 function send(res, status, body, headers = {}) {
   res.writeHead(status, { 'Cache-Control': 'no-store', ...headers });

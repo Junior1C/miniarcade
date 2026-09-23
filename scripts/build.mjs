@@ -1,6 +1,7 @@
 import { mkdir, readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { SANDBOX_TOKENS } from '../assets/js/sandbox-tokens.js';
 
 const ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const CANONICAL_BASE = 'https://junior1c.github.io/miniarcade';
@@ -14,14 +15,7 @@ const META_KEYS = new Set([
   'sandbox',
   'order',
 ]);
-const SANDBOX_TOKENS = new Set([
-  'allow-downloads',
-  'allow-fullscreen',
-  'allow-modals',
-  'allow-pointer-lock',
-  'allow-popups',
-  'allow-popups-to-escape-sandbox',
-]);
+const SANDBOX_ALLOWLIST = new Set(SANDBOX_TOKENS);
 
 function requireString(meta, key, errors) {
   const value = meta[key];
@@ -48,7 +42,7 @@ function validateSandbox(meta, errors) {
     return null;
   }
   for (const token of meta.sandbox) {
-    if (typeof token !== 'string' || !SANDBOX_TOKENS.has(token)) {
+    if (typeof token !== 'string' || !SANDBOX_ALLOWLIST.has(token)) {
       errors.push(`"sandbox" contains a disallowed token: ${JSON.stringify(token)}`);
       return null;
     }

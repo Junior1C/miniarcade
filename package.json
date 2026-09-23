@@ -13,7 +13,8 @@
     "new": "node scripts/new-game.mjs",
     "test": "node --test",
     "test:e2e": "playwright test",
-    "check": "npm run build && npm test",
+    "budgets": "node scripts/check-budgets.mjs",
+    "check": "npm run build && npm test && npm run budgets",
     "smoke": "node scripts/smoke.mjs",
     "og": "node scripts/gen-og.mjs"
   },

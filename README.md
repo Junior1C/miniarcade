@@ -23,6 +23,7 @@ assets/
     search.js              — чистые функции поиска (тестируются отдельно)
     format.js              — русская плюрализация
     player.js              — <dialog>-плеер, sandbox iframe
+    sandbox-tokens.js      — единый allowlist sandbox-токенов (build + player)
 data/catalog.json          — генерируется из games/*/meta.json (коммитится)
 games/
   <id>/
@@ -32,8 +33,10 @@ games/
 scripts/
   build.mjs                — скан games/*/ → data/catalog.json + sitemap.xml (валидация)
   serve.mjs                — локальный сервер с боевыми заголовками
+  security-headers.mjs     — единый источник CSP/Permissions-Policy (serve, _headers, vercel.json)
+  check-budgets.mjs        — perf-бюджеты размеров (npm run budgets)
 tests/                     — node --test, без зависимостей
-tests/e2e/                 — Playwright: смоук каталога (npm run test:e2e)
+tests/e2e/                 — Playwright: каталог, поиск, плеер, perf, a11y (npm run test:e2e)
 playwright.config.mjs      — конфиг e2e (webServer сам поднимает dev-сервер)
 scripts/new-game.mjs       — скелетер игры (npm run new)
 scripts/smoke.mjs          — проверка живых хостингов (npm run smoke)
@@ -42,7 +45,7 @@ robots.txt                 — индексация + ссылка на sitemap
 sitemap.xml                — генерируется build.mjs (URLы основного хостинга)
 assets/og.png              — превью ссылок (og:image)
 .githooks/pre-push         — npm run check перед каждым push
-.github/workflows/         — deploy-cloudflare (build+test), e2e (Playwright), smoke (cron)
+.github/workflows/         — deploy-cloudflare (build+test+budgets), e2e (Playwright+budgets), smoke (cron)
 _headers, vercel.json      — security-заголовки для Vercel / Cloudflare
 .assetsignore              — что НЕ загружать на Cloudflare (gitignore-синтаксис)
 wrangler.jsonc             — Cloudflare Workers Assets (directory: ".")
@@ -62,13 +65,39 @@ git config core.hooksPath .githooks   # один раз: pre-push гоняет n
 ```bash
 npm run build    # сгенерировать data/catalog.json + sitemap.xml
 npm test         # unit-тесты (node --test)
-npm run test:e2e # Playwright: каталог, поиск, плеер (сам поднимает сервер)
+npm run budgets  # perf-бюджеты размеров (catalog, JS, CSS, HTML, og.png)
+npm run test:e2e # Playwright: каталог, поиск, плеер, perf, a11y (сам поднимает сервер)
 npm run smoke    # проверить все 4 живых хостинга
 npm run new -- <id> "Название"  # скелетер новой игры
 npm start        # http://localhost:4173 с боевыми security-заголовками
-npm run check    # build + test (запускает pre-push hook)
+npm run check    # build + test + budgets (запускает pre-push hook)
 npm run og       # перегенерировать assets/og.png (если меняется палитра)
 ```
+
+## Поддержка платформ
+
+Матрица (явная, без недомолвок): последние 2 версии Chrome / Edge / Firefox / Safari
+на десктопе + актуальный Chrome Android / Safari iOS. Полифиллы не используются
+осознанно: `<dialog>`, `sandbox=opaque-origin`, `CSS grid`, `ES-модули`,
+`toLocaleLowerCase('ru')` поддерживаются всей матрицей. Если нужна более широкая
+поддержка (например, старые WebView) — это отдельное решение с деградацией,
+а не тихая поломка.
+
+## Производительность и бюджеты
+
+Бюджеты проверяются архитектурой, а не обещаниями (`npm run budgets` в pre-push и CI):
+
+| Артефакт | Max | Зачем |
+|---|---|---|
+| `data/catalog.json` | 250 КБ (warn 200 КБ) | поиск в памяти, LCP каталога |
+| `assets/js/*.js` суммарно | 30 КБ | критический путь каталога |
+| `assets/css/main.css` | 20 КБ | один CSS на каталог |
+| `index.html` | 15 КБ | оболочка без игр |
+| `assets/og.png` | 100 КБ | превью ссылок |
+
+E2E-дым (`tests/e2e/perf.e2e.mjs`): главная с карточками <8с на CI-раннере,
+`fetch catalog.json` <2с, ноль ошибок консоли. Жёсткие миллисекунды не фиксируем —
+раннеры шумные; регрессии ловим по байтам + факту загрузки.
 
 ## Как добавить игру (рассчитано на сотни)
 
@@ -106,6 +135,12 @@ npm run og       # перегенерировать assets/og.png (если ме
 - фокус-стили (`:focus-visible`), роли `role="status"` для вывода счёта, без `alert()`.
 - `e.code` вместо `e.key` для клавиш (раскладка/Caps Lock не ломают управление).
 
+Доступность каталога покрыта e2e-дымом без внешних зависимостей
+(`tests/e2e/a11y.e2e.mjs`): skip-link, именованный поиск, живой `role=status`,
+ссылки-карточки, `aria-hidden` у эмодзи, модальный `<dialog>` с Esc и сбросом
+`iframe → about:blank`. Полный аудит — вручную через axe DevTools / Lighthouse
+перед крупными релизами.
+
 ## Деплой
 
 **GitHub — источник истины**: репозиторий + GitHub Pages (основной дистрибутив). Остальные хостинги — зеркала: тот же push синхронизирует их git-интеграциями. CI на каждый push: build + unit-тесты (Actions), e2e (Playwright); ежедневный cron — smoke-проверка живых сайтов (`scripts/smoke.mjs`: 200, маркеры контента, CSP).
@@ -120,9 +155,9 @@ npm run og       # перегенерировать assets/og.png (если ме
 
 ## Безопасность (слой защиты)
 
-1. **CSP** — `default-src 'none'` везде: каталог и игры грузят только свои файлы с того же origin; игры физически не могут отдать данные наружу. Дублируется в `<meta>` (GitHub Pages) и в `_headers`/`vercel.json` (остальные).
-2. **Заголовки**: `nosniff`, `X-Frame-Options: SAMEORIGIN` + `frame-ancestors 'self'` (каталог нельзя встроить чужому сайту), `Referrer-Policy`, `Permissions-Policy` (камера/микрофон/геолокация выключены).
-3. **Sandbox iframe** — `allow-scripts` без `allow-same-origin`: игры изолированы в opaque origin и не могут трогать каталог, куки и storage. Дополнительные capability только по белому списку в `meta.json`.
+1. **CSP** — `default-src 'none'` везде: каталог и игры грузят только свои файлы с того же origin; игры физически не могут отдать данные наружу. Дублируется в `<meta>` (GitHub Pages) и в `_headers`/`vercel.json` (остальные). Единый источник — `scripts/security-headers.mjs`, рассинхрон ловит `tests/headers.test.mjs`.
+2. **Заголовки**: `nosniff`, `X-Frame-Options: SAMEORIGIN` + `frame-ancestors 'self'` (каталог нельзя встроить чужому сайту), `Referrer-Policy`, `Permissions-Policy` (камера/микрофон/геолокация/payment/usb выключены).
+3. **Sandbox iframe** — `allow-scripts` без `allow-same-origin`: игры изолированы в opaque origin и не могут трогать каталог, куки и storage. Дополнительные capability только по белому списку в `meta.json`. Единый allowlist — `assets/js/sandbox-tokens.js` (используют и `build.mjs`, и `player.js`); опасные `allow-same-origin/top-navigation/forms` запрещены тестом.
 4. **Ввод** — поиск и данные каталога вставляются только через `textContent`/`createElement` (не `innerHTML`), поэтому XSS через данные невозможен.
 5. **Валидация каталога** — `scripts/build.mjs` отклоняет неизвестные ключи, чужие sandbox-токены, рассинхрон id/папки.
 6. **Плеер** — нативный `<dialog>`: фокус-трап, Esc и возврат фокуса — бесплатно и по спеке; `src` сбрасывается в `about:blank` при закрытии.

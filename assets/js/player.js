@@ -1,13 +1,8 @@
+import { SANDBOX_TOKENS } from './sandbox-tokens.js';
+
 const BASE_SANDBOX = ['allow-scripts'];
 
-export const SANDBOX_ALLOWLIST = new Set([
-  'allow-downloads',
-  'allow-fullscreen',
-  'allow-modals',
-  'allow-pointer-lock',
-  'allow-popups',
-  'allow-popups-to-escape-sandbox',
-]);
+export const SANDBOX_ALLOWLIST = new Set(SANDBOX_TOKENS);
 
 function buildSandbox(game) {
   const extras = Array.isArray(game.sandbox) ? game.sandbox : [];

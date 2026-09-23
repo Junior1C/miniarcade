@@ -41,6 +41,11 @@ body {
   outline-offset: 2px;
 }
 
+/* Программный фокус skip-link цели: не показывать outline без клавиатуры. */
+#games:focus:not(:focus-visible) {
+  outline: none;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
