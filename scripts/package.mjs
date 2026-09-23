@@ -7,29 +7,6 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = path.join(ROOT, 'dist');
 const STAGE = path.join(DIST, '.stage');
 
-const ROOT_SKIP = new Set([
-  '.assetsignore',
-  '.editorconfig',
-  '.git',
-  '.github',
-  '.gitignore',
-  '.nojekyll',
-  '.wrangler',
-  'dist',
-  'node_modules',
-  'package-lock.json',
-  'package.json',
-  'scripts',
-  'tests',
-  'vercel.json',
-  'web_lead_dev_system_prompt.md',
-  'wrangler.jsonc',
-]);
-
-function skipRootEntry(name) {
-  return ROOT_SKIP.has(name) || name.endsWith('.md');
-}
-
 function runPowerShell(command) {
   const result = spawnSync('powershell.exe', ['-NoProfile', '-Command', command], {
     encoding: 'utf8',
@@ -56,24 +33,6 @@ function createZip(stageDir, zipPath) {
   }
 }
 
-async function stageSite() {
-  const stage = path.join(STAGE, 'site');
-  await mkdir(stage, { recursive: true });
-
-  const entries = await readdir(ROOT, { withFileTypes: true });
-  for (const entry of entries) {
-    if (skipRootEntry(entry.name)) continue;
-    await cp(path.join(ROOT, entry.name), path.join(stage, entry.name), {
-      recursive: true,
-      filter: (src) => !src.endsWith(`${path.sep}meta.json`),
-    });
-  }
-
-  const zipPath = path.join(DIST, 'miniarcade-netlify.zip');
-  createZip(stage, zipPath);
-  console.log(`dist/${path.basename(zipPath)}`);
-}
-
 async function stageGame(folder) {
   const stage = path.join(STAGE, 'games', folder);
   await mkdir(stage, { recursive: true });
@@ -93,8 +52,6 @@ async function stageGame(folder) {
 async function main() {
   await rm(DIST, { recursive: true, force: true });
   await mkdir(DIST, { recursive: true });
-
-  await stageSite();
 
   const gamesDir = path.join(ROOT, 'games');
   const entries = await readdir(gamesDir, { withFileTypes: true });

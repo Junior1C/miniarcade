@@ -1,6 +1,5 @@
 # 🎮 MiniArcade
 
-[![Netlify](https://img.shields.io/website?url=https%3A%2F%2Fminiarcades.netlify.app%2F&label=Netlify&up_message=live)](https://miniarcades.netlify.app/)
 [![Vercel](https://img.shields.io/website?url=https%3A%2F%2Fminiarcades.vercel.app%2F&label=Vercel&up_message=live)](https://miniarcades.vercel.app/)
 [![Cloudflare Pages](https://img.shields.io/website?url=https%3A%2F%2Fminiarcade.pages.dev%2F&label=Cloudflare%20Pages&up_message=live)](https://miniarcade.pages.dev/)
 [![GitHub Pages](https://img.shields.io/website?url=https%3A%2F%2Fjunior1c.github.io%2Fminiarcade%2F&label=GitHub%20Pages&up_message=live)](https://junior1c.github.io/miniarcade/)
@@ -10,7 +9,6 @@
 **Live (GitHub — основной дистрибутив, остальные — зеркала из того же репозитория):**
 - GitHub Pages (основной): https://junior1c.github.io/miniarcade/
 - Cloudflare Pages (зеркало): https://miniarcade.pages.dev/
-- Netlify (зеркало): https://miniarcades.netlify.app/
 - Vercel (зеркало): https://miniarcades.vercel.app/
 
 ## Структура
@@ -33,7 +31,7 @@ games/
     meta.json              — метаданные: id, title, emoji, description, tags, …
 scripts/
   build.mjs                — скан games/*/ → data/catalog.json (валидация)
-  package.mjs              — dist/*.zip для itch.io и Netlify Drop
+  package.mjs              — dist/<id>-itch.zip для каждой игры
   serve.mjs                — локальный сервер с боевыми заголовками
 tests/                     — node --test, без зависимостей
 tests/e2e/                 — Playwright: смоук каталога (npm run test:e2e)
@@ -46,7 +44,7 @@ sitemap.xml                — генерируется build.mjs (URLы осн�
 assets/og.png              — превью ссылок (og:image)
 .githooks/pre-push         — npm run check перед каждым push
 .github/workflows/         — deploy-cloudflare (build+test), e2e (Playwright), smoke (cron)
-_headers, vercel.json      — security-заголовки для Netlify / Vercel / Cloudflare
+_headers, vercel.json      — security-заголовки для Vercel / Cloudflare
 .assetsignore              — что НЕ загружать на Cloudflare (gitignore-синтаксис)
 wrangler.jsonc             — Cloudflare Workers Assets (directory: ".")
 .nojekyll                  — GH Pages: отключить Jekyll, публиковать файлы как есть
@@ -69,7 +67,7 @@ npm run test:e2e # Playwright: каталог, поиск, плеер (сам п
 npm run smoke    # проверить все 4 живых хостинга
 npm run new -- <id> "Название"  # скелетер новой игры
 npm start        # http://localhost:4173 с боевыми security-заголовками
-npm run package  # dist/miniarcade-netlify.zip + dist/<id>-itch.zip
+npm run package  # dist/<id>-itch.zip для каждой игры
 npm run check    # build + test (запускает pre-push hook)
 npm run og       # перегенерировать assets/og.png (если меняется палитра)
 ```
@@ -117,7 +115,6 @@ npm run og       # перегенерировать assets/og.png (если ме
 | Хостинг | Механизм | Заголовки |
 |---|---|---|
 | Cloudflare Pages | Git-интеграция CF (автодеплой из репо); Actions: build + test, шаг wrangler — при наличии секрета `CLOUDFLARE_API_TOKEN` | `_headers` |
-| Netlify | git-integration или Drop `dist/miniarcade-netlify.zip` | `_headers` |
 | Vercel | git-integration | `vercel.json` |
 | GitHub Pages | git-integration | только CSP `<meta>` (Pages не умеет custom headers) |
 | itch.io | `dist/<id>-itch.zip` для каждой игры | — |
@@ -139,5 +136,5 @@ npm run og       # перегенерировать assets/og.png (если ме
 ## Масштабирование
 
 - **x100 (сотни игр)** — одна игра = одна папка; `catalog.json` на 1000 игр ≈ 150–200 КБ, поиск в памяти, пагинация по 24 карточки (`PAGE_SIZE` в `main.js`). Конфликтов merge на уровне общих файлов нет: правится только своя папка.
-- **x1000** — тот же предел, плюс: при >~3000 игр поднять `PAGE_SIZE`, при росте файла — генерировать `catalog.json` с `gzip`/brotli на хостинге (Netlify/CF/Vercel делают это сами).
+- **x1000** — тот же предел, плюс: при >~3000 игр поднять `PAGE_SIZE`, при росте файла — генерировать `catalog.json` с `gzip`/brotli на хостинге (CF/Vercel делают это сами).
 - **За пределами статики** — если каталог перестанет помещаться в память браузера или понадобятся рейтинги/аккаунты: вынести поиск на Cloudflare Worker + KV, карточки рендерить страницами. Код игр при этом не меняется — контракт `meta.json` стабилен.

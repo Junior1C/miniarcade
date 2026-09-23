@@ -1,7 +1,6 @@
 const HOSTS = [
   { name: 'GitHub Pages', url: 'https://junior1c.github.io/miniarcade/', cspHeader: false },
   { name: 'Cloudflare Pages', url: 'https://miniarcade.pages.dev/', cspHeader: true },
-  { name: 'Netlify', url: 'https://miniarcades.netlify.app/', cspHeader: true },
   { name: 'Vercel', url: 'https://miniarcades.vercel.app/', cspHeader: true },
 ];
 
