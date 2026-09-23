@@ -20,8 +20,13 @@ jobs:
       - name: Test
         run: node --test
       - name: Deploy
-        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
-        run: npx -y wrangler@4.136.3 deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "CLOUDFLARE_API_TOKEN is not configured — skipping wrangler deploy."
+            echo "The site is still deployed by the Cloudflare Pages git integration."
+            exit 0
+          fi
+          npx -y wrangler@4.136.3 deploy
