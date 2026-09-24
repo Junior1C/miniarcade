@@ -19,6 +19,8 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: npm run build
+      - name: Generated files are fresh
+        run: git diff --exit-code -- data/catalog.json sitemap.xml index.html stats.html _headers vercel.json
       - run: node --test
       - run: npm run budgets
       - run: npm run qa

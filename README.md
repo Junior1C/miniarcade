@@ -228,14 +228,15 @@ Chess.com, TETR.IO), и проприетарные free-to-play без репо�
 
 ## Стенд QA-ботов
 
-Четыре скрипта без зависимостей — ловят то, что не видят unit/e2e: нарушение контрактов игр, битые внутренние ссылки, секреты в коде, протухшие мосты. FAIL валит `npm run qa` (а значит pre-push и CI), WARN только шумит.
+Пять скриптов без зависимостей — ловят то, что не видят unit/e2e: нарушение контрактов игр, битые внутренние ссылки, секреты в коде, протухшие мосты, битые превью. FAIL валит `npm run qa` (а значит pre-push и CI), WARN только шумит.
 
 | Бот | Что ловит | FAIL | WARN |
 |---|---|---|---|
 | `qa-games` | Свои игры: CSP meta, инлайн `<script>/<style>/on*`, сеть (`fetch`/WS…), storage (бросает в sandbox), `alert`, ES-модули, `innerHTML`, `e.key` вместо `e.code`, `controls` в meta | нарушение контракта | realtime-цикл без `visibilitychange`, нет `thumb.webp` |
 | `qa-links` | `catalog.json → файлы`, страницы → ассеты, `sitemap → файлы` (чужие URL — FAIL), `robots.txt`, `og.png`/`favicon` | битая внутренняя ссылка | — |
 | `qa-repo` | Сигнатуры секретов, смешанные окончания строк, висячие пробелы, вес игр и `data/stats` | секреты, mixed-EOL, хвосты | CRLF-история, игра >100 КБ |
-| `qa-bridges` | Живость мостов: HTTP-статус, `X-Frame-Options`/`frame-ancestors`-запреты | только с `--strict` | мёртвый/закрытый мост |
+| `qa-thumbs` | Целостность превью: ссылка из `catalog.json` → файл, магия WebP, непустой (размеры — в бюджетах) | недостающее/битое превью | — |
+| `qa-bridges` | Живость мостов: HTTP-статус, `X-Frame-Options`/`frame-ancestors`-запреты, заглушки вместо игры (meta-refresh наружу, антибот-стаб) | только с `--strict` | мёртвый/закрытый мост |
 
 ```bash
 npm run qa          # все локальные боты (входит в npm run check, pre-push и CI)
@@ -251,15 +252,15 @@ npm run qa:bridges  # живой обход 124 мостов (сеть; в CI �
 
 ### Диагностика Cloudflare (2026-09-24, факты)
 
-Зеркало `miniarcade.pages.dev` отдаёт все заголовки из `_headers`, **кроме
-`Content-Security-Policy`**, добавляет чужой `Access-Control-Allow-Origin: *`
-и отвечает SPA-index (`200 text/html`) на неизвестных путях — включая
-`/functions/*`. При этом `/api/hit` исполняет код приёмника, а CSP в
-`_headers` — всего ~2 КБ (теория «лимита длины» не проходит). Вывод: раздаёт
-не stock-Pages, а Workers-стиль. Чек-лист в dashboard перед лечением:
-тип проекта (Pages или Worker), коммит последнего деплоя = `main` HEAD?,
-лог обработки `_headers`, Response Header Transforms, к чему привязан
-домен `pages.dev`. Контентная защита до лечения держится на `<meta>` CSP.
+24.09 зеркало `miniarcade.pages.dev` отдавало все заголовки из `_headers`,
+**кроме `Content-Security-Policy`**, плюс чужой `Access-Control-Allow-Origin: *`
+и SPA-index на неизвестных путях — при свежем контенте (CSS побайтово = HEAD)
+и рабочем `/api/hit`. Позже в тот же день слой самостоятельно выздоровел:
+CSP на месте, актуален (есть переезд `muan.github.io`, нет удалённых origin),
+`frame-ancestors` работает. Регрессию сторожит `smoke.mjs` (токены CSP
+в заголовке зеркал). Если снова пропадёт — чек-лист в dashboard: тип проекта
+(Pages или Worker), коммит последнего деплоя = `main` HEAD?, лог обработки
+`_headers`, Response Header Transforms, к чему привязан домен `pages.dev`.
 
 ### Worker-зеркало (ручная активация, никакого авто cutover)
 

@@ -17,6 +17,10 @@ jobs:
           node-version: 24
       - name: Build catalog
         run: node scripts/build.mjs
+      - name: Generated files are fresh
+        # Каталог/sitemap/SEO/заголовки генерируются и коммитятся:
+        # забытый `npm run build` должен валить CI, а не ехать stale.
+        run: git diff --exit-code -- data/catalog.json sitemap.xml index.html stats.html _headers vercel.json
       - name: Test
         run: node --test
       - name: Performance budgets
