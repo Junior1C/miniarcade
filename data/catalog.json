@@ -743,7 +743,7 @@
       "license": "MIT",
       "repo": "https://github.com/mumuy/calc24",
       "controls": "Мышь",
-      "lang": "en",
+      "lang": "zh",
       "thumb": "games/ext-calc24/thumb.webp"
     },
     {
@@ -797,7 +797,7 @@
       "license": "MIT",
       "repo": "https://github.com/itlwei/Chess",
       "controls": "Мышь",
-      "lang": "neutral",
+      "lang": "zh",
       "thumb": "games/ext-itlweichess/thumb.webp"
     },
     {
@@ -989,7 +989,7 @@
         "классика",
         "мост"
       ],
-      "url": "https://muan.co/emoji-minesweeper/",
+      "url": "https://muan.github.io/emoji-minesweeper/",
       "author": "muan",
       "license": "MIT",
       "repo": "https://github.com/muan/emoji-minesweeper",
@@ -1137,7 +1137,7 @@
       "license": "MIT",
       "repo": "https://github.com/mumuy/gobang",
       "controls": "Мышь",
-      "lang": "en",
+      "lang": "zh",
       "thumb": "games/ext-gobang/thumb.webp"
     },
     {
@@ -1281,7 +1281,7 @@
       "license": "MIT",
       "repo": "https://github.com/AJLoveChina/Hanoi",
       "controls": "Мышь",
-      "lang": "en",
+      "lang": "zh",
       "thumb": "games/ext-hanoi/thumb.webp"
     },
     {
@@ -1319,24 +1319,6 @@
       "controls": "Мышь",
       "lang": "en",
       "thumb": "games/ext-checkers/thumb.webp"
-    },
-    {
-      "id": "ext-td",
-      "title": "HTML5 Tower Defense",
-      "emoji": "🗼",
-      "description": "Стройте башни и держите волны врагов. Классика жанра tower defense. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "стратегия",
-        "tower-defense",
-        "мост"
-      ],
-      "url": "https://oldj.net/static/html5-tower-defense/td.html",
-      "author": "oldj",
-      "license": "MIT",
-      "repo": "https://github.com/oldj/html5-tower-defense",
-      "controls": "Мышь",
-      "lang": "neutral",
-      "thumb": "games/ext-td/thumb.webp"
     },
     {
       "id": "ext-invaderz",
@@ -1675,7 +1657,7 @@
       "license": "MIT",
       "repo": "https://github.com/mumuy/pacman",
       "controls": "Стрелки/WASD",
-      "lang": "en",
+      "lang": "zh",
       "thumb": "games/ext-mpacman/thumb.webp"
     },
     {
@@ -1944,7 +1926,7 @@
       "license": "AGPL-3.0",
       "repo": "https://github.com/akicho8/shogi-player",
       "controls": "Мышь",
-      "lang": "en",
+      "lang": "ja",
       "thumb": "games/ext-shogi/thumb.webp"
     },
     {
@@ -2463,7 +2445,7 @@
       "license": "MIT",
       "repo": "https://github.com/Binaryify/vue-tetris",
       "controls": "Стрелки",
-      "lang": "neutral",
+      "lang": "en",
       "thumb": "games/ext-vuetetris/thumb.webp"
     },
     {

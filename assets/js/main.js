@@ -139,7 +139,7 @@ function createCard(game) {
   title.textContent = game.title;
 
   // Значок языка игры из каталога (build гарантирует наличие):
-  // RU / EN / 🌐 (смешанный или неопределённый). Не интерактивен.
+  // RU / EN / ZH / JA / 🌐 (смешанный или неопределённый). Не интерактивен.
   if (typeof game.lang === 'string' && game.lang) {
     const lang = document.createElement('span');
     lang.className = 'card__lang';
@@ -147,8 +147,9 @@ function createCard(game) {
       lang.textContent = '🌐';
       lang.title = 'Язык интерфейса: смешанный или не определён';
     } else {
+      const names = { ru: 'русский', en: 'английский', zh: 'китайский', ja: 'японский' };
       lang.textContent = game.lang.toUpperCase();
-      lang.title = `Язык игры: ${game.lang === 'ru' ? 'русский' : 'английский'}`;
+      lang.title = `Язык игры: ${names[game.lang] ?? game.lang}`;
     }
     title.append(lang);
   }

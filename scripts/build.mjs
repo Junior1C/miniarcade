@@ -107,12 +107,12 @@ function validateOrder(meta, errors) {
   return meta.order;
 }
 
-const LANG_ALLOWLIST = new Set(['ru', 'en', 'neutral']);
+const LANG_ALLOWLIST = new Set(['ru', 'en', 'zh', 'ja', 'neutral']);
 
 function validateLang(meta, errors) {
   if (meta.lang === undefined) return null;
   if (typeof meta.lang !== 'string' || !LANG_ALLOWLIST.has(meta.lang)) {
-    errors.push('"lang" must be one of "ru", "en", "neutral"');
+    errors.push('"lang" must be one of "ru", "en", "zh", "ja", "neutral"');
     return null;
   }
   return meta.lang;
@@ -285,7 +285,7 @@ export function buildLdJson(games) {
       operatingSystem: 'Web',
       gamePlatform: 'Web browser',
       // Язык интерфейса — только проверенные коды (neutral не маппится).
-      ...(game.lang === 'ru' || game.lang === 'en' ? { inLanguage: game.lang } : {}),
+      ...(game.lang && game.lang !== 'neutral' ? { inLanguage: game.lang } : {}),
     },
   }));
   return JSON.stringify({
