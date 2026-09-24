@@ -6,8 +6,10 @@
   --surface-hover: #111a33;
   --text: #e8edff;
   --text-muted: #8b98b8;
-  --accent: #2e5bff;
-  --accent-hover: #1e40ff;
+  --accent: #5b8def;
+  --accent-hover: #3f74d6;
+  --violet: #a78bfa;
+  --violet-deep: #8b5cf6;
   --danger: #ef4444;
   --focus: #fbbf24;
   --radius: 12px;
@@ -40,11 +42,11 @@ body {
   overflow-x: hidden;
 }
 
-/* Глубина фона: глубокие синие переливы на чёрном, статикой. */
+/* Фон: приглушённые синие переливы + фиолетовая дымка. */
 body {
   background:
-    radial-gradient(70rem 34rem at 80% -10%, rgb(32 58 150 / 0.35), transparent 62%),
-    radial-gradient(55rem 30rem at 8% 108%, rgb(22 42 120 / 0.3), transparent 60%),
+    radial-gradient(70rem 34rem at 80% -10%, rgb(91 141 239 / 0.12), transparent 62%),
+    radial-gradient(55rem 30rem at 8% 108%, rgb(139 92 246 / 0.1), transparent 60%),
     var(--bg);
 }
 
@@ -133,7 +135,7 @@ body {
   padding: 0 var(--space-4);
   background: rgb(4 6 13 / 0.92);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgb(46 91 255 / 0.18);
+  border-bottom: 1px solid rgb(91 141 239 / 0.18);
 }
 
 .topbar__left {
@@ -236,7 +238,7 @@ body {
   outline: none;
   border-color: var(--accent);
   background: #0a0f1e;
-  box-shadow: 0 0 0 3px rgb(46 91 255 / 0.25);
+  box-shadow: 0 0 0 3px rgb(91 141 239 / 0.25);
 }
 
 /* Селект сортировки: та же пилюля, что у поиска. */
@@ -305,7 +307,7 @@ body {
   z-index: 30;
   overflow: hidden;
   background: var(--bg);
-  border-right: 1px solid rgb(46 91 255 / 0.15);
+  border-right: 1px solid rgb(91 141 239 / 0.15);
   transition: width 0.25s ease;
 }
 
@@ -349,9 +351,9 @@ body {
 }
 
 .genre-button[aria-current="true"] {
-  color: #7fa6ff;
+  color: #a78bfa;
   font-weight: 700;
-  background: rgb(46 91 255 / 0.16);
+  background: rgb(91 141 239 / 0.16);
   border-left-color: var(--accent);
 }
 
@@ -485,7 +487,7 @@ body {
      после первого paint — без скачков layout (CLS). */
   content-visibility: auto;
   contain-intrinsic-size: auto 260px;
-  box-shadow: 0 8px 24px rgb(0 0 0 / 0.55), 0 0 0 1px rgb(46 91 255 / 0.12);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.55), 0 0 0 1px rgb(91 141 239 / 0.12);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -501,12 +503,12 @@ body {
   height: 0;
   border-style: solid;
   border-width: 0 46px 46px 0;
-  border-color: transparent var(--accent) transparent transparent;
+  border-color: transparent var(--violet-deep) transparent transparent;
 }
 
 .card:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 0 2px var(--accent), 0 0 26px rgb(46 91 255 / 0.45);
+  box-shadow: 0 0 0 2px var(--accent), 0 0 26px rgb(91 141 239 / 0.45);
 }
 
 /* Обложка 3:2 (вертикальные — 1:1) на обёртке: место до загрузки,
@@ -584,18 +586,18 @@ body {
   vertical-align: middle;
 }
 
-/* Бейдж ИИ-игр (тег «ии»): электрический синий с неоновой тенью. */
+/* Бейдж ИИ: светлый фиолет с неоновой тенью. */
 .card__ai {
   display: inline-block;
   margin-left: auto;
   padding: 0 var(--space-2);
   border-radius: 999px;
-  background: var(--accent);
+  background: var(--violet-deep);
   color: #fff;
   font-size: 0.75rem;
   font-weight: 700;
   vertical-align: middle;
-  box-shadow: 0 0 10px rgb(46 91 255 / 0.55);
+  box-shadow: 0 0 10px rgb(139 92 246 / 0.55);
 }
 
 .card__lang + .card__ai {
@@ -703,7 +705,7 @@ body {
   max-width: none;
   max-height: none;
   padding: 0;
-  border: 1px solid rgb(46 91 255 / 0.22);
+  border: 1px solid rgb(91 141 239 / 0.22);
   border-radius: 16px;
   background: #05070d;
   color: var(--text);
