@@ -131,7 +131,7 @@ test('real catalog: every game carries a language badge and search tags', async 
   assert.ok(payload.games.length >= 100);
   for (const game of payload.games) {
     assert.ok(
-      ['ru', 'en', 'zh', 'ja', 'neutral'].includes(game.lang),
+      ['ru', 'en', 'zh', 'ja', 'it', 'tr', 'neutral'].includes(game.lang),
       `${game.id} must carry a valid lang for the card badge`,
     );
     assert.ok(

@@ -84,7 +84,7 @@
       "license": "MIT",
       "repo": "https://github.com/alperencbn05/Agario-Clone",
       "controls": "Мышь / касание",
-      "lang": "en",
+      "lang": "tr",
       "added": "2026-09-24",
       "thumb": "games/ext-agar-clone/thumb.webp"
     },
@@ -295,7 +295,7 @@
       "license": "MIT",
       "repo": "https://github.com/gd4Ark/star-battle",
       "controls": "Стрелки / WASD, пробел",
-      "lang": "en",
+      "lang": "zh",
       "added": "2026-09-24",
       "thumb": "games/ext-star-battle/thumb.webp"
     },
@@ -505,7 +505,7 @@
       "license": "MIT",
       "repo": "https://github.com/ffalt/mah",
       "controls": "Мышь / касание",
-      "lang": "ru",
+      "lang": "neutral",
       "added": "2026-09-24",
       "thumb": "games/ext-mah/thumb.webp"
     },
@@ -1051,7 +1051,7 @@
       "license": "MIT",
       "repo": "https://github.com/bazhanius/match-3-game",
       "controls": "Мышь / касание",
-      "lang": "ru",
+      "lang": "neutral",
       "added": "2026-09-24",
       "thumb": "games/ext-match3/thumb.webp"
     },
@@ -1157,7 +1157,7 @@
       "license": "MIT",
       "repo": "https://github.com/VoxDroid/Chess-Ultimate",
       "controls": "Мышь / касание",
-      "lang": "en",
+      "lang": "neutral",
       "added": "2026-09-24",
       "thumb": "games/ext-chess-ultimate/thumb.webp"
     },
@@ -1458,7 +1458,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Backgammon",
       "controls": "Мышь",
-      "lang": "en",
+      "lang": "it",
       "added": "2026-09-23",
       "thumb": "games/ext-boc-backgammon/thumb.webp"
     },
@@ -1572,7 +1572,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Bouble",
       "controls": "Мышь",
-      "lang": "en",
+      "lang": "it",
       "added": "2026-09-23",
       "thumb": "games/ext-boc-bouble/thumb.webp"
     },
@@ -1818,7 +1818,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Crossword",
       "controls": "Мышь + печать",
-      "lang": "en",
+      "lang": "it",
       "added": "2026-09-23",
       "thumb": "games/ext-boc-crossword/thumb.webp"
     },
@@ -1855,7 +1855,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Dama",
       "controls": "Мышь",
-      "lang": "en",
+      "lang": "it",
       "added": "2026-09-23",
       "thumb": "games/ext-boc-dama/thumb.webp"
     },
@@ -1874,7 +1874,7 @@
       "license": "MIT",
       "repo": "https://github.com/pshenok/datacenter-survival",
       "controls": "Мышь",
-      "lang": "en",
+      "lang": "neutral",
       "added": "2026-09-23",
       "thumb": "games/ext-datacenter/thumb.webp"
     },
@@ -1986,7 +1986,7 @@
       "license": "MIT",
       "repo": "https://github.com/thomaspark/flexboxfroggy",
       "controls": "Печать CSS-кода",
-      "lang": "ru",
+      "lang": "en",
       "added": "2026-09-23",
       "thumb": "games/ext-froggy/thumb.webp"
     },
@@ -2005,7 +2005,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Connect-Four",
       "controls": "Мышь",
-      "lang": "en",
+      "lang": "it",
       "added": "2026-09-23",
       "thumb": "games/ext-boc-connect4/thumb.webp"
     },
@@ -2024,7 +2024,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Connect-Four-Two-Player",
       "controls": "Мышь, хотсит",
-      "lang": "en",
+      "lang": "it",
       "added": "2026-09-23",
       "thumb": "games/ext-boc-c42p/thumb.webp"
     },
@@ -2081,7 +2081,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Games-2VS",
       "controls": "Два игрока, хотсит",
-      "lang": "en",
+      "lang": "it",
       "added": "2026-09-23",
       "thumb": "games/ext-boc-games2vs/thumb.webp"
     },
@@ -2138,7 +2138,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Goose-Game-Two-Player",
       "controls": "Мышь",
-      "lang": "en",
+      "lang": "it",
       "added": "2026-09-23",
       "thumb": "games/ext-boc-goose/thumb.webp"
     },
@@ -2157,7 +2157,7 @@
       "license": "MIT",
       "repo": "https://github.com/thomaspark/gridgarden",
       "controls": "Печать CSS-кода",
-      "lang": "ru",
+      "lang": "en",
       "added": "2026-09-23",
       "thumb": "games/ext-garden/thumb.webp"
     },
@@ -2176,7 +2176,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Guess-The-Flag",
       "controls": "Мышь",
-      "lang": "en",
+      "lang": "it",
       "added": "2026-09-23",
       "thumb": "games/ext-boc-flag/thumb.webp"
     },
@@ -2195,7 +2195,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Guess-the-pair-two-player",
       "controls": "Мышь",
-      "lang": "en",
+      "lang": "it",
       "added": "2026-09-23",
       "thumb": "games/ext-boc-guesspair/thumb.webp"
     },
@@ -2214,7 +2214,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Guess-Who",
       "controls": "Мышь",
-      "lang": "en",
+      "lang": "it",
       "added": "2026-09-23",
       "thumb": "games/ext-boc-guesswho/thumb.webp"
     },
@@ -2233,7 +2233,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/hangman-two-player",
       "controls": "Мышь + буквы",
-      "lang": "en",
+      "lang": "it",
       "added": "2026-09-23",
       "thumb": "games/ext-boc-hangman/thumb.webp"
     },
@@ -2442,7 +2442,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Ludo",
       "controls": "Мышь",
-      "lang": "en",
+      "lang": "it",
       "added": "2026-09-23",
       "thumb": "games/ext-boc-ludo/thumb.webp"
     },
@@ -2599,24 +2599,6 @@
       "thumb": "games/ext-handsomenonogram/thumb.webp"
     },
     {
-      "id": "ext-masonicpacman",
-      "title": "Pac-Man Tribute",
-      "emoji": "👻",
-      "description": "Исторический трибьют пакману: лабиринт и привидения. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "аркада",
-        "классика",
-        "мост"
-      ],
-      "url": "https://masonicgit.github.io/pacman/",
-      "author": "masonicgit",
-      "license": "GPL-3.0",
-      "repo": "https://github.com/masonicgit/pacman",
-      "controls": "Стрелки/WASD",
-      "lang": "en",
-      "added": "2026-09-23"
-    },
-    {
       "id": "ext-boc-pong",
       "title": "Pong (Bocaletto)",
       "emoji": "🏓",
@@ -2650,7 +2632,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Pong-Two-Player",
       "controls": "Два игрока, хотсит",
-      "lang": "en",
+      "lang": "it",
       "added": "2026-09-23",
       "thumb": "games/ext-boc-pong2p/thumb.webp"
     },
@@ -2935,7 +2917,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Space-Invaders",
       "controls": "Стрелки + пробел",
-      "lang": "en",
+      "lang": "it",
       "added": "2026-09-23",
       "thumb": "games/ext-boc-invaders/thumb.webp"
     },
@@ -2992,7 +2974,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Square-Dodger",
       "controls": "Стрелки/мышь",
-      "lang": "en",
+      "lang": "it",
       "added": "2026-09-23",
       "thumb": "games/ext-boc-squaredodger/thumb.webp"
     },
@@ -3087,7 +3069,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Tetris",
       "controls": "Стрелки",
-      "lang": "en",
+      "lang": "it",
       "added": "2026-09-23",
       "thumb": "games/ext-boc-tetris/thumb.webp"
     },
@@ -3106,7 +3088,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Tic-Tac-Toe",
       "controls": "Мышь",
-      "lang": "en",
+      "lang": "it",
       "added": "2026-09-23",
       "thumb": "games/ext-boc-tictactoe/thumb.webp"
     },
@@ -3163,7 +3145,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Tic-Tac-Toe-Two-Player",
       "controls": "Мышь, хотсит",
-      "lang": "en",
+      "lang": "it",
       "added": "2026-09-23",
       "thumb": "games/ext-boc-ttt2p/thumb.webp"
     },
@@ -3315,28 +3297,9 @@
       "license": "MIT",
       "repo": "https://github.com/Binaryify/vue-tetris",
       "controls": "Стрелки",
-      "lang": "en",
+      "lang": "zh",
       "added": "2026-09-23",
       "thumb": "games/ext-vuetetris/thumb.webp"
-    },
-    {
-      "id": "ext-wordle",
-      "title": "Wordled",
-      "emoji": "📝",
-      "description": "Угадайте слово из пяти букв за шесть попыток. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "слова",
-        "логика",
-        "мост"
-      ],
-      "url": "https://milsaware.github.io/wordled/",
-      "author": "milsaware",
-      "license": "GPL-3.0",
-      "repo": "https://github.com/milsaware/wordled",
-      "controls": "Печать букв",
-      "lang": "en",
-      "added": "2026-09-23",
-      "thumb": "games/ext-wordle/thumb.webp"
     }
   ]
 }

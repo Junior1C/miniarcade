@@ -112,12 +112,12 @@ function validateOrder(meta, errors) {
   return meta.order;
 }
 
-const LANG_ALLOWLIST = new Set(['ru', 'en', 'zh', 'ja', 'neutral']);
+const LANG_ALLOWLIST = new Set(['ru', 'en', 'zh', 'ja', 'it', 'tr', 'neutral']);
 
 function validateLang(meta, errors) {
   if (meta.lang === undefined) return null;
   if (typeof meta.lang !== 'string' || !LANG_ALLOWLIST.has(meta.lang)) {
-    errors.push('"lang" must be one of "ru", "en", "zh", "ja", "neutral"');
+    errors.push('"lang" must be one of "ru", "en", "zh", "ja", "it", "tr", "neutral"');
     return null;
   }
   return meta.lang;

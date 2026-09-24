@@ -164,18 +164,15 @@ function createCard(game) {
   title.textContent = game.title;
 
   // Значок языка игры из каталога (build гарантирует наличие):
-  // RU / EN / ZH / JA / 🌐 (смешанный или неопределённый). Не интерактивен.
-  if (typeof game.lang === 'string' && game.lang) {
+  // RU / EN / ZH / JA / IT / TR. Не интерактивен. Смешанный или
+  // неопределённый язык (neutral) бейджа не получает осознанно:
+  // лучше ничего, чем вводящая в заблуждение 🌐-планета.
+  if (typeof game.lang === 'string' && game.lang && game.lang !== 'neutral') {
     const lang = document.createElement('span');
     lang.className = 'card__lang';
-    if (game.lang === 'neutral') {
-      lang.textContent = '🌐';
-      lang.title = 'Язык интерфейса: смешанный или не определён';
-    } else {
-      const names = { ru: 'русский', en: 'английский', zh: 'китайский', ja: 'японский' };
-      lang.textContent = game.lang.toUpperCase();
-      lang.title = `Язык игры: ${names[game.lang] ?? game.lang}`;
-    }
+    const names = { ru: 'русский', en: 'английский', zh: 'китайский', ja: 'японский', it: 'итальянский', tr: 'турецкий' };
+    lang.textContent = game.lang.toUpperCase();
+    lang.title = `Язык игры: ${names[game.lang] ?? game.lang}`;
     title.append(lang);
   }
 
@@ -185,7 +182,7 @@ function createCard(game) {
   if (Array.isArray(game.tags) && game.tags.includes('ии')) {
     const ai = document.createElement('span');
     ai.className = 'card__ai';
-    ai.textContent = '🤖 ИИ';
+    ai.textContent = 'ИИ';
     ai.title = 'Игра с искусственным интеллектом';
     title.append(ai);
   }

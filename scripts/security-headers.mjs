@@ -44,7 +44,6 @@ export const FRAME_SRC_ORIGINS = [
   'https://patorjk.github.io',
   'https://react-rpg.com',
   'https://binaryify.github.io',
-  'https://masonicgit.github.io',
   'https://flbulgarelli.github.io',
   'https://silent-lad.github.io',
   'https://mateuszsokola.github.io',

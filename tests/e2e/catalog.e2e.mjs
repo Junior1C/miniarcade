@@ -25,7 +25,7 @@ test('поиск фильтрует каталог', async ({ page }) => {
   // счётчик не должен гнить при добавлении мостов (кейс «пятнашки» ×3).
   await page.fill('#search', 'квиндичи');
   await expect(page.locator('#games .card')).toHaveCount(1);
-  // В заголовке теперь и бейдж языка (RU/EN/🌐) — проверяем вхождение.
+  // В заголовке теперь и бейдж языка (RU/EN/…) — проверяем вхождение.
   await expect(page.locator('#games .card__title')).toContainText('Квиндичи');
   await page.fill('#search', 'квццыв');
   await expect(page.locator('#empty-state')).toBeVisible();
