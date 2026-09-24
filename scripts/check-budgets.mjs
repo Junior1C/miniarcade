@@ -26,6 +26,9 @@ const JS_BUDGET = { dir: 'assets/js', maxBytes: 30 * 1024 };
 // (пустой кадр — честнее эмодзи, список в NOTHUMB_BRIDGES генератора).
 const THUMB_FILE_MAX = 25 * 1024;
 const THUMBS_TOTAL_MAX = 1200 * 1024;
+// Раннее предупреждение: суммарные превью уже на ~80% лимита —
+// WARN шумит до того, как новые игры упрутся в FAIL.
+const THUMBS_TOTAL_WARN = 900 * 1024;
 // При >3000 игр каталог перестанет помещаться в разумный бюджет —
 // сигнал к переходу на Worker+KV (см. README § "Масштабирование").
 const CATALOG_COUNT_WARN = 3000;
@@ -79,7 +82,7 @@ const jsBytes = await jsTotal();
       // Превью нет (мосты) — штатно.
     }
   }
-  const totalStatus = thumbsTotal > THUMBS_TOTAL_MAX ? 'FAIL' : 'ok';
+  const totalStatus = thumbsTotal > THUMBS_TOTAL_MAX ? 'FAIL' : thumbsTotal > THUMBS_TOTAL_WARN ? 'WARN' : 'ok';
   console.log(`${totalStatus.padEnd(4)} games/*/thumb.webp — ${thumbsTotal} bytes in ${thumbsCount} file(s) (max ${THUMBS_TOTAL_MAX})`);
   if (totalStatus === 'FAIL') failed += 1;
 }

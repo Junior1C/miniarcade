@@ -22,13 +22,11 @@ jobs:
       - name: Performance budgets
         run: node scripts/check-budgets.mjs
       - name: Deploy
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        # Деплой идёт через Cloudflare Pages git-интеграцию (тот же коммит,
+        # что GitHub Pages и Vercel). wrangler.jsonc оставлен только для
+        # D1-тулинга (stats.yml). 'wrangler deploy' (Workers Assets) здесь
+        # НЕ запускаем: он опубликовал бы functions/ как статику и оторвал
+        # бы Pages Function + STATS_DB-биндинг приёмника аналитики.
         run: |
-          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
-            echo "CLOUDFLARE_API_TOKEN is not configured — skipping wrangler deploy."
-            echo "The site is still deployed by the Cloudflare Pages git integration."
-            exit 0
-          fi
-          npx -y wrangler@4.136.3 deploy
+          echo "Deploy path is the Cloudflare Pages git integration."
+          echo "wrangler.jsonc is kept for D1 tooling (stats.yml) only."

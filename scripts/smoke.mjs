@@ -23,8 +23,12 @@ async function checkHome(host) {
       throw new Error('missing Content-Security-Policy header');
     }
     // Распределённость: зеркало обязано разрешать фреймы мостов,
-    // иначе каталог един, а игры на нём не открываются.
-    for (const token of ['frame-src', 'bocaletto-luca.github.io']) {
+    // иначе каталог един, а игры на нём не открываются. Проверяем
+    // директивы, а не один случайный origin: так трим allowlist не
+    // роняет проверку, а рассинхрон мостов всё равно ловится.
+    // connect-src со STATS_ORIGIN — второй контракт зеркал: иначе
+    // beacon аналитики молча режется CSP на части зеркал.
+    for (const token of ['frame-src', 'connect-src', 'https://miniarcade.pages.dev']) {
       if (!csp.includes(token)) {
         throw new Error(`CSP header is missing "${token}" (bridge origins out of sync?)`);
       }

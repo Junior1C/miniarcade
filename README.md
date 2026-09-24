@@ -292,11 +292,11 @@ npm run qa:bridges  # живой обход 124 мостов (сеть; в CI �
 `functions/` игнорируется: тогда тот же `stats/hit.mjs` переносится
 в worker-роут (код чистый, без привязки к Pages).| Хостинг | Механизм | Заголовки |
 |---|---|---|
-| Cloudflare Pages | Git-интеграция CF (автодеплой из репо); Actions: build + test, шаг wrangler — при наличии секрета `CLOUDFLARE_API_TOKEN` | `_headers` |
+| Cloudflare Pages | Git-интеграция CF (автодеплой из репо); Actions: build + test + budgets; `wrangler deploy` не запускаем (Workers Assets оторвал бы Pages Function + STATS_DB) | `_headers` |
 | Vercel | git-integration | `vercel.json` |
 | GitHub Pages | git-integration | только CSP `<meta>` (Pages не умеет custom headers) |
 
-`data/catalog.json` закоммичен, поэтому хостинги без build-шага работают сразу. После изменения игр перегенерируйте его (`npm run build`) и коммитьте вместе с игрой — Actions пересобирает и тестирует каталог на каждый push (deploy через wrangler включится автоматически, как только в Secrets репозитория появится `CLOUDFLARE_API_TOKEN`).
+`data/catalog.json` закоммичен, поэтому хостинги без build-шага работают сразу. После изменения игр перегенерируйте его (`npm run build`) и коммитьте вместе с игрой — Actions пересобирает и тестирует каталог на каждый push. Секреты `CLOUDFLARE_API_TOKEN` (+ `CLOUDFLARE_ACCOUNT_ID`) нужны только ночному Action статистики (`stats.yml`, D1); деплой сайта через wrangler не идёт.
 
 ## Безопасность (слой защиты)
 
