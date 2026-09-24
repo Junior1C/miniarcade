@@ -15,6 +15,7 @@
       "controls": "Стрелки/WASD или свайпы",
       "lang": "ru",
       "added": "2026-09-23",
+      "created": "2026-09-23",
       "thumb": "games/2048/thumb.webp"
     },
     {
@@ -34,6 +35,7 @@
       "controls": "Мышь; есть auto-run",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2014-03-11",
       "thumb": "games/ext-2048-ai/thumb.webp"
     },
     {
@@ -52,6 +54,7 @@
       "repo": "https://github.com/SamuelZ12/2048-ai",
       "controls": "Без управления: ИИ играет сам",
       "lang": "en",
+      "created": "2025-01-12",
       "thumb": "games/ext-2048-expectimax/thumb.webp"
     },
     {
@@ -71,6 +74,7 @@
       "controls": "Стрелки/WASD",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2021-07-29",
       "thumb": "games/ext-2048react/thumb.webp"
     },
     {
@@ -86,6 +90,7 @@
       "controls": "Мышь, Tab+Enter или клавиши 1–7",
       "lang": "ru",
       "added": "2026-09-23",
+      "created": "2026-09-23",
       "thumb": "games/connect4/thumb.webp"
     },
     {
@@ -104,6 +109,7 @@
       "controls": "Мышь / касание",
       "lang": "tr",
       "added": "2026-09-24",
+      "created": "2026-01-29",
       "thumb": "games/ext-agar-clone/thumb.webp"
     },
     {
@@ -120,6 +126,7 @@
       "controls": "Мышь, стрелки или палец",
       "lang": "ru",
       "added": "2026-09-23",
+      "created": "2026-09-23",
       "thumb": "games/breakout/thumb.webp"
     },
     {
@@ -138,6 +145,7 @@
       "controls": "Мышь / касание",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2026-07-10",
       "thumb": "games/ext-breakout-modes/thumb.webp"
     },
     {
@@ -154,6 +162,7 @@
       "controls": "Стрелки/WASD + пробел",
       "lang": "ru",
       "added": "2026-09-23",
+      "created": "2026-09-23",
       "thumb": "games/asteroids/thumb.webp"
     },
     {
@@ -173,6 +182,7 @@
       "controls": "Мышь / касание",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2026-07-05",
       "thumb": "games/ext-air-hockey/thumb.webp"
     },
     {
@@ -190,6 +200,7 @@
       "repo": "https://github.com/pemmyz/js_drumbeast",
       "controls": "Клавиатура / касание",
       "lang": "en",
+      "created": "2025-06-23",
       "thumb": "games/ext-drumbeast/thumb.webp"
     },
     {
@@ -208,6 +219,7 @@
       "controls": "Пробел / клик",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2026-04-01",
       "thumb": "games/ext-stack-tower/thumb.webp"
     },
     {
@@ -227,6 +239,7 @@
       "controls": "Мышь / касание",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2018-02-24",
       "thumb": "games/ext-pool-8ball/thumb.webp"
     },
     {
@@ -244,6 +257,7 @@
       "repo": "https://github.com/Avdhesh-Varshney/Bingo-Game",
       "controls": "Мышь",
       "lang": "en",
+      "created": "2023-06-26",
       "thumb": "games/ext-bingo/thumb.webp"
     },
     {
@@ -262,6 +276,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2014-08-25",
       "langs": [
         "en",
         "ru",
@@ -291,6 +306,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2015-07-11",
       "thumb": "games/ext-blackjack/thumb.webp"
     },
     {
@@ -308,6 +324,7 @@
       "repo": "https://github.com/scheibo/boggle",
       "controls": "Клавиатура / мышь",
       "lang": "en",
+      "created": "2019-12-16",
       "thumb": "games/ext-boggle/thumb.webp"
     },
     {
@@ -325,6 +342,7 @@
       "repo": "https://github.com/gabitoesmiapodo/boxindanga",
       "controls": "WASD + P",
       "lang": "en",
+      "created": "2025-03-27",
       "thumb": "games/ext-boxing-retro/thumb.webp"
     },
     {
@@ -342,6 +360,7 @@
       "repo": "https://github.com/didifive/helicopter-rescue-game",
       "controls": "W/S/D",
       "lang": "pt",
+      "created": "2022-01-26",
       "thumb": "games/ext-heli-rescue/thumb.webp"
     },
     {
@@ -358,6 +377,7 @@
       "controls": "Мышь или печать букв",
       "lang": "ru",
       "added": "2026-09-23",
+      "created": "2026-09-23",
       "thumb": "games/hangman/thumb.webp"
     },
     {
@@ -375,6 +395,7 @@
       "repo": "https://github.com/LeandroSQ/js-wordle",
       "controls": "Клавиатура",
       "lang": "en",
+      "created": "2022-05-09",
       "langs": [
         "en",
         "pt"
@@ -395,6 +416,7 @@
       "repo": "https://github.com/AndreyAkinshin/hexorius",
       "controls": "Мышь",
       "lang": "en",
+      "created": "2025-01-23",
       "thumb": "games/ext-hexorius/thumb.webp"
     },
     {
@@ -414,6 +436,7 @@
       "controls": "Мышь / касание",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2021-01-06",
       "thumb": "games/ext-gomoku-ai/thumb.webp"
     },
     {
@@ -431,6 +454,7 @@
       "repo": "https://github.com/raulr/darts",
       "controls": "Мышь",
       "lang": "en",
+      "created": "2016-10-14",
       "thumb": "games/ext-darts/thumb.webp"
     },
     {
@@ -449,6 +473,7 @@
       "repo": "https://github.com/AkashKarnatak/dino-neat",
       "controls": "Без управления: ИИ играет сам",
       "lang": "en",
+      "created": "2020-07-27",
       "thumb": "games/ext-dino-neat/thumb.webp"
     },
     {
@@ -465,6 +490,7 @@
       "controls": "Пробел/↑/тап — прыжок, ↓ — пригнуться",
       "lang": "ru",
       "added": "2026-09-23",
+      "created": "2026-09-23",
       "thumb": "games/dino/thumb.webp"
     },
     {
@@ -483,6 +509,7 @@
       "repo": "https://github.com/VladBrok/durak",
       "controls": "Мышь",
       "lang": "ru",
+      "created": "2023-05-10",
       "thumb": "games/ext-durak-ai/thumb.webp"
     },
     {
@@ -501,6 +528,7 @@
       "controls": "Стрелки / WASD, пробел",
       "lang": "zh",
       "added": "2026-09-24",
+      "created": "2018-10-11",
       "thumb": "games/ext-star-battle/thumb.webp"
     },
     {
@@ -518,6 +546,7 @@
       "repo": "https://github.com/priyanshurav/snakes-and-ladders-game",
       "controls": "Мышь",
       "lang": "en",
+      "created": "2021-03-14",
       "thumb": "games/ext-snakes-ladders/thumb.webp"
     },
     {
@@ -534,6 +563,7 @@
       "controls": "WASD, стрелки, свайпы или кнопки",
       "lang": "ru",
       "added": "2026-09-23",
+      "created": "2026-09-23",
       "thumb": "games/snake/thumb.webp"
     },
     {
@@ -553,6 +583,7 @@
       "controls": "Без управления: ИИ играет сам",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2020-09-13",
       "thumb": "games/ext-snake-ai/thumb.webp"
     },
     {
@@ -571,6 +602,7 @@
       "controls": "Стрелки, пробел",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2020-07-21",
       "thumb": "games/ext-zombie-phaser/thumb.webp"
     },
     {
@@ -589,6 +621,7 @@
       "controls": "Клавиатура, двое",
       "lang": "neutral",
       "added": "2026-09-24",
+      "created": "2026-05-01",
       "thumb": "games/ext-inaghan-fight/thumb.webp"
     },
     {
@@ -607,6 +640,7 @@
       "controls": "Мышь / касание",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2019-11-19",
       "thumb": "games/ext-kaboom/thumb.webp"
     },
     {
@@ -624,6 +658,7 @@
       "repo": "https://github.com/kimmania/simple-kakuro",
       "controls": "Мышь / клавиатура",
       "lang": "en",
+      "created": "2026-05-31",
       "thumb": "games/ext-kakuro/thumb.webp"
     },
     {
@@ -643,6 +678,7 @@
       "controls": "Стрелки / мышь",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2024-10-09",
       "thumb": "games/ext-quindici/thumb.webp"
     },
     {
@@ -659,6 +695,7 @@
       "controls": "Клик, тап или пробел",
       "lang": "ru",
       "added": "2026-09-23",
+      "created": "2026-09-23",
       "thumb": "games/clicker/thumb.webp"
     },
     {
@@ -677,6 +714,7 @@
       "controls": "Мышь / клавиатура",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2022-07-24",
       "thumb": "games/ext-code-quiz/thumb.webp"
     },
     {
@@ -694,6 +732,7 @@
       "repo": "https://github.com/douvy/hooping",
       "controls": "Мышь (тяни и отпускай)",
       "lang": "en",
+      "created": "2026-07-08",
       "thumb": "games/ext-hoops/thumb.webp"
     },
     {
@@ -710,6 +749,7 @@
       "controls": "Стрелки/A,D, пробел или тап",
       "lang": "ru",
       "added": "2026-09-23",
+      "created": "2026-09-23",
       "thumb": "games/invaders/thumb.webp"
     },
     {
@@ -725,6 +765,7 @@
       "controls": "Мышь или Tab+Enter",
       "lang": "ru",
       "added": "2026-09-23",
+      "created": "2026-09-23",
       "thumb": "games/tictactoe/thumb.webp"
     },
     {
@@ -744,6 +785,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2024-01-02",
       "thumb": "games/ext-astar/thumb.webp"
     },
     {
@@ -762,6 +804,7 @@
       "controls": "Мышь / касание",
       "lang": "neutral",
       "added": "2026-09-24",
+      "created": "2017-11-04",
       "thumb": "games/ext-mah/thumb.webp"
     },
     {
@@ -780,6 +823,7 @@
       "repo": "https://github.com/virgs/mancala",
       "controls": "Мышь",
       "lang": "en",
+      "created": "2023-11-17",
       "thumb": "games/ext-mancala-ai/thumb.webp"
     },
     {
@@ -797,6 +841,7 @@
       "repo": "https://github.com/GlennChia/mastermind-react",
       "controls": "Мышь",
       "lang": "en",
+      "created": "2021-07-31",
       "thumb": "games/ext-mastermind-ai/thumb.webp"
     },
     {
@@ -813,6 +858,7 @@
       "controls": "Мышь или клавиша Tab",
       "lang": "ru",
       "added": "2026-09-23",
+      "created": "2026-09-23",
       "thumb": "games/memory/thumb.webp"
     },
     {
@@ -831,6 +877,7 @@
       "controls": "Мышь (тяни и отпускай)",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2024-02-12",
       "thumb": "games/ext-mini-golf/thumb.webp"
     },
     {
@@ -849,6 +896,7 @@
       "repo": "https://github.com/millionco/moka",
       "controls": "Мышь",
       "lang": "en",
+      "created": "2026-07-27",
       "thumb": "games/ext-moka-go/thumb.webp"
     },
     {
@@ -868,6 +916,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2025-04-18",
       "thumb": "games/ext-battleship-odin/thumb.webp"
     },
     {
@@ -886,6 +935,7 @@
       "repo": "https://github.com/Blizzeq/neuro-racer-lab",
       "controls": "Без управления: ИИ учится сам",
       "lang": "en",
+      "created": "2026-04-28",
       "thumb": "games/ext-neuro-racer/thumb.webp"
     },
     {
@@ -904,6 +954,7 @@
       "controls": "WASD",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2017-08-16",
       "thumb": "games/ext-neon-dungeon/thumb.webp"
     },
     {
@@ -922,6 +973,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2011-06-04",
       "thumb": "games/ext-canvas-td/thumb.webp"
     },
     {
@@ -939,6 +991,7 @@
       "repo": "https://github.com/code4fukui/open-jigsaw",
       "controls": "Мышь",
       "lang": "ja",
+      "created": "2026-01-09",
       "thumb": "games/ext-jigsaw/thumb.webp"
     },
     {
@@ -957,6 +1010,7 @@
       "controls": "Стрелки / свайпы",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2012-07-20",
       "thumb": "games/ext-pacman-cc0/thumb.webp"
     },
     {
@@ -973,6 +1027,7 @@
       "controls": "Стрелки/WASD или свайпы",
       "lang": "ru",
       "added": "2026-09-23",
+      "created": "2026-09-23",
       "thumb": "games/pacman/thumb.webp"
     },
     {
@@ -991,6 +1046,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2014-02-19",
       "thumb": "games/ext-matter-sandbox/thumb.webp"
     },
     {
@@ -1008,6 +1064,7 @@
       "repo": "https://github.com/zardoy/piano-tiles",
       "controls": "Клавиатура / касание",
       "lang": "en",
+      "created": "2020-02-04",
       "thumb": "games/ext-piano-tiles/thumb.webp"
     },
     {
@@ -1026,6 +1083,7 @@
       "controls": "Пробел / касание",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2026-08-11",
       "thumb": "games/ext-pixel-run/thumb.webp"
     },
     {
@@ -1043,6 +1101,7 @@
       "repo": "https://github.com/jasonhand/plinko-drop",
       "controls": "Клик",
       "lang": "en",
+      "created": "2025-12-08",
       "thumb": "games/ext-plinko/thumb.webp"
     },
     {
@@ -1060,6 +1119,7 @@
       "repo": "https://github.com/le-s/getaway",
       "controls": "Стрелки / WASD",
       "lang": "en",
+      "created": "2019-01-09",
       "thumb": "games/ext-getaway/thumb.webp"
     },
     {
@@ -1076,6 +1136,7 @@
       "controls": "Мышь, стрелки или палец",
       "lang": "ru",
       "added": "2026-09-23",
+      "created": "2026-09-23",
       "thumb": "games/pong/thumb.webp"
     },
     {
@@ -1095,6 +1156,7 @@
       "controls": "Мышь / касание",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2025-07-02",
       "thumb": "games/ext-pong-ai/thumb.webp"
     },
     {
@@ -1112,6 +1174,7 @@
       "controls": "Стрелки / WASD, пробел",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2021-01-31",
       "thumb": "games/ext-dino-platformer/thumb.webp"
     },
     {
@@ -1130,6 +1193,7 @@
       "controls": "Стрелки / касание",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2020-06-23",
       "thumb": "games/ext-doodle-clone/thumb.webp"
     },
     {
@@ -1146,6 +1210,7 @@
       "controls": "Мышь, Tab+Enter или стрелки",
       "lang": "ru",
       "added": "2026-09-23",
+      "created": "2026-09-23",
       "thumb": "games/fifteen/thumb.webp"
     },
     {
@@ -1164,6 +1229,7 @@
       "controls": "Мышь / касание",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2024-05-20",
       "thumb": "games/ext-fifteen-maker/thumb.webp"
     },
     {
@@ -1183,6 +1249,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2019-08-25",
       "thumb": "games/ext-reversi-ai/thumb.webp"
     },
     {
@@ -1202,6 +1269,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2020-01-03",
       "thumb": "games/ext-maze-solvers/thumb.webp"
     },
     {
@@ -1220,6 +1288,7 @@
       "controls": "Клавиатура",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2018-09-20",
       "thumb": "games/ext-rhythm/thumb.webp"
     },
     {
@@ -1236,6 +1305,7 @@
       "controls": "Мышь, Tab+Enter или клавиши 1–4",
       "lang": "ru",
       "added": "2026-09-23",
+      "created": "2026-09-23",
       "thumb": "games/simon/thumb.webp"
     },
     {
@@ -1251,6 +1321,7 @@
       "controls": "Мышь, Tab+Enter; флаг — правая кнопка или режим",
       "lang": "ru",
       "added": "2026-09-23",
+      "created": "2026-09-23",
       "thumb": "games/saper/thumb.webp"
     },
     {
@@ -1270,6 +1341,7 @@
       "controls": "Мышь / касание",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2019-05-21",
       "thumb": "games/ext-minesweeper-pro/thumb.webp"
     },
     {
@@ -1287,7 +1359,8 @@
       "repo": "https://github.com/frosetrain/netwalk",
       "controls": "Мышь / касание",
       "lang": "neutral",
-      "added": "2026-09-24"
+      "added": "2026-09-24",
+      "created": "2024-03-05"
     },
     {
       "id": "ext-synth-racer",
@@ -1305,6 +1378,7 @@
       "controls": "Стрелки / свайпы",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2018-03-22",
       "thumb": "games/ext-synth-racer/thumb.webp"
     },
     {
@@ -1322,6 +1396,7 @@
       "repo": "https://github.com/Steve-IX/Speed_Racer_Game",
       "controls": "Стрелки",
       "lang": "en",
+      "created": "2025-06-19",
       "thumb": "games/ext-speed-racer/thumb.webp"
     },
     {
@@ -1339,6 +1414,7 @@
       "repo": "https://github.com/Danziger/slotjs",
       "controls": "Клик",
       "lang": "en",
+      "created": "2018-12-28",
       "thumb": "games/ext-slots/thumb.webp"
     },
     {
@@ -1357,6 +1433,7 @@
       "controls": "Стрелки / WASD, пробел",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2017-06-30",
       "thumb": "games/ext-starfighter/thumb.webp"
     },
     {
@@ -1373,6 +1450,7 @@
       "controls": "Мышь, Tab+Enter или клавиши 1–9",
       "lang": "ru",
       "added": "2026-09-23",
+      "created": "2026-09-23",
       "thumb": "games/sudoku/thumb.webp"
     },
     {
@@ -1392,6 +1470,7 @@
       "controls": "Мышь / клавиатура",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2022-04-19",
       "thumb": "games/ext-sudoku-solver/thumb.webp"
     },
     {
@@ -1408,6 +1487,7 @@
       "controls": "Стрелки/WASD, свайпы или кнопки",
       "lang": "ru",
       "added": "2026-09-23",
+      "created": "2026-09-23",
       "thumb": "games/tetris/thumb.webp"
     },
     {
@@ -1427,6 +1507,7 @@
       "controls": "Без управления: ИИ играет сам",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2016-11-17",
       "thumb": "games/ext-tetris-ai/thumb.webp"
     },
     {
@@ -1445,6 +1526,7 @@
       "controls": "Мышь, до 6 игроков",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2024-04-23",
       "thumb": "games/ext-dot-box/thumb.webp"
     },
     {
@@ -1462,6 +1544,7 @@
       "repo": "https://github.com/zshall/dots-and-boxes",
       "controls": "Мышь",
       "lang": "en",
+      "created": "2013-11-18",
       "thumb": "games/ext-dots-ai/thumb.webp"
     },
     {
@@ -1480,6 +1563,7 @@
       "controls": "Мышь / касание",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2025-04-30",
       "langs": [
         "en",
         "ru"
@@ -1502,6 +1586,7 @@
       "controls": "Мышь / касание",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2022-03-30",
       "thumb": "games/ext-pipe-puzzle/thumb.webp"
     },
     {
@@ -1518,6 +1603,7 @@
       "controls": "Мышь, тап или Tab+Enter",
       "lang": "ru",
       "added": "2026-09-23",
+      "created": "2026-09-23",
       "thumb": "games/whack/thumb.webp"
     },
     {
@@ -1534,7 +1620,8 @@
       "license": "AGPL-3.0",
       "repo": "https://github.com/ishandutta2007/uttt",
       "controls": "Мышь",
-      "lang": "en"
+      "lang": "en",
+      "created": "2025-11-06"
     },
     {
       "id": "ext-uno-pro",
@@ -1551,6 +1638,7 @@
       "repo": "https://github.com/MTG2000/uno",
       "controls": "Мышь",
       "lang": "en",
+      "created": "2021-11-04",
       "thumb": "games/ext-uno-pro/thumb.webp"
     },
     {
@@ -1568,6 +1656,7 @@
       "repo": "https://github.com/hot-dice/hotdice",
       "controls": "Мышь",
       "lang": "en",
+      "created": "2021-02-28",
       "thumb": "games/ext-farkle/thumb.webp"
     },
     {
@@ -1584,6 +1673,7 @@
       "controls": "Пробел, клик или тап",
       "lang": "ru",
       "added": "2026-09-23",
+      "created": "2026-09-23",
       "thumb": "games/flappy/thumb.webp"
     },
     {
@@ -1603,6 +1693,7 @@
       "controls": "Без управления: ИИ играет сам",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2016-07-24",
       "thumb": "games/ext-flappy-ai/thumb.webp"
     },
     {
@@ -1621,6 +1712,7 @@
       "controls": "Курсор / касание",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2017-09-03",
       "thumb": "games/ext-slither-clone/thumb.webp"
     },
     {
@@ -1638,6 +1730,7 @@
       "repo": "https://github.com/DanielTomaro13/ChessAnalysis",
       "controls": "Мышь",
       "lang": "en",
+      "created": "2026-06-29",
       "thumb": "games/ext-chess-tactics/thumb.webp"
     },
     {
@@ -1657,6 +1750,7 @@
       "controls": "Мышь / касание",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2024-09-27",
       "langs": [
         "en",
         "es",
@@ -1684,6 +1778,7 @@
       "controls": "Мышь / касание",
       "lang": "neutral",
       "added": "2026-09-24",
+      "created": "2022-12-27",
       "thumb": "games/ext-damka/thumb.webp"
     },
     {
@@ -1703,6 +1798,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2016-05-27",
       "thumb": "games/ext-checkers-ai/thumb.webp"
     },
     {
@@ -1721,6 +1817,7 @@
       "controls": "Пробел / касание",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2026-07-07",
       "thumb": "games/ext-spike-sprint/thumb.webp"
     },
     {
@@ -1739,6 +1836,7 @@
       "repo": "https://github.com/99fk/yahtzee-html",
       "controls": "Мышь",
       "lang": "en",
+      "created": "2025-09-17",
       "thumb": "games/ext-yahtzee/thumb.webp"
     },
     {
@@ -1758,6 +1856,7 @@
       "controls": "Мышь + цифры",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2014-03-21",
       "thumb": "games/ext-abgame/thumb.webp"
     },
     {
@@ -1777,6 +1876,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2022-07-07",
       "thumb": "games/ext-acesup/thumb.webp"
     },
     {
@@ -1796,6 +1896,7 @@
       "controls": "Наблюдение",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2025-08-07",
       "thumb": "games/ext-aiasteroids/thumb.webp"
     },
     {
@@ -1815,6 +1916,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2023-03-06",
       "thumb": "games/ext-airps/thumb.webp"
     },
     {
@@ -1834,6 +1936,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2019-10-19",
       "thumb": "games/ext-aimandshoot/thumb.webp"
     },
     {
@@ -1853,6 +1956,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2018-04-22",
       "thumb": "games/ext-alphagottt/thumb.webp"
     },
     {
@@ -1872,6 +1976,7 @@
       "controls": "Стрелки/WASD",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2017-11-19",
       "thumb": "games/ext-antipacman/thumb.webp"
     },
     {
@@ -1890,6 +1995,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2025-05-22",
       "thumb": "games/ext-boc-arkanoid/thumb.webp"
     },
     {
@@ -1909,6 +2015,7 @@
       "controls": "Стрелки + пробел",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2021-09-04",
       "thumb": "games/ext-3kh0asteroids/thumb.webp"
     },
     {
@@ -1928,6 +2035,7 @@
       "controls": "Стрелки + пробел",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2021-08-12",
       "thumb": "games/ext-ryanasteroids/thumb.webp"
     },
     {
@@ -1947,6 +2055,7 @@
       "controls": "Стрелки/WASD",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2012-07-15",
       "thumb": "games/ext-astray/thumb.webp"
     },
     {
@@ -1966,6 +2075,7 @@
       "controls": "Мышь",
       "lang": "it",
       "added": "2026-09-23",
+      "created": "2025-05-26",
       "thumb": "games/ext-boc-backgammon/thumb.webp"
     },
     {
@@ -1985,6 +2095,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2021-12-24",
       "thumb": "games/ext-bangbang/thumb.webp"
     },
     {
@@ -2004,6 +2115,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2013-01-21",
       "thumb": "games/ext-battleboat/thumb.webp"
     },
     {
@@ -2023,6 +2135,7 @@
       "controls": "Стрелки + пробел",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2019-03-31",
       "thumb": "games/ext-blasteroids/thumb.webp"
     },
     {
@@ -2042,6 +2155,7 @@
       "controls": "Стрелки",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2015-01-07",
       "thumb": "games/ext-blockrain/thumb.webp"
     },
     {
@@ -2061,6 +2175,7 @@
       "controls": "Стрелки/WASD",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2025-05-26",
       "thumb": "games/ext-boc-bomberman/thumb.webp"
     },
     {
@@ -2080,6 +2195,7 @@
       "controls": "Мышь",
       "lang": "it",
       "added": "2026-09-23",
+      "created": "2025-05-24",
       "thumb": "games/ext-boc-bouble/thumb.webp"
     },
     {
@@ -2099,6 +2215,7 @@
       "controls": "Стрелки/WASD",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2019-09-12",
       "thumb": "games/ext-bounceback/thumb.webp"
     },
     {
@@ -2118,6 +2235,7 @@
       "controls": "Мышь или Tab+Enter",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2017-04-03",
       "thumb": "games/ext-breaklock/thumb.webp"
     },
     {
@@ -2137,6 +2255,7 @@
       "controls": "Стрелки/WASD",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2018-03-24",
       "thumb": "games/ext-bullethell/thumb.webp"
     },
     {
@@ -2155,6 +2274,7 @@
       "controls": "Клик / касание",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2021-10-26",
       "thumb": "games/ext-bullethell-ts/thumb.webp"
     },
     {
@@ -2174,6 +2294,7 @@
       "controls": "Мышь",
       "lang": "zh",
       "added": "2026-09-23",
+      "created": "2015-12-22",
       "thumb": "games/ext-calc24/thumb.webp"
     },
     {
@@ -2193,6 +2314,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2022-06-19",
       "thumb": "games/ext-cardmemory/thumb.webp"
     },
     {
@@ -2212,6 +2334,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2025-05-24",
       "thumb": "games/ext-boc-chess/thumb.webp"
     },
     {
@@ -2231,6 +2354,7 @@
       "controls": "Мышь",
       "lang": "zh",
       "added": "2026-09-23",
+      "created": "2013-08-20",
       "thumb": "games/ext-itlweichess/thumb.webp"
     },
     {
@@ -2250,6 +2374,7 @@
       "controls": "Печать кода",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2015-05-31",
       "thumb": "games/ext-clashjs/thumb.webp"
     },
     {
@@ -2269,6 +2394,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2022-07-05",
       "thumb": "games/ext-clock/thumb.webp"
     },
     {
@@ -2288,6 +2414,7 @@
       "controls": "Пробел, клик или тап",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2014-02-04",
       "thumb": "games/ext-clumsy/thumb.webp"
     },
     {
@@ -2307,6 +2434,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2014-12-03",
       "thumb": "games/ext-colonizers/thumb.webp"
     },
     {
@@ -2325,6 +2453,7 @@
       "controls": "Клавиатура",
       "lang": "en",
       "added": "2026-09-24",
+      "created": "2014-02-08",
       "thumb": "games/ext-css-diner/thumb.webp"
     },
     {
@@ -2344,6 +2473,7 @@
       "controls": "Мышь",
       "lang": "it",
       "added": "2026-09-23",
+      "created": "2025-05-24",
       "thumb": "games/ext-boc-dama/thumb.webp"
     },
     {
@@ -2363,6 +2493,7 @@
       "controls": "Мышь",
       "lang": "neutral",
       "added": "2026-09-23",
+      "created": "2026-08-01",
       "thumb": "games/ext-datacenter/thumb.webp"
     },
     {
@@ -2382,6 +2513,7 @@
       "controls": "Стрелки",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2025-04-02",
       "thumb": "games/ext-demogame/thumb.webp"
     },
     {
@@ -2401,6 +2533,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2025-06-02",
       "thumb": "games/ext-boc-domino/thumb.webp"
     },
     {
@@ -2419,7 +2552,8 @@
       "repo": "https://github.com/MattSurabian/DuckHunt-JS",
       "controls": "Мышь",
       "lang": "en",
-      "added": "2026-09-23"
+      "added": "2026-09-23",
+      "created": "2011-10-17"
     },
     {
       "id": "ext-emoji-mines",
@@ -2437,7 +2571,8 @@
       "repo": "https://github.com/muan/emoji-minesweeper",
       "controls": "Мышь",
       "lang": "en",
-      "added": "2026-09-23"
+      "added": "2026-09-23",
+      "created": "2015-05-22"
     },
     {
       "id": "ext-omarioflappy",
@@ -2456,6 +2591,7 @@
       "controls": "Пробел/клик",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2020-03-06",
       "thumb": "games/ext-omarioflappy/thumb.webp"
     },
     {
@@ -2475,6 +2611,7 @@
       "controls": "Печать CSS-кода",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2015-11-24",
       "langs": [
         "en",
         "ru",
@@ -2507,6 +2644,7 @@
       "controls": "Мышь",
       "lang": "it",
       "added": "2026-09-23",
+      "created": "2025-05-24",
       "thumb": "games/ext-boc-connect4/thumb.webp"
     },
     {
@@ -2526,6 +2664,7 @@
       "controls": "Мышь, хотсит",
       "lang": "it",
       "added": "2026-09-23",
+      "created": "2025-05-24",
       "thumb": "games/ext-boc-c42p/thumb.webp"
     },
     {
@@ -2545,6 +2684,7 @@
       "controls": "Стрелки",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2019-12-23",
       "thumb": "games/ext-adrianfrogger/thumb.webp"
     },
     {
@@ -2564,6 +2704,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2014-12-16",
       "thumb": "games/ext-fruitmatcher/thumb.webp"
     },
     {
@@ -2583,6 +2724,7 @@
       "controls": "Два игрока, хотсит",
       "lang": "it",
       "added": "2026-09-23",
+      "created": "2025-05-24",
       "thumb": "games/ext-boc-games2vs/thumb.webp"
     },
     {
@@ -2602,6 +2744,7 @@
       "controls": "Мышь",
       "lang": "zh",
       "added": "2026-09-23",
+      "created": "2024-09-19",
       "thumb": "games/ext-gobang/thumb.webp"
     },
     {
@@ -2621,6 +2764,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2022-07-04",
       "thumb": "games/ext-golfsol/thumb.webp"
     },
     {
@@ -2640,6 +2784,7 @@
       "controls": "Мышь",
       "lang": "it",
       "added": "2026-09-23",
+      "created": "2025-05-24",
       "thumb": "games/ext-boc-goose/thumb.webp"
     },
     {
@@ -2659,6 +2804,7 @@
       "controls": "Печать CSS-кода",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2017-03-29",
       "langs": [
         "en",
         "ru",
@@ -2692,6 +2838,7 @@
       "controls": "Мышь",
       "lang": "it",
       "added": "2026-09-23",
+      "created": "2025-05-24",
       "thumb": "games/ext-boc-flag/thumb.webp"
     },
     {
@@ -2711,6 +2858,7 @@
       "controls": "Мышь",
       "lang": "it",
       "added": "2026-09-23",
+      "created": "2025-05-24",
       "thumb": "games/ext-boc-guesspair/thumb.webp"
     },
     {
@@ -2730,6 +2878,7 @@
       "controls": "Мышь",
       "lang": "it",
       "added": "2026-09-23",
+      "created": "2025-05-26",
       "thumb": "games/ext-boc-guesswho/thumb.webp"
     },
     {
@@ -2749,6 +2898,7 @@
       "controls": "Мышь + буквы",
       "lang": "it",
       "added": "2026-09-23",
+      "created": "2025-05-24",
       "thumb": "games/ext-boc-hangman/thumb.webp"
     },
     {
@@ -2768,6 +2918,7 @@
       "controls": "Мышь",
       "lang": "zh",
       "added": "2026-09-23",
+      "created": "2017-02-20",
       "thumb": "games/ext-hanoi/thumb.webp"
     },
     {
@@ -2787,6 +2938,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2020-06-03",
       "thumb": "games/ext-headbreaker/thumb.webp"
     },
     {
@@ -2806,6 +2958,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2016-01-01",
       "thumb": "games/ext-checkers/thumb.webp"
     },
     {
@@ -2825,6 +2978,7 @@
       "controls": "Мышь или стрелки",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2018-10-30",
       "thumb": "games/ext-invaderz/thumb.webp"
     },
     {
@@ -2844,6 +2998,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2019-12-31",
       "thumb": "games/ext-isocity/thumb.webp"
     },
     {
@@ -2863,6 +3018,7 @@
       "controls": "Стрелки",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2012-09-09",
       "thumb": "games/ext-patorjksnake/thumb.webp"
     },
     {
@@ -2882,6 +3038,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2019-03-16",
       "thumb": "games/ext-jokenpo/thumb.webp"
     },
     {
@@ -2901,6 +3058,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2025-05-26",
       "thumb": "games/ext-boc-solitaire/thumb.webp"
     },
     {
@@ -2920,6 +3078,7 @@
       "controls": "Стрелки",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2025-06-01",
       "thumb": "games/ext-boc-labyrinth/thumb.webp"
     },
     {
@@ -2939,6 +3098,7 @@
       "controls": "Мышь или Tab+Enter",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2017-08-10",
       "thumb": "games/ext-lightsout/thumb.webp"
     },
     {
@@ -2958,6 +3118,7 @@
       "controls": "Мышь",
       "lang": "it",
       "added": "2026-09-23",
+      "created": "2025-05-26",
       "thumb": "games/ext-boc-ludo/thumb.webp"
     },
     {
@@ -2977,6 +3138,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2025-05-26",
       "thumb": "games/ext-boc-mahjong/thumb.webp"
     },
     {
@@ -2996,6 +3158,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2018-01-11",
       "thumb": "games/ext-taniamemory/thumb.webp"
     },
     {
@@ -3015,6 +3178,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2025-05-21",
       "thumb": "games/ext-boc-millionaire/thumb.webp"
     },
     {
@@ -3034,6 +3198,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2025-05-26",
       "thumb": "games/ext-boc-minesweeper/thumb.webp"
     },
     {
@@ -3053,6 +3218,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2022-09-15",
       "thumb": "games/ext-minimax/thumb.webp"
     },
     {
@@ -3072,6 +3238,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2019-11-07",
       "thumb": "games/ext-mnimi/thumb.webp"
     },
     {
@@ -3091,6 +3258,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2019-04-19",
       "thumb": "games/ext-nonogram/thumb.webp"
     },
     {
@@ -3110,6 +3278,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2015-12-14",
       "thumb": "games/ext-handsomenonogram/thumb.webp"
     },
     {
@@ -3129,6 +3298,7 @@
       "controls": "Мышь/стрелки",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2025-05-24",
       "thumb": "games/ext-boc-pong/thumb.webp"
     },
     {
@@ -3148,6 +3318,7 @@
       "controls": "Два игрока, хотсит",
       "lang": "it",
       "added": "2026-09-23",
+      "created": "2025-05-24",
       "thumb": "games/ext-boc-pong2p/thumb.webp"
     },
     {
@@ -3167,6 +3338,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2025-06-02",
       "thumb": "games/ext-boc-puzzlenumbers/thumb.webp"
     },
     {
@@ -3186,6 +3358,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2025-07-20",
       "thumb": "games/ext-boc-quizplayer/thumb.webp"
     },
     {
@@ -3205,6 +3378,7 @@
       "controls": "Мышь (drag-and-drop)",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2015-10-07",
       "thumb": "games/ext-solitaire/thumb.webp"
     },
     {
@@ -3224,6 +3398,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2025-05-26",
       "thumb": "games/ext-boc-rps/thumb.webp"
     },
     {
@@ -3243,6 +3418,7 @@
       "controls": "Мышь или палец",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2018-10-20",
       "thumb": "games/ext-sand/thumb.webp"
     },
     {
@@ -3262,6 +3438,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2025-05-24",
       "thumb": "games/ext-boc-scopa/thumb.webp"
     },
     {
@@ -3281,6 +3458,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2025-11-21",
       "thumb": "games/ext-serversurv/thumb.webp"
     },
     {
@@ -3300,6 +3478,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2016-11-24",
       "thumb": "games/ext-shenzhen/thumb.webp"
     },
     {
@@ -3319,6 +3498,7 @@
       "controls": "Мышь",
       "lang": "ja",
       "added": "2026-09-23",
+      "created": "2018-01-02",
       "thumb": "games/ext-shogi/thumb.webp"
     },
     {
@@ -3338,6 +3518,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2025-05-26",
       "thumb": "games/ext-boc-simon/thumb.webp"
     },
     {
@@ -3357,6 +3538,7 @@
       "controls": "Стрелки",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2025-05-24",
       "thumb": "games/ext-boc-snake/thumb.webp"
     },
     {
@@ -3376,6 +3558,7 @@
       "controls": "Стрелки/WASD",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2021-07-22",
       "thumb": "games/ext-sokoban/thumb.webp"
     },
     {
@@ -3395,6 +3578,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2022-07-02",
       "thumb": "games/ext-milsolitaire/thumb.webp"
     },
     {
@@ -3414,6 +3598,7 @@
       "controls": "Стрелки + пробел",
       "lang": "it",
       "added": "2026-09-23",
+      "created": "2025-05-24",
       "thumb": "games/ext-boc-invaders/thumb.webp"
     },
     {
@@ -3433,6 +3618,7 @@
       "controls": "Стрелки/WASD + пробел",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2021-09-13",
       "thumb": "games/ext-spacehuggers/thumb.webp"
     },
     {
@@ -3452,6 +3638,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2021-10-13",
       "thumb": "games/ext-spookyball/thumb.webp"
     },
     {
@@ -3471,6 +3658,7 @@
       "controls": "Стрелки/мышь",
       "lang": "it",
       "added": "2026-09-23",
+      "created": "2025-05-24",
       "thumb": "games/ext-boc-squaredodger/thumb.webp"
     },
     {
@@ -3490,6 +3678,7 @@
       "controls": "Мышь + цифры",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2025-05-26",
       "thumb": "games/ext-boc-sudoku/thumb.webp"
     },
     {
@@ -3509,6 +3698,7 @@
       "controls": "Пробел/↑ — прыжок, ↓ — пригнуться",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2014-11-29",
       "thumb": "games/ext-trex/thumb.webp"
     },
     {
@@ -3528,6 +3718,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2025-05-16",
       "thumb": "games/ext-boc-tama/thumb.webp"
     },
     {
@@ -3547,6 +3738,7 @@
       "controls": "Стрелки",
       "lang": "it",
       "added": "2026-09-23",
+      "created": "2025-05-24",
       "thumb": "games/ext-boc-tetris/thumb.webp"
     },
     {
@@ -3566,6 +3758,7 @@
       "controls": "Мышь",
       "lang": "it",
       "added": "2026-09-23",
+      "created": "2025-05-24",
       "thumb": "games/ext-boc-tictactoe/thumb.webp"
     },
     {
@@ -3585,6 +3778,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2022-01-27",
       "thumb": "games/ext-milttt/thumb.webp"
     },
     {
@@ -3604,6 +3798,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2019-04-23",
       "thumb": "games/ext-taniattt/thumb.webp"
     },
     {
@@ -3623,6 +3818,7 @@
       "controls": "Мышь, хотсит",
       "lang": "it",
       "added": "2026-09-23",
+      "created": "2025-05-24",
       "thumb": "games/ext-boc-ttt2p/thumb.webp"
     },
     {
@@ -3642,6 +3838,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2023-11-22",
       "thumb": "games/ext-ramattt/thumb.webp"
     },
     {
@@ -3661,6 +3858,7 @@
       "controls": "Клик или тап",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2018-03-19",
       "thumb": "games/ext-tower/thumb.webp"
     },
     {
@@ -3680,6 +3878,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2017-12-02",
       "thumb": "games/ext-selenebuntd/thumb.webp"
     },
     {
@@ -3699,6 +3898,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2020-05-30",
       "thumb": "games/ext-ttc/thumb.webp"
     },
     {
@@ -3718,6 +3918,7 @@
       "controls": "Печать",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2017-09-30",
       "thumb": "games/ext-typer/thumb.webp"
     },
     {
@@ -3737,6 +3938,7 @@
       "controls": "Печать",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2025-06-02",
       "thumb": "games/ext-boc-typing/thumb.webp"
     },
     {
@@ -3756,6 +3958,7 @@
       "controls": "Мышь",
       "lang": "en",
       "added": "2026-09-23",
+      "created": "2019-03-31",
       "thumb": "games/ext-vuesolitaire/thumb.webp"
     },
     {
@@ -3775,6 +3978,7 @@
       "controls": "Стрелки",
       "lang": "zh",
       "added": "2026-09-23",
+      "created": "2017-06-12",
       "thumb": "games/ext-vuetetris/thumb.webp"
     }
   ]

@@ -28,6 +28,10 @@ const META_KEYS = new Set([
   // Необязательна (старые записи без неё сортируются последними),
   // но скелетер и бэкфилл её ставят всем.
   'added',
+  // Дата создания игры (YYYY-MM-DD): свои — рождение папки в git,
+  // мосты — created_at репозитория (fetch-created.mjs). Сортировка
+  // «По дате создания», в отличие от «Новые» (дата появления на сайте).
+  'created',
   // Все языки интерфейса (бот qa-playable находит выбор языков в игре):
   // первый — основной (бейдж на карточке), остальные — в подсказке.
   // Без langs бейдж рисуется по lang; neutral бейджа не получает.
@@ -157,19 +161,27 @@ function validateLangs(meta, errors) {
   return meta.langs;
 }
 
-function validateAdded(meta, errors) {
-  if (meta.added === undefined) return null;
-  if (typeof meta.added !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(meta.added)) {
-    errors.push('"added" must be a date like "2026-09-24"');
+function validateDateField(meta, key, errors) {
+  if (meta[key] === undefined) return null;
+  if (typeof meta[key] !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(meta[key])) {
+    errors.push(`"${key}" must be a date like "2026-09-24"`);
     return null;
   }
-  const [y, m, d] = meta.added.split('-').map(Number);
+  const [y, m, d] = meta[key].split('-').map(Number);
   const date = new Date(Date.UTC(y, m - 1, d));
   if (date.getUTCFullYear() !== y || date.getUTCMonth() !== m - 1 || date.getUTCDate() !== d) {
-    errors.push('"added" must be a real calendar date');
+    errors.push(`"${key}" must be a real calendar date`);
     return null;
   }
-  return meta.added;
+  return meta[key];
+}
+
+function validateAdded(meta, errors) {
+  return validateDateField(meta, 'added', errors);
+}
+
+function validateCreated(meta, errors) {
+  return validateDateField(meta, 'created', errors);
 }
 
 async function readGame(gamesDir, folder) {
@@ -205,6 +217,7 @@ async function readGame(gamesDir, folder) {
   const lang = validateLang(meta, errors);
   const url = validateBridgeUrl(meta, errors);
   const added = validateAdded(meta, errors);
+  const created = validateCreated(meta, errors);
   const langs = validateLangs(meta, errors);
 
   if (typeof meta.controls === 'string') {
@@ -246,6 +259,7 @@ async function readGame(gamesDir, folder) {
   if (sandbox && sandbox.length > 0) game.sandbox = sandbox;
   if (lang) game.lang = lang;
   if (added) game.added = added;
+  if (created) game.created = created;
   if (langs) {
     // Порядок — по мировой популярности: бейдж и inLanguage идут
     // по первому (английский, если есть), полный список — в подсказку.

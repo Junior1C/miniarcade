@@ -51,6 +51,15 @@ test('new: свежие первыми, без даты — в конец', () =
   assert.deepEqual(sortGames(GAMES, 'new', null).map((g) => g.id), ['chess', 'snake', 'aaa']);
 });
 
+test('created: свежие репозитории первыми, без даты — в конец', () => {
+  const dated = [
+    { id: 'old', title: 'Старая', created: '2014-11-29' },
+    { id: 'mid', title: 'Средняя', created: '2020-05-30' },
+    { id: 'nodate', title: 'Без даты' },
+  ];
+  assert.deepEqual(sortGames(dated, 'created', null).map((g) => g.id), ['mid', 'old', 'nodate']);
+});
+
 test('без статистики порядок честный: нули, затем алфавит', () => {
   assert.deepEqual(sortGames(GAMES, 'top', null).map((g) => g.id), ['aaa', 'snake', 'chess']);
   assert.deepEqual(sortGames(GAMES, 'top', new Map()).map((g) => g.id), ['aaa', 'snake', 'chess']);
@@ -58,9 +67,10 @@ test('без статистики порядок честный: нули, за�
 
 test('validSortMode чинит мусор', () => {
   assert.equal(validSortMode('popular'), 'popular');
+  assert.equal(validSortMode('created'), 'created');
   assert.equal(validSortMode('hack'), 'top');
   assert.equal(validSortMode(null), 'top');
-  assert.deepEqual(SORT_MODES, ['top', 'popular', 'alpha', 'new']);
+  assert.deepEqual(SORT_MODES, ['top', 'popular', 'alpha', 'new', 'created']);
 });
 
 test('formatPlayTime компактен', () => {

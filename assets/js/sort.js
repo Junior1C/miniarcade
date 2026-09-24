@@ -1,17 +1,16 @@
 // Сортировка каталога по поведенческим метрикам (без DOM — node --test).
-// Цифры — data/stats/totals.json (ночной агрегат D1 за 90 дней).
-// top: уникальные игроки (open), затем запуски — людей больше, чем кликов.
-// popular: суммарные секунды игры (close). alpha: название (ru).
-// new: added из meta.json, без даты — в конец.
+// top: уникальные игроки; popular: секунды; alpha: название;
+// new: added (на сайте); created: создание игры (репо/папка).
 import { pluralizeRu } from './format.js';
 
-export const SORT_MODES = ['top', 'popular', 'alpha', 'new'];
+export const SORT_MODES = ['top', 'popular', 'alpha', 'new', 'created'];
 
 export const SORT_LABELS = {
   top: 'По рейтингу',
   popular: 'Популярное',
   alpha: 'По алфавиту',
   new: 'Новые',
+  created: 'По дате создания',
 };
 
 export function validSortMode(mode) {
@@ -54,6 +53,8 @@ export function compareGames(mode, stats) {
       return (a, b) => compareTitle(a, b);
     case 'new':
       return (a, b) => (b.added || '').localeCompare(a.added || '') || compareTitle(a, b);
+    case 'created':
+      return (a, b) => (b.created || '').localeCompare(a.created || '') || compareTitle(a, b);
     case 'top':
     default:
       return (a, b) =>

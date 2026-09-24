@@ -171,7 +171,6 @@ function createCard(game) {
   const title = document.createElement('h3');
   title.className = 'card__title';
   title.textContent = game.title;
-
   // Бейдж основного языка (первый из langs — английский, если есть,
   // иначе первый по мировой популярности) + «+» при нескольких языках;
   // neutral — без бейджа. Подсказка перечисляет все языки.
@@ -208,6 +207,11 @@ function createCard(game) {
     ai.title = 'Игра с искусственным интеллектом';
     title.append(ai);
   }
+
+  // Обложка: визуал + название одним блоком (оверлей к обложке).
+  const cover = document.createElement('div');
+  cover.className = 'card__cover';
+  cover.append(visual, title);
 
   const description = document.createElement('p');
   description.className = 'card__desc';
@@ -257,12 +261,12 @@ function createCard(game) {
     badge.className = 'card__badge';
     badge.textContent = '↗ GitHub';
     meta.append(badge, ` ${game.author} • ${game.license}`);
-    link.append(ribbon, visual, title, description);
+    link.append(ribbon, cover, description);
     if (tagsList) link.append(tagsList);
     if (statsEl) link.append(statsEl);
     link.append(meta, cta);
   } else {
-    link.append(visual, title, description);
+    link.append(cover, description);
     if (tagsList) link.append(tagsList);
     if (statsEl) link.append(statsEl);
     link.append(cta);
@@ -400,25 +404,23 @@ function checkScrollButtons(trackId) {
   const canLeft = track.scrollLeft > 5;
   const canRight = track.scrollLeft + track.clientWidth < track.scrollWidth - 5;
   const scrollable = track.scrollWidth > track.clientWidth + 5;
-  if (left) left.classList.toggle('visible', scrollable && canLeft);
-  if (right) right.classList.toggle('visible', scrollable && canRight);
+  track.parentElement.querySelector('.scroll-btn--left').classList.toggle('visible', scrollable && canLeft);
+  track.parentElement.querySelector('.scroll-btn--right').classList.toggle('visible', scrollable && canRight);
 }
 
 function showError() {
   state.games = [];
   elements.grid.replaceChildren();
-  if (elements.homeRows) {
-    elements.homeRows.replaceChildren();
-    elements.homeRows.hidden = true;
-  }
+  elements.homeRows.replaceChildren();
+  elements.homeRows.hidden = true;
   elements.status.textContent = '';
   elements.empty.hidden = true;
   elements.loadMoreWrap.hidden = true;
   elements.error.hidden = false;
 }
 
-// Сайдбар жанров: топ-теги + Главная; тот же набор в drawer.
-function renderGenres() {
+  // Жанры + drawer.
+  function renderGenres() {
   state.genreTags = topTags(8);
   for (const list of [elements.genreList, elements.mobileGenreList]) {
     if (!list) continue;
@@ -480,29 +482,25 @@ function toggleDrawer() {
 
 async function init() {
   state.statsOn = statsEnabled();
-  if (elements.sort) {
-    elements.sort.value = state.sort;
-    elements.sort.addEventListener('change', () => {
-      state.sort = validSortMode(elements.sort.value);
-      saveSortMode(state.sort);
-      state.shown = PAGE_SIZE;
-      // Смена сортировки — всегда сетка (ряды зафиксированы).
-      state.gridLock = true;
-      render();
-    });
-  }
-  if (elements.menuToggle) elements.menuToggle.addEventListener('click', toggleDrawer);
-  if (elements.homeLogo) {
-    elements.homeLogo.addEventListener('click', () => {
-      elements.search.value = '';
-      state.query = '';
-      state.shown = PAGE_SIZE;
-      state.gridLock = false;
-      closeDrawer();
-      render();
-      renderGenres();
-    });
-  }
+  elements.sort.value = state.sort;
+  elements.sort.addEventListener('change', () => {
+    state.sort = validSortMode(elements.sort.value);
+    saveSortMode(state.sort);
+    state.shown = PAGE_SIZE;
+    // Смена сортировки — всегда сетка (ряды зафиксированы).
+    state.gridLock = true;
+    render();
+  });
+  elements.menuToggle.addEventListener('click', toggleDrawer);
+  elements.homeLogo.addEventListener('click', () => {
+    elements.search.value = '';
+    state.query = '';
+    state.shown = PAGE_SIZE;
+    state.gridLock = false;
+    closeDrawer();
+    render();
+    renderGenres();
+  });
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && elements.mobileSidebar && !elements.mobileSidebar.hidden && !player.isOpen()) {
       closeDrawer();

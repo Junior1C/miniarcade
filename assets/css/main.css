@@ -295,10 +295,10 @@ body {
 .site-main {
   flex: 1;
   width: 100%;
-  max-width: 1100px;
   margin: 0 auto;
   padding: calc(var(--topbar-h) + var(--space-4)) var(--space-4) var(--space-4);
-  /* Отступ под фиксированный сайдбар (только десктоп, см. медиа ниже). */
+  /* Карусели — на ширину экрана: контейнер без max-width, сетка сама
+     дробит колонки (auto-fill). Отступ под фиксированный сайдбар. */
   padding-left: calc(var(--space-4) + var(--sidebar-w));
 }
 
@@ -309,6 +309,22 @@ body {
   text-align: center;
   font-size: 0.75rem;
   color: var(--text-muted);
+}
+
+/* Сетка и служебные блоки — читаемая ширина; ряды — во весь экран. */
+.game-grid,
+.results-status,
+.load-more,
+.empty-state,
+.error-state,
+.site-footer {
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+}
+
+.game-grid {
+  margin-block: 0;
 }
 
 .site-footer a {
@@ -468,7 +484,7 @@ body {
   opacity: 0;
   pointer-events: none;
   transform: translateY(-50%);
-  transition: opacity 0.2s ease, background-color 0.2s ease;
+  transition: opacity .2s ease, background-color .2s ease;
 }
 
 .scroll-btn.visible {
@@ -527,26 +543,38 @@ body {
   box-shadow: 0 8px 24px rgb(0 0 0 / 0.5), 0 0 0 2px var(--accent);
 }
 
-/* Обложка: десктоп 3:2, вертикальные экраны — квадрат 1:1. */
+/* Обложка 3:2 (вертикальные — 1:1) на обёртке: место до загрузки,
+   оверлей не наезжает на подвал. */
+.card__cover {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: #000;
+}
+
+@media (orientation: portrait) {
+  .card__cover {
+    aspect-ratio: 1 / 1;
+  }
+}
+
 .card__emoji {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  aspect-ratio: 3 / 2;
+  height: 100%;
   font-size: 3.5rem;
   line-height: 1;
   background: linear-gradient(135deg, #1e293b, #0f172a);
 }
 
-/* WebP-превью: cover на пропорцию карточки. height-атрибут 440
-   в разметке (против CLS) иначе побеждает aspect-ratio: явная
-   высота отключает ratio по спеке — сбрасываем в auto. */
+/* WebP-превью: cover на всю обложку. width/height-атрибуты 440
+   в разметке страхуют CLS до загрузки CSS. */
 .card__thumb {
   display: block;
   width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 2;
+  height: 100%;
   object-fit: cover;
   background: #000;
   transition: transform 0.3s ease;
@@ -554,13 +582,6 @@ body {
 
 .card:hover .card__thumb {
   transform: scale(1.05);
-}
-
-@media (orientation: portrait) {
-  .card__emoji,
-  .card__thumb {
-    aspect-ratio: 1 / 1;
-  }
 }
 
 /* Текст поверх обложки: всегда виден (тач/клавиатура без hover). */
@@ -572,7 +593,7 @@ body {
   margin: 0;
   padding: var(--space-5) var(--space-3) var(--space-3);
   font-size: 1rem;
-  background: linear-gradient(to top, rgb(0 0 0 / 0.85), transparent);
+  background: linear-gradient(to top, rgb(0 0 0/.85), transparent);
   color: #fff;
 }
 
