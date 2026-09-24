@@ -7,7 +7,11 @@ import {
   handleHit,
   insertHit,
   isBot,
+  isRateLimited,
   parseHit,
+  requestOrigin,
+  resetRateLimit,
+  resolveHost,
 } from '../stats/hit.mjs';
 
 function stubRequest({ method = 'POST', body = {}, headers = {} } = {}) {
@@ -164,4 +168,74 @@ test('insertHit binds in column order', async () => {
     { now: 123, day: '2026-09-23', country: 'RU' },
   );
   assert.deepEqual(db.rows[0], [123, '2026-09-23', 'h', 'g', 'close', 7, 'RU', 'r']);
+});
+
+test('requestOrigin prefers Origin over Referer, empty when absent', () => {
+  const withOrigin = stubRequest({ headers: { origin: 'https://miniarcade.pages.dev' } });
+  assert.equal(requestOrigin(withOrigin), 'https://miniarcade.pages.dev');
+  const withRef = stubRequest({ headers: { referer: 'https://junior1c.github.io/miniarcade/' } });
+  assert.equal(requestOrigin(withRef), 'https://junior1c.github.io');
+  assert.equal(requestOrigin(stubRequest()), '');
+});
+
+test('resolveHost trusts verified Origin over body (anti-poisoning)', () => {
+  const req = stubRequest({ headers: { origin: 'https://miniarcades.vercel.app' } });
+  assert.equal(resolveHost(req, 'evil.example'), 'miniarcades.vercel.app');
+  assert.equal(resolveHost(stubRequest(), 'miniarcade.pages.dev'), 'miniarcade.pages.dev');
+});
+
+test('handleHit: foreign Origin is 403 before DB write', async () => {
+  resetRateLimit();
+  const db = stubDb();
+  const res = await handleHit(
+    stubRequest({
+      body: { v: 1, event: 'pv', host: 'x' },
+      headers: { origin: 'https://evil.example', 'user-agent': 'Mozilla/5.0 Chrome/120' },
+    }),
+    { STATS_DB: db },
+  );
+  assert.equal(res.status, 403);
+  assert.equal(db.rows.length, 0);
+});
+
+test('handleHit: verified Origin rewrites host to mirror hostname', async () => {
+  resetRateLimit();
+  const db = stubDb();
+  const res = await handleHit(
+    stubRequest({
+      body: { v: 1, event: 'pv', host: 'spoofed.example' },
+      headers: { origin: 'https://miniarcade.pages.dev', 'user-agent': 'Mozilla/5.0 Chrome/120' },
+    }),
+    { STATS_DB: db },
+  );
+  assert.equal(res.status, 204);
+  assert.equal(db.rows[0][2], 'miniarcade.pages.dev');
+});
+
+test('handleHit: rate limit trips at 31st hit from one IP', async () => {
+  resetRateLimit();
+  const db = stubDb();
+  const env = { STATS_DB: db };
+  let last = null;
+  for (let i = 0; i < 31; i += 1) {
+    last = await handleHit(
+      stubRequest({
+        body: { v: 1, event: 'pv', host: 'x' },
+        headers: { 'user-agent': 'Mozilla/5.0 Chrome/120', 'cf-connecting-ip': '1.2.3.4' },
+      }),
+      env,
+    );
+  }
+  assert.equal(last.status, 429);
+  resetRateLimit();
+});
+
+test('isRateLimited is per-IP and windowed', () => {
+  resetRateLimit();
+  const req = (ip) => stubRequest({ headers: { 'cf-connecting-ip': ip } });
+  for (let i = 0; i < 30; i += 1) assert.equal(isRateLimited(req('9.9.9.9'), 1000), false);
+  assert.equal(isRateLimited(req('9.9.9.9'), 1000), true);
+  assert.equal(isRateLimited(req('8.8.8.8'), 1000), false);
+  assert.equal(isRateLimited(req('9.9.9.9'), 1000 + 61_000), false);
+  resetRateLimit();
 });

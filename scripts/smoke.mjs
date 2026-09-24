@@ -28,10 +28,15 @@ async function checkHome(host) {
     // роняет проверку, а рассинхрон мостов всё равно ловится.
     // connect-src со STATS_ORIGIN — второй контракт зеркал: иначе
     // beacon аналитики молча режется CSP на части зеркал.
-    for (const token of ['frame-src', 'connect-src', 'https://miniarcade.pages.dev']) {
+    // report-uri — третий: без него нарушения CSP не видны в поле.
+    for (const token of ['frame-src', 'connect-src', 'https://miniarcade.pages.dev', 'report-uri']) {
       if (!csp.includes(token)) {
         throw new Error(`CSP header is missing "${token}" (bridge origins out of sync?)`);
       }
+    }
+    const hsts = response.headers.get('strict-transport-security');
+    if (!hsts || !hsts.includes('max-age=')) {
+      throw new Error('missing Strict-Transport-Security header');
     }
   }
 }

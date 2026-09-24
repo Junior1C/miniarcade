@@ -77,6 +77,9 @@ export const FRAME_SRC_ORIGINS = [
 // живёт на miniarcade.pages.dev и принимает beacon отовсюду).
 // Тест проверяет, что connect-src его содержит во всех трёх носителях.
 export const STATS_ORIGIN = 'https://miniarcade.pages.dev';
+// CSP-отчёты о нарушениях: отдельный лёгкий endpoint (204, без записи),
+// чтобы видеть рассинхрон frame-src и инъекции в поле, а не вслепую.
+export const CSP_REPORT_URI = 'https://miniarcade.pages.dev/api/csp-report';
 export const CSP_CORE = [
   "default-src 'none'",
   "base-uri 'none'",
@@ -90,7 +93,7 @@ export const CSP_CORE = [
   "frame-ancestors 'self'",
 ].join('; ');
 
-export const CSP_PROD = `${CSP_CORE}; upgrade-insecure-requests`;
+export const CSP_PROD = `${CSP_CORE}; report-uri ${CSP_REPORT_URI}; upgrade-insecure-requests`;
 export const CSP_DEV = CSP_CORE;
 
 // CSP для <meta>-тега (GitHub Pages не умеет HTTP-заголовки):
@@ -98,9 +101,14 @@ export const CSP_DEV = CSP_CORE;
 // игнорирует, браузер только шумит в консоль («ignored when delivered
 // via a <meta> element»), защиты ноль. В HTTP-заголовках (_headers,
 // vercel.json, serve.mjs) frame-ancestors остаётся и работает.
+// report-uri в <meta> оставляем: часть браузеров шлёт отчёты и из meta.
 export const CSP_META = CSP_PROD.split('; ')
   .filter((directive) => !directive.startsWith('frame-ancestors'))
   .join('; ');
+
+// HSTS целиком отдан хостингам через HTTP-заголовки (в <meta> не работает).
+// Только prod: локально http://localhost с HSTS сломался бы.
+export const STRICT_TRANSPORT_SECURITY = 'max-age=31536000; includeSubDomains; preload';
 
 export const PERMISSIONS_POLICY =
   'camera=(), microphone=(), geolocation=(), payment=(), usb=()';
@@ -128,5 +136,6 @@ export function prodSecurityHeaders() {
   return {
     ...devSecurityHeaders(),
     'Content-Security-Policy': CSP_PROD,
+    'Strict-Transport-Security': STRICT_TRANSPORT_SECURITY,
   };
 }

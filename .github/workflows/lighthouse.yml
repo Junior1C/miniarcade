@@ -1,0 +1,31 @@
+name: Lighthouse (warn-only)
+
+# Лёгкий perf/a11y-сторож поверх байтовых бюджетов: Lighthouse Desktop
+# против локального serve.mjs (боевые dev-заголовки). WARN-ONLY осознанно:
+# CI-раннеры шумные, жёсткие миллисекунды не фиксируем (см. README §
+# «Производительность и бюджеты») — регрессии ловим по байтам, поле — по CrUX.
+# Провал джобы — сигнал посмотреть отчёт-артефакт, а не блокер мержа.
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - run: node scripts/build.mjs
+      - run: PORT=4173 node scripts/serve.mjs & echo $! > serve.pid
+      - run: sleep 3 && curl -sf http://127.0.0.1:4173/ > /dev/null
+      - run: npx -y lighthouse http://127.0.0.1:4173/ --preset=desktop --output=json --output-path=lighthouse.json --chrome-flags="--headless --no-sandbox" || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-report
+          path: lighthouse.json
+      - run: kill $(cat serve.pid) || true

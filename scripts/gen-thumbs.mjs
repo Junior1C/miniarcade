@@ -21,7 +21,11 @@ const PORT = 4174;
 const SHOT_WIDTH = 480;
 const SHOT_SQUARE = 480;
 const THUMB_WIDTH = 440;
-const WEBP_QUALITY = 65;
+// q60 вместо q65: суммарные превью упёрлись в WARN (800КБ), каждое новое
+// превью приближает FAIL 1.2МБ. Разница визуально незаметна на 440px,
+// экономия ~10-15% на файл. Существующие thumbs не пережимаем инкрементально
+// (thumbFresh), только новые/--force.
+const WEBP_QUALITY = 60;
 const THUMB_MAX_BYTES = 25 * 1024;
 // Бережный режим (не выжигать CPU/GPU/RAM): короткие таймауты,
 // пауза между мостами, cwebp без -mt, батчи через --limit.

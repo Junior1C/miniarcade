@@ -9,9 +9,11 @@ import {
   CSP_CORE,
   CSP_META,
   CSP_PROD,
+  CSP_REPORT_URI,
   FRAME_SRC_ORIGINS,
   PERMISSIONS_POLICY,
   STATS_ORIGIN,
+  STRICT_TRANSPORT_SECURITY,
   devSecurityHeaders,
   prodSecurityHeaders,
 } from '../scripts/security-headers.mjs';
@@ -36,6 +38,17 @@ test('dev server uses the shared headers module with full Permissions-Policy', a
   assert.ok(PERMISSIONS_POLICY.includes('usb=()'));
 });
 
+test('prod CSP carries report-uri, dev stays quiet (localhost noise)', () => {
+  assert.ok(CSP_PROD.includes(`report-uri ${CSP_REPORT_URI}`), 'prod must report violations');
+  assert.ok(CSP_META.includes(`report-uri ${CSP_REPORT_URI}`), 'meta keeps report-uri');
+  assert.ok(!CSP_CORE.includes('report-uri'), 'dev CSP stays without report-uri');
+});
+
+test('HSTS is prod-only and synced to carriers (meta cannot carry it)', () => {
+  assert.equal(prodSecurityHeaders()['Strict-Transport-Security'], STRICT_TRANSPORT_SECURITY);
+  assert.ok(!('Strict-Transport-Security' in devSecurityHeaders()), 'dev has no HSTS (http)');
+});
+
 test('_headers and vercel.json match the shared prod policy', async () => {
   const [headersFile, vercelRaw] = await Promise.all([
     readFile(path.join(ROOT, '_headers'), 'utf8'),
@@ -58,6 +71,8 @@ test('_headers and vercel.json match the shared prod policy', async () => {
   }
   assert.ok(headersFile.includes(`Permissions-Policy: ${PERMISSIONS_POLICY}`));
   assert.equal(vercelHeaders['Permissions-Policy'], PERMISSIONS_POLICY);
+  assert.ok(headersFile.includes(`Strict-Transport-Security: ${STRICT_TRANSPORT_SECURITY}`));
+  assert.equal(vercelHeaders['Strict-Transport-Security'], STRICT_TRANSPORT_SECURITY);
 });
 
 test('stats endpoint is allowed in connect-src on all carriers', async () => {

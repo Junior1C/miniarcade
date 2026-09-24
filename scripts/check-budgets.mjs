@@ -21,14 +21,23 @@ const BUDGETS = [
 ];
 
 const JS_BUDGET = { dir: 'assets/js', maxBytes: 30 * 1024 };
+// Критический путь каталога — всё кроме витрины статистики: stats-page.js
+// грузится только на stats.html (<script type=module>, deferred), на LCP/INP
+// главной не влияет. Отдельный бюджет держит критический JS в узде,
+// пока суммарный счётчик не маскирует рост main.js за счёт витрины.
+const JS_CRITICAL_MAX = 24 * 1024;
+const JS_DEFERRED = new Set(['stats-page.js']);
 // WebP-превью карточек (gen-thumbs.mjs): каждое лёгкое по отдельности,
 // сумма — с запасом на новые игры; часть мостов без превью осознанно
 // (пустой кадр — честнее эмодзи, список в NOTHUMB_BRIDGES генератора).
 const THUMB_FILE_MAX = 25 * 1024;
 const THUMBS_TOTAL_MAX = 1200 * 1024;
-// Раннее предупреждение: суммарные превью уже на ~80% лимита —
+// Раннее предупреждение: суммарные превью уже на ~75% лимита —
 // WARN шумит до того, как новые игры упрутся в FAIL.
-const THUMBS_TOTAL_WARN = 900 * 1024;
+const THUMBS_TOTAL_WARN = 800 * 1024;
+// Мосты масштабируют CSP (frame-src) и index.html линейно: >150 мостов —
+// сигнал чистить мёртвые и резать allowlist, а не растить дальше.
+const BRIDGES_WARN = 150;
 // При >3000 игр каталог перестанет помещаться в разумный бюджет —
 // сигнал к переходу на Worker+KV (см. README § "Масштабирование").
 const CATALOG_COUNT_WARN = 3000;
@@ -40,12 +49,15 @@ async function fileSize(rel) {
 async function jsTotal() {
   const entries = await readdir(path.join(ROOT, JS_BUDGET.dir), { withFileTypes: true });
   let total = 0;
+  let critical = 0;
   for (const entry of entries) {
     if (entry.isFile() && entry.name.endsWith('.js')) {
-      total += await fileSize(path.join(JS_BUDGET.dir, entry.name));
+      const size = await fileSize(path.join(JS_BUDGET.dir, entry.name));
+      total += size;
+      if (!JS_DEFERRED.has(entry.name)) critical += size;
     }
   }
-  return total;
+  return { total, critical };
 }
 
 let failed = 0;
@@ -56,10 +68,17 @@ for (const { file, maxBytes, warnBytes } of BUDGETS) {
   if (status === 'FAIL') failed += 1;
 }
 
-const jsBytes = await jsTotal();
+const { total: jsBytes, critical: jsCritical } = await jsTotal();
 {
   const status = jsBytes > JS_BUDGET.maxBytes ? 'FAIL' : 'ok';
   console.log(`${status.padEnd(4)} ${JS_BUDGET.dir}/*.js — ${jsBytes} bytes total (max ${JS_BUDGET.maxBytes})`);
+  if (status === 'FAIL') failed += 1;
+}
+{
+  const status = jsCritical > JS_CRITICAL_MAX ? 'FAIL' : 'ok';
+  console.log(
+    `${status.padEnd(4)} ${JS_BUDGET.dir}/*.js (critical, без stats-page.js) — ${jsCritical} bytes (max ${JS_CRITICAL_MAX})`,
+  );
   if (status === 'FAIL') failed += 1;
 }
 
@@ -99,6 +118,11 @@ const jsBytes = await jsTotal();
   console.log(`info ${'data/catalog.json'} — ${count} games`);
   if (count > CATALOG_COUNT_WARN) {
     console.error(`WARN catalog has ${count} games (> ${CATALOG_COUNT_WARN}): пора выносить поиск в Worker+KV`);
+  }
+  const bridges = catalog.games?.filter((game) => game.url)?.length ?? 0;
+  console.log(`info bridges — ${bridges} external (warn > ${BRIDGES_WARN})`);
+  if (bridges > BRIDGES_WARN) {
+    console.error(`WARN bridges ${bridges} (> ${BRIDGES_WARN}): CSP frame-src и index.html растут линейно — чистить мёртвые`);
   }
 }
 

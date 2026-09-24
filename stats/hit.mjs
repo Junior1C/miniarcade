@@ -63,6 +63,82 @@ export async function insertHit(db, hit, meta) {
     .run();
 }
 
+// Доверенные вебы-приёмники beacon: каталог един, зеркала известны.
+// Origin/Referer проверяем только если заголовок есть (curl/e2e без
+// Origin не режем); чужой Origin с телом — 403, host берём из Origin,
+// а не из тела (иначе отравление разбивки по хостингам).
+export const ALLOWED_HIT_ORIGINS = new Set([
+  'https://junior1c.github.io',
+  'https://miniarcade.pages.dev',
+  'https://miniarcades.vercel.app',
+  'http://localhost:4173',
+  'http://127.0.0.1:4173',
+  'http://localhost:4174',
+  'http://127.0.0.1:4174',
+]);
+
+// Best-effort троттлинг против спама в D1: 30 запросов/60с с одного IP.
+// Память процесса (Pages/Worker могут дропать), поэтому лимит мягкий:
+// честных пользователей не режет, потоп — да. Тесты сбрасывают через resetRateLimit().
+const RATE_LIMIT_MAX = 30;
+const RATE_LIMIT_WINDOW_MS = 60_000;
+const rateBuckets = new Map();
+
+export function resetRateLimit() {
+  rateBuckets.clear();
+}
+
+function clientIp(request) {
+  const headers = request.headers;
+  const get = (name) => headers.get(name) || headers.get(name.toLowerCase());
+  return (get('cf-connecting-ip') || get('x-forwarded-for') || get('x-real-ip') || 'unknown')
+    .split(',')[0]
+    .trim()
+    .slice(0, 80);
+}
+
+export function isRateLimited(request, now = Date.now()) {
+  const ip = clientIp(request);
+  if (ip === 'unknown') return false;
+  const hits = rateBuckets.get(ip) || [];
+  const fresh = hits.filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
+  fresh.push(now);
+  rateBuckets.set(ip, fresh);
+  return fresh.length > RATE_LIMIT_MAX;
+}
+
+export function requestOrigin(request) {
+  const origin = request.headers.get('origin');
+  if (origin) {
+    try {
+      return new URL(origin).origin;
+    } catch {
+      return '';
+    }
+  }
+  const referer = request.headers.get('referer') || request.headers.get('referrer');
+  if (referer) {
+    try {
+      return new URL(referer).origin;
+    } catch {
+      return '';
+    }
+  }
+  return '';
+}
+
+export function resolveHost(request, bodyHost) {
+  const origin = requestOrigin(request);
+  if (origin && ALLOWED_HIT_ORIGINS.has(origin)) {
+    try {
+      return new URL(origin).hostname;
+    } catch {
+      // ниже — fallback на тело.
+    }
+  }
+  return bodyHost;
+}
+
 export function corsHeaders() {
   return {
     'Access-Control-Allow-Origin': '*',
@@ -87,6 +163,18 @@ export async function handleHit(request, env) {
   if (isBot(request.headers.get('user-agent'))) {
     return new Response(null, { status: 204, headers: corsHeaders() });
   }
+  // Чужой Origin/Referer с телом — не наша статистика: 403 до чтения D1.
+  // Пустой Origin (curl, часть beacon) пропускаем — валидация тела ниже.
+  const origin = requestOrigin(request);
+  if (origin && !ALLOWED_HIT_ORIGINS.has(origin)) {
+    return new Response('Forbidden', { status: 403, headers: corsHeaders() });
+  }
+  if (isRateLimited(request)) {
+    return new Response('Too Many Requests', {
+      status: 429,
+      headers: { ...corsHeaders(), 'Retry-After': '60' },
+    });
+  }
   if (!env || !env.STATS_DB) {
     return new Response('Stats DB is not bound', { status: 503, headers: corsHeaders() });
   }
@@ -100,6 +188,9 @@ export async function handleHit(request, env) {
   if (!parsed.ok) {
     return new Response('Bad Request', { status: 400, headers: corsHeaders() });
   }
+  // Host из проверенного Origin надёжнее тела: разбивку по зеркалам
+  // нельзя отравить поддельным host в JSON.
+  parsed.data.host = resolveHost(request, parsed.data.host);
   const now = Date.now();
   try {
     await insertHit(db(env), parsed.data, { now, day: dayOf(now), country: countryOf(request.headers) });

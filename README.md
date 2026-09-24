@@ -42,7 +42,7 @@ games/
     meta.json              — метаданные: id, title, emoji, description, tags, …
 scripts/
   build.mjs                — скан games/*/ → data/catalog.json + sitemap.xml + JSON-LD в index.html + CSP meta в index.html/stats.html (валидация)
-  sync-headers.mjs         — разносит CSP_PROD из security-headers.mjs в _headers и vercel.json (руками CSP не правим)
+  sync-headers.mjs         — разносит ВЕСЬ prod-набор из security-headers.mjs в _headers и vercel.json (руками заголовки не правим)
   serve.mjs                — локальный сервер с боевыми заголовками
   security-headers.mjs     — единый источник CSP/Permissions-Policy (serve, _headers, vercel.json)
   check-budgets.mjs        — perf-бюджеты размеров (npm run budgets)
@@ -113,12 +113,14 @@ npm run og       # перегенерировать assets/og.png (если ме
 | Артефакт | Max | Зачем |
 |---|---|---|
 | `data/catalog.json` | 250 КБ (warn 200 КБ) | поиск в памяти, LCP каталога |
-| `assets/js/*.js` суммарно | 30 КБ | критический путь каталога |
+| `assets/js/*.js` суммарно | 30 КБ | критический путь каталога + витрина |
+| `assets/js/*` критический (без `stats-page.js`) | 24 КБ | главная: `stats-page.js` грузится только на `stats.html` (deferred), рост `main.js` виден отдельно |
 | `assets/css/main.css` | 20 КБ | один CSS на каталог |
 | `index.html` | 35 КБ | оболочка + JSON-LD и frame-src всех игр (на LCP не влияет) |
 | `stats.html` | 35 КБ | витрина статистики: та же CSP meta, без JSON-LD |
-| `games/*/thumb.webp` | 25 КБ/файл, 1.2 МБ суммарно | WebP-превью карточек (свои + живые мосты; пустые кадры — эмодзи) |
+| `games/*/thumb.webp` | 25 КБ/файл, 1.2 МБ суммарно (WARN 800 КБ) | WebP-превью карточек; q60 для новых (см. `gen-thumbs.mjs`); пустые кадры — эмодзи |
 | `assets/og.png` | 100 КБ | превью ссылок |
+| мосты (`games/ext-*/meta.json` с `url`) | WARN > 150 | каждый мост растит `frame-src` и `index.html` линейно — чистить мёртвые, строгий отчёт — артефакт `qa-bridges.yml` |
 
 E2E-дым (`tests/e2e/perf.e2e.mjs`): главная с карточками <8с на CI-раннере,
 `fetch catalog.json` <2с, ноль ошибок консоли. Жёсткие миллисекунды не фиксируем —
@@ -214,8 +216,9 @@ Chess.com, TETR.IO), и проприетарные free-to-play без репо�
 - origin обязан входить в `FRAME_SRC_ORIGINS` (`scripts/security-headers.mjs`) —
   единый источник для CSP (`_headers`, `vercel.json`, `<meta>` в `index.html`)
   и для валидации `build.mjs`; тесты валят оба перекоса (мост без origin,
-  origin без моста). CSP в `_headers`/`vercel.json` руками не правим —
-  разносит `node scripts/sync-headers.mjs`;
+  origin без моста). Заголовки в `_headers`/`vercel.json` руками не правим —
+  разносит `node scripts/sync-headers.mjs`; лимит — WARN >150 мостов
+  (`npm run budgets`): каждый мост растит `frame-src` линейно;
 - конечный URL (после всех редиректов, включая JS) обязан разрешать встраивание
   с нашего origin: проверяем iframe-тестом, а не только HTTP-заголовками.
   Редирект на закрытый origin или HTTP = мёртвый мост: обновляем `url` + allowlist
@@ -241,7 +244,8 @@ Chess.com, TETR.IO), и проприетарные free-to-play без репо�
 ```bash
 npm run qa          # все локальные боты (входит в npm run check, pre-push и CI)
 npm run qa:fix      # безопасный автофикс: только висячие пробелы
-npm run qa:bridges  # живой обход 124 мостов (сеть; в CI — еженедельный cron qa-bridges.yml, report-only)
+npm run qa:bridges  # живой обход 124 мостов (сеть; в CI — еженедельный cron qa-bridges.yml, report-only + strict-артефакт)
+npm run qa:bridges:strict  # ручной строгий прогон: FAIL при мёртвых/закрытых мостах
 ```
 
 Исключения документируются кодом, а не молчанием: `hangman` вправе использовать `e.key` (буквенный ввод). Комментарии-пояснения боты режут перед сканом, оправдания в коде их не обманывают.
@@ -331,15 +335,16 @@ CSP на месте, актуален (есть переезд `muan.github.io`,
 
 ## Безопасность (слой защиты)
 
-1. **CSP** — `default-src 'none'` везде: каталог и игры грузят только свои файлы с того же origin; игры физически не могут отдать данные наружу. Дублируется в `<meta>` (`index.html` и `stats.html` — ставит `build.mjs` из единого источника; без `frame-ancestors` — спека его в `<meta>` игнорирует, только шумит в консоль) и в `_headers`/`vercel.json` (остальные, там `frame-ancestors` есть и работает). Единый источник — `scripts/security-headers.mjs`, рассинхрон ловит `tests/headers.test.mjs`.
-2. **Заголовки**: `nosniff`, `X-Frame-Options: SAMEORIGIN` + `frame-ancestors 'self'` (каталог нельзя встроить чужому сайту), `Cross-Origin-Opener-Policy: same-origin` (у каталога нет popup/OAuth-флоу, плеер — `<dialog>`), `Referrer-Policy`, `Permissions-Policy` (камера/микрофон/геолокация/payment/usb выключены). `CORP: same-origin` осознанно НЕ ставим — мог бы заблокировать iframe игр в sandbox с opaque origin на части движков.
+1. **CSP** — `default-src 'none'` везде + `report-uri https://miniarcade.pages.dev/api/csp-report` (тихий 204-приёмник: видим рассинхрон в поле). Каталог и игры грузят только свои файлы с того же origin; игры физически не могут отдать данные наружу. Дублируется в `<meta>` (`index.html` и `stats.html` — ставит `build.mjs` из единого источника; без `frame-ancestors` — спека его в `<meta>` игнорирует, только шумит в консоль) и в `_headers`/`vercel.json` (остальные, там `frame-ancestors` есть и работает). Единый источник — `scripts/security-headers.mjs`, разносит `node scripts/sync-headers.mjs` (целиком, включая HSTS — руками не правим), рассинхрон ловит `tests/headers.test.mjs`.
+2. **Заголовки**: `nosniff`, `X-Frame-Options: SAMEORIGIN` + `frame-ancestors 'self'` (каталог нельзя встроить чужому сайту), `Strict-Transport-Security: max-age=31536000; includeSubDomains; preload` (только prod-HTTPS, в `<meta>` не работает — поэтому GH Pages без него), `Cross-Origin-Opener-Policy: same-origin` (у каталога нет popup/OAuth-флоу, плеер — `<dialog>`), `Referrer-Policy`, `Permissions-Policy` (камера/микрофон/геолокация/payment/usb выключены). `CORP: same-origin` осознанно НЕ ставим — мог бы заблокировать iframe игр в sandbox с opaque origin на части движков.
 3. **Sandbox iframe** — `allow-scripts` без `allow-same-origin`: игры изолированы в opaque origin и не могут трогать каталог, куки и storage. Дополнительные capability только по белому списку в `meta.json`. Единый allowlist — `assets/js/sandbox-tokens.js` (используют и `build.mjs`, и `player.js`); опасные `allow-same-origin/top-navigation/forms` запрещены тестом.
 4. **Ввод** — поиск и данные каталога вставляются только через `textContent`/`createElement` (не `innerHTML`), поэтому XSS через данные невозможен.
 5. **Валидация каталога** — `scripts/build.mjs` отклоняет неизвестные ключи, чужие sandbox-токены, рассинхрон id/папки.
 6. **Плеер** — нативный `<dialog>`: фокус-трап, Esc и возврат фокуса — бесплатно и по спеке; `src` сбрасывается в `about:blank` при закрытии.
 7. **Приватность** — `no-referrer` внутри игр, `strict-origin-when-cross-origin` на каталоге; account_id лежит только в `.wrangler/` (в `.gitignore`).
+8. **Приёмник аналитики** — чужой `Origin/Referer` с телом режется 403 до чтения D1 (`ALLOWED_HIT_ORIGINS` в `stats/hit.mjs`: 3 зеркала + localhost), `host` берётся из проверенного `Origin`, а не из тела (иначе отравление разбивки), best-effort троттлинг 30 req/60с с IP (429 + `Retry-After`). Без `Origin` (curl/beacon без заголовка) — только валидация тела, как раньше.
 
-Что не покрыто (осознанные компромиссы): GH Pages не даёт задать security-заголовки — там работает только CSP в `<meta>` (без `frame-ancestors`, без COOP); `HSTS` целиком отдан хостингам. Service Worker для офлайна не вводим: цена (скоуп на GH Pages, инвалидация кэша, конфликт с `default-src 'none'`) выше выгоды для каталога из трёх игр — пересмотреть при x100.
+Что не покрыто (осознанные компромиссы): GH Pages не даёт задать security-заголовки — там работает только CSP в `<meta>` (без `frame-ancestors`, без COOP/HSTS); каноническим по заголовкам и API считаем Cloudflare (`pages.dev`), GH Pages — витрина/источник истины git; `HSTS` целиком отдан хостингам. Service Worker для офлайна не вводим: цена (скоуп на GH Pages, инвалидация кэша, конфликт с `default-src 'none'`) выше выгоды для каталога из трёх игр — пересмотреть при x100.
 
 ## Масштабирование
 

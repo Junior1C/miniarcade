@@ -55,6 +55,13 @@ const TEMPLATE_CSS = `body {
   touch-action: manipulation;
 }
 
+/* Canvas со свайпами — touch-action: none, чтобы палец не скроллил страницу. */
+canvas {
+  touch-action: none;
+  max-width: 100%;
+  height: auto;
+}
+
 .hud {
   display: flex;
   gap: 1rem;
@@ -80,6 +87,33 @@ const TEMPLATE_CSS = `body {
   margin: 0;
   color: #c4c9d4;
 }
+
+button {
+  font: inherit;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #4b5563;
+  background: #1f2937;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Видимый фокус только с клавиатуры: мышь не шумит обводкой. */
+button:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+/* Уважение к reduced-motion: без резких анимаций по умолчанию в шаблоне нет,
+   правило-маркер — чтобы автор не забыл обернуть свои keyframes. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 `;
 
 const TEMPLATE_JS = `(() => {
@@ -88,18 +122,31 @@ const TEMPLATE_JS = `(() => {
   const scoreEl = document.getElementById('score');
   const statusEl = document.getElementById('status');
   let score = 0;
+  // Пауза по visibilitychange: realtime-цикл не крутится в фоне
+  // (qa-games.mjs предупреждает, если флага нет). Шаблон — пошаговый,
+  // поэтому флаг-маркер: автор realtime-игры обязан повесить паузу сюда.
+  let paused = document.hidden;
 
   function setScore(value) {
     score = value;
     scoreEl.textContent = String(score);
   }
 
+  // e.code, а не e.key: раскладка/CapsLock не ломают управление.
+  // Пробел только на keydown + preventDefault: на Enter нативный клик
+  // сфокусированной кнопки удвоил бы очки.
   window.addEventListener('keydown', (event) => {
+    if (paused) return;
     if (event.code === 'Space') {
       event.preventDefault();
       setScore(score + 1);
       statusEl.textContent = 'Очки: ' + score;
     }
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    paused = document.hidden;
+    if (paused) statusEl.textContent = 'Пауза — вернитесь на вкладку';
   });
 
   statusEl.textContent = 'Нажмите Пробел, чтобы начать';

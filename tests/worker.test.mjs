@@ -71,6 +71,11 @@ test('статика получает полный prod-набор заголо�
   assert.ok(csp.includes('upgrade-insecure-requests'), 'header CSP keeps upgrade flag');
   assert.equal(res.headers.get('x-frame-options'), 'SAMEORIGIN');
   assert.equal(res.headers.get('cross-origin-opener-policy'), 'same-origin');
+  assert.ok(
+    res.headers.get('strict-transport-security')?.includes('max-age='),
+    'HSTS must be set by the worker',
+  );
+  assert.ok(csp.includes('report-uri'), 'header CSP carries report-uri');
 });
 
 test('неизвестные пути — 404, а не SPA-index', async () => {
@@ -107,6 +112,16 @@ test('/api/hit с базой пишет строку и отвечает 204', a
   assert.equal(res.status, 204);
   assert.equal(bound.length, 1);
   assert.ok(bound[0].sql.startsWith('INSERT INTO events'));
+});
+
+test('/api/csp-report принимает отчёты тихим 204', async () => {
+  const res = await callWorker('/api/csp-report', {
+    method: 'POST',
+    body: JSON.stringify({ 'csp-report': { 'blocked-uri': 'inline' } }),
+  });
+  assert.equal(res.status, 204);
+  const get = await callWorker('/api/csp-report');
+  assert.equal(get.status, 405);
 });
 
 test('withSecurity не трогает тело ответа', async () => {
