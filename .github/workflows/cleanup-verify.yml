@@ -1,0 +1,47 @@
+name: Cleanup verify row (one-shot)
+
+# Разовая чистка тестовой строки аналитики (host='verify', осталась от
+# проверки приёмника 2026-09-23). Триггер — push этого файла (и руками
+# через workflow_dispatch). После успеха файл удаляется из репо.
+# Не путать с nightly stats.yml: тот только агрегирует, ничего не удаляет
+# (кроме протухших >120 дней).
+on:
+  push:
+    paths: ['.github/workflows/cleanup-verify.yml']
+  workflow_dispatch:
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - name: Delete verify row and refresh aggregates
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "CLOUDFLARE_API_TOKEN is not configured — nothing to do."
+            exit 0
+          fi
+          npx -y wrangler@4.136.3 d1 execute miniarcade_stats --remote --file stats/schema.sql
+          npx -y wrangler@4.136.3 d1 execute miniarcade_stats --remote --command "DELETE FROM events WHERE host = 'verify'"
+          npx -y wrangler@4.136.3 d1 execute miniarcade_stats --remote --json --command "SELECT day, host, game, event, COUNT(*) AS n, COALESCE(SUM(secs), 0) AS secs FROM events WHERE day >= date('now', '-90 days') GROUP BY day, host, game, event ORDER BY day DESC LIMIT 20000" > /tmp/stats.json
+          node scripts/pull-stats.mjs /tmp/stats.json data/stats
+      - name: Commit refreshed stats
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/stats
+          if git diff --cached --quiet; then
+            echo "No stats changes."
+            exit 0
+          fi
+          git pull --rebase --autostash origin main
+          git commit -m "stats: drop verify probe row"
+          git push origin main
