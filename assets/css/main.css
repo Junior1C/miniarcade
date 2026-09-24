@@ -1,13 +1,13 @@
 :root {
   color-scheme: dark;
-  --bg: #0f1115;
-  --bg-header: #0f1115;
-  --surface: #1a1c23;
-  --surface-hover: #24272f;
-  --text: #e2e8f0;
-  --text-muted: #94a3b8;
-  --accent: #3b82f6;
-  --accent-hover: #2563eb;
+  --bg: #04060d;
+  --bg-header: #04060d;
+  --surface: #0a0f1e;
+  --surface-hover: #111a33;
+  --text: #e8edff;
+  --text-muted: #8b98b8;
+  --accent: #2e5bff;
+  --accent-hover: #1e40ff;
   --danger: #ef4444;
   --focus: #fbbf24;
   --radius: 12px;
@@ -40,11 +40,11 @@ body {
   overflow-x: hidden;
 }
 
-/* Глубина фона без canvas/JS: статичные radial-градиенты. */
+/* Глубина фона: глубокие синие переливы на чёрном, статикой. */
 body {
   background:
-    radial-gradient(60rem 30rem at 85% -10%, rgb(59 130 246 / 0.08), transparent 60%),
-    radial-gradient(50rem 26rem at 10% 110%, rgb(124 58 237 / 0.07), transparent 60%),
+    radial-gradient(70rem 34rem at 80% -10%, rgb(32 58 150 / 0.35), transparent 62%),
+    radial-gradient(55rem 30rem at 8% 108%, rgb(22 42 120 / 0.3), transparent 60%),
     var(--bg);
 }
 
@@ -119,27 +119,6 @@ body {
   background: #dc2626;
 }
 
-.site-header {
-  padding: var(--space-6) var(--space-4);
-  text-align: center;
-  background: var(--bg-header);
-}
-
-.site-header__brand {
-  margin: 0;
-  font-size: 1.75rem;
-  font-weight: 700;
-}
-
-.site-header__home {
-  color: inherit;
-  text-decoration: none;
-}
-
-.site-header__home:hover {
-  text-decoration: underline;
-}
-
 /* Топбар: фикс, блюр, лого + поиск + разделы. */
 .topbar {
   position: fixed;
@@ -152,9 +131,9 @@ body {
   align-items: center;
   gap: var(--space-4);
   padding: 0 var(--space-4);
-  background: rgb(15 17 21 / 0.95);
+  background: rgb(4 6 13 / 0.92);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgb(255 255 255 / 0.05);
+  border-bottom: 1px solid rgb(46 91 255 / 0.18);
 }
 
 .topbar__left {
@@ -227,22 +206,6 @@ body {
   color: #fff;
 }
 
-.site-nav {
-  margin-top: var(--space-4);
-}
-
-.site-nav__link {
-  color: var(--text-muted);
-  font-size: 0.9375rem;
-}
-
-.site-header__title {
-  margin: var(--space-2) 0 0;
-  font-size: 1.125rem;
-  font-weight: 500;
-  color: var(--text-muted);
-}
-
 .search {
   display: flex;
   flex: 1;
@@ -257,9 +220,9 @@ body {
   flex: 1;
   min-width: 10rem;
   padding: var(--space-2) var(--space-4);
-  border: 1px solid #334155;
+  border: 1px solid #1e2a4a;
   border-radius: 999px;
-  background: rgb(30 41 59 / 0.5);
+  background: #0a0f1e;
   color: var(--text);
   font: inherit;
   font-size: 0.875rem;
@@ -272,7 +235,8 @@ body {
 .search__input:focus {
   outline: none;
   border-color: var(--accent);
-  background: #0f172a;
+  background: #0a0f1e;
+  box-shadow: 0 0 0 3px rgb(46 91 255 / 0.25);
 }
 
 /* Селект сортировки: та же пилюля, что у поиска. */
@@ -284,9 +248,9 @@ body {
 
 .search__select {
   padding: var(--space-2) var(--space-3);
-  border: 1px solid #334155;
+  border: 1px solid #1e2a4a;
   border-radius: 999px;
-  background: rgb(30 41 59 / 0.5);
+  background: #0a0f1e;
   color: var(--text);
   font: inherit;
   font-size: 0.875rem;
@@ -341,7 +305,7 @@ body {
   z-index: 30;
   overflow: hidden;
   background: var(--bg);
-  border-right: 1px solid rgb(255 255 255 / 0.05);
+  border-right: 1px solid rgb(46 91 255 / 0.15);
   transition: width 0.25s ease;
 }
 
@@ -385,9 +349,9 @@ body {
 }
 
 .genre-button[aria-current="true"] {
-  color: #60a5fa;
+  color: #7fa6ff;
   font-weight: 700;
-  background: rgb(59 130 246 / 0.15);
+  background: rgb(46 91 255 / 0.16);
   border-left-color: var(--accent);
 }
 
@@ -406,7 +370,7 @@ body {
   z-index: 35;
   overflow-y: auto;
   padding: var(--space-4);
-  background: rgb(15 17 21 / 0.97);
+  background: rgb(4 6 13 / 0.97);
 }
 
 .results-status {
@@ -450,7 +414,9 @@ body {
   display: flex;
   gap: var(--space-3);
   margin: 0;
-  padding: var(--space-1);
+  /* Вертикальный запас под hover-scale карточек: overflow-x уже режет
+     обрезку сверху/снизу, паддинги возвращают воздух (маска исчезает). */
+  padding: var(--space-3) var(--space-1);
   overflow-x: auto;
   list-style: none;
   scroll-behavior: smooth;
@@ -519,7 +485,7 @@ body {
      после первого paint — без скачков layout (CLS). */
   content-visibility: auto;
   contain-intrinsic-size: auto 260px;
-  box-shadow: 0 8px 20px rgb(0 0 0 / 0.35);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.55), 0 0 0 1px rgb(46 91 255 / 0.12);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -535,12 +501,12 @@ body {
   height: 0;
   border-style: solid;
   border-width: 0 46px 46px 0;
-  border-color: transparent #7c3aed transparent transparent;
+  border-color: transparent var(--accent) transparent transparent;
 }
 
 .card:hover {
   transform: scale(1.03);
-  box-shadow: 0 8px 24px rgb(0 0 0 / 0.5), 0 0 0 2px var(--accent);
+  box-shadow: 0 0 0 2px var(--accent), 0 0 26px rgb(46 91 255 / 0.45);
 }
 
 /* Обложка 3:2 (вертикальные — 1:1) на обёртке: место до загрузки,
@@ -566,7 +532,7 @@ body {
   height: 100%;
   font-size: 3.5rem;
   line-height: 1;
-  background: linear-gradient(135deg, #1e293b, #0f172a);
+  background: linear-gradient(135deg, #0d1530, #060a18);
 }
 
 /* WebP-превью: cover на всю обложку. width/height-атрибуты 440
@@ -584,24 +550,31 @@ body {
   transform: scale(1.05);
 }
 
-/* Текст поверх обложки: всегда виден (тач/клавиатура без hover). */
+/* Название под обложкой: flex-строка, имя режется с точками
+   (полное — в подсказке title), бейджи прижаты вправо вниз. */
 .card__title {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
   margin: 0;
-  padding: var(--space-5) var(--space-3) var(--space-3);
+  padding: var(--space-2) var(--space-3);
   font-size: 1rem;
-  background: linear-gradient(to top, rgb(0 0 0/.85), transparent);
-  color: #fff;
+  color: var(--text);
+}
+
+.card__name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 /* Значок языка игры: RU / EN / 🌐 (без текста). Рядом с названием,
    не интерактивен — клавиатурный путь тот же поиск. */
 .card__lang {
   display: inline-block;
-  margin-left: var(--space-2);
+  margin-left: auto;
   padding: 0 var(--space-2);
   border-radius: 999px;
   background: #134e4a;
@@ -611,18 +584,22 @@ body {
   vertical-align: middle;
 }
 
-/* Бейдж ИИ-игр (тег «ии»): фиолетовая пилюля рядом с названием,
-   парная к .card__lang — тот же масштаб, другой смысл. */
+/* Бейдж ИИ-игр (тег «ии»): электрический синий с неоновой тенью. */
 .card__ai {
   display: inline-block;
-  margin-left: var(--space-2);
+  margin-left: auto;
   padding: 0 var(--space-2);
   border-radius: 999px;
-  background: #4c1d95;
-  color: #ede9fe;
+  background: var(--accent);
+  color: #fff;
   font-size: 0.75rem;
   font-weight: 700;
   vertical-align: middle;
+  box-shadow: 0 0 10px rgb(46 91 255 / 0.55);
+}
+
+.card__lang + .card__ai {
+  margin-left: var(--space-2);
 }
 
 /* Теги игры: видны на карточке, клик (мышь/тач) подставляет тег в поиск.
@@ -675,7 +652,7 @@ body {
   padding: 0 var(--space-3) var(--space-2);
   font-size: 0.75rem;
   color: var(--text-muted);
-  background: #14161c;
+  background: #070b16;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -687,7 +664,7 @@ body {
   padding: var(--space-2) var(--space-3);
   font-size: 0.75rem;
   color: var(--text-muted);
-  background: #14161c;
+  background: #070b16;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
   overflow: hidden;
@@ -726,16 +703,16 @@ body {
   max-width: none;
   max-height: none;
   padding: 0;
-  border: 1px solid rgb(255 255 255 / 0.1);
+  border: 1px solid rgb(46 91 255 / 0.22);
   border-radius: 16px;
-  background: #0f172a;
+  background: #05070d;
   color: var(--text);
   overflow: hidden;
   box-shadow: 0 24px 64px rgb(0 0 0 / 0.6);
 }
 
 .player::backdrop {
-  background: rgb(0 0 0 / 0.75);
+  background: rgb(2 4 10 / 0.8);
 }
 
 /* Разворот на весь экран: диалог вписывается в окно (100dvw/dvh),
@@ -755,7 +732,7 @@ body {
   justify-content: space-between;
   gap: var(--space-3);
   padding: var(--space-3) var(--space-4);
-  background: var(--surface);
+  background: #0a0f1e;
 }
 
 .player__title {

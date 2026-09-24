@@ -163,17 +163,19 @@ function createCard(game) {
     shot.setAttribute('aria-hidden', 'true');
     shot.loading = 'lazy';
     shot.decoding = 'async';
-    shot.width = 440;
-    shot.height = 440;
+    shot.width = 400;
+    shot.height = 300;
     visual = shot;
   }
 
   const title = document.createElement('h3');
   title.className = 'card__title';
-  title.textContent = game.title;
-  // Бейдж основного языка (первый из langs — английский, если есть,
-  // иначе первый по мировой популярности) + «+» при нескольких языках;
-  // neutral — без бейджа. Подсказка перечисляет все языки.
+  title.title = game.title;
+  const name = document.createElement('span');
+  name.className = 'card__name';
+  name.textContent = game.title;
+  title.append(name);
+  // Бейдж языка + «+»; neutral — без бейджа.
   if (typeof game.lang === 'string' && game.lang && game.lang !== 'neutral') {
     const lang = document.createElement('span');
     lang.className = 'card__lang';
@@ -261,12 +263,12 @@ function createCard(game) {
     badge.className = 'card__badge';
     badge.textContent = '↗ GitHub';
     meta.append(badge, ` ${game.author} • ${game.license}`);
-    link.append(ribbon, cover, description);
+    link.append(ribbon, cover, title, description);
     if (tagsList) link.append(tagsList);
     if (statsEl) link.append(statsEl);
     link.append(meta, cta);
   } else {
-    link.append(cover, description);
+    link.append(cover, title, description);
     if (tagsList) link.append(tagsList);
     if (statsEl) link.append(statsEl);
     link.append(cta);

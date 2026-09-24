@@ -118,7 +118,7 @@ npm run og       # перегенерировать assets/og.png (если ме
 | `assets/css/main.css` | 20 КБ | один CSS на каталог |
 | `index.html` | 35 КБ | оболочка + JSON-LD и frame-src всех игр (на LCP не влияет) |
 | `stats.html` | 35 КБ | витрина статистики: та же CSP meta, без JSON-LD |
-| `games/*/thumb.webp` | 25 КБ/файл, 1.6 МБ суммарно (WARN 1.3 МБ) | WebP-превью карточек; q60 для новых (см. `gen-thumbs.mjs`); пустые кадры — эмодзи |
+| `games/*/thumb.webp` | 25 КБ/файл, 1.6 МБ суммарно (WARN 1.3 МБ) | WebP-превью 400px по ширине, q68 (см. `gen-thumbs.mjs`); пустые кадры — эмодзи |
 | `assets/og.png` | 100 КБ | превью ссылок |
 | мосты (`games/ext-*/meta.json` с `url`) | WARN > 200 | каждый мост растит `frame-src` и `index.html` линейно — чистить мёртвые, строгий отчёт — артефакт `qa-bridges.yml` |
 
