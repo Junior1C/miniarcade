@@ -181,6 +181,8 @@ export async function createGame(rootDir, id, title) {
     tags: ['аркада'],
     controls: 'Пробел',
     lang: 'ru',
+    // Дата добавления для сортировки «Новые» (build проверяет формат).
+    added: new Date().toISOString().slice(0, 10),
   };
   await Promise.all([
     writeFile(path.join(dir, 'index.html'), templateHtml(meta.title), 'utf8'),

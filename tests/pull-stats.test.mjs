@@ -9,10 +9,10 @@ import { summarize, writeStats } from '../scripts/pull-stats.mjs';
 const WRANGLER_SAMPLE = [
   {
     results: [
-      { day: '2026-09-22', host: 'junior1c.github.io', game: '', event: 'pv', n: 10, secs: 0 },
-      { day: '2026-09-22', host: 'junior1c.github.io', game: 'snake', event: 'open', n: 4, secs: 0 },
-      { day: '2026-09-22', host: 'junior1c.github.io', game: 'snake', event: 'close', n: 3, secs: 120 },
-      { day: '2026-09-21', host: 'miniarcade.pages.dev', game: 'snake', event: 'open', n: 2, secs: 0 },
+      { day: '2026-09-22', host: 'junior1c.github.io', game: '', event: 'pv', n: 10, secs: 0, uniques: 7 },
+      { day: '2026-09-22', host: 'junior1c.github.io', game: 'snake', event: 'open', n: 4, secs: 0, uniques: 3 },
+      { day: '2026-09-22', host: 'junior1c.github.io', game: 'snake', event: 'close', n: 3, secs: 120, uniques: 3 },
+      { day: '2026-09-21', host: 'miniarcade.pages.dev', game: 'snake', event: 'open', n: 2, secs: 0, uniques: 2 },
     ],
   },
 ];
@@ -25,6 +25,9 @@ test('summarize splits daily rows and host/game/event totals', () => {
   const opens = snake.filter((row) => row.event === 'open');
   assert.equal(opens.reduce((sum, row) => sum + row.n, 0), 6);
   assert.equal(snake.find((row) => row.event === 'close').secs, 120);
+  // Уники едут сквозняком: daily и totals.
+  assert.equal(summary.daily[1].uniques, 3);
+  assert.equal(opens.reduce((sum, row) => sum + row.uniques, 0), 5);
   // Самые популярные — первыми.
   assert.ok(summary.totals[0].n >= summary.totals.at(-1).n);
 });
@@ -33,6 +36,12 @@ test('summarize tolerates empty and malformed payloads', () => {
   assert.deepEqual(summarize([]).daily, []);
   assert.deepEqual(summarize([{ results: null }]).daily, []);
   assert.deepEqual(summarize([{ results: [{ day: null }] }]).daily, []);
+});
+
+test('summarize defaults missing uniques to 0 (pre-migration rows)', () => {
+  const summary = summarize([{ results: [{ day: '2026-09-20', host: 'h', game: 'g', event: 'open', n: 2 }] }]);
+  assert.equal(summary.daily[0].uniques, 0);
+  assert.equal(summary.totals[0].uniques, 0);
 });
 
 test('writeStats writes daily.json and totals.json', async (t) => {

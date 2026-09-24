@@ -12,5 +12,6 @@
   "author": "google",
   "license": "Apache-2.0",
   "repo": "https://github.com/google/blockly-games",
-  "lang": "neutral"
+  "lang": "neutral",
+  "added": "2026-09-24"
 }

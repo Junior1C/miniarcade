@@ -12,6 +12,8 @@ import {
   requestOrigin,
   resetRateLimit,
   resolveHost,
+  statsSalt,
+  visitorHash,
 } from '../stats/hit.mjs';
 
 function stubRequest({ method = 'POST', body = {}, headers = {} } = {}) {
@@ -149,7 +151,7 @@ test('handleHit: valid hit is stored with 8 columns', async () => {
   );
   assert.equal(res.status, 204);
   assert.equal(db.rows.length, 1);
-  const [ts, day, host, game, event, secs, country, ref] = db.rows[0];
+  const [ts, day, host, game, event, secs, country, ref, visitor] = db.rows[0];
   assert.ok(Number.isFinite(ts));
   assert.match(day, /^\d{4}-\d{2}-\d{2}$/);
   assert.equal(host, 'miniarcades.vercel.app');
@@ -158,16 +160,51 @@ test('handleHit: valid hit is stored with 8 columns', async () => {
   assert.equal(secs, 0);
   assert.equal(country, 'DE');
   assert.equal(ref, '');
+  // Без IP-заголовков хеша нет: uniques не страдает, n/secs считаются.
+  assert.equal(visitor, null);
+});
+
+test('handleHit: visitor hash is stored when IP is present', async () => {
+  resetRateLimit();
+  const db = stubDb();
+  const res = await handleHit(
+    stubRequest({
+      body: { v: 1, event: 'open', host: 'x', game: 'snake' },
+      headers: { 'user-agent': 'Mozilla/5.0 Chrome/120', 'cf-connecting-ip': '203.0.113.7' },
+    }),
+    { STATS_DB: db },
+  );
+  assert.equal(res.status, 204);
+  const visitor = db.rows[0][8];
+  assert.match(visitor, /^[0-9a-f]{64}$/);
+  resetRateLimit();
+});
+
+test('visitorHash is stable per day, differs across days/IPs', async () => {
+  const req = (ip, ua) => stubRequest({ headers: { 'cf-connecting-ip': ip, 'user-agent': ua } });
+  const a1 = await visitorHash(req('203.0.113.7', 'UA/1'), '2026-09-24', 'salt');
+  const a2 = await visitorHash(req('203.0.113.7', 'UA/1'), '2026-09-24', 'salt');
+  assert.equal(a1, a2);
+  assert.notEqual(a1, await visitorHash(req('203.0.113.7', 'UA/1'), '2026-09-25', 'salt'));
+  assert.notEqual(a1, await visitorHash(req('203.0.113.8', 'UA/1'), '2026-09-24', 'salt'));
+  assert.notEqual(a1, await visitorHash(req('203.0.113.7', 'UA/1'), '2026-09-24', 'other'));
+  assert.equal(await visitorHash(stubRequest(), '2026-09-24', 'salt'), '');
+});
+
+test('statsSalt prefers env secret, falls back documented', () => {
+  assert.equal(statsSalt({ STATS_SALT: ' s3cret ' }), 's3cret');
+  assert.equal(statsSalt({}), 'miniarcade-dev-salt-v1');
+  assert.equal(statsSalt(null), 'miniarcade-dev-salt-v1');
 });
 
 test('insertHit binds in column order', async () => {
   const db = stubDb();
   await insertHit(
     db,
-    { host: 'h', game: 'g', event: 'close', secs: 7, ref: 'r' },
+    { host: 'h', game: 'g', event: 'close', secs: 7, ref: 'r', visitor: 'abc' },
     { now: 123, day: '2026-09-23', country: 'RU' },
   );
-  assert.deepEqual(db.rows[0], [123, '2026-09-23', 'h', 'g', 'close', 7, 'RU', 'r']);
+  assert.deepEqual(db.rows[0], [123, '2026-09-23', 'h', 'g', 'close', 7, 'RU', 'r', 'abc']);
 });
 
 test('requestOrigin prefers Origin over Referer, empty when absent', () => {

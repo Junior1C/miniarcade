@@ -4,6 +4,7 @@ import { pluralizeRu } from './format.js';
 import { createPlayer } from './player.js';
 import { renderWithTransition } from './view-transition.js';
 import { sendStats, statsEnabled } from './stats.js';
+import { SORT_LABELS, buildGameStats, cardStatsLine, sortGames, validSortMode } from './sort.js';
 
 const PAGE_SIZE = 24;
 const HASH_PREFIX = '#/play/';
@@ -18,6 +19,7 @@ const elements = {
   loadMoreWrap: document.getElementById('load-more-wrap'),
   loadMore: document.getElementById('load-more'),
   search: document.getElementById('search'),
+  sort: document.getElementById('sort'),
   dialog: document.getElementById('player'),
   frame: document.getElementById('player-frame'),
   title: document.getElementById('player-name'),
@@ -34,7 +36,27 @@ const state = {
   openedInternally: false,
   playStart: 0,
   statsOn: false,
+  // Сортировка переживает перезагрузку (localStorage каталога, не игр).
+  // Без цифр рейтинга честно: нули идут по алфавиту (см. sort.js).
+  sort: loadSortMode(),
+  gameStats: null,
 };
+
+function loadSortMode() {
+  try {
+    return validSortMode(localStorage.getItem('miniarcade-sort'));
+  } catch {
+    return 'top';
+  }
+}
+
+function saveSortMode(mode) {
+  try {
+    localStorage.setItem('miniarcade-sort', mode);
+  } catch {
+    // Приватный режим: сортировка просто не запомнится.
+  }
+}
 
 const player = createPlayer({
   dialog: elements.dialog,
@@ -101,7 +123,8 @@ function syncFromHash() {
 
 function describeCount(count) {
   const word = pluralizeRu(count, 'игра', 'игры', 'игр');
-  return state.query ? `Найдено: ${count} ${word}` : `Всего: ${count} ${word}`;
+  const base = state.query ? `Найдено: ${count} ${word}` : `Всего: ${count} ${word}`;
+  return `${base} · ${SORT_LABELS[state.sort]}`;
 }
 
 function createCard(game) {
@@ -192,6 +215,15 @@ function createCard(game) {
   cta.className = 'card__cta';
   cta.textContent = 'Играть';
 
+  // Строка честности на карточку — только при наличии plays.
+  const statsLine = cardStatsLine(state.gameStats, game.id);
+  let statsEl = null;
+  if (statsLine) {
+    statsEl = document.createElement('p');
+    statsEl.className = 'card__stats';
+    statsEl.textContent = statsLine;
+  }
+
   if (isExternal) {
     // Декоративная перевязь сбоку без текста: распределяет визуально
     // внешние игры; смысл для скринридеров уже есть в строке meta ниже.
@@ -206,10 +238,12 @@ function createCard(game) {
     meta.append(badge, ` ${game.author} • ${game.license}`);
     link.append(ribbon, visual, title, description);
     if (tagsList) link.append(tagsList);
+    if (statsEl) link.append(statsEl);
     link.append(meta, cta);
   } else {
     link.append(visual, title, description);
     if (tagsList) link.append(tagsList);
+    if (statsEl) link.append(statsEl);
     link.append(cta);
   }
   item.append(link);
@@ -223,7 +257,7 @@ function render() {
 }
 
 function renderNow() {
-  const filtered = filterGames(state.games, state.query);
+  const filtered = sortGames(filterGames(state.games, state.query), state.sort, state.gameStats);
   const visible = filtered.slice(0, state.shown);
   const fragment = document.createDocumentFragment();
   for (const game of visible) {
@@ -250,15 +284,42 @@ function showError() {
 
 async function init() {
   state.statsOn = statsEnabled();
+  if (elements.sort) {
+    elements.sort.value = state.sort;
+    elements.sort.addEventListener('change', () => {
+      state.sort = validSortMode(elements.sort.value);
+      saveSortMode(state.sort);
+      state.shown = PAGE_SIZE;
+      render();
+    });
+  }
   if (state.statsOn) sendStats('pv');
   try {
     state.games = await loadCatalog();
     elements.error.hidden = true;
     render();
     syncFromHash();
+    // Цифры рейтинга — неблокирующим запросом после первого рендера.
+    loadGameStats();
   } catch (error) {
     console.error(error);
     showError();
+  }
+}
+
+// Ночной агрегат D1 (публичный, те же данные stats.html).
+// Нет файла — тихо: сортировка работает на нулях по алфавиту.
+async function loadGameStats() {
+  try {
+    const response = await fetch('data/stats/totals.json', { headers: { Accept: 'application/json' } });
+    if (!response.ok) return;
+    const payload = await response.json();
+    const totals = Array.isArray(payload.totals) ? payload.totals : payload;
+    if (!Array.isArray(totals) || totals.length === 0) return;
+    state.gameStats = buildGameStats(totals);
+    render();
+  } catch {
+    // Статистика никогда не ломает каталог.
   }
 }
 

@@ -40,7 +40,7 @@ test('dev server uses the shared headers module with full Permissions-Policy', a
 
 test('prod CSP carries report-uri, dev stays quiet (localhost noise)', () => {
   assert.ok(CSP_PROD.includes(`report-uri ${CSP_REPORT_URI}`), 'prod must report violations');
-  assert.ok(CSP_META.includes(`report-uri ${CSP_REPORT_URI}`), 'meta keeps report-uri');
+  assert.ok(!CSP_META.includes('report-uri'), 'meta must not carry report-uri (spec ignores it, console noise)');
   assert.ok(!CSP_CORE.includes('report-uri'), 'dev CSP stays without report-uri');
 });
 

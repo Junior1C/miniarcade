@@ -23,6 +23,11 @@ const META_KEYS = new Set([
   'author',
   'license',
   'repo',
+  // Дата добавления в каталог (YYYY-MM-DD): сортировка «Новые» и честность
+  // рейтинга (видно, что игра свежая и просто не успела набрать plays).
+  // Необязательна (старые записи без неё сортируются последними),
+  // но скелетер и бэкфилл её ставят всем.
+  'added',
 ]);
 const SANDBOX_ALLOWLIST = new Set(SANDBOX_TOKENS);
 
@@ -118,6 +123,21 @@ function validateLang(meta, errors) {
   return meta.lang;
 }
 
+function validateAdded(meta, errors) {
+  if (meta.added === undefined) return null;
+  if (typeof meta.added !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(meta.added)) {
+    errors.push('"added" must be a date like "2026-09-24"');
+    return null;
+  }
+  const [y, m, d] = meta.added.split('-').map(Number);
+  const date = new Date(Date.UTC(y, m - 1, d));
+  if (date.getUTCFullYear() !== y || date.getUTCMonth() !== m - 1 || date.getUTCDate() !== d) {
+    errors.push('"added" must be a real calendar date');
+    return null;
+  }
+  return meta.added;
+}
+
 async function readGame(gamesDir, folder) {
   const errors = [];
   if (!ID_PATTERN.test(folder)) {
@@ -150,6 +170,7 @@ async function readGame(gamesDir, folder) {
   const order = validateOrder(meta, errors);
   const lang = validateLang(meta, errors);
   const url = validateBridgeUrl(meta, errors);
+  const added = validateAdded(meta, errors);
 
   if (typeof meta.controls === 'string') {
     // optional, no validation beyond type
@@ -189,6 +210,7 @@ async function readGame(gamesDir, folder) {
   if (typeof meta.controls === 'string') game.controls = meta.controls;
   if (sandbox && sandbox.length > 0) game.sandbox = sandbox;
   if (lang) game.lang = lang;
+  if (added) game.added = added;
   // Превью карточки: games/<id>/thumb.webp (генерирует gen-thumbs.mjs,
   // мосты и игры без превью показывают эмодзи). Проверяется qa-links.
   try {

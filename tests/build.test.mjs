@@ -99,6 +99,31 @@ test('buildCatalog rejects an unknown lang code', async (t) => {
   await assert.rejects(() => buildCatalog(dir), /"lang" must be one of/);
 });
 
+test('buildCatalog validates added date and passes it to the catalog', async (t) => {
+  const dir = await makeFixture(t, {
+    demo: {
+      'meta.json': validMeta.replace('"demo"', '"demo", "added": "2026-09-24"'),
+      'index.html': '<!DOCTYPE html>',
+    },
+  });
+  const payload = await buildCatalog(dir);
+  assert.equal(payload.games[0].added, '2026-09-24');
+  const bad = await makeFixture(t, {
+    demo: {
+      'meta.json': validMeta.replace('"demo"', '"demo", "added": "24.09.2026"'),
+      'index.html': '<!DOCTYPE html>',
+    },
+  });
+  await assert.rejects(() => buildCatalog(bad), /"added" must be a date/);
+  const unreal = await makeFixture(t, {
+    demo: {
+      'meta.json': validMeta.replace('"demo"', '"demo", "added": "2026-02-30"'),
+      'index.html': '<!DOCTYPE html>',
+    },
+  });
+  await assert.rejects(() => buildCatalog(unreal), /real calendar date/);
+});
+
 test('real catalog: every game carries a language badge and search tags', async (t) => {
   const dir = await makeFixture(t, {});
   await rm(path.join(dir, 'games'), { recursive: true, force: true });

@@ -58,8 +58,10 @@ export function dayOf(now = Date.now()) {
 
 export async function insertHit(db, hit, meta) {
   await db
-    .prepare('INSERT INTO events (ts, day, host, game, event, secs, country, ref_host) VALUES (?, ?, ?, ?, ?, ?, ?, ?)')
-    .bind(meta.now, meta.day, hit.host, hit.game, hit.event, hit.secs, meta.country, hit.ref)
+    .prepare(
+      'INSERT INTO events (ts, day, host, game, event, secs, country, ref_host, visitor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+    )
+    .bind(meta.now, meta.day, hit.host, hit.game, hit.event, hit.secs, meta.country, hit.ref, hit.visitor ?? null)
     .run();
 }
 
@@ -139,6 +141,31 @@ export function resolveHost(request, bodyHost) {
   return bodyHost;
 }
 
+// Дневной анонимный посетитель (модель Plausible: без cookies, storage
+// и отпечатков). Хеш считается из IP + User-Agent + день + соль и хранится
+// вместо них: сырые IP/UA не попадают ни в базу, ни в логи. День внутри
+// хеша даёт unlinkability между днями при ротации соли (STATS_SALT):
+// вчерашний и сегодняшний визиты одного человека посчитать парой нельзя.
+// Точность — в пределах ~10% от cookie-метода (NAT занижает, мобильные IP
+// завышают); для рейтинга «уникальные игроки» этого достаточно, см. README.
+// Без IP (dev, часть beacon) возвращаем '' — такие хиты в uniques не входят
+// (COUNT DISTINCT игнорирует NULL), но в n/secs считаются как раньше.
+export async function visitorHash(request, day, salt) {
+  const ip = clientIp(request);
+  if (!ip || ip === 'unknown') return '';
+  const ua = String(request.headers.get('user-agent') || '').slice(0, 300);
+  const input = `${day}\n${salt}\n${ip}\n${ua}`;
+  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input));
+  return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+export function statsSalt(env) {
+  const salt = env && typeof env.STATS_SALT === 'string' ? env.STATS_SALT.trim() : '';
+  // Фолбэк для dev/недоустановленного продан: хеш остаётся one-way,
+  // но соль публична (см. README § «Аналитика» — задайте STATS_SALT).
+  return salt || 'miniarcade-dev-salt-v1';
+}
+
 export function corsHeaders() {
   return {
     'Access-Control-Allow-Origin': '*',
@@ -192,8 +219,13 @@ export async function handleHit(request, env) {
   // нельзя отравить поддельным host в JSON.
   parsed.data.host = resolveHost(request, parsed.data.host);
   const now = Date.now();
+  const day = dayOf(now);
+  // Анонимный посетитель для uniques (Plausible-модель): сырые IP/UA
+  // дальше этой функции не уходят. Пустой хеш → NULL в базе.
+  const visitor = await visitorHash(request, day, statsSalt(env));
+  parsed.data.visitor = visitor || null;
   try {
-    await insertHit(db(env), parsed.data, { now, day: dayOf(now), country: countryOf(request.headers) });
+    await insertHit(db(env), parsed.data, { now, day, country: countryOf(request.headers) });
   } catch {
     return new Response('Internal Server Error', { status: 500, headers: corsHeaders() });
   }

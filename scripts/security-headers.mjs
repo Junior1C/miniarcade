@@ -149,13 +149,12 @@ export const CSP_PROD = `${CSP_CORE}; report-uri ${CSP_REPORT_URI}; upgrade-inse
 export const CSP_DEV = CSP_CORE;
 
 // CSP для <meta>-тега (GitHub Pages не умеет HTTP-заголовки):
-// та же prod-политика, но БЕЗ frame-ancestors — спека его в <meta>
-// игнорирует, браузер только шумит в консоль («ignored when delivered
-// via a <meta> element»), защиты ноль. В HTTP-заголовках (_headers,
-// vercel.json, serve.mjs) frame-ancestors остаётся и работает.
-// report-uri в <meta> оставляем: часть браузеров шлёт отчёты и из meta.
+// та же prod-политика, но БЕЗ frame-ancestors и report-uri — спека их
+// в <meta> игнорирует, браузер только шумит в консоль («ignored when
+// delivered via a <meta> element»), защиты ноль. Реальный канал отчётов —
+// HTTP-заголовки (_headers, vercel.json, serve.mjs, worker.mjs).
 export const CSP_META = CSP_PROD.split('; ')
-  .filter((directive) => !directive.startsWith('frame-ancestors'))
+  .filter((directive) => !directive.startsWith('frame-ancestors') && !directive.startsWith('report-uri'))
   .join('; ');
 
 // HSTS целиком отдан хостингам через HTTP-заголовки (в <meta> не работает).

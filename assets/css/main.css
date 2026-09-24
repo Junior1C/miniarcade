@@ -146,6 +146,10 @@ body {
 
 .search {
   margin-top: var(--space-4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
 }
 
 .search__input {
@@ -161,6 +165,21 @@ body {
 
 .search__input::placeholder {
   color: var(--text-muted);
+}
+
+/* Селект сортировки: та же рамка, что у поиска — один визуальный ряд. */
+.sort-label {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+}
+
+.search__select {
+  padding: var(--space-3);
+  border: 1px solid #4b5563;
+  border-radius: 8px;
+  background: #111827;
+  color: var(--text);
+  font: inherit;
 }
 
 .site-main {
@@ -327,6 +346,15 @@ body {
   margin: var(--space-2) 0 0;
   font-size: 0.75rem;
   color: var(--text-muted);
+}
+
+/* Строка честности: запуски · игроки · время (только при наличии данных).
+   Тот же кегль, что у .card__meta — карточка не раздувается. */
+.card__stats {
+  margin: var(--space-2) 0 0;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
 }
 
 .card__badge {

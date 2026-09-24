@@ -17,13 +17,18 @@ export function summarize(wranglerJson) {
       event: String(row.event || ''),
       n: Number(row.n) || 0,
       secs: Number(row.secs) || 0,
+      // Уникальные дневные посетители (COUNT DISTINCT хеша): суммы по дням
+      // в totals — оценка сверху (один человек в разные дни посчитан дважды,
+      // так делают все portals без аккаунтов). Старые строки без хеша дают 0.
+      uniques: Number(row.uniques) || 0,
     }));
   const totals = new Map();
   for (const row of daily) {
     const key = `${row.host}\n${row.game}\n${row.event}`;
-    const entry = totals.get(key) || { host: row.host, game: row.game, event: row.event, n: 0, secs: 0 };
+    const entry = totals.get(key) || { host: row.host, game: row.game, event: row.event, n: 0, secs: 0, uniques: 0 };
     entry.n += row.n;
     entry.secs += row.secs;
+    entry.uniques += row.uniques;
     totals.set(key, entry);
   }
   return {

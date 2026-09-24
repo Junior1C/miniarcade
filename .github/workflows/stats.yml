@@ -28,7 +28,11 @@ jobs:
             exit 0
           fi
           npx -y wrangler@4.136.3 d1 execute miniarcade_stats --remote --file stats/schema.sql
-          npx -y wrangler@4.136.3 d1 execute miniarcade_stats --remote --json --command "SELECT day, host, game, event, COUNT(*) AS n, COALESCE(SUM(secs), 0) AS secs FROM events WHERE day >= date('now', '-90 days') GROUP BY day, host, game, event ORDER BY day DESC LIMIT 20000" > /tmp/stats.json
+          # Миграция существующих баз: SQLite не умеет ADD COLUMN IF NOT EXISTS,
+          # поэтому повторный прогон падает с "duplicate column" — глушим именно
+          # его (таблица уже создана шагом выше, других причин падения нет).
+          npx -y wrangler@4.136.3 d1 execute miniarcade_stats --remote --command "ALTER TABLE events ADD COLUMN visitor TEXT" || echo "visitor column already exists, continuing."
+          npx -y wrangler@4.136.3 d1 execute miniarcade_stats --remote --json --command "SELECT day, host, game, event, COUNT(*) AS n, COALESCE(SUM(secs), 0) AS secs, COUNT(DISTINCT visitor) AS uniques FROM events WHERE day >= date('now', '-90 days') GROUP BY day, host, game, event ORDER BY day DESC LIMIT 20000" > /tmp/stats.json
           npx -y wrangler@4.136.3 d1 execute miniarcade_stats --remote --command "DELETE FROM events WHERE day < date('now', '-120 days')"
           node scripts/pull-stats.mjs /tmp/stats.json data/stats
       - name: Commit stats
