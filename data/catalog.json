@@ -2039,6 +2039,26 @@
       "thumb": "games/ext-ryanasteroids/thumb.webp"
     },
     {
+      "id": "ext-gitlab-asteroids",
+      "title": "Asteroids Extended",
+      "emoji": "🚀",
+      "description": "Векторный космос с гравитацией планет: расстреливайте астероиды и летайте между мирами. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "космос",
+        "мост"
+      ],
+      "url": "https://jaller94.gitlab.io/line-factory/",
+      "author": "Christian Paul",
+      "license": "MIT",
+      "repo": "https://gitlab.com/jaller94/line-factory",
+      "controls": "Стрелки, Пробел",
+      "lang": "en",
+      "added": "2026-09-24",
+      "created": "2021-08-27",
+      "thumb": "games/ext-gitlab-asteroids/thumb.webp"
+    },
+    {
       "id": "ext-astray",
       "title": "Astray",
       "emoji": "🏎️",
@@ -2398,6 +2418,27 @@
       "thumb": "games/ext-clock/thumb.webp"
     },
     {
+      "id": "ext-gitlab-tetris",
+      "title": "Clojure Tetris",
+      "emoji": "🧱",
+      "description": "Тетрис на ClojureScript: складывайте линии сами или включите ИИ и смотрите его мысли. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "головоломка",
+        "тетрис",
+        "ии",
+        "мост"
+      ],
+      "url": "https://invertisment.gitlab.io/cljs-tetris/",
+      "author": "Martynas",
+      "license": "AGPL-3.0",
+      "repo": "https://gitlab.com/invertisment/cljs-tetris",
+      "controls": "Стрелки, WASD, Пробел",
+      "lang": "en",
+      "added": "2026-09-24",
+      "created": "2022-10-18",
+      "thumb": "games/ext-gitlab-tetris/thumb.webp"
+    },
+    {
       "id": "ext-clumsy",
       "title": "Clumsy Bird",
       "emoji": "🐤",
@@ -2517,6 +2558,26 @@
       "thumb": "games/ext-demogame/thumb.webp"
     },
     {
+      "id": "ext-gitlab-dino",
+      "title": "Dino Runner",
+      "emoji": "🦖",
+      "description": "Дино-раннер с днём и ночью: прыгайте через кактусы и пригибайтесь под птеродактилями. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "раннер",
+        "мост"
+      ],
+      "url": "https://dino-runner-79dd43.gitlab.io/",
+      "author": "ccm27",
+      "license": "MIT",
+      "repo": "https://gitlab.com/ccm27/dino-runner",
+      "controls": "Пробел, стрелки, свайпы",
+      "lang": "en",
+      "added": "2026-09-24",
+      "created": "2026-08-20",
+      "thumb": "games/ext-gitlab-dino/thumb.webp"
+    },
+    {
       "id": "ext-boc-domino",
       "title": "Domino",
       "emoji": "🁫",
@@ -2573,6 +2634,25 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2015-05-22"
+    },
+    {
+      "id": "ext-gitlab-flappy",
+      "title": "Flappy Bird",
+      "emoji": "🐤",
+      "description": "Флэппи на Godot: пролетите как можно дальше между трубами. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "флэппи",
+        "мост"
+      ],
+      "url": "https://site-db2fb3.gitlab.io/flappy-bird",
+      "author": "Dexoron",
+      "license": "AGPL-3.0",
+      "repo": "https://gitlab.com/dexoron-dev/dexoron-games/flappy-bird",
+      "controls": "Пробел, клик",
+      "lang": "en",
+      "added": "2026-09-24",
+      "created": "2026-07-09"
     },
     {
       "id": "ext-omarioflappy",
@@ -3042,6 +3122,25 @@
       "thumb": "games/ext-jokenpo/thumb.webp"
     },
     {
+      "id": "ext-gitlab-rooster",
+      "title": "Karooster",
+      "emoji": "🐓",
+      "description": "Интерактивная игрушка: петух бегает по странице, клюёт курсор и крадёт заголовки. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "забава",
+        "мост"
+      ],
+      "url": "https://karooster-4a8611.gitlab.io/",
+      "author": "Ryan Mooney",
+      "license": "MIT",
+      "repo": "https://gitlab.com/Ryan-Mooney/karooster",
+      "controls": "Мышь",
+      "lang": "neutral",
+      "added": "2026-09-24",
+      "created": "2026-08-04",
+      "thumb": "games/ext-gitlab-rooster/thumb.webp"
+    },
+    {
       "id": "ext-boc-solitaire",
       "title": "Klondike Solitaire",
       "emoji": "🃏",
@@ -3140,6 +3239,26 @@
       "added": "2026-09-23",
       "created": "2025-05-26",
       "thumb": "games/ext-boc-mahjong/thumb.webp"
+    },
+    {
+      "id": "ext-gitlab-memory",
+      "title": "Memory",
+      "emoji": "🃏",
+      "description": "Мемори на AlpineJS: открывайте пары одинаковых карточек и очистите поле. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "головоломка",
+        "мемори",
+        "мост"
+      ],
+      "url": "https://memory-chdudek-51a581c2ca0807987f2b98cf8a3f9436635f9c50b93d4671.gitlab.io/",
+      "author": "Christian-Alexander Dudek",
+      "license": "MIT",
+      "repo": "https://gitlab.com/chdudek/memory",
+      "controls": "Мышь",
+      "lang": "en",
+      "added": "2026-09-24",
+      "created": "2023-09-28",
+      "thumb": "games/ext-gitlab-memory/thumb.webp"
     },
     {
       "id": "ext-taniamemory",
@@ -3280,6 +3399,26 @@
       "added": "2026-09-23",
       "created": "2015-12-14",
       "thumb": "games/ext-handsomenonogram/thumb.webp"
+    },
+    {
+      "id": "ext-gitlab-rpg",
+      "title": "Patch Friends",
+      "emoji": "🗺️",
+      "description": "Демо классической RPG в браузере: исследуйте карту, говорите с NPC и сражайтесь. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "рпг",
+        "приключение",
+        "мост"
+      ],
+      "url": "https://aquarichy.gitlab.io/patch-friends/",
+      "author": "Richard Schwarting",
+      "license": "GPL-3.0",
+      "repo": "https://gitlab.com/aquarichy/patch-friends",
+      "controls": "Клавиатура",
+      "lang": "en",
+      "added": "2026-09-24",
+      "created": "2023-04-27",
+      "thumb": "games/ext-gitlab-rpg/thumb.webp"
     },
     {
       "id": "ext-boc-pong",
@@ -3842,6 +3981,26 @@
       "thumb": "games/ext-ramattt/thumb.webp"
     },
     {
+      "id": "ext-gitlab-tix",
+      "title": "Tix",
+      "emoji": "🐈",
+      "description": "Ритм-игра с Gamedev.js Jam: ведите кота через завод в такт музыке. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "ритм",
+        "мост"
+      ],
+      "url": "https://heggroup.gitlab.io/tix/",
+      "author": "Liam Hegarty",
+      "license": "GPL-3.0",
+      "repo": "https://gitlab.com/heggroup/tix",
+      "controls": "Клавиатура",
+      "lang": "en",
+      "added": "2026-09-24",
+      "created": "2023-04-13",
+      "thumb": "games/ext-gitlab-tix/thumb.webp"
+    },
+    {
       "id": "ext-tower",
       "title": "Tower Building",
       "emoji": "🏢",
@@ -3942,6 +4101,25 @@
       "thumb": "games/ext-boc-typing/thumb.webp"
     },
     {
+      "id": "ext-gitlab-vase",
+      "title": "Vase Wave",
+      "emoji": "🏺",
+      "description": "Ретро-игра с PULS Game Jam: пиксельная ваза, старт — пробел. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "аркада",
+        "ретро",
+        "мост"
+      ],
+      "url": "https://vase-c329c5.gitlab.io/",
+      "author": "Bixense",
+      "license": "GPL-3.0",
+      "repo": "https://gitlab.com/bixense/vase",
+      "controls": "Пробел",
+      "lang": "de",
+      "added": "2026-09-24",
+      "created": "2025-03-14"
+    },
+    {
       "id": "ext-vuesolitaire",
       "title": "Vue Solitaire",
       "emoji": "🃏",
@@ -3980,6 +4158,25 @@
       "added": "2026-09-23",
       "created": "2017-06-12",
       "thumb": "games/ext-vuetetris/thumb.webp"
+    },
+    {
+      "id": "ext-gitlab-typing",
+      "title": "We Fight Back",
+      "emoji": "⌨️",
+      "description": "Апокалиптическая печаталка с js13k: отбивайтесь от конца света скоростью печати. Внешняя игра — код остаётся у автора.",
+      "tags": [
+        "печаталка",
+        "мост"
+      ],
+      "url": "https://jaller94.gitlab.io/we-fight-back/",
+      "author": "Christian Paul",
+      "license": "AGPL-3.0",
+      "repo": "https://gitlab.com/jaller94/we-fight-back",
+      "controls": "Клавиатура",
+      "lang": "en",
+      "added": "2026-09-24",
+      "created": "2019-08-14",
+      "thumb": "games/ext-gitlab-typing/thumb.webp"
     }
   ]
 }

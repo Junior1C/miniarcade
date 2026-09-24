@@ -152,6 +152,17 @@ export const FRAME_SRC_ORIGINS = [
   'https://www.hooping.io',
   'https://zardoy.github.io',
   'https://zshall.github.io',
+  // Волна GitLab 2026-09: 10 мостов с GitLab Pages (верифицированы: HTTP 200,
+  // живой iframe-тест, лицензии MIT/GPL/AGPL проверены по файлам репозиториев).
+  'https://dino-runner-79dd43.gitlab.io',
+  'https://jaller94.gitlab.io',
+  'https://memory-chdudek-51a581c2ca0807987f2b98cf8a3f9436635f9c50b93d4671.gitlab.io',
+  'https://invertisment.gitlab.io',
+  'https://site-db2fb3.gitlab.io',
+  'https://heggroup.gitlab.io',
+  'https://aquarichy.gitlab.io',
+  'https://vase-c329c5.gitlab.io',
+  'https://karooster-4a8611.gitlab.io',
 ];
 // Приёмник аналитики: один origin на все зеркала (Pages Function
 // живёт на miniarcade.pages.dev и принимает beacon отовсюду).
