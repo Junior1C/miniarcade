@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { buildCatalog, buildCspMeta } from '../scripts/build.mjs';
+import { buildCatalog, buildCspMeta, sortLangsByPopularity } from '../scripts/build.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -107,8 +107,9 @@ test('buildCatalog validates langs list and promotes primary to lang', async (t)
     },
   });
   const payload = await buildCatalog(dir);
-  assert.equal(payload.games[0].lang, 'ru');
-  assert.deepEqual(payload.games[0].langs, ['ru', 'en']);
+  // Бейдж — английский (первый по мировой популярности), порядок — тоже.
+  assert.equal(payload.games[0].lang, 'en');
+  assert.deepEqual(payload.games[0].langs, ['en', 'ru']);
   const bad = await makeFixture(t, {
     demo: {
       'meta.json': validMeta.replace('"demo"', '"demo", "langs": ["xx"]'),
@@ -232,8 +233,13 @@ test('buildCatalog подхватывает thumb.webp в превью карт�
   assert.equal(payload.games[0].thumb, 'games/demo/thumb.webp');
 });
 
-test('buildCspMeta emits the shared prod policy', () => {
-  const tag = buildCspMeta();
+test('sortLangsByPopularity puts English first, then world rank', () => {
+  assert.deepEqual(sortLangsByPopularity(['ru', 'en']), ['en', 'ru']);
+  assert.deepEqual(sortLangsByPopularity(['zh', 'ru', 'es']), ['ru', 'es', 'zh']);
+  assert.deepEqual(sortLangsByPopularity(['ko', 'it']), ['it', 'ko']);
+});
+
+test('buildCspMeta emits the shared prod policy', () => {  const tag = buildCspMeta();
   assert.ok(tag.startsWith('<meta http-equiv="Content-Security-Policy"'));
   assert.ok(tag.includes('frame-src'));
   assert.ok(tag.includes('upgrade-insecure-requests'));

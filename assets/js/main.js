@@ -163,8 +163,9 @@ function createCard(game) {
   title.className = 'card__title';
   title.textContent = game.title;
 
-  // Бейдж основного языка (первый из langs); neutral — без бейджа.
-  // При нескольких языках подсказка перечисляет все.
+  // Бейдж основного языка (первый из langs — английский, если есть,
+  // иначе первый по мировой популярности) + «+» при нескольких языках;
+  // neutral — без бейджа. Подсказка перечисляет все языки.
   if (typeof game.lang === 'string' && game.lang && game.lang !== 'neutral') {
     const lang = document.createElement('span');
     lang.className = 'card__lang';
@@ -185,7 +186,7 @@ function createCard(game) {
       ko: 'корейский',
     };
     const all = Array.isArray(game.langs) && game.langs.length > 1 ? game.langs : [game.lang];
-    lang.textContent = game.lang.toUpperCase();
+    lang.textContent = all.length > 1 ? `${game.lang.toUpperCase()}+` : game.lang.toUpperCase();
     lang.title = `Языки игры: ${all.map((code) => names[code] ?? code).join(', ')}`;
     title.append(lang);
   }

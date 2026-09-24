@@ -118,6 +118,19 @@ function validateOrder(meta, errors) {
 
 const LANG_ALLOWLIST = new Set(['ru', 'en', 'zh', 'ja', 'it', 'tr', 'uk', 'es', 'fr', 'de', 'pt', 'pl', 'nl', 'ko', 'neutral']);
 
+// Популярность языков мирового веба (2026, W3Techs/Statista): en > ru >
+// es > de > ja > fr > zh, далее остальные из каталога. Бейдж показывает
+// первый по этому порядку (английский, если есть) + «+» при нескольких.
+const LANG_POPULARITY = ['en', 'ru', 'es', 'de', 'ja', 'fr', 'zh', 'pt', 'it', 'nl', 'pl', 'tr', 'uk', 'ko'];
+
+export function sortLangsByPopularity(langs) {
+  return [...langs].sort((a, b) => {
+    const ia = LANG_POPULARITY.indexOf(a);
+    const ib = LANG_POPULARITY.indexOf(b);
+    return (ia === -1 ? LANG_POPULARITY.length : ia) - (ib === -1 ? LANG_POPULARITY.length : ib);
+  });
+}
+
 function validateLang(meta, errors) {
   if (meta.lang === undefined) return null;
   if (typeof meta.lang !== 'string' || !LANG_ALLOWLIST.has(meta.lang)) {
@@ -234,10 +247,11 @@ async function readGame(gamesDir, folder) {
   if (lang) game.lang = lang;
   if (added) game.added = added;
   if (langs) {
-    // Первый язык — основной: бейдж и inLanguage идут по нему,
-    // полный список — в подсказку карточки.
-    game.lang = langs[0];
-    game.langs = langs;
+    // Порядок — по мировой популярности: бейдж и inLanguage идут
+    // по первому (английский, если есть), полный список — в подсказку.
+    const ordered = sortLangsByPopularity(langs);
+    game.lang = ordered[0];
+    game.langs = ordered;
   }
   // Превью карточки: games/<id>/thumb.webp (генерирует gen-thumbs.mjs,
   // мосты и игры без превью показывают эмодзи). Проверяется qa-links.
