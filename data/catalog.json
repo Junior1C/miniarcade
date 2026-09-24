@@ -550,23 +550,6 @@
       "thumb": "games/ext-boc-backgammon/thumb.webp"
     },
     {
-      "id": "ext-ballwall",
-      "title": "Ball And Wall",
-      "emoji": "🧱",
-      "description": "Арканоид в минимализме: платформа, мяч и стена кирпичей. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "аркада",
-        "казуал",
-        "мост"
-      ],
-      "url": "https://budnix.github.io/ball-and-wall",
-      "author": "budnix",
-      "license": "MIT",
-      "repo": "https://github.com/budnix/ball-and-wall",
-      "controls": "Мышь",
-      "lang": "en"
-    },
-    {
       "id": "ext-bangbang",
       "title": "BangBang",
       "emoji": "🎯",
@@ -1356,23 +1339,6 @@
       "lang": "en"
     },
     {
-      "id": "ext-boc-itadv",
-      "title": "IT Adventures",
-      "emoji": "💻",
-      "description": "Терминальная киберпанк-RPG: команды вместо меча. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "rpg",
-        "текст",
-        "мост"
-      ],
-      "url": "https://bocaletto-luca.github.io/IT-Adventures/",
-      "author": "Bocaletto Luca",
-      "license": "GPL-3.0",
-      "repo": "https://github.com/bocaletto-luca/IT-Adventures",
-      "controls": "Печать команд",
-      "lang": "en"
-    },
-    {
       "id": "ext-patorjksnake",
       "title": "JavaScript Snake",
       "emoji": "🐍",
@@ -1623,24 +1589,6 @@
       "controls": "Мышь",
       "lang": "en",
       "thumb": "games/ext-handsomenonogram/thumb.webp"
-    },
-    {
-      "id": "ext-mpacman",
-      "title": "Pac-Man (mumuy)",
-      "emoji": "👻",
-      "description": "Классический Пакман на HTML5 (интерфейс на китайском, но всё понятно). Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "аркада",
-        "классика",
-        "мост"
-      ],
-      "url": "https://passer-by.com/pacman/",
-      "author": "mumuy",
-      "license": "MIT",
-      "repo": "https://github.com/mumuy/pacman",
-      "controls": "Стрелки/WASD",
-      "lang": "zh",
-      "thumb": "games/ext-mpacman/thumb.webp"
     },
     {
       "id": "ext-masonicpacman",
@@ -2288,40 +2236,6 @@
       "controls": "Печать",
       "lang": "en",
       "thumb": "games/ext-boc-typing/thumb.webp"
-    },
-    {
-      "id": "ext-urlsnake",
-      "title": "URL Snake",
-      "emoji": "🔗",
-      "description": "Змейка, которая живёт в адресной строке браузера. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "аркада",
-        "эксперимент",
-        "мост"
-      ],
-      "url": "https://demian.ferrei.ro/snake/",
-      "author": "epidemian",
-      "license": "Unlicense",
-      "repo": "https://github.com/epidemian/snake",
-      "controls": "Стрелки",
-      "lang": "en"
-    },
-    {
-      "id": "ext-urlife",
-      "title": "URLife",
-      "emoji": "🧬",
-      "description": "Жизнь Конвея прямо в адресной строке браузера. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "эксперимент",
-        "симуляция",
-        "мост"
-      ],
-      "url": "https://demian.ferrei.ro/URLife",
-      "author": "epidemian",
-      "license": "Unlicense",
-      "repo": "https://github.com/epidemian/URLife",
-      "controls": "Наблюдение",
-      "lang": "en"
     },
     {
       "id": "ext-vuesolitaire",

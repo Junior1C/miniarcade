@@ -35,13 +35,11 @@ const BRIDGE_PAUSE_MS = 500;
 // Проверено глазами, поштучно (см. историю thumbs-задачи).
 const NOTHUMB_BRIDGES = new Set([
   'ext-duckhunt', // Чёрный пустой кадр (нужен клик для старта).
-  'ext-isocity', // Чёрный пустой кадр.
   'ext-masonicpacman', // Чёрный пустой кадр.
   'ext-emoji-mines', // Белый лист, игра ниже фолда.
-  'ext-urlsnake', // Белый лист, игра ниже фолда.
-  'ext-ballwall', // Вечный "Load progress 0%".
-  'ext-boc-itadv', // Страница доков + 28 КБ мимо бюджета.
-  'ext-urlife', // Белый лист, игра ниже фолда.
+  // ext-isocity: headless даёт белый пустой кадр (WebGL без GPU),
+  // белый квадрат хуже честного эмодзи — перепроверить вручную.
+  'ext-isocity',
 ]);
 
 function run(cmd, args) {
