@@ -1,0 +1,20 @@
+{
+  "id": "ext-wordle-plus",
+  "title": "Вордли плюс",
+  "emoji": "🟩",
+  "description": "Вордли-клон: словари EN+PT, три сложности.",
+  "tags": [
+    "слова",
+    "головоломка"
+  ],
+  "controls": "Клавиатура",
+  "url": "https://leandrosq.github.io/js-wordle/",
+  "author": "LeandroSQ",
+  "license": "MIT",
+  "repo": "https://github.com/LeandroSQ/js-wordle",
+  "lang": "en",
+  "langs": [
+    "en",
+    "pt"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "ext-piano-tiles",
+  "title": "Пианино-тайлы",
+  "emoji": "🎹",
+  "description": "Пианино-тайлы: жми чёрные клавиши в ритме.",
+  "tags": [
+    "ритм",
+    "музыка"
+  ],
+  "controls": "Клавиатура / касание",
+  "url": "https://zardoy.github.io/piano-tiles",
+  "author": "zardoy",
+  "license": "MIT",
+  "repo": "https://github.com/zardoy/piano-tiles",
+  "lang": "en"
+}

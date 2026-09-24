@@ -1,0 +1,16 @@
+{
+  "id": "ext-farkle",
+  "title": "Фаркл",
+  "emoji": "⚀",
+  "description": "Фаркл: риск и комбинаторика кубиков.",
+  "tags": [
+    "кости",
+    "настольные"
+  ],
+  "controls": "Мышь",
+  "url": "https://hot-dice.github.io/hotdice/",
+  "author": "hot-dice",
+  "license": "MIT",
+  "repo": "https://github.com/hot-dice/hotdice",
+  "lang": "en"
+}

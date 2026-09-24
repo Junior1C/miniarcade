@@ -1,0 +1,16 @@
+{
+  "id": "ext-plinko",
+  "title": "Плинко",
+  "emoji": "⚪",
+  "description": "Плинко: своя физика, буст-пеги.",
+  "tags": [
+    "аркада",
+    "физика"
+  ],
+  "controls": "Клик",
+  "url": "https://jasonhand.github.io/plinko-drop/",
+  "author": "jasonhand",
+  "license": "MIT",
+  "repo": "https://github.com/jasonhand/plinko-drop",
+  "lang": "en"
+}

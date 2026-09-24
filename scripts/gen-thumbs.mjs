@@ -39,9 +39,10 @@ const BRIDGE_PAUSE_MS = 500;
 // Проверено глазами, поштучно (см. историю thumbs-задачи).
 const NOTHUMB_BRIDGES = new Set([
   'ext-duckhunt', // Чёрный пустой кадр (нужен клик для старта).
-  'ext-masonicpacman', // Чёрный пустой кадр.
   'ext-emoji-mines', // Белый лист, игра ниже фолда.
   'ext-netwalk', // Кадр выходит экраном «Loading...» (p5 с CDN не успевает за скриншот) — честнее эмодзи.
+  'ext-wordle-plus', // Пустой кадр: React-приложение не успевает за скриншот — честнее эмодзи.
+  'ext-ultimate-ttt', // Чёрный кадр: WASM-движок не успевает за скриншот — честнее эмодзи.
 ]);
 
 function run(cmd, args) {

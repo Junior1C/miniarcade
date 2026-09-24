@@ -1,0 +1,16 @@
+{
+  "id": "ext-boxing-retro",
+  "title": "Бокс ретро",
+  "emoji": "🥊",
+  "description": "Ретро-бокс в духе Atari 2600.",
+  "tags": [
+    "файтинг",
+    "спорт"
+  ],
+  "controls": "WASD + P",
+  "url": "https://boxindanga.vercel.app/",
+  "author": "gabitoesmiapodo",
+  "license": "MIT",
+  "repo": "https://github.com/gabitoesmiapodo/boxindanga",
+  "lang": "en"
+}

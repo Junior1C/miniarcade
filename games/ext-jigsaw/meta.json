@@ -1,0 +1,16 @@
+{
+  "id": "ext-jigsaw",
+  "title": "Пазл-конструктор",
+  "emoji": "🧩",
+  "description": "Пазл-конструктор: свои картинки, снап деталей.",
+  "tags": [
+    "пазл",
+    "головоломка"
+  ],
+  "controls": "Мышь",
+  "url": "https://code4fukui.github.io/open-jigsaw/",
+  "author": "code4fukui",
+  "license": "BSD-2-Clause",
+  "repo": "https://github.com/code4fukui/open-jigsaw",
+  "lang": "ja"
+}

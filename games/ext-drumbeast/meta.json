@@ -1,0 +1,16 @@
+{
+  "id": "ext-drumbeast",
+  "title": "Барабанный зверь",
+  "emoji": "🥁",
+  "description": "Барабанные пады на Web Audio: запись и луп.",
+  "tags": [
+    "музыка",
+    "песочница"
+  ],
+  "controls": "Клавиатура / касание",
+  "url": "https://pemmyz.github.io/js_drumbeast/",
+  "author": "pemmyz",
+  "license": "MIT",
+  "repo": "https://github.com/pemmyz/js_drumbeast",
+  "lang": "en"
+}

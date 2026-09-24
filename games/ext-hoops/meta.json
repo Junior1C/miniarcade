@@ -1,0 +1,16 @@
+{
+  "id": "ext-hoops",
+  "title": "Кольцо",
+  "emoji": "🏀",
+  "description": "Баскетбол: шесть уровней по одному броску.",
+  "tags": [
+    "баскетбол",
+    "спорт"
+  ],
+  "controls": "Мышь (тяни и отпускай)",
+  "url": "https://www.hooping.io",
+  "author": "douvy",
+  "license": "MIT",
+  "repo": "https://github.com/douvy/hooping",
+  "lang": "en"
+}

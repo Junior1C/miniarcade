@@ -1,0 +1,16 @@
+{
+  "id": "ext-getaway",
+  "title": "Побег",
+  "emoji": "🚗",
+  "description": "Гонки с видом сверху: уходи от погони, собирай монеты.",
+  "tags": [
+    "гонки",
+    "аркада"
+  ],
+  "controls": "Стрелки / WASD",
+  "url": "https://le-s.github.io/getaway/",
+  "author": "le-s",
+  "license": "MIT",
+  "repo": "https://github.com/le-s/getaway",
+  "lang": "en"
+}

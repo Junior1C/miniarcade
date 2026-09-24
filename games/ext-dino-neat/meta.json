@@ -1,0 +1,17 @@
+{
+  "id": "ext-dino-neat",
+  "title": "Дино NEAT",
+  "emoji": "🦖",
+  "description": "NEAT с нуля: нейросети учатся играть в дино.",
+  "tags": [
+    "ии",
+    "нейроэволюция",
+    "раннер"
+  ],
+  "controls": "Без управления: ИИ играет сам",
+  "url": "https://akashkarnatak.github.io/dino-neat",
+  "author": "AkashKarnatak",
+  "license": "AGPL-3.0",
+  "repo": "https://github.com/AkashKarnatak/dino-neat",
+  "lang": "en"
+}

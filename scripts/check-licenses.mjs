@@ -20,6 +20,7 @@ export function classifyLicense(text = '') {
   if (/CC0 1\.0 Universal/i.test(t)) return 'CC0-1.0';
   if (/The Unlicense/i.test(t)) return 'Unlicense';
   if (/BSD .*?Redistribution and use/i.test(t)) return 'BSD';
+  if (/Redistribution and use in source and binary forms/i.test(t)) return 'BSD-2-Clause';
   if (/Creative Commons Attribution 4\.0/i.test(t)) return 'CC-BY-4.0';
   return 'UNKNOWN';
 }

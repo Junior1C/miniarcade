@@ -37,6 +37,24 @@
       "thumb": "games/ext-2048-ai/thumb.webp"
     },
     {
+      "id": "ext-2048-expectimax",
+      "title": "2048 Экспектимакс",
+      "emoji": "🎲",
+      "description": "Expectimax с диплёрнингом: ИИ собирает 2048 сам.",
+      "tags": [
+        "ии",
+        "2048",
+        "головоломка"
+      ],
+      "url": "https://samuelz12.github.io/2048-ai/",
+      "author": "SamuelZ12",
+      "license": "MIT",
+      "repo": "https://github.com/SamuelZ12/2048-ai",
+      "controls": "Без управления: ИИ играет сам",
+      "lang": "en",
+      "thumb": "games/ext-2048-expectimax/thumb.webp"
+    },
+    {
       "id": "ext-2048react",
       "title": "2048 in React",
       "emoji": "🔢",
@@ -158,6 +176,23 @@
       "thumb": "games/ext-air-hockey/thumb.webp"
     },
     {
+      "id": "ext-drumbeast",
+      "title": "Барабанный зверь",
+      "emoji": "🥁",
+      "description": "Барабанные пады на Web Audio: запись и луп.",
+      "tags": [
+        "музыка",
+        "песочница"
+      ],
+      "url": "https://pemmyz.github.io/js_drumbeast/",
+      "author": "pemmyz",
+      "license": "MIT",
+      "repo": "https://github.com/pemmyz/js_drumbeast",
+      "controls": "Клавиатура / касание",
+      "lang": "en",
+      "thumb": "games/ext-drumbeast/thumb.webp"
+    },
+    {
       "id": "ext-stack-tower",
       "title": "Башня-стройка",
       "emoji": "🏗️",
@@ -193,6 +228,23 @@
       "lang": "en",
       "added": "2026-09-24",
       "thumb": "games/ext-pool-8ball/thumb.webp"
+    },
+    {
+      "id": "ext-bingo",
+      "title": "Бинго",
+      "emoji": "🍀",
+      "description": "Бинго до десяти игроков локально.",
+      "tags": [
+        "бинго",
+        "настольные"
+      ],
+      "url": "https://gamebingo.netlify.app/",
+      "author": "Avdhesh-Varshney",
+      "license": "MIT",
+      "repo": "https://github.com/Avdhesh-Varshney/Bingo-Game",
+      "controls": "Мышь",
+      "lang": "en",
+      "thumb": "games/ext-bingo/thumb.webp"
     },
     {
       "id": "ext-blockly",
@@ -242,6 +294,57 @@
       "thumb": "games/ext-blackjack/thumb.webp"
     },
     {
+      "id": "ext-boggle",
+      "title": "Боггл",
+      "emoji": "🔤",
+      "description": "Боггл: составляй слова из букв.",
+      "tags": [
+        "слова",
+        "головоломка"
+      ],
+      "url": "https://scheibo.github.io/boggle/",
+      "author": "scheibo",
+      "license": "MIT",
+      "repo": "https://github.com/scheibo/boggle",
+      "controls": "Клавиатура / мышь",
+      "lang": "en",
+      "thumb": "games/ext-boggle/thumb.webp"
+    },
+    {
+      "id": "ext-boxing-retro",
+      "title": "Бокс ретро",
+      "emoji": "🥊",
+      "description": "Ретро-бокс в духе Atari 2600.",
+      "tags": [
+        "файтинг",
+        "спорт"
+      ],
+      "url": "https://boxindanga.vercel.app/",
+      "author": "gabitoesmiapodo",
+      "license": "MIT",
+      "repo": "https://github.com/gabitoesmiapodo/boxindanga",
+      "controls": "WASD + P",
+      "lang": "en",
+      "thumb": "games/ext-boxing-retro/thumb.webp"
+    },
+    {
+      "id": "ext-heli-rescue",
+      "title": "Вертолёт-спасатель",
+      "emoji": "🚁",
+      "description": "Вертолёт-спасатель: вывози выживших.",
+      "tags": [
+        "аркада",
+        "вертолёт"
+      ],
+      "url": "https://helicopter-rescue-game.netlify.app",
+      "author": "didifive",
+      "license": "MIT",
+      "repo": "https://github.com/didifive/helicopter-rescue-game",
+      "controls": "W/S/D",
+      "lang": "pt",
+      "thumb": "games/ext-heli-rescue/thumb.webp"
+    },
+    {
       "id": "hangman",
       "title": "Виселица",
       "emoji": "🔤",
@@ -256,6 +359,43 @@
       "lang": "ru",
       "added": "2026-09-23",
       "thumb": "games/hangman/thumb.webp"
+    },
+    {
+      "id": "ext-wordle-plus",
+      "title": "Вордли плюс",
+      "emoji": "🟩",
+      "description": "Вордли-клон: словари EN+PT, три сложности.",
+      "tags": [
+        "слова",
+        "головоломка"
+      ],
+      "url": "https://leandrosq.github.io/js-wordle/",
+      "author": "LeandroSQ",
+      "license": "MIT",
+      "repo": "https://github.com/LeandroSQ/js-wordle",
+      "controls": "Клавиатура",
+      "lang": "en",
+      "langs": [
+        "en",
+        "pt"
+      ]
+    },
+    {
+      "id": "ext-hexorius",
+      "title": "Гексориус",
+      "emoji": "⬡",
+      "description": "Гекс-стратегия против minimax с альфа-бета.",
+      "tags": [
+        "ии",
+        "стратегия"
+      ],
+      "url": "https://andreyakinshin.github.io/hexorius/",
+      "author": "AndreyAkinshin",
+      "license": "MIT",
+      "repo": "https://github.com/AndreyAkinshin/hexorius",
+      "controls": "Мышь",
+      "lang": "en",
+      "thumb": "games/ext-hexorius/thumb.webp"
     },
     {
       "id": "ext-gomoku-ai",
@@ -277,6 +417,41 @@
       "thumb": "games/ext-gomoku-ai/thumb.webp"
     },
     {
+      "id": "ext-darts",
+      "title": "Дартс",
+      "emoji": "🎯",
+      "description": "Дартс на Canvas: меткость и счёт.",
+      "tags": [
+        "дартс",
+        "спорт"
+      ],
+      "url": "https://raulr.github.io/darts",
+      "author": "raulr",
+      "license": "MIT",
+      "repo": "https://github.com/raulr/darts",
+      "controls": "Мышь",
+      "lang": "en",
+      "thumb": "games/ext-darts/thumb.webp"
+    },
+    {
+      "id": "ext-dino-neat",
+      "title": "Дино NEAT",
+      "emoji": "🦖",
+      "description": "NEAT с нуля: нейросети учатся играть в дино.",
+      "tags": [
+        "ии",
+        "нейроэволюция",
+        "раннер"
+      ],
+      "url": "https://akashkarnatak.github.io/dino-neat",
+      "author": "AkashKarnatak",
+      "license": "AGPL-3.0",
+      "repo": "https://github.com/AkashKarnatak/dino-neat",
+      "controls": "Без управления: ИИ играет сам",
+      "lang": "en",
+      "thumb": "games/ext-dino-neat/thumb.webp"
+    },
+    {
       "id": "dino",
       "title": "Дино-раннер",
       "emoji": "🦖",
@@ -291,6 +466,24 @@
       "lang": "ru",
       "added": "2026-09-23",
       "thumb": "games/dino/thumb.webp"
+    },
+    {
+      "id": "ext-durak-ai",
+      "title": "Дурак с ИИ",
+      "emoji": "🃏",
+      "description": "Дурак против ИИ.",
+      "tags": [
+        "дурак",
+        "карты",
+        "ии"
+      ],
+      "url": "https://durak-mu.vercel.app",
+      "author": "VladBrok",
+      "license": "MIT",
+      "repo": "https://github.com/VladBrok/durak",
+      "controls": "Мышь",
+      "lang": "ru",
+      "thumb": "games/ext-durak-ai/thumb.webp"
     },
     {
       "id": "ext-star-battle",
@@ -309,6 +502,23 @@
       "lang": "zh",
       "added": "2026-09-24",
       "thumb": "games/ext-star-battle/thumb.webp"
+    },
+    {
+      "id": "ext-snakes-ladders",
+      "title": "Змеи и лестницы",
+      "emoji": "🪜",
+      "description": "Змеи и лестницы против компьютера.",
+      "tags": [
+        "настольные",
+        "ии"
+      ],
+      "url": "https://snakes-and-ladders-game.pages.dev/",
+      "author": "priyanshurav",
+      "license": "MIT",
+      "repo": "https://github.com/priyanshurav/snakes-and-ladders-game",
+      "controls": "Мышь",
+      "lang": "en",
+      "thumb": "games/ext-snakes-ladders/thumb.webp"
     },
     {
       "id": "snake",
@@ -400,6 +610,23 @@
       "thumb": "games/ext-kaboom/thumb.webp"
     },
     {
+      "id": "ext-kakuro",
+      "title": "Какуро",
+      "emoji": "🔢",
+      "description": "Какуро: 600 пазлов, заметки-кандидаты.",
+      "tags": [
+        "головоломка",
+        "судоку"
+      ],
+      "url": "https://kimmania.github.io/simple-kakuro/",
+      "author": "kimmania",
+      "license": "MIT",
+      "repo": "https://github.com/kimmania/simple-kakuro",
+      "controls": "Мышь / клавиатура",
+      "lang": "en",
+      "thumb": "games/ext-kakuro/thumb.webp"
+    },
+    {
       "id": "ext-quindici",
       "title": "Квиндичи",
       "emoji": "🧩",
@@ -451,6 +678,23 @@
       "lang": "en",
       "added": "2026-09-24",
       "thumb": "games/ext-code-quiz/thumb.webp"
+    },
+    {
+      "id": "ext-hoops",
+      "title": "Кольцо",
+      "emoji": "🏀",
+      "description": "Баскетбол: шесть уровней по одному броску.",
+      "tags": [
+        "баскетбол",
+        "спорт"
+      ],
+      "url": "https://www.hooping.io",
+      "author": "douvy",
+      "license": "MIT",
+      "repo": "https://github.com/douvy/hooping",
+      "controls": "Мышь (тяни и отпускай)",
+      "lang": "en",
+      "thumb": "games/ext-hoops/thumb.webp"
     },
     {
       "id": "invaders",
@@ -521,6 +765,41 @@
       "thumb": "games/ext-mah/thumb.webp"
     },
     {
+      "id": "ext-mancala-ai",
+      "title": "Манкала с ИИ",
+      "emoji": "🫘",
+      "description": "Манкала против minimax-ИИ в воркере.",
+      "tags": [
+        "манкала",
+        "настольные",
+        "ии"
+      ],
+      "url": "https://virgs.github.io/mancala/",
+      "author": "virgs",
+      "license": "MIT",
+      "repo": "https://github.com/virgs/mancala",
+      "controls": "Мышь",
+      "lang": "en",
+      "thumb": "games/ext-mancala-ai/thumb.webp"
+    },
+    {
+      "id": "ext-mastermind-ai",
+      "title": "Мастермайнд с ИИ",
+      "emoji": "🧠",
+      "description": "Мастермайнд против генетического солвера.",
+      "tags": [
+        "ии",
+        "головоломка"
+      ],
+      "url": "https://glennchia.github.io/mastermind-react/",
+      "author": "GlennChia",
+      "license": "MIT",
+      "repo": "https://github.com/GlennChia/mastermind-react",
+      "controls": "Мышь",
+      "lang": "en",
+      "thumb": "games/ext-mastermind-ai/thumb.webp"
+    },
+    {
       "id": "memory",
       "title": "Мемори",
       "emoji": "🃏",
@@ -555,6 +834,24 @@
       "thumb": "games/ext-mini-golf/thumb.webp"
     },
     {
+      "id": "ext-moka-go",
+      "title": "Мока-го 9×9",
+      "emoji": "⚪",
+      "description": "Го 9×9 против нейробота (наследник KataGo).",
+      "tags": [
+        "ии",
+        "го",
+        "настольные"
+      ],
+      "url": "https://million.dev/moka",
+      "author": "millionco",
+      "license": "MIT",
+      "repo": "https://github.com/millionco/moka",
+      "controls": "Мышь",
+      "lang": "en",
+      "thumb": "games/ext-moka-go/thumb.webp"
+    },
+    {
       "id": "ext-battleship-odin",
       "title": "Морской бой",
       "emoji": "🚢",
@@ -572,6 +869,24 @@
       "lang": "en",
       "added": "2026-09-24",
       "thumb": "games/ext-battleship-odin/thumb.webp"
+    },
+    {
+      "id": "ext-neuro-racer",
+      "title": "Нейро-гонщик",
+      "emoji": "🏎️",
+      "description": "Нейро-водители с лучевыми сенсорами учатся ездить.",
+      "tags": [
+        "ии",
+        "нейроэволюция",
+        "гонки"
+      ],
+      "url": "https://neuro-racer-lab.vercel.app",
+      "author": "Blizzeq",
+      "license": "MIT",
+      "repo": "https://github.com/Blizzeq/neuro-racer-lab",
+      "controls": "Без управления: ИИ учится сам",
+      "lang": "en",
+      "thumb": "games/ext-neuro-racer/thumb.webp"
     },
     {
       "id": "ext-neon-dungeon",
@@ -608,6 +923,23 @@
       "lang": "en",
       "added": "2026-09-24",
       "thumb": "games/ext-canvas-td/thumb.webp"
+    },
+    {
+      "id": "ext-jigsaw",
+      "title": "Пазл-конструктор",
+      "emoji": "🧩",
+      "description": "Пазл-конструктор: свои картинки, снап деталей.",
+      "tags": [
+        "пазл",
+        "головоломка"
+      ],
+      "url": "https://code4fukui.github.io/open-jigsaw/",
+      "author": "code4fukui",
+      "license": "BSD-2-Clause",
+      "repo": "https://github.com/code4fukui/open-jigsaw",
+      "controls": "Мышь",
+      "lang": "ja",
+      "thumb": "games/ext-jigsaw/thumb.webp"
     },
     {
       "id": "ext-pacman-cc0",
@@ -662,6 +994,23 @@
       "thumb": "games/ext-matter-sandbox/thumb.webp"
     },
     {
+      "id": "ext-piano-tiles",
+      "title": "Пианино-тайлы",
+      "emoji": "🎹",
+      "description": "Пианино-тайлы: жми чёрные клавиши в ритме.",
+      "tags": [
+        "ритм",
+        "музыка"
+      ],
+      "url": "https://zardoy.github.io/piano-tiles",
+      "author": "zardoy",
+      "license": "MIT",
+      "repo": "https://github.com/zardoy/piano-tiles",
+      "controls": "Клавиатура / касание",
+      "lang": "en",
+      "thumb": "games/ext-piano-tiles/thumb.webp"
+    },
+    {
       "id": "ext-pixel-run",
       "title": "Пиксель-ран",
       "emoji": "🏃",
@@ -678,6 +1027,40 @@
       "lang": "en",
       "added": "2026-09-24",
       "thumb": "games/ext-pixel-run/thumb.webp"
+    },
+    {
+      "id": "ext-plinko",
+      "title": "Плинко",
+      "emoji": "⚪",
+      "description": "Плинко: своя физика, буст-пеги.",
+      "tags": [
+        "аркада",
+        "физика"
+      ],
+      "url": "https://jasonhand.github.io/plinko-drop/",
+      "author": "jasonhand",
+      "license": "MIT",
+      "repo": "https://github.com/jasonhand/plinko-drop",
+      "controls": "Клик",
+      "lang": "en",
+      "thumb": "games/ext-plinko/thumb.webp"
+    },
+    {
+      "id": "ext-getaway",
+      "title": "Побег",
+      "emoji": "🚗",
+      "description": "Гонки с видом сверху: уходи от погони, собирай монеты.",
+      "tags": [
+        "гонки",
+        "аркада"
+      ],
+      "url": "https://le-s.github.io/getaway/",
+      "author": "le-s",
+      "license": "MIT",
+      "repo": "https://github.com/le-s/getaway",
+      "controls": "Стрелки / WASD",
+      "lang": "en",
+      "thumb": "games/ext-getaway/thumb.webp"
     },
     {
       "id": "pong",
@@ -925,6 +1308,40 @@
       "thumb": "games/ext-synth-racer/thumb.webp"
     },
     {
+      "id": "ext-speed-racer",
+      "title": "Скоростной гонщик",
+      "emoji": "🏁",
+      "description": "Кольцевые гонки: три машины, чекпоинты.",
+      "tags": [
+        "гонки",
+        "аркада"
+      ],
+      "url": "https://speed-racer-game.vercel.app",
+      "author": "Steve-IX",
+      "license": "MIT",
+      "repo": "https://github.com/Steve-IX/Speed_Racer_Game",
+      "controls": "Стрелки",
+      "lang": "en",
+      "thumb": "games/ext-speed-racer/thumb.webp"
+    },
+    {
+      "id": "ext-slots",
+      "title": "Слоты",
+      "emoji": "🎰",
+      "description": "Эмодзи-слоты на 60fps.",
+      "tags": [
+        "казино",
+        "аркада"
+      ],
+      "url": "https://danziger.github.io/slotjs/",
+      "author": "Danziger",
+      "license": "MIT",
+      "repo": "https://github.com/Danziger/slotjs",
+      "controls": "Клик",
+      "lang": "en",
+      "thumb": "games/ext-slots/thumb.webp"
+    },
+    {
       "id": "ext-starfighter",
       "title": "Старфайтер",
       "emoji": "💥",
@@ -1031,6 +1448,23 @@
       "thumb": "games/ext-dot-box/thumb.webp"
     },
     {
+      "id": "ext-dots-ai",
+      "title": "Точки и квадраты с ИИ",
+      "emoji": "▦",
+      "description": "Точки и квадраты против ИИ с просмотром ходов.",
+      "tags": [
+        "ии",
+        "настольные"
+      ],
+      "url": "https://zshall.github.io/dots-and-boxes/",
+      "author": "zshall",
+      "license": "MIT",
+      "repo": "https://github.com/zshall/dots-and-boxes",
+      "controls": "Мышь",
+      "lang": "en",
+      "thumb": "games/ext-dots-ai/thumb.webp"
+    },
+    {
       "id": "ext-match3",
       "title": "Три в ряд",
       "emoji": "💎",
@@ -1087,6 +1521,56 @@
       "thumb": "games/whack/thumb.webp"
     },
     {
+      "id": "ext-ultimate-ttt",
+      "title": "Ультимативные крестики",
+      "emoji": "❌",
+      "description": "Ультимативные крестики против MCTS-движка.",
+      "tags": [
+        "ии",
+        "настольные"
+      ],
+      "url": "https://ishandutta2007.github.io/uttt/",
+      "author": "ishandutta2007",
+      "license": "AGPL-3.0",
+      "repo": "https://github.com/ishandutta2007/uttt",
+      "controls": "Мышь",
+      "lang": "en"
+    },
+    {
+      "id": "ext-uno-pro",
+      "title": "УНО Про",
+      "emoji": "🎴",
+      "description": "УНО против ИИ или с друзьями.",
+      "tags": [
+        "карты",
+        "уно"
+      ],
+      "url": "https://mtg2000.github.io/uno",
+      "author": "MTG2000",
+      "license": "LGPL-3.0",
+      "repo": "https://github.com/MTG2000/uno",
+      "controls": "Мышь",
+      "lang": "en",
+      "thumb": "games/ext-uno-pro/thumb.webp"
+    },
+    {
+      "id": "ext-farkle",
+      "title": "Фаркл",
+      "emoji": "⚀",
+      "description": "Фаркл: риск и комбинаторика кубиков.",
+      "tags": [
+        "кости",
+        "настольные"
+      ],
+      "url": "https://hot-dice.github.io/hotdice/",
+      "author": "hot-dice",
+      "license": "MIT",
+      "repo": "https://github.com/hot-dice/hotdice",
+      "controls": "Мышь",
+      "lang": "en",
+      "thumb": "games/ext-farkle/thumb.webp"
+    },
+    {
       "id": "flappy",
       "title": "Флэппи",
       "emoji": "🐤",
@@ -1138,6 +1622,23 @@
       "lang": "en",
       "added": "2026-09-24",
       "thumb": "games/ext-slither-clone/thumb.webp"
+    },
+    {
+      "id": "ext-chess-tactics",
+      "title": "Шахматные задачи",
+      "emoji": "♞",
+      "description": "Шахматные задачи Lichess + Stockfish в браузере.",
+      "tags": [
+        "ии",
+        "шахматы"
+      ],
+      "url": "https://danieltomaro13.github.io/ChessAnalysis/",
+      "author": "DanielTomaro13",
+      "license": "MIT",
+      "repo": "https://github.com/DanielTomaro13/ChessAnalysis",
+      "controls": "Мышь",
+      "lang": "en",
+      "thumb": "games/ext-chess-tactics/thumb.webp"
     },
     {
       "id": "ext-chess-ultimate",
@@ -1221,6 +1722,24 @@
       "lang": "en",
       "added": "2026-09-24",
       "thumb": "games/ext-spike-sprint/thumb.webp"
+    },
+    {
+      "id": "ext-yahtzee",
+      "title": "Ятзи",
+      "emoji": "🎲",
+      "description": "Ятзи: кости против ИИ или вдвоём.",
+      "tags": [
+        "кости",
+        "настольные",
+        "ии"
+      ],
+      "url": "https://99fk.github.io/yahtzee-html/",
+      "author": "99fk",
+      "license": "GPL-3.0",
+      "repo": "https://github.com/99fk/yahtzee-html",
+      "controls": "Мышь",
+      "lang": "en",
+      "thumb": "games/ext-yahtzee/thumb.webp"
     },
     {
       "id": "ext-abgame",

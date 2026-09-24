@@ -1,0 +1,17 @@
+{
+  "id": "ext-neuro-racer",
+  "title": "Нейро-гонщик",
+  "emoji": "🏎️",
+  "description": "Нейро-водители с лучевыми сенсорами учатся ездить.",
+  "tags": [
+    "ии",
+    "нейроэволюция",
+    "гонки"
+  ],
+  "controls": "Без управления: ИИ учится сам",
+  "url": "https://neuro-racer-lab.vercel.app",
+  "author": "Blizzeq",
+  "license": "MIT",
+  "repo": "https://github.com/Blizzeq/neuro-racer-lab",
+  "lang": "en"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "ext-durak-ai",
+  "title": "Дурак с ИИ",
+  "emoji": "🃏",
+  "description": "Дурак против ИИ.",
+  "tags": [
+    "дурак",
+    "карты",
+    "ии"
+  ],
+  "controls": "Мышь",
+  "url": "https://durak-mu.vercel.app",
+  "author": "VladBrok",
+  "license": "MIT",
+  "repo": "https://github.com/VladBrok/durak",
+  "lang": "ru"
+}
