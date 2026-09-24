@@ -266,6 +266,15 @@ body {
   color: #f2f4ff;
 }
 
+.search__select option:hover {
+  background-color: #232b7d;
+}
+
+.search__select option:checked {
+  background-color: var(--accent);
+  color: #fff;
+}
+
 .site-main {
   flex: 1;
   width: 100%;
