@@ -267,12 +267,13 @@ body {
 }
 
 .search__select option:hover {
-  background-color: #232b7d;
+  background-color: #7fb3ff;
+  color: #0c1132;
 }
 
 .search__select option:checked {
-  background-color: var(--accent);
-  color: #fff;
+  background-color: #7fb3ff;
+  color: #0c1132;
 }
 
 .site-main {
