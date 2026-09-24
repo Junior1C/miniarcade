@@ -249,73 +249,30 @@ body {
   white-space: nowrap;
 }
 
-/* Кастомный dropdown сортировки: плоские заливки в гамме сайта,
-   нативный select убран — его попап красит ОС в серый. */
-.sort-wrap {
-  position: relative;
-}
-
-.sort-button {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
-  border: 1px solid rgb(93 120 255 / 0.35);
+.search__select {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid #2e3a8f;
   border-radius: 999px;
-  background: #232b7d;
+  background: #1c2568;
   color: var(--text);
   font: inherit;
   font-size: 0.875rem;
   cursor: pointer;
-  white-space: nowrap;
 }
 
-.sort-button:hover {
-  background: #2c3586;
-}
-
-.sort-list {
-  position: absolute;
-  top: calc(100% + var(--space-2));
-  right: 0;
-  z-index: 50;
-  min-width: 100%;
-  margin: 0;
-  padding: var(--space-2);
-  list-style: none;
-  border: 1px solid rgb(93 120 255 / 0.35);
-  border-radius: var(--radius);
-  background: #141b52;
-  box-shadow: 0 16px 40px rgb(0 0 0 / 0.5);
-}
-
-.sort-list[hidden] {
-  display: none;
-}
-
-.sort-option {
-  display: block;
-  width: 100%;
-  padding: var(--space-2) var(--space-3);
-  border: 0;
-  border-radius: 8px;
-  background: transparent;
+/* Попап нативного селекта: единая синяя гамма сайта. */
+.search__select option {
+  background-color: #141b52;
   color: #f2f4ff;
-  font: inherit;
-  font-size: 0.875rem;
-  text-align: left;
-  white-space: nowrap;
-  cursor: pointer;
 }
 
-.sort-option:hover {
-  background: #2c3586;
+.search__select option:hover {
+  background-color: #232b7d;
 }
 
-.sort-option[aria-selected="true"] {
-  background: var(--violet-deep);
+.search__select option:checked {
+  background-color: #2c3fae;
   color: #fff;
-  font-weight: 700;
 }
 
 .site-main {
