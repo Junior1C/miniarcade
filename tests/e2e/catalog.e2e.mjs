@@ -21,17 +21,19 @@ test('карточки: свои игры с WebP-превью, мосты с э
 
 test('поиск фильтрует каталог', async ({ page }) => {
   await page.goto('/');
-  await page.fill('#search', 'пятнашки');
+  // Запрос с заведомо единственным хитом (уникальное название):
+  // счётчик не должен гнить при добавлении мостов (кейс «пятнашки» ×3).
+  await page.fill('#search', 'квиндичи');
   await expect(page.locator('#games .card')).toHaveCount(1);
   // В заголовке теперь и бейдж языка (RU/EN/🌐) — проверяем вхождение.
-  await expect(page.locator('#games .card__title')).toContainText('Пятнашки');
+  await expect(page.locator('#games .card__title')).toContainText('Квиндичи');
   await page.fill('#search', 'квццыв');
   await expect(page.locator('#empty-state')).toBeVisible();
 });
 
 test('плеер открывает игру в sandbox и закрывается по Esc', async ({ page }) => {
   await page.goto('/');
-  await page.fill('#search', 'пятнашки');
+  await page.fill('#search', 'квиндичи');
   await expect(page.locator('#games .card')).toHaveCount(1);
   await page.locator('#games .card').first().click();
   const dialog = page.locator('#player');
@@ -47,7 +49,7 @@ test('плеер открывает игру в sandbox и закрываетс�
 
 test('кнопка закрытия плеера работает мышью (invoker + JS-фолбэк)', async ({ page }) => {
   await page.goto('/');
-  await page.fill('#search', 'пятнашки');
+  await page.fill('#search', 'квиндичи');
   await expect(page.locator('#games .card')).toHaveCount(1);
   await page.locator('#games .card').first().click();
   const dialog = page.locator('#player');
@@ -58,6 +60,28 @@ test('кнопка закрытия плеера работает мышью (in
   await closeBtn.click();
   await expect(dialog).toBeHidden();
   await expect(page.locator('#player-frame')).toHaveAttribute('src', 'about:blank');
+});
+
+test('кнопка разворота вписывает игру в окно и видна справа', async ({ page }) => {
+  await page.goto('/');
+  await page.fill('#search', 'квиндичи');
+  await page.locator('#games .card').first().click();
+  const dialog = page.locator('#player');
+  await expect(dialog).toBeVisible();
+  const expand = page.locator('#player-expand');
+  await expect(expand).toBeVisible();
+  const bar = await page.locator('.player__bar').boundingBox();
+  const box = await expand.boundingBox();
+  expect(box.x + box.width).toBeLessThanOrEqual(bar.x + bar.width + 1);
+  await expect(expand).toHaveAttribute('aria-pressed', 'false');
+  await expand.click();
+  await expect(dialog).toHaveClass(/player--fullscreen/);
+  await expect(expand).toHaveAttribute('aria-pressed', 'true');
+  const full = await dialog.boundingBox();
+  expect(Math.round(full.width)).toBe(page.viewportSize().width);
+  await expand.click();
+  await expect(dialog).not.toHaveClass(/player--fullscreen/);
+  await expect(expand).toHaveAttribute('aria-pressed', 'false');
 });
 
 test('структурированные данные каталога валидны', async ({ page }) => {

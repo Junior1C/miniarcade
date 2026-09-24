@@ -23,7 +23,7 @@ assets/
     catalog.js             — загрузка и валидация data/catalog.json
     search.js              — поиск с мемоизированным индексом (тестируется отдельно)
     format.js              — русская плюрализация
-    player.js              — <dialog>-плеер, sandbox iframe
+    player.js              — <dialog>-плеер, sandbox iframe (закрытие выкидывает узел кадра целиком — звук/процессы игры умирают детерминированно; кнопка ⛶/🗗 разворачивает диалог на весь экран)
     sandbox-tokens.js      — единый allowlist sandbox-токенов (build + player)
     view-transition.js     — same-document View Transitions с фолбэком (main.js)
     stats.js               — beacon аналитики: pv/open/close, без cookies (см. § Аналитика)

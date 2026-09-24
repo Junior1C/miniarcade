@@ -25,6 +25,7 @@ const elements = {
   title: document.getElementById('player-name'),
   emoji: document.getElementById('player-emoji'),
   closeBtn: document.getElementById('player-close'),
+  expandBtn: document.getElementById('player-expand'),
   sourceLink: document.getElementById('player-source'),
   loading: document.getElementById('player-loading'),
 };
@@ -64,6 +65,7 @@ const player = createPlayer({
   titleEl: elements.title,
   emojiEl: elements.emoji,
   closeBtn: elements.closeBtn,
+  expandBtn: elements.expandBtn,
   sourceLink: elements.sourceLink,
   loadingEl: elements.loading,
   onOpen: (game) => {

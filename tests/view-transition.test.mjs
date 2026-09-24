@@ -52,6 +52,23 @@ test('renderWithTransition uses the API when available', () => {
   assert.equal(result, transition);
 });
 
+test('renderWithTransition swallows AbortError of a skipped transition', async () => {
+  let rejection = null;
+  const transition = {
+    finished: Promise.reject(new DOMException('Transition was skipped', 'AbortError')).catch((error) => {
+      rejection = error;
+    }),
+  };
+  const doc = {
+    defaultView: { matchMedia: () => ({ matches: false }) },
+    startViewTransition: () => transition,
+  };
+  // Не должно кидать и не должно плодить unhandled rejection.
+  renderWithTransition(doc, () => {});
+  await transition.finished;
+  assert.ok(rejection instanceof Error);
+});
+
 test('broken matchMedia never breaks rendering', () => {
   let updated = 0;
   const doc = {

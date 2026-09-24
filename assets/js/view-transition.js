@@ -1,11 +1,5 @@
-// Прогрессивное улучшение рендера через Same-Document View Transitions
-// (Baseline 2025: Chrome/Edge 111+, Firefox 133+, Safari 18+).
-//
-// Использование: оборачивать DOM-мутацию каталога (фильтр/пагинация).
-// - Нет API или `prefers-reduced-motion` → синхронный update, ноль эффектов.
-// - Браузер без поддержки игнорирует ветку — деградация бесплатная.
-// Cross-document (`@view-transition`) здесь не применяется: у каталога нет
-// навигаций между документами (только hash + <dialog>), пререндер не нужен.
+// Same-Document View Transitions (Baseline 2025) для рендера каталога.
+// Нет API или prefers-reduced-motion → синхронно, деградация бесплатная.
 export function shouldUseViewTransitions({ hasAPI = false, prefersReducedMotion = false } = {}) {
   return hasAPI === true && prefersReducedMotion === false;
 }
@@ -27,9 +21,17 @@ export function renderWithTransition(doc, update) {
     })
   ) {
     try {
-      return scope.startViewTransition(() => {
+      const transition = scope.startViewTransition(() => {
         update();
       });
+      // Перекрытие штатно (второй рендер, быстрые клики): глушим reject
+      // обоих промисов, иначе AbortError роняет pageerror в консоль.
+      for (const key of ['ready', 'finished']) {
+        if (transition && typeof transition[key]?.catch === 'function') {
+          transition[key].catch(() => {});
+        }
+      }
+      return transition;
     } catch {
       update();
       return null;
