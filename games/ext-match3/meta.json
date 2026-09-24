@@ -12,6 +12,10 @@
   "author": "bazhanius",
   "license": "MIT",
   "repo": "https://github.com/bazhanius/match-3-game",
-  "lang": "neutral",
-  "added": "2026-09-24"
+  "lang": "ru",
+  "added": "2026-09-24",
+  "langs": [
+    "ru",
+    "en"
+  ]
 }

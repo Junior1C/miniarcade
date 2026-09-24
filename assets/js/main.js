@@ -163,22 +163,34 @@ function createCard(game) {
   title.className = 'card__title';
   title.textContent = game.title;
 
-  // Значок языка игры из каталога (build гарантирует наличие):
-  // RU / EN / ZH / JA / IT / TR. Не интерактивен. Смешанный или
-  // неопределённый язык (neutral) бейджа не получает осознанно:
-  // лучше ничего, чем вводящая в заблуждение 🌐-планета.
+  // Бейдж основного языка (первый из langs); neutral — без бейджа.
+  // При нескольких языках подсказка перечисляет все.
   if (typeof game.lang === 'string' && game.lang && game.lang !== 'neutral') {
     const lang = document.createElement('span');
     lang.className = 'card__lang';
-    const names = { ru: 'русский', en: 'английский', zh: 'китайский', ja: 'японский', it: 'итальянский', tr: 'турецкий' };
+    const names = {
+      ru: 'русский',
+      en: 'английский',
+      zh: 'китайский',
+      ja: 'японский',
+      it: 'итальянский',
+      tr: 'турецкий',
+      uk: 'украинский',
+      es: 'испанский',
+      fr: 'французский',
+      de: 'немецкий',
+      pt: 'португальский',
+      pl: 'польский',
+      nl: 'нидерландский',
+      ko: 'корейский',
+    };
+    const all = Array.isArray(game.langs) && game.langs.length > 1 ? game.langs : [game.lang];
     lang.textContent = game.lang.toUpperCase();
-    lang.title = `Язык игры: ${names[game.lang] ?? game.lang}`;
+    lang.title = `Языки игры: ${all.map((code) => names[code] ?? code).join(', ')}`;
     title.append(lang);
   }
 
-  // Пометка ИИ-игр: соперник/движок — нейросеть, минимакс, эвристики
-  // (тег «ии» в meta.json). Отдельный бейдж, а не только тег-чип:
-  // видно сразу на карточке, ищется по «ии».
+  // Пометка ИИ-игр (тег «ии»): видна сразу, ищется по «ии».
   if (Array.isArray(game.tags) && game.tags.includes('ии')) {
     const ai = document.createElement('span');
     ai.className = 'card__ai';

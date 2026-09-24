@@ -208,8 +208,19 @@
       "license": "Apache-2.0",
       "repo": "https://github.com/google/blockly-games",
       "controls": "Мышь",
-      "lang": "neutral",
+      "lang": "en",
       "added": "2026-09-24",
+      "langs": [
+        "en",
+        "de",
+        "es",
+        "fr",
+        "it",
+        "pl",
+        "pt",
+        "ru",
+        "tr"
+      ],
       "thumb": "games/ext-blockly/thumb.webp"
     },
     {
@@ -983,24 +994,6 @@
       "thumb": "games/tetris/thumb.webp"
     },
     {
-      "id": "ext-tetris-responsive",
-      "title": "Тетрис (адаптивный)",
-      "emoji": "🧱",
-      "description": "Отзывчивый тетрис: свайпы, уровни, счёт.",
-      "tags": [
-        "аркада",
-        "тетрис"
-      ],
-      "url": "https://musthofa-kamaluddin.github.io/Tetris/",
-      "author": "musthofa-kamaluddin",
-      "license": "MIT",
-      "repo": "https://github.com/musthofa-kamaluddin/Tetris",
-      "controls": "Стрелки / свайпы",
-      "lang": "en",
-      "added": "2026-09-24",
-      "thumb": "games/ext-tetris-responsive/thumb.webp"
-    },
-    {
       "id": "ext-tetris-ai",
       "title": "Тетрис думает",
       "emoji": "🧠",
@@ -1051,8 +1044,12 @@
       "license": "MIT",
       "repo": "https://github.com/bazhanius/match-3-game",
       "controls": "Мышь / касание",
-      "lang": "neutral",
+      "lang": "ru",
       "added": "2026-09-24",
+      "langs": [
+        "ru",
+        "en"
+      ],
       "thumb": "games/ext-match3/thumb.webp"
     },
     {
@@ -1157,8 +1154,17 @@
       "license": "MIT",
       "repo": "https://github.com/VoxDroid/Chess-Ultimate",
       "controls": "Мышь / касание",
-      "lang": "neutral",
+      "lang": "en",
       "added": "2026-09-24",
+      "langs": [
+        "en",
+        "de",
+        "es",
+        "fr",
+        "ja",
+        "ko",
+        "zh"
+      ],
       "thumb": "games/ext-chess-ultimate/thumb.webp"
     },
     {
@@ -1423,25 +1429,6 @@
       "lang": "en",
       "added": "2026-09-23",
       "thumb": "games/ext-astray/thumb.webp"
-    },
-    {
-      "id": "ext-aureliasol",
-      "title": "Aurelia Solitaire",
-      "emoji": "🃏",
-      "description": "Косынка на Aurelia с drag-and-drop. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "карты",
-        "пасьянс",
-        "мост"
-      ],
-      "url": "https://jdanyow.github.io/aurelia-solitaire/",
-      "author": "jdanyow",
-      "license": "MIT",
-      "repo": "https://github.com/jdanyow/aurelia-solitaire",
-      "controls": "Мышь",
-      "lang": "en",
-      "added": "2026-09-23",
-      "thumb": "games/ext-aureliasol/thumb.webp"
     },
     {
       "id": "ext-boc-backgammon",
@@ -1804,25 +1791,6 @@
       "thumb": "games/ext-colonizers/thumb.webp"
     },
     {
-      "id": "ext-boc-crossword",
-      "title": "Cruciverba",
-      "emoji": "✏️",
-      "description": "Профессиональный кроссворд: разгадывайте слова по определениям. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "слова",
-        "логика",
-        "мост"
-      ],
-      "url": "https://bocaletto-luca.github.io/Crossword/",
-      "author": "Bocaletto Luca",
-      "license": "GPL-3.0",
-      "repo": "https://github.com/bocaletto-luca/Crossword",
-      "controls": "Мышь + печать",
-      "lang": "it",
-      "added": "2026-09-23",
-      "thumb": "games/ext-boc-crossword/thumb.webp"
-    },
-    {
       "id": "ext-css-diner",
       "title": "CSS-закусочная",
       "emoji": "🍽️",
@@ -1988,6 +1956,19 @@
       "controls": "Печать CSS-кода",
       "lang": "en",
       "added": "2026-09-23",
+      "langs": [
+        "en",
+        "de",
+        "es",
+        "fr",
+        "it",
+        "nl",
+        "pl",
+        "pt",
+        "ru",
+        "tr",
+        "uk"
+      ],
       "thumb": "games/ext-froggy/thumb.webp"
     },
     {
@@ -2159,6 +2140,20 @@
       "controls": "Печать CSS-кода",
       "lang": "en",
       "added": "2026-09-23",
+      "langs": [
+        "en",
+        "de",
+        "es",
+        "fr",
+        "it",
+        "ja",
+        "ko",
+        "nl",
+        "pl",
+        "ru",
+        "tr",
+        "uk"
+      ],
       "thumb": "games/ext-garden/thumb.webp"
     },
     {
@@ -2675,25 +2670,6 @@
       "thumb": "games/ext-boc-quizplayer/thumb.webp"
     },
     {
-      "id": "ext-reactrpg",
-      "title": "React RPG",
-      "emoji": "🗡️",
-      "description": "Пошаговое подземелье: исследование, бои и лут. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "rpg",
-        "подземелье",
-        "мост"
-      ],
-      "url": "https://react-rpg.com/",
-      "author": "ASteinheiser",
-      "license": "MIT",
-      "repo": "https://github.com/ASteinheiser/react-rpg.com",
-      "controls": "Стрелки/WASD",
-      "lang": "en",
-      "added": "2026-09-23",
-      "thumb": "games/ext-reactrpg/thumb.webp"
-    },
-    {
       "id": "ext-solitaire",
       "title": "React Solitaire",
       "emoji": "🎴",
@@ -2977,25 +2953,6 @@
       "lang": "it",
       "added": "2026-09-23",
       "thumb": "games/ext-boc-squaredodger/thumb.webp"
-    },
-    {
-      "id": "ext-stockfish",
-      "title": "Stockfish Web GUI",
-      "emoji": "♟️",
-      "description": "Анализ шахмат движком Stockfish прямо в браузере. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "шахматы",
-        "анализ",
-        "мост"
-      ],
-      "url": "https://labinatorsolutions.github.io/stockfish-chess-web-gui/",
-      "author": "LabinatorSolutions",
-      "license": "AGPL-3.0",
-      "repo": "https://github.com/LabinatorSolutions/stockfish-chess-web-gui",
-      "controls": "Мышь",
-      "lang": "en",
-      "added": "2026-09-23",
-      "thumb": "games/ext-stockfish/thumb.webp"
     },
     {
       "id": "ext-boc-sudoku",

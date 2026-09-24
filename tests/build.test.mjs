@@ -92,15 +92,40 @@ test('buildCatalog rejects disallowed sandbox tokens', async (t) => {
 test('buildCatalog rejects an unknown lang code', async (t) => {
   const dir = await makeFixture(t, {
     demo: {
-      'meta.json': validMeta.replace('"demo"', '"demo", "lang": "de"'),
+      'meta.json': validMeta.replace('"demo"', '"demo", "lang": "xx"'),
       'index.html': '<!DOCTYPE html>',
     },
   });
   await assert.rejects(() => buildCatalog(dir), /"lang" must be one of/);
 });
 
-test('buildCatalog validates added date and passes it to the catalog', async (t) => {
+test('buildCatalog validates langs list and promotes primary to lang', async (t) => {
   const dir = await makeFixture(t, {
+    demo: {
+      'meta.json': validMeta.replace('"demo"', '"demo", "lang": "neutral", "langs": ["ru", "en"]'),
+      'index.html': '<!DOCTYPE html>',
+    },
+  });
+  const payload = await buildCatalog(dir);
+  assert.equal(payload.games[0].lang, 'ru');
+  assert.deepEqual(payload.games[0].langs, ['ru', 'en']);
+  const bad = await makeFixture(t, {
+    demo: {
+      'meta.json': validMeta.replace('"demo"', '"demo", "langs": ["xx"]'),
+      'index.html': '<!DOCTYPE html>',
+    },
+  });
+  await assert.rejects(() => buildCatalog(bad), /"langs" contains/);
+  const dup = await makeFixture(t, {
+    demo: {
+      'meta.json': validMeta.replace('"demo"', '"demo", "langs": ["en", "en"]'),
+      'index.html': '<!DOCTYPE html>',
+    },
+  });
+  await assert.rejects(() => buildCatalog(dup), /duplicate/);
+});
+
+test('buildCatalog validates added date and passes it to the catalog', async (t) => {  const dir = await makeFixture(t, {
     demo: {
       'meta.json': validMeta.replace('"demo"', '"demo", "added": "2026-09-24"'),
       'index.html': '<!DOCTYPE html>',
@@ -131,7 +156,7 @@ test('real catalog: every game carries a language badge and search tags', async 
   assert.ok(payload.games.length >= 100);
   for (const game of payload.games) {
     assert.ok(
-      ['ru', 'en', 'zh', 'ja', 'it', 'tr', 'neutral'].includes(game.lang),
+      ['ru', 'en', 'zh', 'ja', 'it', 'tr', 'uk', 'es', 'fr', 'de', 'pt', 'pl', 'nl', 'ko', 'neutral'].includes(game.lang),
       `${game.id} must carry a valid lang for the card badge`,
     );
     assert.ok(

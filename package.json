@@ -18,6 +18,7 @@
     "qa:fix": "node scripts/qa-repo.mjs --fix",
     "qa:bridges": "node scripts/qa-bridges.mjs",
     "qa:bridges:strict": "node scripts/qa-bridges.mjs --strict",
+    "qa:playable": "node scripts/qa-playable.mjs --bridges",
     "sync:headers": "node scripts/sync-headers.mjs",
     "check": "npm run build && npm test && npm run budgets && npm run qa",
     "smoke": "node scripts/smoke.mjs",

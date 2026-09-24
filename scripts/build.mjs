@@ -28,6 +28,10 @@ const META_KEYS = new Set([
   // Необязательна (старые записи без неё сортируются последними),
   // но скелетер и бэкфилл её ставят всем.
   'added',
+  // Все языки интерфейса (бот qa-playable находит выбор языков в игре):
+  // первый — основной (бейдж на карточке), остальные — в подсказке.
+  // Без langs бейдж рисуется по lang; neutral бейджа не получает.
+  'langs',
 ]);
 const SANDBOX_ALLOWLIST = new Set(SANDBOX_TOKENS);
 
@@ -112,15 +116,32 @@ function validateOrder(meta, errors) {
   return meta.order;
 }
 
-const LANG_ALLOWLIST = new Set(['ru', 'en', 'zh', 'ja', 'it', 'tr', 'neutral']);
+const LANG_ALLOWLIST = new Set(['ru', 'en', 'zh', 'ja', 'it', 'tr', 'uk', 'es', 'fr', 'de', 'pt', 'pl', 'nl', 'ko', 'neutral']);
 
 function validateLang(meta, errors) {
   if (meta.lang === undefined) return null;
   if (typeof meta.lang !== 'string' || !LANG_ALLOWLIST.has(meta.lang)) {
-    errors.push('"lang" must be one of "ru", "en", "zh", "ja", "it", "tr", "neutral"');
+    errors.push('"lang" must be one of "ru", "en", "zh", "ja", "it", "tr", "uk", "es", "fr", "de", "pt", "pl", "nl", "ko", "neutral"');
     return null;
   }
   return meta.lang;
+}
+
+function validateLangs(meta, errors) {
+  if (meta.langs === undefined) return null;
+  if (!Array.isArray(meta.langs) || meta.langs.length === 0) {
+    errors.push('"langs" must be a non-empty array of language codes');
+    return null;
+  }
+  const seen = new Set();
+  for (const code of meta.langs) {
+    if (typeof code !== 'string' || !LANG_ALLOWLIST.has(code) || code === 'neutral' || seen.has(code)) {
+      errors.push(`"langs" contains a bad/duplicate code: ${JSON.stringify(code)}`);
+      return null;
+    }
+    seen.add(code);
+  }
+  return meta.langs;
 }
 
 function validateAdded(meta, errors) {
@@ -171,6 +192,7 @@ async function readGame(gamesDir, folder) {
   const lang = validateLang(meta, errors);
   const url = validateBridgeUrl(meta, errors);
   const added = validateAdded(meta, errors);
+  const langs = validateLangs(meta, errors);
 
   if (typeof meta.controls === 'string') {
     // optional, no validation beyond type
@@ -211,6 +233,12 @@ async function readGame(gamesDir, folder) {
   if (sandbox && sandbox.length > 0) game.sandbox = sandbox;
   if (lang) game.lang = lang;
   if (added) game.added = added;
+  if (langs) {
+    // Первый язык — основной: бейдж и inLanguage идут по нему,
+    // полный список — в подсказку карточки.
+    game.lang = langs[0];
+    game.langs = langs;
+  }
   // Превью карточки: games/<id>/thumb.webp (генерирует gen-thumbs.mjs,
   // мосты и игры без превью показывают эмодзи). Проверяется qa-links.
   try {
