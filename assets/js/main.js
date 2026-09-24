@@ -28,6 +28,12 @@ const elements = {
   expandBtn: document.getElementById('player-expand'),
   sourceLink: document.getElementById('player-source'),
   loading: document.getElementById('player-loading'),
+  homeRows: document.getElementById('home-rows'),
+  genreList: document.getElementById('genre-list'),
+  mobileGenreList: document.getElementById('mobile-genre-list'),
+  menuToggle: document.getElementById('menu-toggle'),
+  mobileSidebar: document.getElementById('mobile-sidebar'),
+  homeLogo: document.getElementById('home-logo'),
 };
 
 const state = {
@@ -41,6 +47,9 @@ const state = {
   // Без цифр рейтинга честно: нули идут по алфавиту (см. sort.js).
   sort: loadSortMode(),
   gameStats: null,
+  // Главная без запроса — ряды; запрос или смена сортировки — сетка.
+  gridLock: false,
+  genreTags: [],
 };
 
 function loadSortMode() {
@@ -269,6 +278,22 @@ function render() {
 }
 
 function renderNow() {
+  const gridMode = state.query !== '' || state.gridLock;
+  if (!gridMode && state.games.length > 0) {
+    renderRows();
+    return;
+  }
+  renderGrid();
+}
+
+function renderGrid() {
+  if (elements.homeRows) {
+    // Ряды выкидываем из DOM целиком: иначе дубли id-free карточек
+    // (один href дважды) ломают строгие селекторы и жрут память.
+    elements.homeRows.replaceChildren();
+    elements.homeRows.hidden = true;
+  }
+  elements.grid.hidden = false;
   const filtered = sortGames(filterGames(state.games, state.query), state.sort, state.gameStats);
   const visible = filtered.slice(0, state.shown);
   const fragment = document.createDocumentFragment();
@@ -285,13 +310,172 @@ function renderNow() {
   elements.loadMore.textContent = `Показать ещё (${rest})`;
 }
 
+// Главная: ряды «Популярное», «Новые», топ-теги. Сетка прячется.
+const ROW_SIZE = 12;
+const ROW_TAGS = 5;
+
+function topTags(limit) {
+  const counts = new Map();
+  for (const game of state.games) {
+    if (!Array.isArray(game.tags)) continue;
+    for (const tag of game.tags) counts.set(tag, (counts.get(tag) || 0) + 1);
+  }
+  return [...counts.entries()]
+    .sort((a, b) => b[1] - a[1] || String(a[0]).localeCompare(String(b[0]), 'ru'))
+    .slice(0, limit)
+    .map(([tag, n]) => ({ tag, n }));
+}
+
+function renderRows() {
+  elements.grid.replaceChildren();
+  elements.grid.hidden = true;
+  elements.loadMoreWrap.hidden = true;
+  elements.empty.hidden = true;
+  elements.status.textContent = describeCount(state.games.length);
+  const sections = [
+    { title: 'Популярное', games: sortGames(state.games, 'top', state.gameStats).slice(0, ROW_SIZE) },
+    { title: 'Новые', games: sortGames(state.games, 'new', state.gameStats).slice(0, ROW_SIZE) },
+  ];
+  for (const { tag } of topTags(ROW_TAGS)) {
+    const inTag = state.games.filter((g) => Array.isArray(g.tags) && g.tags.includes(tag));
+    sections.push({
+      title: `#${tag}`,
+      games: sortGames(inTag, 'top', state.gameStats).slice(0, ROW_SIZE),
+      tag,
+    });
+  }
+  const wrap = document.createDocumentFragment();
+  sections.forEach((section, index) => {
+    if (section.games.length === 0) return;
+    const sectionEl = document.createElement('section');
+    sectionEl.className = 'row-section';
+    const head = document.createElement('h2');
+    head.className = 'row-head';
+    head.textContent = section.title;
+    const carousel = document.createElement('div');
+    carousel.className = 'row-carousel';
+    const trackId = `row-track-${index}`;
+    const prev = document.createElement('button');
+    prev.className = 'scroll-btn scroll-btn--left';
+    prev.type = 'button';
+    prev.setAttribute('aria-label', `Листать «${section.title}» назад`);
+    prev.textContent = '‹';
+    const next = document.createElement('button');
+    next.className = 'scroll-btn scroll-btn--right';
+    next.type = 'button';
+    next.setAttribute('aria-label', `Листать «${section.title}» вперёд`);
+    next.textContent = '›';
+    const track = document.createElement('ul');
+    track.className = 'row-track';
+    track.id = trackId;
+    track.setAttribute('aria-label', section.title);
+    for (const game of section.games) track.append(createCard(game));
+    prev.addEventListener('click', () => scrollTrack(trackId, -1));
+    next.addEventListener('click', () => scrollTrack(trackId, 1));
+    track.addEventListener('scroll', () => checkScrollButtons(trackId), { passive: true });
+    carousel.append(prev, track, next);
+    sectionEl.append(head, carousel);
+    wrap.append(sectionEl);
+  });
+  elements.homeRows.replaceChildren(wrap);
+  elements.homeRows.hidden = false;
+  requestAnimationFrame(() => {
+    elements.homeRows.querySelectorAll('.row-track').forEach((track) => checkScrollButtons(track.id));
+  });
+}
+
+function scrollTrack(trackId, direction) {
+  const track = document.getElementById(trackId);
+  if (!track) return;
+  const amount = Math.max(300, track.clientWidth * 0.8);
+  track.scrollBy({ left: direction * amount, behavior: 'smooth' });
+  setTimeout(() => checkScrollButtons(trackId), 350);
+}
+
+function checkScrollButtons(trackId) {
+  const track = document.getElementById(trackId);
+  if (!track) return;
+  const left = track.parentElement.querySelector('.scroll-btn--left');
+  const right = track.parentElement.querySelector('.scroll-btn--right');
+  const canLeft = track.scrollLeft > 5;
+  const canRight = track.scrollLeft + track.clientWidth < track.scrollWidth - 5;
+  const scrollable = track.scrollWidth > track.clientWidth + 5;
+  if (left) left.classList.toggle('visible', scrollable && canLeft);
+  if (right) right.classList.toggle('visible', scrollable && canRight);
+}
+
 function showError() {
   state.games = [];
   elements.grid.replaceChildren();
+  if (elements.homeRows) {
+    elements.homeRows.replaceChildren();
+    elements.homeRows.hidden = true;
+  }
   elements.status.textContent = '';
   elements.empty.hidden = true;
   elements.loadMoreWrap.hidden = true;
   elements.error.hidden = false;
+}
+
+// Сайдбар жанров: топ-теги + Главная; тот же набор в drawer.
+function renderGenres() {
+  state.genreTags = topTags(8);
+  for (const list of [elements.genreList, elements.mobileGenreList]) {
+    if (!list) continue;
+    list.replaceChildren();
+    list.append(genreItem('Главная', null, state.query === ''));
+    for (const { tag } of state.genreTags) {
+      list.append(genreItem(`#${tag}`, tag, state.query === tag));
+    }
+  }
+}
+
+function genreItem(label, tag, active) {
+  const item = document.createElement('li');
+  const btn = document.createElement('button');
+  btn.className = 'genre-button';
+  btn.type = 'button';
+  if (active) btn.setAttribute('aria-current', 'true');
+  const icon = document.createElement('span');
+  icon.className = 'genre-button__icon';
+  icon.setAttribute('aria-hidden', 'true');
+  icon.textContent = tag ? '#' : '⌂';
+  const text = document.createElement('span');
+  text.textContent = label;
+  btn.append(icon, text);
+  btn.addEventListener('click', () => applyGenre(tag));
+  item.append(btn);
+  return item;
+}
+
+// Жанр = поиск по тегу, как клик по чипу.
+function applyGenre(tag) {
+  const value = tag ?? '';
+  elements.search.value = value;
+  state.query = normalizeQuery(value);
+  state.shown = PAGE_SIZE;
+  state.gridLock = false;
+  closeDrawer();
+  render();
+  renderGenres();
+  elements.search.focus({ preventScroll: true });
+}
+
+function openDrawer() {
+  if (!elements.mobileSidebar || !elements.menuToggle) return;
+  elements.mobileSidebar.hidden = false;
+  elements.menuToggle.setAttribute('aria-expanded', 'true');
+}
+
+function closeDrawer() {
+  if (!elements.mobileSidebar || !elements.menuToggle) return;
+  elements.mobileSidebar.hidden = true;
+  elements.menuToggle.setAttribute('aria-expanded', 'false');
+}
+
+function toggleDrawer() {
+  if (!elements.mobileSidebar || elements.mobileSidebar.hidden) openDrawer();
+  else closeDrawer();
 }
 
 async function init() {
@@ -302,13 +486,33 @@ async function init() {
       state.sort = validSortMode(elements.sort.value);
       saveSortMode(state.sort);
       state.shown = PAGE_SIZE;
+      // Смена сортировки — всегда сетка (ряды зафиксированы).
+      state.gridLock = true;
       render();
     });
   }
+  if (elements.menuToggle) elements.menuToggle.addEventListener('click', toggleDrawer);
+  if (elements.homeLogo) {
+    elements.homeLogo.addEventListener('click', () => {
+      elements.search.value = '';
+      state.query = '';
+      state.shown = PAGE_SIZE;
+      state.gridLock = false;
+      closeDrawer();
+      render();
+      renderGenres();
+    });
+  }
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && elements.mobileSidebar && !elements.mobileSidebar.hidden && !player.isOpen()) {
+      closeDrawer();
+    }
+  });
   if (state.statsOn) sendStats('pv');
   try {
     state.games = await loadCatalog();
     elements.error.hidden = true;
+    renderGenres();
     render();
     syncFromHash();
     // Цифры рейтинга — неблокирующим запросом после первого рендера.
@@ -342,6 +546,7 @@ elements.search.addEventListener('input', () => {
     state.query = normalizeQuery(elements.search.value);
     state.shown = PAGE_SIZE;
     render();
+    renderGenres();
   }, 120);
 });
 
@@ -357,11 +562,7 @@ elements.grid.addEventListener('click', (event) => {
   const chip = event.target.closest('.card__tag');
   if (chip && chip.dataset.tag) {
     event.preventDefault();
-    elements.search.value = chip.dataset.tag;
-    state.query = normalizeQuery(chip.dataset.tag);
-    state.shown = PAGE_SIZE;
-    render();
-    elements.search.focus();
+    applyGenre(chip.dataset.tag);
     return;
   }
   const link = event.target.closest('a[href^="#/play/"]');
@@ -369,6 +570,22 @@ elements.grid.addEventListener('click', (event) => {
     state.openedInternally = true;
   }
 });
+
+// Теги работают и в рядах главной (делегирование на контейнер).
+if (elements.homeRows) {
+  elements.homeRows.addEventListener('click', (event) => {
+    const chip = event.target.closest('.card__tag');
+    if (chip && chip.dataset.tag) {
+      event.preventDefault();
+      applyGenre(chip.dataset.tag);
+      return;
+    }
+    const link = event.target.closest('a[href^="#/play/"]');
+    if (link) {
+      state.openedInternally = true;
+    }
+  });
+}
 
 window.addEventListener('hashchange', syncFromHash);
 

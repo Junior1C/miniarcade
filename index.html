@@ -28,12 +28,17 @@
 <body>
   <a class="skip-link" href="#games">К каталогу игр</a>
 
-  <header class="site-header">
-    <p class="site-header__brand"><span aria-hidden="true">🎮</span> MiniArcade</p>
-    <h1 class="site-header__title">Каталог браузерных HTML5-игр</h1>
-    <nav class="site-nav" aria-label="Разделы сайта">
-      <a class="site-nav__link" href="stats.html">📊 Статистика</a>
-    </nav>
+  <header class="topbar">
+    <div class="topbar__left">
+      <button id="home-logo" class="brand" type="button" title="MiniArcade — на главную" aria-label="MiniArcade — на главную">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        <span class="brand__name">MiniArcade</span>
+      </button>
+      <button id="menu-toggle" class="icon-button only-mobile" type="button" aria-expanded="false" aria-controls="mobile-sidebar" aria-label="Открыть меню жанров">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+
     <div class="search" role="search">
       <label class="visually-hidden" for="search">Поиск игры</label>
       <input id="search" class="search__input" type="search" placeholder="Поиск игры или тега…" autocomplete="off" autocorrect="off" spellcheck="false">
@@ -45,10 +50,23 @@
         <option value="new">Новые</option>
       </select>
     </div>
+
+    <nav class="topbar__right" aria-label="Разделы сайта">
+      <a class="topbar__link" href="stats.html">📊 Статистика</a>
+    </nav>
   </header>
 
+  <nav id="sidebar" class="sidebar" aria-label="Жанры игр">
+    <ul id="genre-list" class="genre-list"></ul>
+  </nav>
+
+  <div id="mobile-sidebar" class="drawer" hidden>
+    <ul id="mobile-genre-list" class="genre-list"></ul>
+  </div>
+
   <main class="site-main" id="main">
-    <h2 class="visually-hidden">Игры</h2>
+    <h1 class="visually-hidden">Каталог браузерных HTML5-игр</h1>
+    <div id="home-rows" class="home-rows" hidden></div>
     <p id="results-status" class="results-status" role="status" aria-live="polite"></p>
 
     <ul id="games" class="game-grid" tabindex="-1" aria-label="Список игр"></ul>
@@ -65,6 +83,10 @@
     </div>
 
     <noscript><p class="empty-state">Для работы каталога нужен JavaScript.</p></noscript>
+
+    <footer class="site-footer">
+      <p>🎮 MiniArcade — каталог браузерных HTML5-игр · <a href="stats.html">Статистика</a></p>
+    </footer>
   </main>
 
   <dialog id="player" class="player" aria-labelledby="player-name">

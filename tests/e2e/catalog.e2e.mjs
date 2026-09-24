@@ -2,14 +2,17 @@ import { test, expect } from '@playwright/test';
 
 test('каталог рендерит карточки и статус', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('#games .card').first()).toBeVisible();
+  // Главная — ряды-карусели, сетка включается поиском/жанром/сортировкой.
+  await expect(page.locator('.row-track .card').first()).toBeVisible();
   await expect(page.locator('#results-status')).toContainText('Всего:');
   await expect(page.locator('#error-state')).toBeHidden();
 });
 
 test('карточки: свои игры с WebP-превью, мосты с эмодзи', async ({ page }) => {
   await page.goto('/');
-  const thumbs = page.locator('#games .card__thumb');
+  const thumbs = page.locator('.row-track .card__thumb');
+  // Ретрящееся ожидание вместо одноразового count(): ряды едут после каталога.
+  await expect(thumbs.first()).toBeVisible();
   expect(await thumbs.count()).toBeGreaterThan(0);
   await expect(thumbs.first()).toHaveAttribute('loading', 'lazy');
   await expect(thumbs.first()).toHaveAttribute('alt', '');
@@ -33,9 +36,9 @@ test('поиск фильтрует каталог', async ({ page }) => {
 
 test('плеер открывает игру в sandbox и закрывается по Esc', async ({ page }) => {
   await page.goto('/');
-  await page.fill('#search', 'квиндичи');
-  await expect(page.locator('#games .card')).toHaveCount(1);
-  await page.locator('#games .card').first().click();
+  // Своя игра: iframe локальный, без сетевой гонки.
+  await page.fill('#search', 'пятнашки');
+  await page.locator('#games a[href="#/play/fifteen"]').first().click();
   const dialog = page.locator('#player');
   await expect(dialog).toBeVisible();
   const frame = page.locator('#player-frame');
@@ -49,9 +52,8 @@ test('плеер открывает игру в sandbox и закрываетс�
 
 test('кнопка закрытия плеера работает мышью (invoker + JS-фолбэк)', async ({ page }) => {
   await page.goto('/');
-  await page.fill('#search', 'квиндичи');
-  await expect(page.locator('#games .card')).toHaveCount(1);
-  await page.locator('#games .card').first().click();
+  await page.fill('#search', 'пятнашки');
+  await page.locator('#games a[href="#/play/fifteen"]').first().click();
   const dialog = page.locator('#player');
   await expect(dialog).toBeVisible();
   const closeBtn = page.locator('#player-close');

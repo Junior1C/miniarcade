@@ -19,8 +19,8 @@ test('каталог доступен с клавиатуры и скринри�
   await expect(page.locator('#results-status')).toHaveAttribute('role', 'status');
   await expect(page.locator('#results-status')).toHaveAttribute('aria-live', 'polite');
 
-  // Карточки — настоящие ссылки с понятными именами.
-  const firstCard = page.locator('#games .card').first();
+  // Карточки — настоящие ссылки с понятными именами (главная — ряды).
+  const firstCard = page.locator('.row-track .card').first();
   await expect(firstCard).toBeVisible();
   const name = await firstCard.evaluate((el) => el.textContent?.trim() ?? '');
   expect(name.length).toBeGreaterThan(0);
@@ -33,11 +33,10 @@ test('каталог доступен с клавиатуры и скринри�
 
 test('плеер — модальный dialog с возвратом фокуса', async ({ page }) => {
   await page.goto('/');
-  // Каталог с пагинацией: отфильтровываем игру с уникальным названием,
-  // иначе первой может оказаться внешняя ссылка без плеера.
-  await page.fill('#search', 'квиндичи');
-  await expect(page.locator('#games .card')).toHaveCount(1);
-  const firstCard = page.locator('#games .card').first();
+  // Своя игра по точному hash в сетке: грузится мгновенно и офлайн,
+  // фокус после load детерминирован (мосты зависят от живой сети).
+  await page.fill('#search', 'пятнашки');
+  const firstCard = page.locator('#games a[href="#/play/fifteen"]');
   await expect(firstCard).toBeVisible();
   await firstCard.focus();
   await page.keyboard.press('Enter');

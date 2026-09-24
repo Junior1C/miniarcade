@@ -12,7 +12,7 @@ test('каталог грузится быстро и без ошибок кон
 
   const started = Date.now();
   await page.goto('/');
-  await expect(page.locator('#games .card').first()).toBeVisible();
+  await expect(page.locator('.row-track .card').first()).toBeVisible();
   const loadMs = Date.now() - started;
 
   expect(loadMs).toBeLessThan(8000);
@@ -33,7 +33,7 @@ test('каталог грузится быстро и без ошибок кон
 
 test('поиск остаётся отзывчивым (debounce 120мс)', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('#games .card').first()).toBeVisible();
+  await expect(page.locator('.row-track .card').first()).toBeVisible();
   await page.fill('#search', 'квиндичи');
   await expect(page.locator('#games .card')).toHaveCount(1);
 });

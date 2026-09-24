@@ -17,8 +17,8 @@ test('статистика: pv/open/close уходят на приёмник (с
     .poll(() => hits.filter((hit) => hit.event === 'pv').length)
     .toBe(1);
   await page.fill('#search', 'пятнашки');
-  // Мостов-пятнашек уже три — целимся в свою по точному hash.
-  const fifteen = page.locator('a[href="#/play/fifteen"]');
+  // Мостов-пятнашек уже три — целимся в свою по точному hash строго в сетке.
+  const fifteen = page.locator('#games a[href="#/play/fifteen"]');
   await expect(fifteen).toBeVisible();
   await fifteen.evaluate((el) => el.click());
   await expect(page.locator('#player')).toBeVisible();
