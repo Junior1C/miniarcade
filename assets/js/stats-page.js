@@ -38,6 +38,21 @@ export function opensByHost(totals) {
   return [...byHost.values()].sort((a, b) => b.n - a.n);
 }
 
+// Визиты по зеркалам для раздела «Визиты по хостингам»: считаем pv,
+// а не open — иначе зеркало, куда заходили без запусков игр
+// (кейс miniarcade.pages.dev: визит есть, открытий нет), пропадает
+// из разбивки, хотя данные по нему собраны.
+export function visitsByHost(totals) {
+  const byHost = new Map();
+  for (const row of totals) {
+    if (!row || row.event !== 'pv' || !row.host) continue;
+    const entry = byHost.get(row.host) || { host: row.host, n: 0 };
+    entry.n += Number(row.n) || 0;
+    byHost.set(row.host, entry);
+  }
+  return [...byHost.values()].sort((a, b) => b.n - a.n);
+}
+
 export function formatDuration(totalSecs) {
   const secs = Math.max(0, Math.round(Number(totalSecs) || 0));
   if (secs < 60) return `${secs} ${pluralizeRu(secs, 'секунда', 'секунды', 'секунд')}`;
@@ -137,7 +152,7 @@ async function init() {
       gamesEl.append(barRow(row.game, row.n, gamesMax, `${row.n}`));
     }
 
-    const hosts = opensByHost(totals);
+    const hosts = visitsByHost(totals);
     const hostsMax = Math.max(0, ...hosts.map((row) => row.n));
     const hostsEl = document.getElementById('stats-hosts');
     hostsEl.replaceChildren();

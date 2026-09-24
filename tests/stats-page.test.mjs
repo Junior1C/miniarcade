@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { formatDuration, opensByHost, sumBy, topGames, visitsByDay, widthBucket } from '../assets/js/stats-page.js';
+import { formatDuration, opensByHost, sumBy, topGames, visitsByDay, visitsByHost, widthBucket } from '../assets/js/stats-page.js';
 
 const DAILY = [
   { day: '2026-09-21', host: 'a', game: '', event: 'pv', n: 5, secs: 0 },
@@ -46,6 +46,18 @@ test('opensByHost groups opens per mirror', () => {
   assert.equal(hosts.length, 2);
   assert.equal(hosts[0].host, 'a');
   assert.equal(hosts[0].n, 13);
+});
+
+test('visitsByHost shows pv-only mirrors (no opens yet)', () => {
+  const rows = [
+    ...TOTALS,
+    { host: 'c', game: '', event: 'pv', n: 1, secs: 0 },
+  ];
+  const hosts = visitsByHost(rows);
+  assert.equal(hosts.length, 3);
+  assert.equal(hosts[0].host, 'a');
+  assert.equal(hosts[0].n, 12);
+  assert.ok(hosts.some((row) => row.host === 'c' && row.n === 1));
 });
 
 test('formatDuration pluralizes in Russian', () => {
