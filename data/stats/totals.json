@@ -1,10 +1,192 @@
 {
-  "generatedAt": "2026-09-23T20:23:36.362Z",
+  "generatedAt": "2026-09-24T04:51:58.635Z",
   "totals": [
     {
-      "host": "verify",
+      "host": "junior1c.github.io",
       "game": "",
       "event": "pv",
+      "n": 5,
+      "secs": 0
+    },
+    {
+      "host": "miniarcades.vercel.app",
+      "game": "ext-vuetetris",
+      "event": "close",
+      "n": 2,
+      "secs": 18
+    },
+    {
+      "host": "miniarcades.vercel.app",
+      "game": "ext-masonicpacman",
+      "event": "close",
+      "n": 2,
+      "secs": 16
+    },
+    {
+      "host": "miniarcades.vercel.app",
+      "game": "",
+      "event": "pv",
+      "n": 2,
+      "secs": 0
+    },
+    {
+      "host": "miniarcades.vercel.app",
+      "game": "ext-masonicpacman",
+      "event": "open",
+      "n": 2,
+      "secs": 0
+    },
+    {
+      "host": "miniarcades.vercel.app",
+      "game": "ext-vuetetris",
+      "event": "open",
+      "n": 2,
+      "secs": 0
+    },
+    {
+      "host": "miniarcades.vercel.app",
+      "game": "ext-vuesolitaire",
+      "event": "close",
+      "n": 1,
+      "secs": 37
+    },
+    {
+      "host": "miniarcades.vercel.app",
+      "game": "ext-urlife",
+      "event": "close",
+      "n": 1,
+      "secs": 11
+    },
+    {
+      "host": "miniarcades.vercel.app",
+      "game": "ext-wordle",
+      "event": "close",
+      "n": 1,
+      "secs": 8
+    },
+    {
+      "host": "miniarcades.vercel.app",
+      "game": "ext-xx142",
+      "event": "close",
+      "n": 1,
+      "secs": 7
+    },
+    {
+      "host": "miniarcades.vercel.app",
+      "game": "ext-mrdoobracing",
+      "event": "close",
+      "n": 1,
+      "secs": 6
+    },
+    {
+      "host": "miniarcades.vercel.app",
+      "game": "ext-urlsnake",
+      "event": "close",
+      "n": 1,
+      "secs": 5
+    },
+    {
+      "host": "miniarcades.vercel.app",
+      "game": "ext-boc-c42p",
+      "event": "close",
+      "n": 1,
+      "secs": 4
+    },
+    {
+      "host": "junior1c.github.io",
+      "game": "connect4",
+      "event": "close",
+      "n": 1,
+      "secs": 3
+    },
+    {
+      "host": "junior1c.github.io",
+      "game": "dino",
+      "event": "close",
+      "n": 1,
+      "secs": 2
+    },
+    {
+      "host": "junior1c.github.io",
+      "game": "pong",
+      "event": "close",
+      "n": 1,
+      "secs": 2
+    },
+    {
+      "host": "miniarcade.pages.dev",
+      "game": "",
+      "event": "pv",
+      "n": 1,
+      "secs": 0
+    },
+    {
+      "host": "miniarcades.vercel.app",
+      "game": "ext-boc-c42p",
+      "event": "open",
+      "n": 1,
+      "secs": 0
+    },
+    {
+      "host": "miniarcades.vercel.app",
+      "game": "ext-mrdoobracing",
+      "event": "open",
+      "n": 1,
+      "secs": 0
+    },
+    {
+      "host": "miniarcades.vercel.app",
+      "game": "ext-urlife",
+      "event": "open",
+      "n": 1,
+      "secs": 0
+    },
+    {
+      "host": "miniarcades.vercel.app",
+      "game": "ext-urlsnake",
+      "event": "open",
+      "n": 1,
+      "secs": 0
+    },
+    {
+      "host": "miniarcades.vercel.app",
+      "game": "ext-vuesolitaire",
+      "event": "open",
+      "n": 1,
+      "secs": 0
+    },
+    {
+      "host": "miniarcades.vercel.app",
+      "game": "ext-wordle",
+      "event": "open",
+      "n": 1,
+      "secs": 0
+    },
+    {
+      "host": "miniarcades.vercel.app",
+      "game": "ext-xx142",
+      "event": "open",
+      "n": 1,
+      "secs": 0
+    },
+    {
+      "host": "junior1c.github.io",
+      "game": "connect4",
+      "event": "open",
+      "n": 1,
+      "secs": 0
+    },
+    {
+      "host": "junior1c.github.io",
+      "game": "dino",
+      "event": "open",
+      "n": 1,
+      "secs": 0
+    },
+    {
+      "host": "junior1c.github.io",
+      "game": "pong",
+      "event": "open",
       "n": 1,
       "secs": 0
     }

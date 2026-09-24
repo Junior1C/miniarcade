@@ -1,9 +1,225 @@
 [
   {
-    "day": "2026-09-23",
-    "host": "verify",
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
     "game": "",
     "event": "pv",
+    "n": 1,
+    "secs": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcade.pages.dev",
+    "game": "",
+    "event": "pv",
+    "n": 1,
+    "secs": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "",
+    "event": "pv",
+    "n": 2,
+    "secs": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-boc-c42p",
+    "event": "close",
+    "n": 1,
+    "secs": 4
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-boc-c42p",
+    "event": "open",
+    "n": 1,
+    "secs": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-masonicpacman",
+    "event": "close",
+    "n": 2,
+    "secs": 16
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-masonicpacman",
+    "event": "open",
+    "n": 2,
+    "secs": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-mrdoobracing",
+    "event": "close",
+    "n": 1,
+    "secs": 6
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-mrdoobracing",
+    "event": "open",
+    "n": 1,
+    "secs": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-urlife",
+    "event": "close",
+    "n": 1,
+    "secs": 11
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-urlife",
+    "event": "open",
+    "n": 1,
+    "secs": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-urlsnake",
+    "event": "close",
+    "n": 1,
+    "secs": 5
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-urlsnake",
+    "event": "open",
+    "n": 1,
+    "secs": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-vuesolitaire",
+    "event": "close",
+    "n": 1,
+    "secs": 37
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-vuesolitaire",
+    "event": "open",
+    "n": 1,
+    "secs": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-vuetetris",
+    "event": "close",
+    "n": 2,
+    "secs": 18
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-vuetetris",
+    "event": "open",
+    "n": 2,
+    "secs": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-wordle",
+    "event": "close",
+    "n": 1,
+    "secs": 8
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-wordle",
+    "event": "open",
+    "n": 1,
+    "secs": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-xx142",
+    "event": "close",
+    "n": 1,
+    "secs": 7
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-xx142",
+    "event": "open",
+    "n": 1,
+    "secs": 0
+  },
+  {
+    "day": "2026-09-23",
+    "host": "junior1c.github.io",
+    "game": "",
+    "event": "pv",
+    "n": 4,
+    "secs": 0
+  },
+  {
+    "day": "2026-09-23",
+    "host": "junior1c.github.io",
+    "game": "connect4",
+    "event": "close",
+    "n": 1,
+    "secs": 3
+  },
+  {
+    "day": "2026-09-23",
+    "host": "junior1c.github.io",
+    "game": "connect4",
+    "event": "open",
+    "n": 1,
+    "secs": 0
+  },
+  {
+    "day": "2026-09-23",
+    "host": "junior1c.github.io",
+    "game": "dino",
+    "event": "close",
+    "n": 1,
+    "secs": 2
+  },
+  {
+    "day": "2026-09-23",
+    "host": "junior1c.github.io",
+    "game": "dino",
+    "event": "open",
+    "n": 1,
+    "secs": 0
+  },
+  {
+    "day": "2026-09-23",
+    "host": "junior1c.github.io",
+    "game": "pong",
+    "event": "close",
+    "n": 1,
+    "secs": 2
+  },
+  {
+    "day": "2026-09-23",
+    "host": "junior1c.github.io",
+    "game": "pong",
+    "event": "open",
     "n": 1,
     "secs": 0
   }
