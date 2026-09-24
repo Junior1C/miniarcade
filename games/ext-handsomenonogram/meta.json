@@ -3,10 +3,15 @@
   "title": "Nonogram (HandsomeOne)",
   "emoji": "⬛",
   "description": "Японский кроссворд: закрашивайте клетки по числам. Внешняя игра — код остаётся у автора.",
-  "tags": ["головоломка", "логика", "мост"],
+  "tags": [
+    "головоломка",
+    "логика",
+    "мост"
+  ],
   "controls": "Мышь",
   "url": "https://handsomeone.github.io/Nonogram/",
   "author": "HandsomeOne",
   "license": "MIT",
-  "repo": "https://github.com/HandsomeOne/Nonogram"
+  "repo": "https://github.com/HandsomeOne/Nonogram",
+  "lang": "en"
 }

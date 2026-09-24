@@ -23,7 +23,8 @@ test('поиск фильтрует каталог', async ({ page }) => {
   await page.goto('/');
   await page.fill('#search', 'пятнашки');
   await expect(page.locator('#games .card')).toHaveCount(1);
-  await expect(page.locator('#games .card__title')).toHaveText('Пятнашки');
+  // В заголовке теперь и бейдж языка (RU/EN/🌐) — проверяем вхождение.
+  await expect(page.locator('#games .card__title')).toContainText('Пятнашки');
   await page.fill('#search', 'квццыв');
   await expect(page.locator('#empty-state')).toBeVisible();
 });

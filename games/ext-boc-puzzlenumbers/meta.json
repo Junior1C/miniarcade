@@ -3,10 +3,15 @@
   "title": "Puzzle Numbers",
   "emoji": "🔢",
   "description": "Числовые головоломки: логика и счёт в каждой задаче. Внешняя игра — код остаётся у автора.",
-  "tags": ["головоломка", "математика", "мост"],
+  "tags": [
+    "головоломка",
+    "математика",
+    "мост"
+  ],
   "controls": "Мышь",
   "url": "https://bocaletto-luca.github.io/Puzzle-Numbers/",
   "author": "Bocaletto Luca",
   "license": "GPL-3.0",
-  "repo": "https://github.com/bocaletto-luca/Puzzle-Numbers"
+  "repo": "https://github.com/bocaletto-luca/Puzzle-Numbers",
+  "lang": "en"
 }

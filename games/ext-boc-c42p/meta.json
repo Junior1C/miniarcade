@@ -3,10 +3,15 @@
   "title": "Forza 4 2P",
   "emoji": "🔴",
   "description": "Четыре в ряд для двоих на одном экране. Внешняя игра — код остаётся у автора.",
-  "tags": ["логика", "для двоих", "мост"],
+  "tags": [
+    "логика",
+    "для двоих",
+    "мост"
+  ],
   "controls": "Мышь, хотсит",
   "url": "https://bocaletto-luca.github.io/Connect-Four-Two-Player/",
   "author": "Bocaletto Luca",
   "license": "GPL-3.0",
-  "repo": "https://github.com/bocaletto-luca/Connect-Four-Two-Player"
+  "repo": "https://github.com/bocaletto-luca/Connect-Four-Two-Player",
+  "lang": "en"
 }

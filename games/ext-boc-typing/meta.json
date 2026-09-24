@@ -3,10 +3,15 @@
   "title": "Typing Tutor",
   "emoji": "⌨️",
   "description": "Тренажёр слепой печати на скорость и точность. Внешняя игра — код остаётся у автора.",
-  "tags": ["обучение", "печать", "мост"],
+  "tags": [
+    "обучение",
+    "печать",
+    "мост"
+  ],
   "controls": "Печать",
   "url": "https://bocaletto-luca.github.io/Typing-Tutor/",
   "author": "Bocaletto Luca",
   "license": "GPL-3.0",
-  "repo": "https://github.com/bocaletto-luca/Typing-Tutor"
+  "repo": "https://github.com/bocaletto-luca/Typing-Tutor",
+  "lang": "en"
 }

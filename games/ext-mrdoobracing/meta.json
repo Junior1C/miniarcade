@@ -3,10 +3,15 @@
   "title": "Starter Kit Racing",
   "emoji": "🏎️",
   "description": "Минималистичная гонка-шаблон: круги и лучшее время. Внешняя игра — код остаётся у автора.",
-  "tags": ["гонки", "казуал", "мост"],
+  "tags": [
+    "гонки",
+    "казуал",
+    "мост"
+  ],
   "controls": "Стрелки",
   "url": "https://mrdoob.github.io/Starter-Kit-Racing/",
   "author": "mrdoob",
   "license": "MIT",
-  "repo": "https://github.com/mrdoob/Starter-Kit-Racing"
+  "repo": "https://github.com/mrdoob/Starter-Kit-Racing",
+  "lang": "en"
 }

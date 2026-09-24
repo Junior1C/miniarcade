@@ -3,10 +3,15 @@
   "title": "AB Game",
   "emoji": "🔢",
   "description": "Угадайте число: быки и коровы в минимализме. Внешняя игра — код остаётся у автора.",
-  "tags": ["логика", "казуал", "мост"],
+  "tags": [
+    "логика",
+    "казуал",
+    "мост"
+  ],
   "controls": "Мышь + цифры",
   "url": "https://ab.muan.co",
   "author": "muan",
   "license": "MIT",
-  "repo": "https://github.com/muan/ab"
+  "repo": "https://github.com/muan/ab",
+  "lang": "en"
 }

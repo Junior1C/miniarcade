@@ -3,10 +3,15 @@
   "title": "URLife",
   "emoji": "🧬",
   "description": "Жизнь Конвея прямо в адресной строке браузера. Внешняя игра — код остаётся у автора.",
-  "tags": ["эксперимент", "симуляция", "мост"],
+  "tags": [
+    "эксперимент",
+    "симуляция",
+    "мост"
+  ],
   "controls": "Наблюдение",
   "url": "https://demian.ferrei.ro/URLife",
   "author": "epidemian",
   "license": "Unlicense",
-  "repo": "https://github.com/epidemian/URLife"
+  "repo": "https://github.com/epidemian/URLife",
+  "lang": "en"
 }

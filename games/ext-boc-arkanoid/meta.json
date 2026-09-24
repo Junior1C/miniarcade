@@ -3,10 +3,14 @@
   "title": "Arkanoid (Bocaletto)",
   "emoji": "🔷",
   "description": "Современный ремейк арканоида: отбивайте мяч и разбивайте кирпичи. Внешняя игра — код остаётся у автора.",
-  "tags": ["аркада", "мост"],
+  "tags": [
+    "аркада",
+    "мост"
+  ],
   "controls": "Мышь",
   "url": "https://bocaletto-luca.github.io/Arkanoid/",
   "author": "Bocaletto Luca",
   "license": "GPL-3.0",
-  "repo": "https://github.com/bocaletto-luca/Arkanoid"
+  "repo": "https://github.com/bocaletto-luca/Arkanoid",
+  "lang": "en"
 }

@@ -3,10 +3,15 @@
   "title": "Mahjong Solitaire",
   "emoji": "🀄",
   "description": "Маджонг-пасьянс: разбирайте пирамиду парными костями. Внешняя игра — код остаётся у автора.",
-  "tags": ["пасьянс", "логика", "мост"],
+  "tags": [
+    "пасьянс",
+    "логика",
+    "мост"
+  ],
   "controls": "Мышь",
   "url": "https://bocaletto-luca.github.io/Mahjong-Solitaire/",
   "author": "Bocaletto Luca",
   "license": "GPL-3.0",
-  "repo": "https://github.com/bocaletto-luca/Mahjong-Solitaire"
+  "repo": "https://github.com/bocaletto-luca/Mahjong-Solitaire",
+  "lang": "en"
 }

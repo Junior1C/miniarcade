@@ -3,10 +3,15 @@
   "title": "Guess the Pair",
   "emoji": "🃏",
   "description": "Найдите все парные карты за минимум ходов. Внешняя игра — код остаётся у автора.",
-  "tags": ["память", "казуал", "мост"],
+  "tags": [
+    "память",
+    "казуал",
+    "мост"
+  ],
   "controls": "Мышь",
   "url": "https://bocaletto-luca.github.io/Guess-the-pair-two-player/",
   "author": "Bocaletto Luca",
   "license": "GPL-3.0",
-  "repo": "https://github.com/bocaletto-luca/Guess-the-pair-two-player"
+  "repo": "https://github.com/bocaletto-luca/Guess-the-pair-two-player",
+  "lang": "en"
 }

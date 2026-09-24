@@ -3,10 +3,15 @@
   "title": "BounceBack",
   "emoji": "🪃",
   "description": "Бумеранг в духе Zelda: кидайте и ловите на возврате. Внешняя игра — код остаётся у автора.",
-  "tags": ["аркада", "приключение", "мост"],
+  "tags": [
+    "аркада",
+    "приключение",
+    "мост"
+  ],
   "controls": "Стрелки/WASD",
   "url": "https://killedbyapixel.github.io/BounceBack/",
   "author": "KilledByAPixel",
   "license": "GPL-2.0",
-  "repo": "https://github.com/KilledByAPixel/BounceBack"
+  "repo": "https://github.com/KilledByAPixel/BounceBack",
+  "lang": "en"
 }

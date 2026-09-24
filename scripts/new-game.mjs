@@ -133,6 +133,7 @@ export async function createGame(rootDir, id, title) {
     description: `${title.trim()} — заполните описание в meta.json.`,
     tags: ['аркада'],
     controls: 'Пробел',
+    lang: 'ru',
   };
   await Promise.all([
     writeFile(path.join(dir, 'index.html'), templateHtml(meta.title), 'utf8'),

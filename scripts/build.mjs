@@ -15,6 +15,9 @@ const META_KEYS = new Set([
   'controls',
   'sandbox',
   'order',
+  // Язык интерфейса игры: 'ru' | 'en' | 'neutral' (без текста).
+  // Бейдж на карточке (main.js) + inLanguage в JSON-LD.
+  'lang',
   // Мост к внешней игре (код не копируется): url + атрибуция обязательны.
   'url',
   'author',
@@ -104,6 +107,17 @@ function validateOrder(meta, errors) {
   return meta.order;
 }
 
+const LANG_ALLOWLIST = new Set(['ru', 'en', 'neutral']);
+
+function validateLang(meta, errors) {
+  if (meta.lang === undefined) return null;
+  if (typeof meta.lang !== 'string' || !LANG_ALLOWLIST.has(meta.lang)) {
+    errors.push('"lang" must be one of "ru", "en", "neutral"');
+    return null;
+  }
+  return meta.lang;
+}
+
 async function readGame(gamesDir, folder) {
   const errors = [];
   if (!ID_PATTERN.test(folder)) {
@@ -134,6 +148,7 @@ async function readGame(gamesDir, folder) {
   const tags = validateTags(meta, errors);
   const sandbox = validateSandbox(meta, errors);
   const order = validateOrder(meta, errors);
+  const lang = validateLang(meta, errors);
   const url = validateBridgeUrl(meta, errors);
 
   if (typeof meta.controls === 'string') {
@@ -173,6 +188,7 @@ async function readGame(gamesDir, folder) {
   }
   if (typeof meta.controls === 'string') game.controls = meta.controls;
   if (sandbox && sandbox.length > 0) game.sandbox = sandbox;
+  if (lang) game.lang = lang;
   // Превью карточки: games/<id>/thumb.webp (генерирует gen-thumbs.mjs,
   // мосты и игры без превью показывают эмодзи). Проверяется qa-links.
   try {
@@ -268,6 +284,8 @@ export function buildLdJson(games) {
       applicationCategory: 'Game',
       operatingSystem: 'Web',
       gamePlatform: 'Web browser',
+      // Язык интерфейса — только проверенные коды (neutral не маппится).
+      ...(game.lang === 'ru' || game.lang === 'en' ? { inLanguage: game.lang } : {}),
     },
   }));
   return JSON.stringify({

@@ -3,10 +3,15 @@
   "title": "JoKePo",
   "emoji": "✊",
   "description": "Камень-ножницы-бумага против нейросети, угадывающей ходы. Внешняя игра — код остаётся у автора.",
-  "tags": ["казуал", "нейросеть", "мост"],
+  "tags": [
+    "казуал",
+    "нейросеть",
+    "мост"
+  ],
   "controls": "Мышь",
   "url": "https://victorribeiro.com/jokenpo",
   "author": "victorqribeiro",
   "license": "MIT",
-  "repo": "https://github.com/victorqribeiro/jokenpo"
+  "repo": "https://github.com/victorqribeiro/jokenpo",
+  "lang": "en"
 }

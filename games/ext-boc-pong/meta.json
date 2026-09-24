@@ -3,10 +3,15 @@
   "title": "Pong (Bocaletto)",
   "emoji": "🏓",
   "description": "Классический понг против компьютера. Внешняя игра — код остаётся у автора.",
-  "tags": ["аркада", "классика", "мост"],
+  "tags": [
+    "аркада",
+    "классика",
+    "мост"
+  ],
   "controls": "Мышь/стрелки",
   "url": "https://bocaletto-luca.github.io/Pong/",
   "author": "Bocaletto Luca",
   "license": "GPL-3.0",
-  "repo": "https://github.com/bocaletto-luca/Pong"
+  "repo": "https://github.com/bocaletto-luca/Pong",
+  "lang": "en"
 }

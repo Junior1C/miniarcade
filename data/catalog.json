@@ -13,6 +13,7 @@
       ],
       "file": "games/2048/index.html",
       "controls": "Стрелки/WASD или свайпы",
+      "lang": "ru",
       "thumb": "games/2048/thumb.webp"
     },
     {
@@ -30,6 +31,7 @@
       "license": "MIT",
       "repo": "https://github.com/mateuszsokola/2048-in-react",
       "controls": "Стрелки/WASD",
+      "lang": "en",
       "thumb": "games/ext-2048react/thumb.webp"
     },
     {
@@ -43,6 +45,7 @@
       ],
       "file": "games/connect4/index.html",
       "controls": "Мышь, Tab+Enter или клавиши 1–7",
+      "lang": "ru",
       "thumb": "games/connect4/thumb.webp"
     },
     {
@@ -57,6 +60,7 @@
       ],
       "file": "games/breakout/index.html",
       "controls": "Мышь, стрелки или палец",
+      "lang": "ru",
       "thumb": "games/breakout/thumb.webp"
     },
     {
@@ -71,6 +75,7 @@
       ],
       "file": "games/asteroids/index.html",
       "controls": "Стрелки/WASD + пробел",
+      "lang": "ru",
       "thumb": "games/asteroids/thumb.webp"
     },
     {
@@ -85,6 +90,7 @@
       ],
       "file": "games/hangman/index.html",
       "controls": "Мышь или печать букв",
+      "lang": "ru",
       "thumb": "games/hangman/thumb.webp"
     },
     {
@@ -99,6 +105,7 @@
       ],
       "file": "games/dino/index.html",
       "controls": "Пробел/↑/тап — прыжок, ↓ — пригнуться",
+      "lang": "ru",
       "thumb": "games/dino/thumb.webp"
     },
     {
@@ -113,6 +120,7 @@
       ],
       "file": "games/snake/index.html",
       "controls": "WASD, стрелки, свайпы или кнопки",
+      "lang": "ru",
       "thumb": "games/snake/thumb.webp"
     },
     {
@@ -127,6 +135,7 @@
       ],
       "file": "games/clicker/index.html",
       "controls": "Клик, тап или пробел",
+      "lang": "ru",
       "thumb": "games/clicker/thumb.webp"
     },
     {
@@ -141,6 +150,7 @@
       ],
       "file": "games/invaders/index.html",
       "controls": "Стрелки/A,D, пробел или тап",
+      "lang": "ru",
       "thumb": "games/invaders/thumb.webp"
     },
     {
@@ -154,6 +164,7 @@
       ],
       "file": "games/tictactoe/index.html",
       "controls": "Мышь или Tab+Enter",
+      "lang": "ru",
       "thumb": "games/tictactoe/thumb.webp"
     },
     {
@@ -168,6 +179,7 @@
       ],
       "file": "games/memory/index.html",
       "controls": "Мышь или клавиша Tab",
+      "lang": "ru",
       "thumb": "games/memory/thumb.webp"
     },
     {
@@ -182,6 +194,7 @@
       ],
       "file": "games/pacman/index.html",
       "controls": "Стрелки/WASD или свайпы",
+      "lang": "ru",
       "thumb": "games/pacman/thumb.webp"
     },
     {
@@ -196,6 +209,7 @@
       ],
       "file": "games/pong/index.html",
       "controls": "Мышь, стрелки или палец",
+      "lang": "ru",
       "thumb": "games/pong/thumb.webp"
     },
     {
@@ -210,6 +224,7 @@
       ],
       "file": "games/fifteen/index.html",
       "controls": "Мышь, Tab+Enter или стрелки",
+      "lang": "ru",
       "thumb": "games/fifteen/thumb.webp"
     },
     {
@@ -224,6 +239,7 @@
       ],
       "file": "games/simon/index.html",
       "controls": "Мышь, Tab+Enter или клавиши 1–4",
+      "lang": "ru",
       "thumb": "games/simon/thumb.webp"
     },
     {
@@ -237,6 +253,7 @@
       ],
       "file": "games/saper/index.html",
       "controls": "Мышь, Tab+Enter; флаг — правая кнопка или режим",
+      "lang": "ru",
       "thumb": "games/saper/thumb.webp"
     },
     {
@@ -251,6 +268,7 @@
       ],
       "file": "games/sudoku/index.html",
       "controls": "Мышь, Tab+Enter или клавиши 1–9",
+      "lang": "ru",
       "thumb": "games/sudoku/thumb.webp"
     },
     {
@@ -265,6 +283,7 @@
       ],
       "file": "games/tetris/index.html",
       "controls": "Стрелки/WASD, свайпы или кнопки",
+      "lang": "ru",
       "thumb": "games/tetris/thumb.webp"
     },
     {
@@ -279,6 +298,7 @@
       ],
       "file": "games/whack/index.html",
       "controls": "Мышь, тап или Tab+Enter",
+      "lang": "ru",
       "thumb": "games/whack/thumb.webp"
     },
     {
@@ -293,6 +313,7 @@
       ],
       "file": "games/flappy/index.html",
       "controls": "Пробел, клик или тап",
+      "lang": "ru",
       "thumb": "games/flappy/thumb.webp"
     },
     {
@@ -310,6 +331,7 @@
       "license": "MIT",
       "repo": "https://github.com/muan/ab",
       "controls": "Мышь + цифры",
+      "lang": "en",
       "thumb": "games/ext-abgame/thumb.webp"
     },
     {
@@ -327,6 +349,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/milsaware/Javascript-Aces-Up-Solitaire",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-acesup/thumb.webp"
     },
     {
@@ -344,6 +367,7 @@
       "license": "MIT",
       "repo": "https://github.com/RichLewis007/AI-Asteroids",
       "controls": "Наблюдение",
+      "lang": "en",
       "thumb": "games/ext-aiasteroids/thumb.webp"
     },
     {
@@ -361,6 +385,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/milsaware/Javascript-AI-Rock-Paper-Scissors",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-airps/thumb.webp"
     },
     {
@@ -378,6 +403,7 @@
       "license": "MIT",
       "repo": "https://github.com/victorqribeiro/aimAndShoot",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-aimandshoot/thumb.webp"
     },
     {
@@ -395,6 +421,7 @@
       "license": "MIT",
       "repo": "https://github.com/grimmerk/alphago-zero-tictactoe-js",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-alphagottt/thumb.webp"
     },
     {
@@ -412,6 +439,7 @@
       "license": "MIT",
       "repo": "https://github.com/vmikhav/AntiPacMan",
       "controls": "Стрелки/WASD",
+      "lang": "en",
       "thumb": "games/ext-antipacman/thumb.webp"
     },
     {
@@ -428,6 +456,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Arkanoid",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-arkanoid/thumb.webp"
     },
     {
@@ -445,6 +474,7 @@
       "license": "MIT",
       "repo": "https://github.com/3kh0/asteroids",
       "controls": "Стрелки + пробел",
+      "lang": "en",
       "thumb": "games/ext-3kh0asteroids/thumb.webp"
     },
     {
@@ -462,6 +492,7 @@
       "license": "MIT",
       "repo": "https://github.com/Ryan-Menezes/Asteroids",
       "controls": "Стрелки + пробел",
+      "lang": "en",
       "thumb": "games/ext-ryanasteroids/thumb.webp"
     },
     {
@@ -479,6 +510,7 @@
       "license": "Unlicense",
       "repo": "https://github.com/wwwtyro/Astray",
       "controls": "Стрелки/WASD",
+      "lang": "en",
       "thumb": "games/ext-astray/thumb.webp"
     },
     {
@@ -496,6 +528,7 @@
       "license": "MIT",
       "repo": "https://github.com/jdanyow/aurelia-solitaire",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-aureliasol/thumb.webp"
     },
     {
@@ -513,6 +546,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Backgammon",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-backgammon/thumb.webp"
     },
     {
@@ -529,7 +563,8 @@
       "author": "budnix",
       "license": "MIT",
       "repo": "https://github.com/budnix/ball-and-wall",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "lang": "en"
     },
     {
       "id": "ext-bangbang",
@@ -546,6 +581,7 @@
       "license": "MIT",
       "repo": "https://github.com/victorqribeiro/bangBang",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-bangbang/thumb.webp"
     },
     {
@@ -563,6 +599,7 @@
       "license": "MIT",
       "repo": "https://github.com/billmei/battleboat",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-battleboat/thumb.webp"
     },
     {
@@ -580,6 +617,7 @@
       "license": "MIT",
       "repo": "https://github.com/rfranks/blasteroids",
       "controls": "Стрелки + пробел",
+      "lang": "en",
       "thumb": "games/ext-blasteroids/thumb.webp"
     },
     {
@@ -597,6 +635,7 @@
       "license": "MIT",
       "repo": "https://github.com/Aerolab/blockrain.js",
       "controls": "Стрелки",
+      "lang": "en",
       "thumb": "games/ext-blockrain/thumb.webp"
     },
     {
@@ -614,6 +653,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Bomberman",
       "controls": "Стрелки/WASD",
+      "lang": "en",
       "thumb": "games/ext-boc-bomberman/thumb.webp"
     },
     {
@@ -631,6 +671,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Bouble",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-bouble/thumb.webp"
     },
     {
@@ -648,6 +689,7 @@
       "license": "GPL-2.0",
       "repo": "https://github.com/KilledByAPixel/BounceBack",
       "controls": "Стрелки/WASD",
+      "lang": "en",
       "thumb": "games/ext-bounceback/thumb.webp"
     },
     {
@@ -665,6 +707,7 @@
       "license": "MIT",
       "repo": "https://github.com/maxwellito/breaklock",
       "controls": "Мышь или Tab+Enter",
+      "lang": "en",
       "thumb": "games/ext-breaklock/thumb.webp"
     },
     {
@@ -682,6 +725,7 @@
       "license": "MIT",
       "repo": "https://github.com/selenebun/bullethell",
       "controls": "Стрелки/WASD",
+      "lang": "en",
       "thumb": "games/ext-bullethell/thumb.webp"
     },
     {
@@ -699,6 +743,7 @@
       "license": "MIT",
       "repo": "https://github.com/mumuy/calc24",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-calc24/thumb.webp"
     },
     {
@@ -716,6 +761,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/milsaware/Javascript-Card-Memory-Game",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-cardmemory/thumb.webp"
     },
     {
@@ -733,6 +779,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Chess",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-chess/thumb.webp"
     },
     {
@@ -750,6 +797,7 @@
       "license": "MIT",
       "repo": "https://github.com/itlwei/Chess",
       "controls": "Мышь",
+      "lang": "neutral",
       "thumb": "games/ext-itlweichess/thumb.webp"
     },
     {
@@ -767,6 +815,7 @@
       "license": "BSD-3-Clause",
       "repo": "https://github.com/javierbyte/clashjs",
       "controls": "Печать кода",
+      "lang": "en",
       "thumb": "games/ext-clashjs/thumb.webp"
     },
     {
@@ -784,6 +833,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/milsaware/Javascript-Clock-Patience-Solitaire",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-clock/thumb.webp"
     },
     {
@@ -801,6 +851,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/ellisonleao/clumsy-bird",
       "controls": "Пробел, клик или тап",
+      "lang": "en",
       "thumb": "games/ext-clumsy/thumb.webp"
     },
     {
@@ -818,6 +869,7 @@
       "license": "AGPL-3.0",
       "repo": "https://github.com/sibartlett/colonizers",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-colonizers/thumb.webp"
     },
     {
@@ -835,6 +887,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Crossword",
       "controls": "Мышь + печать",
+      "lang": "en",
       "thumb": "games/ext-boc-crossword/thumb.webp"
     },
     {
@@ -852,6 +905,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Dama",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-dama/thumb.webp"
     },
     {
@@ -869,6 +923,7 @@
       "license": "MIT",
       "repo": "https://github.com/pshenok/datacenter-survival",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-datacenter/thumb.webp"
     },
     {
@@ -886,6 +941,7 @@
       "license": "MIT",
       "repo": "https://github.com/ASteinheiser/demo-game",
       "controls": "Стрелки",
+      "lang": "en",
       "thumb": "games/ext-demogame/thumb.webp"
     },
     {
@@ -903,6 +959,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Domino",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-domino/thumb.webp"
     },
     {
@@ -919,7 +976,8 @@
       "author": "MattSurabian",
       "license": "MIT",
       "repo": "https://github.com/MattSurabian/DuckHunt-JS",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "lang": "en"
     },
     {
       "id": "ext-emoji-mines",
@@ -935,7 +993,8 @@
       "author": "muan",
       "license": "MIT",
       "repo": "https://github.com/muan/emoji-minesweeper",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "lang": "en"
     },
     {
       "id": "ext-omarioflappy",
@@ -952,6 +1011,7 @@
       "license": "MIT",
       "repo": "https://github.com/omariosouto/flappy-bird-devsoutinho",
       "controls": "Пробел/клик",
+      "lang": "en",
       "thumb": "games/ext-omarioflappy/thumb.webp"
     },
     {
@@ -969,6 +1029,7 @@
       "license": "MIT",
       "repo": "https://github.com/thomaspark/flexboxfroggy",
       "controls": "Печать CSS-кода",
+      "lang": "ru",
       "thumb": "games/ext-froggy/thumb.webp"
     },
     {
@@ -986,6 +1047,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Connect-Four",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-connect4/thumb.webp"
     },
     {
@@ -1003,6 +1065,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Connect-Four-Two-Player",
       "controls": "Мышь, хотсит",
+      "lang": "en",
       "thumb": "games/ext-boc-c42p/thumb.webp"
     },
     {
@@ -1020,6 +1083,7 @@
       "license": "MIT",
       "repo": "https://github.com/adrianeyre/frogger",
       "controls": "Стрелки",
+      "lang": "en",
       "thumb": "games/ext-adrianfrogger/thumb.webp"
     },
     {
@@ -1037,6 +1101,7 @@
       "license": "MIT",
       "repo": "https://github.com/mmenavas/memory-game",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-fruitmatcher/thumb.webp"
     },
     {
@@ -1054,6 +1119,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Games-2VS",
       "controls": "Два игрока, хотсит",
+      "lang": "en",
       "thumb": "games/ext-boc-games2vs/thumb.webp"
     },
     {
@@ -1071,6 +1137,7 @@
       "license": "MIT",
       "repo": "https://github.com/mumuy/gobang",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-gobang/thumb.webp"
     },
     {
@@ -1088,6 +1155,7 @@
       "license": "GPL-2.0",
       "repo": "https://github.com/milsaware/Javascript-Golf-Solitaire",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-golfsol/thumb.webp"
     },
     {
@@ -1105,6 +1173,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Goose-Game-Two-Player",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-goose/thumb.webp"
     },
     {
@@ -1122,6 +1191,7 @@
       "license": "MIT",
       "repo": "https://github.com/thomaspark/gridgarden",
       "controls": "Печать CSS-кода",
+      "lang": "ru",
       "thumb": "games/ext-garden/thumb.webp"
     },
     {
@@ -1139,6 +1209,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Guess-The-Flag",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-flag/thumb.webp"
     },
     {
@@ -1156,6 +1227,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Guess-the-pair-two-player",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-guesspair/thumb.webp"
     },
     {
@@ -1173,6 +1245,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Guess-Who",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-guesswho/thumb.webp"
     },
     {
@@ -1190,6 +1263,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/hangman-two-player",
       "controls": "Мышь + буквы",
+      "lang": "en",
       "thumb": "games/ext-boc-hangman/thumb.webp"
     },
     {
@@ -1207,6 +1281,7 @@
       "license": "MIT",
       "repo": "https://github.com/AJLoveChina/Hanoi",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-hanoi/thumb.webp"
     },
     {
@@ -1224,6 +1299,7 @@
       "license": "ISC",
       "repo": "https://github.com/flbulgarelli/headbreaker",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-headbreaker/thumb.webp"
     },
     {
@@ -1241,6 +1317,7 @@
       "license": "GPL-2.0",
       "repo": "https://github.com/codethejason/checkers",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-checkers/thumb.webp"
     },
     {
@@ -1258,6 +1335,7 @@
       "license": "MIT",
       "repo": "https://github.com/oldj/html5-tower-defense",
       "controls": "Мышь",
+      "lang": "neutral",
       "thumb": "games/ext-td/thumb.webp"
     },
     {
@@ -1275,6 +1353,7 @@
       "license": "MIT",
       "repo": "https://github.com/victorqribeiro/invaderz",
       "controls": "Мышь или стрелки",
+      "lang": "en",
       "thumb": "games/ext-invaderz/thumb.webp"
     },
     {
@@ -1291,7 +1370,8 @@
       "author": "victorqribeiro",
       "license": "MIT",
       "repo": "https://github.com/victorqribeiro/isocity",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "lang": "en"
     },
     {
       "id": "ext-boc-itadv",
@@ -1307,7 +1387,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/IT-Adventures",
-      "controls": "Печать команд"
+      "controls": "Печать команд",
+      "lang": "en"
     },
     {
       "id": "ext-patorjksnake",
@@ -1324,6 +1405,7 @@
       "license": "MIT",
       "repo": "https://github.com/patorjk/JavaScript-Snake",
       "controls": "Стрелки",
+      "lang": "en",
       "thumb": "games/ext-patorjksnake/thumb.webp"
     },
     {
@@ -1341,6 +1423,7 @@
       "license": "MIT",
       "repo": "https://github.com/victorqribeiro/jokenpo",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-jokenpo/thumb.webp"
     },
     {
@@ -1358,6 +1441,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Solitaire",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-solitaire/thumb.webp"
     },
     {
@@ -1375,6 +1459,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Labyrinth",
       "controls": "Стрелки",
+      "lang": "en",
       "thumb": "games/ext-boc-labyrinth/thumb.webp"
     },
     {
@@ -1392,6 +1477,7 @@
       "license": "MIT",
       "repo": "https://github.com/sepandhaghighi/lightsout",
       "controls": "Мышь или Tab+Enter",
+      "lang": "en",
       "thumb": "games/ext-lightsout/thumb.webp"
     },
     {
@@ -1409,6 +1495,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Ludo",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-ludo/thumb.webp"
     },
     {
@@ -1426,6 +1513,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Mahjong-Solitaire",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-mahjong/thumb.webp"
     },
     {
@@ -1443,6 +1531,7 @@
       "license": "MIT",
       "repo": "https://github.com/taniarascia/memory",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-taniamemory/thumb.webp"
     },
     {
@@ -1460,6 +1549,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Who-Wants-To-Be-A-Millionaire",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-millionaire/thumb.webp"
     },
     {
@@ -1477,6 +1567,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Mine-Sweeper",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-minesweeper/thumb.webp"
     },
     {
@@ -1494,6 +1585,7 @@
       "license": "MIT",
       "repo": "https://github.com/ucfx/minimax-game-ai",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-minimax/thumb.webp"
     },
     {
@@ -1511,6 +1603,7 @@
       "license": "MIT",
       "repo": "https://github.com/sepandhaghighi/mnimi",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-mnimi/thumb.webp"
     },
     {
@@ -1528,6 +1621,7 @@
       "license": "MIT",
       "repo": "https://github.com/victorqribeiro/montyhall",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-montyhall/thumb.webp"
     },
     {
@@ -1545,6 +1639,7 @@
       "license": "MIT",
       "repo": "https://github.com/monkeyArms/nonogram",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-nonogram/thumb.webp"
     },
     {
@@ -1562,6 +1657,7 @@
       "license": "MIT",
       "repo": "https://github.com/HandsomeOne/Nonogram",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-handsomenonogram/thumb.webp"
     },
     {
@@ -1579,6 +1675,7 @@
       "license": "MIT",
       "repo": "https://github.com/mumuy/pacman",
       "controls": "Стрелки/WASD",
+      "lang": "en",
       "thumb": "games/ext-mpacman/thumb.webp"
     },
     {
@@ -1595,7 +1692,8 @@
       "author": "masonicgit",
       "license": "GPL-3.0",
       "repo": "https://github.com/masonicgit/pacman",
-      "controls": "Стрелки/WASD"
+      "controls": "Стрелки/WASD",
+      "lang": "en"
     },
     {
       "id": "ext-boc-pong",
@@ -1612,6 +1710,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Pong",
       "controls": "Мышь/стрелки",
+      "lang": "en",
       "thumb": "games/ext-boc-pong/thumb.webp"
     },
     {
@@ -1629,6 +1728,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Pong-Two-Player",
       "controls": "Два игрока, хотсит",
+      "lang": "en",
       "thumb": "games/ext-boc-pong2p/thumb.webp"
     },
     {
@@ -1646,6 +1746,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Puzzle-Numbers",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-puzzlenumbers/thumb.webp"
     },
     {
@@ -1663,6 +1764,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/QuizCreatorPlayer",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-quizplayer/thumb.webp"
     },
     {
@@ -1680,6 +1782,7 @@
       "license": "Unlicense",
       "repo": "https://github.com/cjlarose/react-go",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-reactgo/thumb.webp"
     },
     {
@@ -1697,6 +1800,7 @@
       "license": "MIT",
       "repo": "https://github.com/ASteinheiser/react-rpg.com",
       "controls": "Стрелки/WASD",
+      "lang": "en",
       "thumb": "games/ext-reactrpg/thumb.webp"
     },
     {
@@ -1714,6 +1818,7 @@
       "license": "MIT",
       "repo": "https://github.com/gcedo/react-solitaire",
       "controls": "Мышь (drag-and-drop)",
+      "lang": "en",
       "thumb": "games/ext-solitaire/thumb.webp"
     },
     {
@@ -1731,6 +1836,7 @@
       "license": "CC0-1.0",
       "repo": "https://github.com/chriz001/Reacteroids",
       "controls": "Стрелки + пробел",
+      "lang": "en",
       "thumb": "games/ext-reacteroids/thumb.webp"
     },
     {
@@ -1748,6 +1854,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Rock-Paper-Scissors",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-rps/thumb.webp"
     },
     {
@@ -1765,6 +1872,7 @@
       "license": "MIT",
       "repo": "https://github.com/MaxBittker/sandspiel",
       "controls": "Мышь или палец",
+      "lang": "en",
       "thumb": "games/ext-sand/thumb.webp"
     },
     {
@@ -1782,6 +1890,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Scopa",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-scopa/thumb.webp"
     },
     {
@@ -1799,6 +1908,7 @@
       "license": "MIT",
       "repo": "https://github.com/pshenok/server-survival",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-serversurv/thumb.webp"
     },
     {
@@ -1816,6 +1926,7 @@
       "license": "MIT",
       "repo": "https://github.com/Nickardson/shenzhen-solitaire",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-shenzhen/thumb.webp"
     },
     {
@@ -1833,6 +1944,7 @@
       "license": "AGPL-3.0",
       "repo": "https://github.com/akicho8/shogi-player",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-shogi/thumb.webp"
     },
     {
@@ -1850,6 +1962,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Symon-Says",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-simon/thumb.webp"
     },
     {
@@ -1867,6 +1980,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Snake",
       "controls": "Стрелки",
+      "lang": "en",
       "thumb": "games/ext-boc-snake/thumb.webp"
     },
     {
@@ -1884,6 +1998,7 @@
       "license": "MIT",
       "repo": "https://github.com/taniarascia/sokoban",
       "controls": "Стрелки/WASD",
+      "lang": "en",
       "thumb": "games/ext-sokoban/thumb.webp"
     },
     {
@@ -1901,6 +2016,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/milsaware/Javascript-Solitaire",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-milsolitaire/thumb.webp"
     },
     {
@@ -1918,6 +2034,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Space-Invaders",
       "controls": "Стрелки + пробел",
+      "lang": "en",
       "thumb": "games/ext-boc-invaders/thumb.webp"
     },
     {
@@ -1935,6 +2052,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/KilledByAPixel/SpaceHuggers",
       "controls": "Стрелки/WASD + пробел",
+      "lang": "en",
       "thumb": "games/ext-spacehuggers/thumb.webp"
     },
     {
@@ -1952,6 +2070,7 @@
       "license": "MIT",
       "repo": "https://github.com/sepandhaghighi/spinhook",
       "controls": "Клик/тап",
+      "lang": "en",
       "thumb": "games/ext-spinhook/thumb.webp"
     },
     {
@@ -1969,6 +2088,7 @@
       "license": "MIT",
       "repo": "https://github.com/toji/spookyball",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-spookyball/thumb.webp"
     },
     {
@@ -1986,6 +2106,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Square-Dodger",
       "controls": "Стрелки/мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-squaredodger/thumb.webp"
     },
     {
@@ -2002,7 +2123,8 @@
       "author": "mrdoob",
       "license": "MIT",
       "repo": "https://github.com/mrdoob/Starter-Kit-Racing",
-      "controls": "Стрелки"
+      "controls": "Стрелки",
+      "lang": "en"
     },
     {
       "id": "ext-stockfish",
@@ -2019,6 +2141,7 @@
       "license": "AGPL-3.0",
       "repo": "https://github.com/LabinatorSolutions/stockfish-chess-web-gui",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-stockfish/thumb.webp"
     },
     {
@@ -2036,6 +2159,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Sudoku",
       "controls": "Мышь + цифры",
+      "lang": "en",
       "thumb": "games/ext-boc-sudoku/thumb.webp"
     },
     {
@@ -2053,6 +2177,7 @@
       "license": "BSD-3-Clause",
       "repo": "https://github.com/wayou/t-rex-runner",
       "controls": "Пробел/↑ — прыжок, ↓ — пригнуться",
+      "lang": "en",
       "thumb": "games/ext-trex/thumb.webp"
     },
     {
@@ -2070,6 +2195,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Tama-Pets",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-tama/thumb.webp"
     },
     {
@@ -2087,6 +2213,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Tetris",
       "controls": "Стрелки",
+      "lang": "en",
       "thumb": "games/ext-boc-tetris/thumb.webp"
     },
     {
@@ -2104,6 +2231,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Tic-Tac-Toe",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-boc-tictactoe/thumb.webp"
     },
     {
@@ -2121,6 +2249,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/milsaware/javascript-tic-tac-toe",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-milttt/thumb.webp"
     },
     {
@@ -2138,6 +2267,7 @@
       "license": "MIT",
       "repo": "https://github.com/taniarascia/tictactoe",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-taniattt/thumb.webp"
     },
     {
@@ -2155,6 +2285,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Tic-Tac-Toe-Two-Player",
       "controls": "Мышь, хотсит",
+      "lang": "en",
       "thumb": "games/ext-boc-ttt2p/thumb.webp"
     },
     {
@@ -2172,6 +2303,7 @@
       "license": "MIT",
       "repo": "https://github.com/ramazancetinkaya/tictactoe",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-ramattt/thumb.webp"
     },
     {
@@ -2189,6 +2321,7 @@
       "license": "MIT",
       "repo": "https://github.com/iamkun/tower_game",
       "controls": "Клик или тап",
+      "lang": "en",
       "thumb": "games/ext-tower/thumb.webp"
     },
     {
@@ -2206,6 +2339,7 @@
       "license": "MIT",
       "repo": "https://github.com/selenebun/towerdefense",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-selenebuntd/thumb.webp"
     },
     {
@@ -2223,6 +2357,7 @@
       "license": "MIT",
       "repo": "https://github.com/yelynn1/tictactoe",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-ttc/thumb.webp"
     },
     {
@@ -2240,6 +2375,7 @@
       "license": "GPL",
       "repo": "https://github.com/berkerol/typer",
       "controls": "Печать",
+      "lang": "en",
       "thumb": "games/ext-typer/thumb.webp"
     },
     {
@@ -2257,6 +2393,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Typing-Tutor",
       "controls": "Печать",
+      "lang": "en",
       "thumb": "games/ext-boc-typing/thumb.webp"
     },
     {
@@ -2273,7 +2410,8 @@
       "author": "epidemian",
       "license": "Unlicense",
       "repo": "https://github.com/epidemian/snake",
-      "controls": "Стрелки"
+      "controls": "Стрелки",
+      "lang": "en"
     },
     {
       "id": "ext-urlife",
@@ -2289,7 +2427,8 @@
       "author": "epidemian",
       "license": "Unlicense",
       "repo": "https://github.com/epidemian/URLife",
-      "controls": "Наблюдение"
+      "controls": "Наблюдение",
+      "lang": "en"
     },
     {
       "id": "ext-vuesolitaire",
@@ -2306,6 +2445,7 @@
       "license": "MIT",
       "repo": "https://github.com/silent-lad/VueSolitaire",
       "controls": "Мышь",
+      "lang": "en",
       "thumb": "games/ext-vuesolitaire/thumb.webp"
     },
     {
@@ -2323,6 +2463,7 @@
       "license": "MIT",
       "repo": "https://github.com/Binaryify/vue-tetris",
       "controls": "Стрелки",
+      "lang": "neutral",
       "thumb": "games/ext-vuetetris/thumb.webp"
     },
     {
@@ -2340,6 +2481,7 @@
       "license": "GPL-3.0",
       "repo": "https://github.com/milsaware/wordled",
       "controls": "Печать букв",
+      "lang": "en",
       "thumb": "games/ext-wordle/thumb.webp"
     },
     {
@@ -2357,6 +2499,7 @@
       "license": "MIT",
       "repo": "https://github.com/bencoder/js13k-2019",
       "controls": "Стрелки",
+      "lang": "en",
       "thumb": "games/ext-xx142/thumb.webp"
     }
   ]

@@ -3,10 +3,15 @@
   "title": "Emoji Minesweeper",
   "emoji": "💥",
   "description": "Сапёр на эмодзи: классические правила, весёлое оформление. Внешняя игра — код остаётся у автора.",
-  "tags": ["логика", "классика", "мост"],
+  "tags": [
+    "логика",
+    "классика",
+    "мост"
+  ],
   "controls": "Мышь",
   "url": "https://muan.co/emoji-minesweeper/",
   "author": "muan",
   "license": "MIT",
-  "repo": "https://github.com/muan/emoji-minesweeper"
+  "repo": "https://github.com/muan/emoji-minesweeper",
+  "lang": "en"
 }

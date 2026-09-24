@@ -148,16 +148,17 @@ SEO без цены рантайма: `npm run build` вшивает в `index.h
    ```
 2. Заполните `meta.json`:
    ```json
-   {
-     "id": "moya-igra",
-     "title": "Моя игра",
-     "emoji": "🚀",
-     "description": "Что делает игра и чем интересна.",
-     "tags": ["аркада"],
-     "controls": "WASD",
-     "sandbox": ["allow-pointer-lock"],
-     "order": 10
-   }
+    {
+      "id": "moya-igra",
+      "title": "Моя игра",
+      "emoji": "🚀",
+      "description": "Что делает игра и чем интересна.",
+      "tags": ["аркада"],
+      "controls": "WASD",
+      "lang": "ru",
+      "sandbox": ["allow-pointer-lock"],
+      "order": 10
+    }
    ```
    Допустимые ключи строго проверяются (`build` упадёт на опечатке).
    `sandbox` — только токены из белого списка; по умолчанию игре выдаётся `allow-scripts`.

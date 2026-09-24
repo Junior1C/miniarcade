@@ -3,10 +3,15 @@
   "title": "Sandspiel",
   "emoji": "⏳",
   "description": "Песочница падающего песка: сыпьте элементы и смотрите, как они взаимодействуют. Внешняя игра — код остаётся у автора.",
-  "tags": ["песочница", "симуляция", "мост"],
+  "tags": [
+    "песочница",
+    "симуляция",
+    "мост"
+  ],
   "controls": "Мышь или палец",
   "url": "https://sandspiel.club/",
   "author": "MaxBittker",
   "license": "MIT",
-  "repo": "https://github.com/MaxBittker/sandspiel"
+  "repo": "https://github.com/MaxBittker/sandspiel",
+  "lang": "en"
 }

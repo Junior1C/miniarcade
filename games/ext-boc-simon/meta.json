@@ -3,10 +3,15 @@
   "title": "Simon Says",
   "emoji": "🔴",
   "description": "Повторяйте растущую мелодию цветных кнопок. Внешняя игра — код остаётся у автора.",
-  "tags": ["память", "музыка", "мост"],
+  "tags": [
+    "память",
+    "музыка",
+    "мост"
+  ],
   "controls": "Мышь",
   "url": "https://bocaletto-luca.github.io/Symon-Says/",
   "author": "Bocaletto Luca",
   "license": "GPL-3.0",
-  "repo": "https://github.com/bocaletto-luca/Symon-Says"
+  "repo": "https://github.com/bocaletto-luca/Symon-Says",
+  "lang": "en"
 }

@@ -3,10 +3,15 @@
   "title": "Battleboat",
   "emoji": "🚢",
   "description": "Морской бой против ИИ, который обыгрывает людей. Расставьте флот и потопите врага. Внешняя игра — код остаётся у автора.",
-  "tags": ["стратегия", "классика", "мост"],
+  "tags": [
+    "стратегия",
+    "классика",
+    "мост"
+  ],
   "controls": "Мышь",
   "url": "https://billmei.github.io/battleboat",
   "author": "billmei",
   "license": "MIT",
-  "repo": "https://github.com/billmei/battleboat"
+  "repo": "https://github.com/billmei/battleboat",
+  "lang": "en"
 }

@@ -3,10 +3,15 @@
   "title": "Bullet Hell",
   "emoji": "🔥",
   "description": "Уворачивайтесь от плотного огня в аду пуль. Внешняя игра — код остаётся у автора.",
-  "tags": ["аркада", "шутер", "мост"],
+  "tags": [
+    "аркада",
+    "шутер",
+    "мост"
+  ],
   "controls": "Стрелки/WASD",
   "url": "https://selenebun.github.io/bullethell/",
   "author": "selenebun",
   "license": "MIT",
-  "repo": "https://github.com/selenebun/bullethell"
+  "repo": "https://github.com/selenebun/bullethell",
+  "lang": "en"
 }

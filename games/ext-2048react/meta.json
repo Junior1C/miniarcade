@@ -3,10 +3,15 @@
   "title": "2048 in React",
   "emoji": "🔢",
   "description": "Легендарные 2048 на React: сдвигайте и складывайте. Внешняя игра — код остаётся у автора.",
-  "tags": ["головоломка", "логика", "мост"],
+  "tags": [
+    "головоломка",
+    "логика",
+    "мост"
+  ],
   "controls": "Стрелки/WASD",
   "url": "https://mateuszsokola.github.io/2048-in-react/",
   "author": "mateuszsokola",
   "license": "MIT",
-  "repo": "https://github.com/mateuszsokola/2048-in-react"
+  "repo": "https://github.com/mateuszsokola/2048-in-react",
+  "lang": "en"
 }

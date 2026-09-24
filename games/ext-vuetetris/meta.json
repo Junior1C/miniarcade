@@ -3,10 +3,15 @@
   "title": "Vue Tetris",
   "emoji": "🟪",
   "description": "Тетрис на Vue с красивой анимацией (интерфейс на китайском, но всё понятно). Внешняя игра — код остаётся у автора.",
-  "tags": ["аркада", "головоломка", "мост"],
+  "tags": [
+    "аркада",
+    "головоломка",
+    "мост"
+  ],
   "controls": "Стрелки",
   "url": "https://binaryify.github.io/vue-tetris/",
   "author": "Binaryify",
   "license": "MIT",
-  "repo": "https://github.com/Binaryify/vue-tetris"
+  "repo": "https://github.com/Binaryify/vue-tetris",
+  "lang": "neutral"
 }

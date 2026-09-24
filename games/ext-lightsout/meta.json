@@ -3,10 +3,15 @@
   "title": "Lights Out",
   "emoji": "💡",
   "description": "Погасите все огни: клик переключает клетку и соседей. Внешняя игра — код остаётся у автора.",
-  "tags": ["головоломка", "логика", "мост"],
+  "tags": [
+    "головоломка",
+    "логика",
+    "мост"
+  ],
   "controls": "Мышь или Tab+Enter",
   "url": "https://www.lightsout.ir/",
   "author": "sepandhaghighi",
   "license": "MIT",
-  "repo": "https://github.com/sepandhaghighi/lightsout"
+  "repo": "https://github.com/sepandhaghighi/lightsout",
+  "lang": "en"
 }

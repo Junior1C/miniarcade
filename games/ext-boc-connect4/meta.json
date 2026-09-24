@@ -3,10 +3,15 @@
   "title": "Forza 4",
   "emoji": "🔴",
   "description": "Соберите четыре фишки в линию раньше соперника. Внешняя игра — код остаётся у автора.",
-  "tags": ["логика", "классика", "мост"],
+  "tags": [
+    "логика",
+    "классика",
+    "мост"
+  ],
   "controls": "Мышь",
   "url": "https://bocaletto-luca.github.io/Connect-Four/",
   "author": "Bocaletto Luca",
   "license": "GPL-3.0",
-  "repo": "https://github.com/bocaletto-luca/Connect-Four"
+  "repo": "https://github.com/bocaletto-luca/Connect-Four",
+  "lang": "en"
 }

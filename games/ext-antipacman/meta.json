@@ -3,10 +3,15 @@
   "title": "AntiPacMan",
   "emoji": "👻",
   "description": "Вы — привидение: ловите пакмана в его же лабиринте. Внешняя игра — код остаётся у автора.",
-  "tags": ["аркада", "лабиринт", "мост"],
+  "tags": [
+    "аркада",
+    "лабиринт",
+    "мост"
+  ],
   "controls": "Стрелки/WASD",
   "url": "https://vmikhav.github.io/AntiPacMan/",
   "author": "vmikhav",
   "license": "MIT",
-  "repo": "https://github.com/vmikhav/AntiPacMan"
+  "repo": "https://github.com/vmikhav/AntiPacMan",
+  "lang": "en"
 }

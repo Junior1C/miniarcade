@@ -3,10 +3,15 @@
   "title": "Calc24",
   "emoji": "🧮",
   "description": "Соберите 24 из четырёх чисел действиями. Внешняя игра — код остаётся у автора.",
-  "tags": ["математика", "логика", "мост"],
+  "tags": [
+    "математика",
+    "логика",
+    "мост"
+  ],
   "controls": "Мышь",
   "url": "https://passer-by.com/calc24/",
   "author": "mumuy",
   "license": "MIT",
-  "repo": "https://github.com/mumuy/calc24"
+  "repo": "https://github.com/mumuy/calc24",
+  "lang": "en"
 }

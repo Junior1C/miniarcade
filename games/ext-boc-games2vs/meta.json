@@ -3,10 +3,15 @@
   "title": "Games 2VS",
   "emoji": "⚔️",
   "description": "Соревновательная платформа мини-игр для двоих. Внешняя игра — код остаётся у автора.",
-  "tags": ["для двоих", "казуал", "мост"],
+  "tags": [
+    "для двоих",
+    "казуал",
+    "мост"
+  ],
   "controls": "Два игрока, хотсит",
   "url": "https://bocaletto-luca.github.io/Games-2VS/",
   "author": "Bocaletto Luca",
   "license": "GPL-3.0",
-  "repo": "https://github.com/bocaletto-luca/Games-2VS"
+  "repo": "https://github.com/bocaletto-luca/Games-2VS",
+  "lang": "en"
 }

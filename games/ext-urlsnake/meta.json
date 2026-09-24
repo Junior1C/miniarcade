@@ -3,10 +3,15 @@
   "title": "URL Snake",
   "emoji": "🔗",
   "description": "Змейка, которая живёт в адресной строке браузера. Внешняя игра — код остаётся у автора.",
-  "tags": ["аркада", "эксперимент", "мост"],
+  "tags": [
+    "аркада",
+    "эксперимент",
+    "мост"
+  ],
   "controls": "Стрелки",
   "url": "https://demian.ferrei.ro/snake/",
   "author": "epidemian",
   "license": "Unlicense",
-  "repo": "https://github.com/epidemian/snake"
+  "repo": "https://github.com/epidemian/snake",
+  "lang": "en"
 }

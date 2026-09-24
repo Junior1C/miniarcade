@@ -3,10 +3,15 @@
   "title": "xx142-b2.exe",
   "emoji": "👾",
   "description": "Js13k-игра 2019 года в 13 килобайт. Внешняя игра — код остаётся у автора.",
-  "tags": ["аркада", "js13k", "мост"],
+  "tags": [
+    "аркада",
+    "js13k",
+    "мост"
+  ],
   "controls": "Стрелки",
   "url": "https://bencoder.github.io/js13k-2019",
   "author": "bencoder",
   "license": "MIT",
-  "repo": "https://github.com/bencoder/js13k-2019"
+  "repo": "https://github.com/bencoder/js13k-2019",
+  "lang": "en"
 }

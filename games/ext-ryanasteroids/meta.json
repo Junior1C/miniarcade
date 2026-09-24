@@ -3,10 +3,15 @@
   "title": "Asteroids (Ryan)",
   "emoji": "🛸",
   "description": "Классика жанра: корабль против каменного роя. Внешняя игра — код остаётся у автора.",
-  "tags": ["аркада", "шутер", "мост"],
+  "tags": [
+    "аркада",
+    "шутер",
+    "мост"
+  ],
   "controls": "Стрелки + пробел",
   "url": "https://ryan-menezes.github.io/Asteroids/",
   "author": "Ryan-Menezes",
   "license": "MIT",
-  "repo": "https://github.com/Ryan-Menezes/Asteroids"
+  "repo": "https://github.com/Ryan-Menezes/Asteroids",
+  "lang": "en"
 }

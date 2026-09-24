@@ -3,10 +3,15 @@
   "title": "Guess the Flag",
   "emoji": "🏳️",
   "description": "Угадайте страну по флагу: география-викторина. Внешняя игра — код остаётся у автора.",
-  "tags": ["викторина", "география", "мост"],
+  "tags": [
+    "викторина",
+    "география",
+    "мост"
+  ],
   "controls": "Мышь",
   "url": "https://bocaletto-luca.github.io/Guess-The-Flag/",
   "author": "Bocaletto Luca",
   "license": "GPL-3.0",
-  "repo": "https://github.com/bocaletto-luca/Guess-The-Flag"
+  "repo": "https://github.com/bocaletto-luca/Guess-The-Flag",
+  "lang": "en"
 }

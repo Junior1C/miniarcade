@@ -3,10 +3,15 @@
   "title": "Cruciverba",
   "emoji": "✏️",
   "description": "Профессиональный кроссворд: разгадывайте слова по определениям. Внешняя игра — код остаётся у автора.",
-  "tags": ["слова", "логика", "мост"],
+  "tags": [
+    "слова",
+    "логика",
+    "мост"
+  ],
   "controls": "Мышь + печать",
   "url": "https://bocaletto-luca.github.io/Crossword/",
   "author": "Bocaletto Luca",
   "license": "GPL-3.0",
-  "repo": "https://github.com/bocaletto-luca/Crossword"
+  "repo": "https://github.com/bocaletto-luca/Crossword",
+  "lang": "en"
 }

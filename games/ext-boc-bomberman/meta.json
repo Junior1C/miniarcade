@@ -3,10 +3,15 @@
   "title": "Bomberman",
   "emoji": "💣",
   "description": "Динабластер: закладывайте бомбы и открывайте проход. Внешняя игра — код остаётся у автора.",
-  "tags": ["аркада", "лабиринт", "мост"],
+  "tags": [
+    "аркада",
+    "лабиринт",
+    "мост"
+  ],
   "controls": "Стрелки/WASD",
   "url": "https://bocaletto-luca.github.io/Bomberman/",
   "author": "Bocaletto Luca",
   "license": "GPL-3.0",
-  "repo": "https://github.com/bocaletto-luca/Bomberman"
+  "repo": "https://github.com/bocaletto-luca/Bomberman",
+  "lang": "en"
 }

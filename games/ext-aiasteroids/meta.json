@@ -3,10 +3,15 @@
   "title": "AI Asteroids",
   "emoji": "🤖",
   "description": "Астероиды с автопилотом: смотрите, как ИИ уворачивается. Внешняя игра — код остаётся у автора.",
-  "tags": ["аркада", "нейросеть", "мост"],
+  "tags": [
+    "аркада",
+    "нейросеть",
+    "мост"
+  ],
   "controls": "Наблюдение",
   "url": "https://ai-asteroids.richlewis007.com/",
   "author": "RichLewis007",
   "license": "MIT",
-  "repo": "https://github.com/RichLewis007/AI-Asteroids"
+  "repo": "https://github.com/RichLewis007/AI-Asteroids",
+  "lang": "en"
 }

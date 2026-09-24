@@ -3,10 +3,15 @@
   "title": "IT Adventures",
   "emoji": "💻",
   "description": "Терминальная киберпанк-RPG: команды вместо меча. Внешняя игра — код остаётся у автора.",
-  "tags": ["rpg", "текст", "мост"],
+  "tags": [
+    "rpg",
+    "текст",
+    "мост"
+  ],
   "controls": "Печать команд",
   "url": "https://bocaletto-luca.github.io/IT-Adventures/",
   "author": "Bocaletto Luca",
   "license": "GPL-3.0",
-  "repo": "https://github.com/bocaletto-luca/IT-Adventures"
+  "repo": "https://github.com/bocaletto-luca/IT-Adventures",
+  "lang": "en"
 }

@@ -10,13 +10,16 @@ function buildSandbox(game) {
   return [...BASE_SANDBOX, ...allowed].join(' ');
 }
 
-export function createPlayer({ dialog, frame, titleEl, emojiEl, closeBtn, sourceLink, onOpen, onClose }) {
+export function createPlayer({ dialog, frame, titleEl, emojiEl, closeBtn, sourceLink, loadingEl, onOpen, onClose }) {
   let currentId = null;
 
   function open(game) {
     currentId = game.id;
     emojiEl.textContent = game.emoji ?? '';
     titleEl.textContent = game.title;
+    // Игра/окно открывается не моментально (особенно внешние мосты):
+    // показываем loading-шкалу до первого load кадра.
+    if (loadingEl) loadingEl.hidden = false;
     frame.setAttribute('sandbox', buildSandbox(game));
     // Мост: внешний URL грузится в том же sandbox; referrer режем —
     // чужому сайту не отдаём даже путь каталога.
@@ -48,6 +51,7 @@ export function createPlayer({ dialog, frame, titleEl, emojiEl, closeBtn, source
     const id = currentId;
     currentId = null;
     frame.src = 'about:blank';
+    if (loadingEl) loadingEl.hidden = true;
     onClose(id);
   }
 
@@ -60,6 +64,7 @@ export function createPlayer({ dialog, frame, titleEl, emojiEl, closeBtn, source
   // showModal фокус принадлежит диалогу, в игру пользователь табнет сам.
   frame.addEventListener('load', () => {
     if (dialog.open) {
+      if (loadingEl) loadingEl.hidden = true;
       closeBtn.focus({ preventScroll: true });
     }
   });

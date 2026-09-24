@@ -89,6 +89,33 @@ test('buildCatalog rejects disallowed sandbox tokens', async (t) => {
   await assert.rejects(() => buildCatalog(dir), /disallowed token/);
 });
 
+test('buildCatalog rejects an unknown lang code', async (t) => {
+  const dir = await makeFixture(t, {
+    demo: {
+      'meta.json': validMeta.replace('"demo"', '"demo", "lang": "de"'),
+      'index.html': '<!DOCTYPE html>',
+    },
+  });
+  await assert.rejects(() => buildCatalog(dir), /"lang" must be one of/);
+});
+
+test('real catalog: every game carries a language badge and search tags', async (t) => {
+  const dir = await makeFixture(t, {});
+  await rm(path.join(dir, 'games'), { recursive: true, force: true });
+  const payload = await buildCatalog(ROOT);
+  assert.ok(payload.games.length >= 100);
+  for (const game of payload.games) {
+    assert.ok(
+      ['ru', 'en', 'neutral'].includes(game.lang),
+      `${game.id} must carry a valid lang for the card badge`,
+    );
+    assert.ok(
+      Array.isArray(game.tags) && game.tags.length > 0,
+      `${game.id} must carry at least one tag for tag search`,
+    );
+  }
+});
+
 test('buildCatalog rejects missing index.html', async (t) => {
   const dir = await makeFixture(t, {
     demo: { 'meta.json': validMeta },

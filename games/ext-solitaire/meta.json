@@ -3,10 +3,15 @@
   "title": "React Solitaire",
   "emoji": "🎴",
   "description": "Пасьянс «Косынка» на React с drag-and-drop. Внешняя игра — код остаётся у автора.",
-  "tags": ["карты", "пасьянс", "мост"],
+  "tags": [
+    "карты",
+    "пасьянс",
+    "мост"
+  ],
   "controls": "Мышь (drag-and-drop)",
   "url": "https://gcedo.github.io/react-solitaire/",
   "author": "gcedo",
   "license": "MIT",
-  "repo": "https://github.com/gcedo/react-solitaire"
+  "repo": "https://github.com/gcedo/react-solitaire",
+  "lang": "en"
 }

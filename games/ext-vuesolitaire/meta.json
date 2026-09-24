@@ -3,10 +3,15 @@
   "title": "Vue Solitaire",
   "emoji": "🃏",
   "description": "Пасьянс на Vue: классическая косынка в браузере. Внешняя игра — код остаётся у автора.",
-  "tags": ["карты", "пасьянс", "мост"],
+  "tags": [
+    "карты",
+    "пасьянс",
+    "мост"
+  ],
   "controls": "Мышь",
   "url": "https://silent-lad.github.io/VueSolitaire/",
   "author": "silent-lad",
   "license": "MIT",
-  "repo": "https://github.com/silent-lad/VueSolitaire"
+  "repo": "https://github.com/silent-lad/VueSolitaire",
+  "lang": "en"
 }

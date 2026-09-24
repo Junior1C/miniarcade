@@ -3,10 +3,15 @@
   "title": "Bouble",
   "emoji": "🫧",
   "description": "Бабл-шутер: цельтесь и лопайте цветные шары. Внешняя игра — код остаётся у автора.",
-  "tags": ["аркада", "казуал", "мост"],
+  "tags": [
+    "аркада",
+    "казуал",
+    "мост"
+  ],
   "controls": "Мышь",
   "url": "https://bocaletto-luca.github.io/Bouble/",
   "author": "Bocaletto Luca",
   "license": "GPL-3.0",
-  "repo": "https://github.com/bocaletto-luca/Bouble"
+  "repo": "https://github.com/bocaletto-luca/Bouble",
+  "lang": "en"
 }

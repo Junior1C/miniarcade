@@ -24,6 +24,7 @@ const elements = {
   emoji: document.getElementById('player-emoji'),
   closeBtn: document.getElementById('player-close'),
   sourceLink: document.getElementById('player-source'),
+  loading: document.getElementById('player-loading'),
 };
 
 const state = {
@@ -42,6 +43,7 @@ const player = createPlayer({
   emojiEl: elements.emoji,
   closeBtn: elements.closeBtn,
   sourceLink: elements.sourceLink,
+  loadingEl: elements.loading,
   onOpen: (game) => {
     document.title = `${game.title} — ${BASE_TITLE}`;
     state.playStart = Date.now();
@@ -136,9 +138,41 @@ function createCard(game) {
   title.className = 'card__title';
   title.textContent = game.title;
 
+  // Значок языка игры из каталога (build гарантирует наличие):
+  // RU / EN / 🌐 (смешанный или неопределённый). Не интерактивен.
+  if (typeof game.lang === 'string' && game.lang) {
+    const lang = document.createElement('span');
+    lang.className = 'card__lang';
+    if (game.lang === 'neutral') {
+      lang.textContent = '🌐';
+      lang.title = 'Язык интерфейса: смешанный или не определён';
+    } else {
+      lang.textContent = game.lang.toUpperCase();
+      lang.title = `Язык игры: ${game.lang === 'ru' ? 'русский' : 'английский'}`;
+    }
+    title.append(lang);
+  }
+
   const description = document.createElement('p');
   description.className = 'card__desc';
   description.textContent = game.description;
+
+  // Теги игры: видны на карточке; клик подставляет тег в поиск
+  // (делегировано на уровне сетки, см. обработчик ниже).
+  let tagsList = null;
+  if (Array.isArray(game.tags) && game.tags.length > 0) {
+    tagsList = document.createElement('ul');
+    tagsList.className = 'card__tags';
+    for (const tag of game.tags) {
+      const item = document.createElement('li');
+      const chip = document.createElement('span');
+      chip.className = 'card__tag';
+      chip.dataset.tag = tag;
+      chip.textContent = `#${tag}`;
+      item.append(chip);
+      tagsList.append(item);
+    }
+  }
 
   // Мост: честная атрибуция прямо на карточке — автор и лицензия,
   // код остаётся у автора, мы только ссылаемся.
@@ -158,9 +192,13 @@ function createCard(game) {
     badge.className = 'card__badge';
     badge.textContent = '↗ GitHub';
     meta.append(badge, ` ${game.author} • ${game.license}`);
-    link.append(ribbon, visual, title, description, meta, cta);
+    link.append(ribbon, visual, title, description);
+    if (tagsList) link.append(tagsList);
+    link.append(meta, cta);
   } else {
-    link.append(visual, title, description, cta);
+    link.append(visual, title, description);
+    if (tagsList) link.append(tagsList);
+    link.append(cta);
   }
   item.append(link);
   return item;
@@ -230,6 +268,17 @@ elements.loadMore.addEventListener('click', () => {
 elements.retry.addEventListener('click', init);
 
 elements.grid.addEventListener('click', (event) => {
+  // Клик по тегу: вместо перехода в игру подставляем тег в поиск.
+  const chip = event.target.closest('.card__tag');
+  if (chip && chip.dataset.tag) {
+    event.preventDefault();
+    elements.search.value = chip.dataset.tag;
+    state.query = normalizeQuery(chip.dataset.tag);
+    state.shown = PAGE_SIZE;
+    render();
+    elements.search.focus();
+    return;
+  }
   const link = event.target.closest('a[href^="#/play/"]');
   if (link) {
     state.openedInternally = true;
