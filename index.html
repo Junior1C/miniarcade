@@ -53,6 +53,7 @@
     </div>
 
     <nav class="topbar__right" aria-label="Разделы сайта">
+      <button id="settings-open" class="icon-button" type="button" aria-label="Оформление">⚙</button>
       <a class="topbar__link" href="stats.html">📊 Статистика</a>
     </nav>
   </header>
@@ -89,6 +90,13 @@
       <p>🎮 MiniArcade — каталог браузерных HTML5-игр · <a href="stats.html">Статистика</a></p>
     </footer>
   </main>
+
+  <dialog id="settings" class="settings" aria-labelledby="settings-title">
+    <h2 id="settings-title" class="settings__title">Оформление</h2>
+    <p class="settings__hint">Цвета применяются сразу и запоминаются в этом браузере. Кнопка «Скопировать стиль» отдаёт JSON для мейнтейнера.</p>
+    <div id="settings-form"></div>
+    <textarea id="settings-export" class="settings__export" rows="3" hidden></textarea>
+  </dialog>
 
   <dialog id="player" class="player" aria-labelledby="player-name">
     <div class="player__bar">

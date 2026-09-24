@@ -717,6 +717,87 @@ body {
   background: rgb(2 4 10 / 0.8);
 }
 
+/* Панель оформления: диалог, строки палитры, экспорт. */
+.settings {
+  width: min(420px, 92vw);
+  padding: var(--space-4);
+  border: 1px solid rgb(91 141 239 / 0.25);
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.settings::backdrop {
+  background: rgb(2 4 10 / 0.7);
+}
+
+.settings__title {
+  margin: 0 0 var(--space-2);
+  font-size: 1.125rem;
+}
+
+.settings__hint {
+  margin: 0 0 var(--space-3);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.theme-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) 0;
+}
+
+.theme-row__label {
+  font-size: 0.875rem;
+}
+
+.theme-row__picker {
+  width: 2.5rem;
+  height: 2rem;
+  padding: 0;
+  border: 1px solid rgb(91 141 239 / 0.3);
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.theme-row__hex {
+  width: 5.5rem;
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid rgb(91 141 239 / 0.3);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.8125rem;
+}
+
+.theme-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.settings__export {
+  width: 100%;
+  margin-top: var(--space-3);
+  padding: var(--space-2);
+  border: 1px solid rgb(91 141 239 / 0.3);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.75rem;
+}
+
+.settings__export[hidden] {
+  display: none;
+}
+
 /* Разворот на весь экран: диалог вписывается в окно (100dvw/dvh),
    кадр тянется следом. Кнопка ⛶/🗗 всегда видна справа наверху,
    сброс — при закрытии. */

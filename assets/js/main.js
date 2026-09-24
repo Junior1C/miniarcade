@@ -5,6 +5,7 @@ import { createPlayer } from './player.js';
 import { renderWithTransition } from './view-transition.js';
 import { sendStats, statsEnabled } from './stats.js';
 import { SORT_LABELS, buildGameStats, cardStatsLine, sortGames, validSortMode } from './sort.js';
+import { applyTheme, loadTheme } from './theme.js';
 
 const PAGE_SIZE = 24;
 const HASH_PREFIX = '#/play/';
@@ -67,6 +68,21 @@ function saveSortMode(mode) {
     // Приватный режим: сортировка просто не запомнится.
   }
 }
+
+// localStorage каталога (тема, сортировка): игры в sandbox его не касаются.
+function catalogStorage() {
+  try {
+    localStorage.setItem('miniarcade-probe', '1');
+    localStorage.removeItem('miniarcade-probe');
+    return localStorage;
+  } catch {
+    return null;
+  }
+}
+
+const storage = catalogStorage();
+// Тема раньше первого paint: без вспышки дефолта при перезагрузке.
+applyTheme(document.documentElement, loadTheme(storage));
 
 const player = createPlayer({
   dialog: elements.dialog,
@@ -494,6 +510,14 @@ async function init() {
     render();
   });
   elements.menuToggle.addEventListener('click', toggleDrawer);
+  const settingsOpen = document.getElementById('settings-open');
+  if (settingsOpen) {
+    settingsOpen.addEventListener('click', async () => {
+      // Панель вне критического пути: грузим по первому клику.
+      const { openSettings } = await import('./settings.js');
+      openSettings(document, document.documentElement, storage);
+    });
+  }
   elements.homeLogo.addEventListener('click', () => {
     elements.search.value = '';
     state.query = '';
