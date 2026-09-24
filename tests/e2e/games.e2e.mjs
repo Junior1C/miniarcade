@@ -58,33 +58,33 @@ test('каталог: все игры из catalog.json грузятся без 
 });
 
 test('мост: внешняя игра открывается в том же sandbox-плеере', async ({ page }) => {
-  await page.route('https://gabrielecirulli.github.io/2048/', (route) =>
+  await page.route('https://wayou.github.io/t-rex-runner/', (route) =>
     route.fulfill({
       contentType: 'text/html',
       body: '<!doctype html><html><head><title>stub</title></head><body>stub</body></html>',
     }),
   );
   await page.goto('/');
-  await page.fill('#search', '2048');
-  const card = page.locator('a[href="#/play/ext-2048"]');
+  await page.fill('#search', 'rex');
+  const card = page.locator('a[href="#/play/ext-trex"]');
   await expect(card.locator('.card__ribbon')).toBeAttached();
   await expect(card.locator('.card__ribbon')).toBeEmpty();
   await expect(card.locator('.card__badge')).toHaveText('↗ GitHub');
-  await expect(card.locator('.card__meta')).toContainText('Gabriele Cirulli');
-  await expect(card.locator('.card__meta')).toContainText('MIT');
+  await expect(card.locator('.card__meta')).toContainText('wayou');
+  await expect(card.locator('.card__meta')).toContainText('BSD-3-Clause');
   // Детерминированный клик: важен сам факт открытия плеера по hash,
   // живой клик мыши покрыт тестами каталога/a11y.
   await card.evaluate((el) => el.click());
   const dialog = page.locator('#player');
   await expect(dialog).toBeVisible();
   const frame = page.locator('#player-frame');
-  await expect(frame).toHaveAttribute('src', 'https://gabrielecirulli.github.io/2048/');
+  await expect(frame).toHaveAttribute('src', 'https://wayou.github.io/t-rex-runner/');
   const sandbox = await frame.getAttribute('sandbox');
   expect(sandbox).toContain('allow-scripts');
   expect(sandbox).not.toContain('allow-same-origin');
   const source = page.locator('#player-source');
   await expect(source).toBeVisible();
-  await expect(source).toHaveAttribute('href', 'https://github.com/gabrielecirulli/2048');
+  await expect(source).toHaveAttribute('href', 'https://github.com/wayou/t-rex-runner');
 });
 
 test('кликер: пробел даёт очки после старта, счёт — output', async ({ page }) => {

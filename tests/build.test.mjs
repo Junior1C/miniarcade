@@ -56,7 +56,7 @@ test('buildCatalog succeeds on the real games folder', async (t) => {
     }
     assert.equal('order' in game, false);
   }
-  assert.ok(ids.includes('ext-2048'));
+  assert.ok(ids.includes('ext-trex'));
 });
 
 test('buildCatalog rejects id that does not match folder', async (t) => {
@@ -107,7 +107,7 @@ const bridgeMeta = {
   title: 'Демо',
   emoji: '🚀',
   description: 'Описание',
-  url: 'https://gabrielecirulli.github.io/2048/',
+  url: 'https://wayou.github.io/t-rex-runner/',
   author: 'Автор',
   license: 'MIT',
   repo: 'https://github.com/example/demo',

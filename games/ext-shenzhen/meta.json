@@ -5,7 +5,7 @@
   "description": "Пасьянс в духе Shenzhen I/O: карты и логические цепочки. Внешняя игра — код остаётся у автора.",
   "tags": ["карты", "пасьянс", "мост"],
   "controls": "Мышь",
-  "url": "https://nickardson.github.io/shenzhen-solitaire/",
+  "url": "https://shenzhen-solitaire.tgratzer.com/",
   "author": "Nickardson",
   "license": "MIT",
   "repo": "https://github.com/Nickardson/shenzhen-solitaire"

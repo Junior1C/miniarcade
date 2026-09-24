@@ -16,22 +16,6 @@
       "thumb": "games/2048/thumb.webp"
     },
     {
-      "id": "ext-2048",
-      "title": "2048 — оригинал",
-      "emoji": "🔢",
-      "description": "Та самая 2048 Гэбриела Чирулли: соберите плитку 2048. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "головоломка",
-        "логика",
-        "мост"
-      ],
-      "url": "https://gabrielecirulli.github.io/2048/",
-      "author": "Gabriele Cirulli",
-      "license": "MIT",
-      "repo": "https://github.com/gabrielecirulli/2048",
-      "controls": "Стрелки/WASD или свайпы"
-    },
-    {
       "id": "ext-2048react",
       "title": "2048 in React",
       "emoji": "🔢",
@@ -45,7 +29,8 @@
       "author": "mateuszsokola",
       "license": "MIT",
       "repo": "https://github.com/mateuszsokola/2048-in-react",
-      "controls": "Стрелки/WASD"
+      "controls": "Стрелки/WASD",
+      "thumb": "games/ext-2048react/thumb.webp"
     },
     {
       "id": "connect4",
@@ -324,7 +309,8 @@
       "author": "muan",
       "license": "MIT",
       "repo": "https://github.com/muan/ab",
-      "controls": "Мышь + цифры"
+      "controls": "Мышь + цифры",
+      "thumb": "games/ext-abgame/thumb.webp"
     },
     {
       "id": "ext-acesup",
@@ -340,7 +326,8 @@
       "author": "milsaware",
       "license": "GPL-3.0",
       "repo": "https://github.com/milsaware/Javascript-Aces-Up-Solitaire",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-acesup/thumb.webp"
     },
     {
       "id": "ext-aiasteroids",
@@ -352,11 +339,12 @@
         "нейросеть",
         "мост"
       ],
-      "url": "https://richlewis007.github.io/AI-Asteroids/",
+      "url": "https://ai-asteroids.richlewis007.com/",
       "author": "RichLewis007",
       "license": "MIT",
       "repo": "https://github.com/RichLewis007/AI-Asteroids",
-      "controls": "Наблюдение"
+      "controls": "Наблюдение",
+      "thumb": "games/ext-aiasteroids/thumb.webp"
     },
     {
       "id": "ext-airps",
@@ -372,7 +360,8 @@
       "author": "milsaware",
       "license": "GPL-3.0",
       "repo": "https://github.com/milsaware/Javascript-AI-Rock-Paper-Scissors",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-airps/thumb.webp"
     },
     {
       "id": "ext-aimandshoot",
@@ -388,7 +377,8 @@
       "author": "victorqribeiro",
       "license": "MIT",
       "repo": "https://github.com/victorqribeiro/aimAndShoot",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-aimandshoot/thumb.webp"
     },
     {
       "id": "ext-alphagottt",
@@ -400,11 +390,12 @@
         "нейросеть",
         "мост"
       ],
-      "url": "https://grimmerk.github.io/alphago-zero-tictactoe-js/",
+      "url": "https://grimmer.io/alphago-zero-tictactoe-js/",
       "author": "grimmerk",
       "license": "MIT",
       "repo": "https://github.com/grimmerk/alphago-zero-tictactoe-js",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-alphagottt/thumb.webp"
     },
     {
       "id": "ext-antipacman",
@@ -420,7 +411,8 @@
       "author": "vmikhav",
       "license": "MIT",
       "repo": "https://github.com/vmikhav/AntiPacMan",
-      "controls": "Стрелки/WASD"
+      "controls": "Стрелки/WASD",
+      "thumb": "games/ext-antipacman/thumb.webp"
     },
     {
       "id": "ext-boc-arkanoid",
@@ -435,7 +427,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Arkanoid",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-boc-arkanoid/thumb.webp"
     },
     {
       "id": "ext-3kh0asteroids",
@@ -451,7 +444,8 @@
       "author": "3kh0",
       "license": "MIT",
       "repo": "https://github.com/3kh0/asteroids",
-      "controls": "Стрелки + пробел"
+      "controls": "Стрелки + пробел",
+      "thumb": "games/ext-3kh0asteroids/thumb.webp"
     },
     {
       "id": "ext-ryanasteroids",
@@ -467,7 +461,8 @@
       "author": "Ryan-Menezes",
       "license": "MIT",
       "repo": "https://github.com/Ryan-Menezes/Asteroids",
-      "controls": "Стрелки + пробел"
+      "controls": "Стрелки + пробел",
+      "thumb": "games/ext-ryanasteroids/thumb.webp"
     },
     {
       "id": "ext-astray",
@@ -483,7 +478,8 @@
       "author": "wwwtyro",
       "license": "Unlicense",
       "repo": "https://github.com/wwwtyro/Astray",
-      "controls": "Стрелки/WASD"
+      "controls": "Стрелки/WASD",
+      "thumb": "games/ext-astray/thumb.webp"
     },
     {
       "id": "ext-aureliasol",
@@ -499,7 +495,8 @@
       "author": "jdanyow",
       "license": "MIT",
       "repo": "https://github.com/jdanyow/aurelia-solitaire",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-aureliasol/thumb.webp"
     },
     {
       "id": "ext-boc-backgammon",
@@ -515,7 +512,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Backgammon",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-boc-backgammon/thumb.webp"
     },
     {
       "id": "ext-ballwall",
@@ -547,7 +545,8 @@
       "author": "victorqribeiro",
       "license": "MIT",
       "repo": "https://github.com/victorqribeiro/bangBang",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-bangbang/thumb.webp"
     },
     {
       "id": "ext-battleboat",
@@ -563,7 +562,8 @@
       "author": "billmei",
       "license": "MIT",
       "repo": "https://github.com/billmei/battleboat",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-battleboat/thumb.webp"
     },
     {
       "id": "ext-blasteroids",
@@ -579,7 +579,8 @@
       "author": "rfranks",
       "license": "MIT",
       "repo": "https://github.com/rfranks/blasteroids",
-      "controls": "Стрелки + пробел"
+      "controls": "Стрелки + пробел",
+      "thumb": "games/ext-blasteroids/thumb.webp"
     },
     {
       "id": "ext-blockrain",
@@ -595,7 +596,8 @@
       "author": "Aerolab",
       "license": "MIT",
       "repo": "https://github.com/Aerolab/blockrain.js",
-      "controls": "Стрелки"
+      "controls": "Стрелки",
+      "thumb": "games/ext-blockrain/thumb.webp"
     },
     {
       "id": "ext-boc-bomberman",
@@ -611,7 +613,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Bomberman",
-      "controls": "Стрелки/WASD"
+      "controls": "Стрелки/WASD",
+      "thumb": "games/ext-boc-bomberman/thumb.webp"
     },
     {
       "id": "ext-boc-bouble",
@@ -627,7 +630,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Bouble",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-boc-bouble/thumb.webp"
     },
     {
       "id": "ext-bounceback",
@@ -643,7 +647,8 @@
       "author": "KilledByAPixel",
       "license": "GPL-2.0",
       "repo": "https://github.com/KilledByAPixel/BounceBack",
-      "controls": "Стрелки/WASD"
+      "controls": "Стрелки/WASD",
+      "thumb": "games/ext-bounceback/thumb.webp"
     },
     {
       "id": "ext-breaklock",
@@ -659,7 +664,8 @@
       "author": "maxwellito",
       "license": "MIT",
       "repo": "https://github.com/maxwellito/breaklock",
-      "controls": "Мышь или Tab+Enter"
+      "controls": "Мышь или Tab+Enter",
+      "thumb": "games/ext-breaklock/thumb.webp"
     },
     {
       "id": "ext-bullethell",
@@ -675,7 +681,8 @@
       "author": "selenebun",
       "license": "MIT",
       "repo": "https://github.com/selenebun/bullethell",
-      "controls": "Стрелки/WASD"
+      "controls": "Стрелки/WASD",
+      "thumb": "games/ext-bullethell/thumb.webp"
     },
     {
       "id": "ext-calc24",
@@ -691,7 +698,8 @@
       "author": "mumuy",
       "license": "MIT",
       "repo": "https://github.com/mumuy/calc24",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-calc24/thumb.webp"
     },
     {
       "id": "ext-cardmemory",
@@ -707,7 +715,8 @@
       "author": "milsaware",
       "license": "GPL-3.0",
       "repo": "https://github.com/milsaware/Javascript-Card-Memory-Game",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-cardmemory/thumb.webp"
     },
     {
       "id": "ext-boc-chess",
@@ -723,7 +732,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Chess",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-boc-chess/thumb.webp"
     },
     {
       "id": "ext-itlweichess",
@@ -739,7 +749,8 @@
       "author": "itlwei",
       "license": "MIT",
       "repo": "https://github.com/itlwei/Chess",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-itlweichess/thumb.webp"
     },
     {
       "id": "ext-clashjs",
@@ -755,7 +766,8 @@
       "author": "javierbyte",
       "license": "BSD-3-Clause",
       "repo": "https://github.com/javierbyte/clashjs",
-      "controls": "Печать кода"
+      "controls": "Печать кода",
+      "thumb": "games/ext-clashjs/thumb.webp"
     },
     {
       "id": "ext-clock",
@@ -771,7 +783,8 @@
       "author": "milsaware",
       "license": "GPL-3.0",
       "repo": "https://github.com/milsaware/Javascript-Clock-Patience-Solitaire",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-clock/thumb.webp"
     },
     {
       "id": "ext-clumsy",
@@ -787,7 +800,8 @@
       "author": "ellisonleao",
       "license": "GPL-3.0",
       "repo": "https://github.com/ellisonleao/clumsy-bird",
-      "controls": "Пробел, клик или тап"
+      "controls": "Пробел, клик или тап",
+      "thumb": "games/ext-clumsy/thumb.webp"
     },
     {
       "id": "ext-colonizers",
@@ -803,7 +817,8 @@
       "author": "sibartlett",
       "license": "AGPL-3.0",
       "repo": "https://github.com/sibartlett/colonizers",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-colonizers/thumb.webp"
     },
     {
       "id": "ext-boc-crossword",
@@ -819,7 +834,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Crossword",
-      "controls": "Мышь + печать"
+      "controls": "Мышь + печать",
+      "thumb": "games/ext-boc-crossword/thumb.webp"
     },
     {
       "id": "ext-boc-dama",
@@ -835,7 +851,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Dama",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-boc-dama/thumb.webp"
     },
     {
       "id": "ext-datacenter",
@@ -851,7 +868,8 @@
       "author": "pshenok",
       "license": "MIT",
       "repo": "https://github.com/pshenok/datacenter-survival",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-datacenter/thumb.webp"
     },
     {
       "id": "ext-demogame",
@@ -867,7 +885,8 @@
       "author": "ASteinheiser",
       "license": "MIT",
       "repo": "https://github.com/ASteinheiser/demo-game",
-      "controls": "Стрелки"
+      "controls": "Стрелки",
+      "thumb": "games/ext-demogame/thumb.webp"
     },
     {
       "id": "ext-boc-domino",
@@ -883,7 +902,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Domino",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-boc-domino/thumb.webp"
     },
     {
       "id": "ext-duckhunt",
@@ -931,7 +951,8 @@
       "author": "omariosouto",
       "license": "MIT",
       "repo": "https://github.com/omariosouto/flappy-bird-devsoutinho",
-      "controls": "Пробел/клик"
+      "controls": "Пробел/клик",
+      "thumb": "games/ext-omarioflappy/thumb.webp"
     },
     {
       "id": "ext-froggy",
@@ -947,7 +968,8 @@
       "author": "thomaspark",
       "license": "MIT",
       "repo": "https://github.com/thomaspark/flexboxfroggy",
-      "controls": "Печать CSS-кода"
+      "controls": "Печать CSS-кода",
+      "thumb": "games/ext-froggy/thumb.webp"
     },
     {
       "id": "ext-boc-connect4",
@@ -963,7 +985,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Connect-Four",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-boc-connect4/thumb.webp"
     },
     {
       "id": "ext-boc-c42p",
@@ -979,7 +1002,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Connect-Four-Two-Player",
-      "controls": "Мышь, хотсит"
+      "controls": "Мышь, хотсит",
+      "thumb": "games/ext-boc-c42p/thumb.webp"
     },
     {
       "id": "ext-adrianfrogger",
@@ -991,11 +1015,12 @@
         "классика",
         "мост"
       ],
-      "url": "https://adrianeyre.github.io/frogger/",
+      "url": "https://frogger.adrianeyre.co.uk/",
       "author": "adrianeyre",
       "license": "MIT",
       "repo": "https://github.com/adrianeyre/frogger",
-      "controls": "Стрелки"
+      "controls": "Стрелки",
+      "thumb": "games/ext-adrianfrogger/thumb.webp"
     },
     {
       "id": "ext-fruitmatcher",
@@ -1007,11 +1032,12 @@
         "казуал",
         "мост"
       ],
-      "url": "https://mmenavas.github.io/memory-game/",
+      "url": "https://www.iammaximo.com/memory-game/",
       "author": "mmenavas",
       "license": "MIT",
       "repo": "https://github.com/mmenavas/memory-game",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-fruitmatcher/thumb.webp"
     },
     {
       "id": "ext-boc-games2vs",
@@ -1027,7 +1053,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Games-2VS",
-      "controls": "Два игрока, хотсит"
+      "controls": "Два игрока, хотсит",
+      "thumb": "games/ext-boc-games2vs/thumb.webp"
     },
     {
       "id": "ext-gobang",
@@ -1043,7 +1070,8 @@
       "author": "mumuy",
       "license": "MIT",
       "repo": "https://github.com/mumuy/gobang",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-gobang/thumb.webp"
     },
     {
       "id": "ext-golfsol",
@@ -1059,7 +1087,8 @@
       "author": "milsaware",
       "license": "GPL-2.0",
       "repo": "https://github.com/milsaware/Javascript-Golf-Solitaire",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-golfsol/thumb.webp"
     },
     {
       "id": "ext-boc-goose",
@@ -1075,7 +1104,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Goose-Game-Two-Player",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-boc-goose/thumb.webp"
     },
     {
       "id": "ext-garden",
@@ -1091,7 +1121,8 @@
       "author": "thomaspark",
       "license": "MIT",
       "repo": "https://github.com/thomaspark/gridgarden",
-      "controls": "Печать CSS-кода"
+      "controls": "Печать CSS-кода",
+      "thumb": "games/ext-garden/thumb.webp"
     },
     {
       "id": "ext-boc-flag",
@@ -1107,7 +1138,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Guess-The-Flag",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-boc-flag/thumb.webp"
     },
     {
       "id": "ext-boc-guesspair",
@@ -1123,7 +1155,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Guess-the-pair-two-player",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-boc-guesspair/thumb.webp"
     },
     {
       "id": "ext-boc-guesswho",
@@ -1139,7 +1172,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Guess-Who",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-boc-guesswho/thumb.webp"
     },
     {
       "id": "ext-boc-hangman",
@@ -1155,7 +1189,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/hangman-two-player",
-      "controls": "Мышь + буквы"
+      "controls": "Мышь + буквы",
+      "thumb": "games/ext-boc-hangman/thumb.webp"
     },
     {
       "id": "ext-hanoi",
@@ -1171,7 +1206,8 @@
       "author": "AJLoveChina",
       "license": "MIT",
       "repo": "https://github.com/AJLoveChina/Hanoi",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-hanoi/thumb.webp"
     },
     {
       "id": "ext-headbreaker",
@@ -1187,7 +1223,8 @@
       "author": "flbulgarelli",
       "license": "ISC",
       "repo": "https://github.com/flbulgarelli/headbreaker",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-headbreaker/thumb.webp"
     },
     {
       "id": "ext-checkers",
@@ -1203,7 +1240,8 @@
       "author": "codethejason",
       "license": "GPL-2.0",
       "repo": "https://github.com/codethejason/checkers",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-checkers/thumb.webp"
     },
     {
       "id": "ext-td",
@@ -1219,7 +1257,8 @@
       "author": "oldj",
       "license": "MIT",
       "repo": "https://github.com/oldj/html5-tower-defense",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-td/thumb.webp"
     },
     {
       "id": "ext-invaderz",
@@ -1235,7 +1274,8 @@
       "author": "victorqribeiro",
       "license": "MIT",
       "repo": "https://github.com/victorqribeiro/invaderz",
-      "controls": "Мышь или стрелки"
+      "controls": "Мышь или стрелки",
+      "thumb": "games/ext-invaderz/thumb.webp"
     },
     {
       "id": "ext-isocity",
@@ -1283,7 +1323,8 @@
       "author": "patorjk",
       "license": "MIT",
       "repo": "https://github.com/patorjk/JavaScript-Snake",
-      "controls": "Стрелки"
+      "controls": "Стрелки",
+      "thumb": "games/ext-patorjksnake/thumb.webp"
     },
     {
       "id": "ext-jokenpo",
@@ -1299,7 +1340,8 @@
       "author": "victorqribeiro",
       "license": "MIT",
       "repo": "https://github.com/victorqribeiro/jokenpo",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-jokenpo/thumb.webp"
     },
     {
       "id": "ext-boc-solitaire",
@@ -1315,7 +1357,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Solitaire",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-boc-solitaire/thumb.webp"
     },
     {
       "id": "ext-boc-labyrinth",
@@ -1331,7 +1374,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Labyrinth",
-      "controls": "Стрелки"
+      "controls": "Стрелки",
+      "thumb": "games/ext-boc-labyrinth/thumb.webp"
     },
     {
       "id": "ext-lightsout",
@@ -1347,7 +1391,8 @@
       "author": "sepandhaghighi",
       "license": "MIT",
       "repo": "https://github.com/sepandhaghighi/lightsout",
-      "controls": "Мышь или Tab+Enter"
+      "controls": "Мышь или Tab+Enter",
+      "thumb": "games/ext-lightsout/thumb.webp"
     },
     {
       "id": "ext-boc-ludo",
@@ -1363,7 +1408,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Ludo",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-boc-ludo/thumb.webp"
     },
     {
       "id": "ext-boc-mahjong",
@@ -1379,7 +1425,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Mahjong-Solitaire",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-boc-mahjong/thumb.webp"
     },
     {
       "id": "ext-taniamemory",
@@ -1395,7 +1442,8 @@
       "author": "taniarascia",
       "license": "MIT",
       "repo": "https://github.com/taniarascia/memory",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-taniamemory/thumb.webp"
     },
     {
       "id": "ext-boc-millionaire",
@@ -1411,7 +1459,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Who-Wants-To-Be-A-Millionaire",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-boc-millionaire/thumb.webp"
     },
     {
       "id": "ext-boc-minesweeper",
@@ -1427,7 +1476,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Mine-Sweeper",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-boc-minesweeper/thumb.webp"
     },
     {
       "id": "ext-minimax",
@@ -1439,11 +1489,12 @@
         "нейросеть",
         "мост"
       ],
-      "url": "https://ucfx.github.io/minimax-game-ai/",
+      "url": "https://tictactoe.ucef.dev/",
       "author": "ucfx",
       "license": "MIT",
       "repo": "https://github.com/ucfx/minimax-game-ai",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-minimax/thumb.webp"
     },
     {
       "id": "ext-mnimi",
@@ -1459,7 +1510,8 @@
       "author": "sepandhaghighi",
       "license": "MIT",
       "repo": "https://github.com/sepandhaghighi/mnimi",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-mnimi/thumb.webp"
     },
     {
       "id": "ext-montyhall",
@@ -1475,7 +1527,8 @@
       "author": "victorqribeiro",
       "license": "MIT",
       "repo": "https://github.com/victorqribeiro/montyhall",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-montyhall/thumb.webp"
     },
     {
       "id": "ext-nonogram",
@@ -1491,7 +1544,8 @@
       "author": "monkeyArms",
       "license": "MIT",
       "repo": "https://github.com/monkeyArms/nonogram",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-nonogram/thumb.webp"
     },
     {
       "id": "ext-handsomenonogram",
@@ -1507,7 +1561,8 @@
       "author": "HandsomeOne",
       "license": "MIT",
       "repo": "https://github.com/HandsomeOne/Nonogram",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-handsomenonogram/thumb.webp"
     },
     {
       "id": "ext-mpacman",
@@ -1523,7 +1578,8 @@
       "author": "mumuy",
       "license": "MIT",
       "repo": "https://github.com/mumuy/pacman",
-      "controls": "Стрелки/WASD"
+      "controls": "Стрелки/WASD",
+      "thumb": "games/ext-mpacman/thumb.webp"
     },
     {
       "id": "ext-masonicpacman",
@@ -1555,7 +1611,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Pong",
-      "controls": "Мышь/стрелки"
+      "controls": "Мышь/стрелки",
+      "thumb": "games/ext-boc-pong/thumb.webp"
     },
     {
       "id": "ext-boc-pong2p",
@@ -1571,7 +1628,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Pong-Two-Player",
-      "controls": "Два игрока, хотсит"
+      "controls": "Два игрока, хотсит",
+      "thumb": "games/ext-boc-pong2p/thumb.webp"
     },
     {
       "id": "ext-boc-puzzlenumbers",
@@ -1587,7 +1645,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Puzzle-Numbers",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-boc-puzzlenumbers/thumb.webp"
     },
     {
       "id": "ext-boc-quizplayer",
@@ -1603,7 +1662,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/QuizCreatorPlayer",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-boc-quizplayer/thumb.webp"
     },
     {
       "id": "ext-reactgo",
@@ -1619,7 +1679,8 @@
       "author": "cjlarose",
       "license": "Unlicense",
       "repo": "https://github.com/cjlarose/react-go",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-reactgo/thumb.webp"
     },
     {
       "id": "ext-reactrpg",
@@ -1635,7 +1696,8 @@
       "author": "ASteinheiser",
       "license": "MIT",
       "repo": "https://github.com/ASteinheiser/react-rpg.com",
-      "controls": "Стрелки/WASD"
+      "controls": "Стрелки/WASD",
+      "thumb": "games/ext-reactrpg/thumb.webp"
     },
     {
       "id": "ext-solitaire",
@@ -1651,7 +1713,8 @@
       "author": "gcedo",
       "license": "MIT",
       "repo": "https://github.com/gcedo/react-solitaire",
-      "controls": "Мышь (drag-and-drop)"
+      "controls": "Мышь (drag-and-drop)",
+      "thumb": "games/ext-solitaire/thumb.webp"
     },
     {
       "id": "ext-reacteroids",
@@ -1667,7 +1730,8 @@
       "author": "chriz001",
       "license": "CC0-1.0",
       "repo": "https://github.com/chriz001/Reacteroids",
-      "controls": "Стрелки + пробел"
+      "controls": "Стрелки + пробел",
+      "thumb": "games/ext-reacteroids/thumb.webp"
     },
     {
       "id": "ext-boc-rps",
@@ -1683,7 +1747,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Rock-Paper-Scissors",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-boc-rps/thumb.webp"
     },
     {
       "id": "ext-sand",
@@ -1699,7 +1764,8 @@
       "author": "MaxBittker",
       "license": "MIT",
       "repo": "https://github.com/MaxBittker/sandspiel",
-      "controls": "Мышь или палец"
+      "controls": "Мышь или палец",
+      "thumb": "games/ext-sand/thumb.webp"
     },
     {
       "id": "ext-boc-scopa",
@@ -1715,7 +1781,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Scopa",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-boc-scopa/thumb.webp"
     },
     {
       "id": "ext-serversurv",
@@ -1731,7 +1798,8 @@
       "author": "pshenok",
       "license": "MIT",
       "repo": "https://github.com/pshenok/server-survival",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-serversurv/thumb.webp"
     },
     {
       "id": "ext-shenzhen",
@@ -1743,11 +1811,12 @@
         "пасьянс",
         "мост"
       ],
-      "url": "https://nickardson.github.io/shenzhen-solitaire/",
+      "url": "https://shenzhen-solitaire.tgratzer.com/",
       "author": "Nickardson",
       "license": "MIT",
       "repo": "https://github.com/Nickardson/shenzhen-solitaire",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-shenzhen/thumb.webp"
     },
     {
       "id": "ext-shogi",
@@ -1763,7 +1832,8 @@
       "author": "akicho8",
       "license": "AGPL-3.0",
       "repo": "https://github.com/akicho8/shogi-player",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-shogi/thumb.webp"
     },
     {
       "id": "ext-boc-simon",
@@ -1779,7 +1849,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Symon-Says",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-boc-simon/thumb.webp"
     },
     {
       "id": "ext-boc-snake",
@@ -1795,7 +1866,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Snake",
-      "controls": "Стрелки"
+      "controls": "Стрелки",
+      "thumb": "games/ext-boc-snake/thumb.webp"
     },
     {
       "id": "ext-sokoban",
@@ -1811,7 +1883,8 @@
       "author": "taniarascia",
       "license": "MIT",
       "repo": "https://github.com/taniarascia/sokoban",
-      "controls": "Стрелки/WASD"
+      "controls": "Стрелки/WASD",
+      "thumb": "games/ext-sokoban/thumb.webp"
     },
     {
       "id": "ext-milsolitaire",
@@ -1827,7 +1900,8 @@
       "author": "milsaware",
       "license": "GPL-3.0",
       "repo": "https://github.com/milsaware/Javascript-Solitaire",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-milsolitaire/thumb.webp"
     },
     {
       "id": "ext-boc-invaders",
@@ -1843,7 +1917,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Space-Invaders",
-      "controls": "Стрелки + пробел"
+      "controls": "Стрелки + пробел",
+      "thumb": "games/ext-boc-invaders/thumb.webp"
     },
     {
       "id": "ext-spacehuggers",
@@ -1859,7 +1934,8 @@
       "author": "KilledByAPixel",
       "license": "GPL-3.0",
       "repo": "https://github.com/KilledByAPixel/SpaceHuggers",
-      "controls": "Стрелки/WASD + пробел"
+      "controls": "Стрелки/WASD + пробел",
+      "thumb": "games/ext-spacehuggers/thumb.webp"
     },
     {
       "id": "ext-spinhook",
@@ -1875,7 +1951,8 @@
       "author": "sepandhaghighi",
       "license": "MIT",
       "repo": "https://github.com/sepandhaghighi/spinhook",
-      "controls": "Клик/тап"
+      "controls": "Клик/тап",
+      "thumb": "games/ext-spinhook/thumb.webp"
     },
     {
       "id": "ext-spookyball",
@@ -1887,11 +1964,12 @@
         "webgpu",
         "мост"
       ],
-      "url": "https://toji.github.io/spookyball/",
+      "url": "https://spookyball.com/",
       "author": "toji",
       "license": "MIT",
       "repo": "https://github.com/toji/spookyball",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-spookyball/thumb.webp"
     },
     {
       "id": "ext-boc-squaredodger",
@@ -1907,7 +1985,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Square-Dodger",
-      "controls": "Стрелки/мышь"
+      "controls": "Стрелки/мышь",
+      "thumb": "games/ext-boc-squaredodger/thumb.webp"
     },
     {
       "id": "ext-mrdoobracing",
@@ -1939,7 +2018,8 @@
       "author": "LabinatorSolutions",
       "license": "AGPL-3.0",
       "repo": "https://github.com/LabinatorSolutions/stockfish-chess-web-gui",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-stockfish/thumb.webp"
     },
     {
       "id": "ext-boc-sudoku",
@@ -1955,7 +2035,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Sudoku",
-      "controls": "Мышь + цифры"
+      "controls": "Мышь + цифры",
+      "thumb": "games/ext-boc-sudoku/thumb.webp"
     },
     {
       "id": "ext-trex",
@@ -1971,7 +2052,8 @@
       "author": "wayou",
       "license": "BSD-3-Clause",
       "repo": "https://github.com/wayou/t-rex-runner",
-      "controls": "Пробел/↑ — прыжок, ↓ — пригнуться"
+      "controls": "Пробел/↑ — прыжок, ↓ — пригнуться",
+      "thumb": "games/ext-trex/thumb.webp"
     },
     {
       "id": "ext-boc-tama",
@@ -1987,7 +2069,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Tama-Pets",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-boc-tama/thumb.webp"
     },
     {
       "id": "ext-boc-tetris",
@@ -2003,7 +2086,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Tetris",
-      "controls": "Стрелки"
+      "controls": "Стрелки",
+      "thumb": "games/ext-boc-tetris/thumb.webp"
     },
     {
       "id": "ext-boc-tictactoe",
@@ -2019,7 +2103,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Tic-Tac-Toe",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-boc-tictactoe/thumb.webp"
     },
     {
       "id": "ext-milttt",
@@ -2035,7 +2120,8 @@
       "author": "milsaware",
       "license": "GPL-3.0",
       "repo": "https://github.com/milsaware/javascript-tic-tac-toe",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-milttt/thumb.webp"
     },
     {
       "id": "ext-taniattt",
@@ -2051,7 +2137,8 @@
       "author": "taniarascia",
       "license": "MIT",
       "repo": "https://github.com/taniarascia/tictactoe",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-taniattt/thumb.webp"
     },
     {
       "id": "ext-boc-ttt2p",
@@ -2067,7 +2154,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Tic-Tac-Toe-Two-Player",
-      "controls": "Мышь, хотсит"
+      "controls": "Мышь, хотсит",
+      "thumb": "games/ext-boc-ttt2p/thumb.webp"
     },
     {
       "id": "ext-ramattt",
@@ -2083,7 +2171,8 @@
       "author": "ramazancetinkaya",
       "license": "MIT",
       "repo": "https://github.com/ramazancetinkaya/tictactoe",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-ramattt/thumb.webp"
     },
     {
       "id": "ext-tower",
@@ -2099,7 +2188,8 @@
       "author": "iamkun",
       "license": "MIT",
       "repo": "https://github.com/iamkun/tower_game",
-      "controls": "Клик или тап"
+      "controls": "Клик или тап",
+      "thumb": "games/ext-tower/thumb.webp"
     },
     {
       "id": "ext-selenebuntd",
@@ -2115,7 +2205,8 @@
       "author": "selenebun",
       "license": "MIT",
       "repo": "https://github.com/selenebun/towerdefense",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-selenebuntd/thumb.webp"
     },
     {
       "id": "ext-ttc",
@@ -2131,7 +2222,8 @@
       "author": "yelynn1",
       "license": "MIT",
       "repo": "https://github.com/yelynn1/tictactoe",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-ttc/thumb.webp"
     },
     {
       "id": "ext-typer",
@@ -2147,7 +2239,8 @@
       "author": "berkerol",
       "license": "GPL",
       "repo": "https://github.com/berkerol/typer",
-      "controls": "Печать"
+      "controls": "Печать",
+      "thumb": "games/ext-typer/thumb.webp"
     },
     {
       "id": "ext-boc-typing",
@@ -2163,7 +2256,8 @@
       "author": "Bocaletto Luca",
       "license": "GPL-3.0",
       "repo": "https://github.com/bocaletto-luca/Typing-Tutor",
-      "controls": "Печать"
+      "controls": "Печать",
+      "thumb": "games/ext-boc-typing/thumb.webp"
     },
     {
       "id": "ext-urlsnake",
@@ -2211,7 +2305,8 @@
       "author": "silent-lad",
       "license": "MIT",
       "repo": "https://github.com/silent-lad/VueSolitaire",
-      "controls": "Мышь"
+      "controls": "Мышь",
+      "thumb": "games/ext-vuesolitaire/thumb.webp"
     },
     {
       "id": "ext-vuetetris",
@@ -2227,7 +2322,8 @@
       "author": "Binaryify",
       "license": "MIT",
       "repo": "https://github.com/Binaryify/vue-tetris",
-      "controls": "Стрелки"
+      "controls": "Стрелки",
+      "thumb": "games/ext-vuetetris/thumb.webp"
     },
     {
       "id": "ext-wordle",
@@ -2243,7 +2339,8 @@
       "author": "milsaware",
       "license": "GPL-3.0",
       "repo": "https://github.com/milsaware/wordled",
-      "controls": "Печать букв"
+      "controls": "Печать букв",
+      "thumb": "games/ext-wordle/thumb.webp"
     },
     {
       "id": "ext-xx142",
@@ -2259,7 +2356,8 @@
       "author": "bencoder",
       "license": "MIT",
       "repo": "https://github.com/bencoder/js13k-2019",
-      "controls": "Стрелки"
+      "controls": "Стрелки",
+      "thumb": "games/ext-xx142/thumb.webp"
     }
   ]
 }

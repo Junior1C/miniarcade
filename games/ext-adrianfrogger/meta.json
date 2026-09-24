@@ -5,7 +5,7 @@
   "description": "Переведите лягушку через дорогу и реку. Внешняя игра — код остаётся у автора.",
   "tags": ["аркада", "классика", "мост"],
   "controls": "Стрелки",
-  "url": "https://adrianeyre.github.io/frogger/",
+  "url": "https://frogger.adrianeyre.co.uk/",
   "author": "adrianeyre",
   "license": "MIT",
   "repo": "https://github.com/adrianeyre/frogger"

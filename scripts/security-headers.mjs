@@ -15,7 +15,6 @@
 // каждого моста с этим списком, tests/headers.test.mjs — оба направления
 // (мост без origin и origin без моста валят тесты).
 export const FRAME_SRC_ORIGINS = [
-  'https://gabrielecirulli.github.io',
   'https://wayou.github.io',
   'https://ellisonleao.github.io',
   'https://wwwtyro.github.io',
@@ -48,7 +47,6 @@ export const FRAME_SRC_ORIGINS = [
   'https://aerolab.github.io',
   'https://patorjk.github.io',
   'https://react-rpg.com',
-  'https://toji.github.io',
   'https://binaryify.github.io',
   'https://masonicgit.github.io',
   'https://flbulgarelli.github.io',
@@ -63,24 +61,25 @@ export const FRAME_SRC_ORIGINS = [
   'https://clashjs.com',
   'https://mrdoob.github.io',
   'https://cjlarose.com',
-  'https://adrianeyre.github.io',
+  'https://frogger.adrianeyre.co.uk',
   'https://3kh0.github.io',
   'https://rfranks.github.io',
   'https://ryan-menezes.github.io',
-  'https://richlewis007.github.io',
+  'https://ai-asteroids.richlewis007.com',
   'https://omariosouto.github.io',
   'https://jdanyow.github.io',
-  'https://mmenavas.github.io',
+  'https://www.iammaximo.com',
   'https://ramazancetinkaya.github.io',
   'https://yelynn1.github.io',
-  'https://grimmerk.github.io',
-  'https://ucfx.github.io',
+  'https://grimmer.io',
+  'https://tictactoe.ucef.dev',
   'https://akicho8.github.io',
-  'https://nickardson.github.io',
+  'https://shenzhen-solitaire.tgratzer.com',
   'https://asteinheiser.github.io',
   'https://labinatorsolutions.github.io',
   'https://berkerol.github.io',
   'https://ajlovechina.github.io',
+  'https://spookyball.com',
 ];
 // Приёмник аналитики: один origin на все зеркала (Pages Function
 // живёт на miniarcade.pages.dev и принимает beacon отовсюду).

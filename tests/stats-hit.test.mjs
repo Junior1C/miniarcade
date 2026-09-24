@@ -49,7 +49,7 @@ test('parseHit accepts pv/open/close with sane fields', () => {
     v: 1,
     event: 'close',
     host: 'x',
-    game: 'ext-2048',
+    game: 'ext-trex',
     secs: 95.6,
     ref: 'https://example.com/a?b=c',
   });

@@ -236,13 +236,15 @@ body {
   line-height: 1;
 }
 
-/* WebP-превью игры вместо эмодзи: фиксированный аспект 4:3 резервирует
-   место до загрузки (без CLS), cover обрезает лишнее, lazy — в main.js. */
+/* WebP-превью игры: впритык к верху и бокам карточки (без отступов),
+   квадрат 1:1, ниже — название и описание. Углы режет скругление .card
+   (overflow: hidden). Ленивая загрузка — в main.js. */
 .card__thumb {
-  width: 100%;
-  aspect-ratio: 4 / 3;
+  width: calc(100% + var(--space-4) * 2);
+  max-width: none;
+  margin: calc(-1 * var(--space-4)) calc(-1 * var(--space-4)) var(--space-3);
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 8px;
   background: #000;
 }
 

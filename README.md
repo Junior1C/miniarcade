@@ -38,10 +38,11 @@ games/
   <id>/
     index.html             — игра (standalone)
     style.css, game.js     — внешние файлы (CSP требует внешних источников)
-    thumb.webp             — превью карточки 440px (генерирует npm run thumbs; у мостов нет)
+    thumb.webp             — превью карточки 440px (генерирует npm run thumbs [--bridges])
     meta.json              — метаданные: id, title, emoji, description, tags, …
 scripts/
   build.mjs                — скан games/*/ → data/catalog.json + sitemap.xml + JSON-LD в index.html + CSP meta в index.html/stats.html (валидация)
+  sync-headers.mjs         — разносит CSP_PROD из security-headers.mjs в _headers и vercel.json (руками CSP не правим)
   serve.mjs                — локальный сервер с боевыми заголовками
   security-headers.mjs     — единый источник CSP/Permissions-Policy (serve, _headers, vercel.json)
   check-budgets.mjs        — perf-бюджеты размеров (npm run budgets)
@@ -51,7 +52,7 @@ playwright.config.mjs      — конфиг e2e (webServer сам поднима
 scripts/new-game.mjs       — скелетер игры (npm run new)
 scripts/smoke.mjs          — проверка живых хостингов (npm run smoke)
 scripts/gen-og.mjs         — генератор превью assets/og.png (npm run og)
-scripts/gen-thumbs.mjs     — WebP-превью игр 440px (npm run thumbs; нужен cwebp)
+scripts/gen-thumbs.mjs     — WebP-превью игр 440px (npm run thumbs [--bridges]; нужен cwebp)
 robots.txt                 — индексация + ссылка на sitemap
 sitemap.xml                — генерируется build.mjs: корень + stats.html + свои игры (URLы основного хостинга)
 assets/og.png              — превью ссылок (og:image)
@@ -116,7 +117,7 @@ npm run og       # перегенерировать assets/og.png (если ме
 | `assets/css/main.css` | 20 КБ | один CSS на каталог |
 | `index.html` | 35 КБ | оболочка + JSON-LD и frame-src всех игр (на LCP не влияет) |
 | `stats.html` | 35 КБ | витрина статистики: та же CSP meta, без JSON-LD |
-| `games/*/thumb.webp` | 25 КБ/файл, 600 КБ суммарно | WebP-превью карточек (свои игры; мосты — эмодзи) |
+| `games/*/thumb.webp` | 25 КБ/файл, 1.2 МБ суммарно | WebP-превью карточек (свои + живые мосты; пустые кадры — эмодзи) |
 | `assets/og.png` | 100 КБ | превью ссылок |
 
 E2E-дым (`tests/e2e/perf.e2e.mjs`): главная с карточками <8с на CI-раннере,
@@ -210,7 +211,13 @@ Chess.com, TETR.IO), и проприетарные free-to-play без репо�
 - origin обязан входить в `FRAME_SRC_ORIGINS` (`scripts/security-headers.mjs`) —
   единый источник для CSP (`_headers`, `vercel.json`, `<meta>` в `index.html`)
   и для валидации `build.mjs`; тесты валят оба перекоса (мост без origin,
-  origin без моста);
+  origin без моста). CSP в `_headers`/`vercel.json` руками не правим —
+  разносит `node scripts/sync-headers.mjs`;
+- конечный URL (после всех редиректов, включая JS) обязан разрешать встраивание
+  с нашего origin: проверяем iframe-тестом, а не только HTTP-заголовками.
+  Редирект на закрытый origin или HTTP = мёртвый мост: обновляем `url` + allowlist
+  (примеры — 7 переездов 2026-09) либо удаляем мост целиком
+  (пример — ext-2048: автор увёл игру на play2048.co и закрыл frame-ancestors);
 - чужие URL не попадают в `sitemap.xml`, живые проверки `smoke.mjs` их не трогают:
   аптайм третьих сторон — не наша ответственность; в e2e мост покрыт стабом
   (`page.route`), а не живой сетью. Зато `smoke.mjs` проверяет, что зеркала

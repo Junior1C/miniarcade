@@ -128,7 +128,7 @@ function createCard(game) {
     shot.loading = 'lazy';
     shot.decoding = 'async';
     shot.width = 440;
-    shot.height = 330;
+    shot.height = 440;
     visual = shot;
   }
 

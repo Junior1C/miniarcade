@@ -5,7 +5,7 @@
   "description": "Хэллоуин-арканоид на WebGPU: отбивайте тыквы платформой. Внешняя игра — код остаётся у автора.",
   "tags": ["аркада", "webgpu", "мост"],
   "controls": "Мышь",
-  "url": "https://toji.github.io/spookyball/",
+  "url": "https://spookyball.com/",
   "author": "toji",
   "license": "MIT",
   "repo": "https://github.com/toji/spookyball"

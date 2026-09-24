@@ -13,8 +13,10 @@ test('карточки: свои игры с WebP-превью, мосты с э
   expect(await thumbs.count()).toBeGreaterThan(0);
   await expect(thumbs.first()).toHaveAttribute('loading', 'lazy');
   await expect(thumbs.first()).toHaveAttribute('alt', '');
-  // Мосты превью не имеют — у них остаётся эмодзи.
-  expect(await page.locator('#games .card__emoji').count()).toBeGreaterThan(0);
+  // Мост без превью (пустой кадр осознанно выкинут) — остаётся эмодзи.
+  await page.fill('#search', 'duckhunt');
+  await expect(page.locator('#games .card__emoji').first()).toBeVisible();
+  await expect(page.locator('#games .card__thumb')).toHaveCount(0);
 });
 
 test('поиск фильтрует каталог', async ({ page }) => {

@@ -5,7 +5,7 @@
   "description": "Крестики-нолики на минимаксе: ИИ не прощает ошибок. Внешняя игра — код остаётся у автора.",
   "tags": ["логика", "нейросеть", "мост"],
   "controls": "Мышь",
-  "url": "https://ucfx.github.io/minimax-game-ai/",
+  "url": "https://tictactoe.ucef.dev/",
   "author": "ucfx",
   "license": "MIT",
   "repo": "https://github.com/ucfx/minimax-game-ai"
