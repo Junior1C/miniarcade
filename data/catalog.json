@@ -1589,24 +1589,6 @@
       "thumb": "games/ext-mnimi/thumb.webp"
     },
     {
-      "id": "ext-montyhall",
-      "title": "Monty Hall",
-      "emoji": "🚪",
-      "description": "Парадокс Монти Холла: меняйте выбор и побеждайте статистику. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "логика",
-        "эксперимент",
-        "мост"
-      ],
-      "url": "https://victorribeiro.com/montyhall",
-      "author": "victorqribeiro",
-      "license": "MIT",
-      "repo": "https://github.com/victorqribeiro/montyhall",
-      "controls": "Мышь",
-      "lang": "en",
-      "thumb": "games/ext-montyhall/thumb.webp"
-    },
-    {
       "id": "ext-nonogram",
       "title": "Nonogram",
       "emoji": "⬛",
@@ -1750,24 +1732,6 @@
       "thumb": "games/ext-boc-quizplayer/thumb.webp"
     },
     {
-      "id": "ext-reactgo",
-      "title": "React Go",
-      "emoji": "⚫",
-      "description": "Игра Го в браузере: окружайте территорию. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "настолки",
-        "логика",
-        "мост"
-      ],
-      "url": "https://cjlarose.com/react-go",
-      "author": "cjlarose",
-      "license": "Unlicense",
-      "repo": "https://github.com/cjlarose/react-go",
-      "controls": "Мышь",
-      "lang": "en",
-      "thumb": "games/ext-reactgo/thumb.webp"
-    },
-    {
       "id": "ext-reactrpg",
       "title": "React RPG",
       "emoji": "🗡️",
@@ -1802,24 +1766,6 @@
       "controls": "Мышь (drag-and-drop)",
       "lang": "en",
       "thumb": "games/ext-solitaire/thumb.webp"
-    },
-    {
-      "id": "ext-reacteroids",
-      "title": "Reacteroids",
-      "emoji": "🚀",
-      "description": "Астероиды на React: вращайтесь и расстреливайте камни. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "аркада",
-        "шутер",
-        "мост"
-      ],
-      "url": "https://chriz001.github.io/Reacteroids",
-      "author": "chriz001",
-      "license": "CC0-1.0",
-      "repo": "https://github.com/chriz001/Reacteroids",
-      "controls": "Стрелки + пробел",
-      "lang": "en",
-      "thumb": "games/ext-reacteroids/thumb.webp"
     },
     {
       "id": "ext-boc-rps",
@@ -2038,24 +1984,6 @@
       "thumb": "games/ext-spacehuggers/thumb.webp"
     },
     {
-      "id": "ext-spinhook",
-      "title": "SpinHook",
-      "emoji": "🪝",
-      "description": "Гиперказуальный крюк: цепляйтесь и крутитесь по орбите. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "аркада",
-        "казуал",
-        "мост"
-      ],
-      "url": "https://spinhook.ir/",
-      "author": "sepandhaghighi",
-      "license": "MIT",
-      "repo": "https://github.com/sepandhaghighi/spinhook",
-      "controls": "Клик/тап",
-      "lang": "en",
-      "thumb": "games/ext-spinhook/thumb.webp"
-    },
-    {
       "id": "ext-spookyball",
       "title": "SpookyBall",
       "emoji": "🎃",
@@ -2090,23 +2018,6 @@
       "controls": "Стрелки/мышь",
       "lang": "en",
       "thumb": "games/ext-boc-squaredodger/thumb.webp"
-    },
-    {
-      "id": "ext-mrdoobracing",
-      "title": "Starter Kit Racing",
-      "emoji": "🏎️",
-      "description": "Минималистичная гонка-шаблон: круги и лучшее время. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "гонки",
-        "казуал",
-        "мост"
-      ],
-      "url": "https://mrdoob.github.io/Starter-Kit-Racing/",
-      "author": "mrdoob",
-      "license": "MIT",
-      "repo": "https://github.com/mrdoob/Starter-Kit-Racing",
-      "controls": "Стрелки",
-      "lang": "en"
     },
     {
       "id": "ext-stockfish",
@@ -2465,24 +2376,6 @@
       "controls": "Печать букв",
       "lang": "en",
       "thumb": "games/ext-wordle/thumb.webp"
-    },
-    {
-      "id": "ext-xx142",
-      "title": "xx142-b2.exe",
-      "emoji": "👾",
-      "description": "Js13k-игра 2019 года в 13 килобайт. Внешняя игра — код остаётся у автора.",
-      "tags": [
-        "аркада",
-        "js13k",
-        "мост"
-      ],
-      "url": "https://bencoder.github.io/js13k-2019",
-      "author": "bencoder",
-      "license": "MIT",
-      "repo": "https://github.com/bencoder/js13k-2019",
-      "controls": "Стрелки",
-      "lang": "en",
-      "thumb": "games/ext-xx142/thumb.webp"
     }
   ]
 }
