@@ -1,48 +1,10 @@
-* {
-  box-sizing: border-box;
+:root {
+  --game: #f59e0b;
+  --game-deep: #b45309;
+  --game-ink: #451a03;
 }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: system-ui, sans-serif;
-  background: #fef3c7;
-  color: #451a03;
-  text-align: center;
-}
-
-:focus-visible {
-  outline: 2px solid #1d4ed8;
-  outline-offset: 2px;
-}
-
-.hud {
-  width: 100%;
-  padding: 0.75rem;
-  background: #f59e0b;
-}
-
-.hud h1 {
-  margin: 0;
-  font-size: 1.25rem;
-}
-
-.hud p {
-  margin: 0.25rem 0 0;
-  font-size: 0.9375rem;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.5rem;
-}
-
+/* Game-specific: board/tiles only. Shell: ../../assets/css/game-shared.css */
 .score {
   display: block;
   margin: 0;
@@ -51,92 +13,57 @@ main {
   line-height: 1;
   font-variant-numeric: tabular-nums;
 }
-
 .hit {
   min-width: 220px;
   min-height: 88px;
   padding: 1rem 2rem;
   border: 0;
   border-radius: 16px;
-  background: #f59e0b;
-  color: #451a03;
+  background: var(--game);
+  color: var(--game-ink);
   font: inherit;
   font-size: 2rem;
   font-weight: 700;
   cursor: pointer;
   /* Убирает 300мс дабл-тап-зум на мобильных — критично для игры на скорость. */
   touch-action: manipulation;
-  transition: transform 0.06s ease, background-color 0.15s ease;
+  transition: transform var(--motion-fast), background-color var(--motion-fast);
 }
-
 .hit:hover:not(:disabled) {
-  background: #d97706;
+  filter: brightness(1.1);
 }
-
 .hit:active:not(:disabled) {
   transform: scale(0.94);
 }
-
 .hit:disabled {
   background: #d6d3d1;
   color: #78716c;
   cursor: not-allowed;
 }
-
 .controls {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-
-.button {
-  padding: 0.5rem 1.5rem;
-  border: 0;
-  border-radius: 8px;
-  background: #b45309;
-  color: #fff;
-  font: inherit;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.button:hover:not(:disabled) {
-  background: #92400e;
-}
-
-.button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
 .time {
   margin: 0;
   font-variant-numeric: tabular-nums;
 }
-
 .time.urgent {
   color: #dc2626;
   font-weight: 700;
 }
-
 .result {
   min-height: 1.5rem;
   margin: 0;
   font-weight: 600;
 }
-
 .best {
   margin: 0;
-  color: #92400e;
+  color: var(--muted, #aab4e0);
   font-weight: 600;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hit {
-    transition: none;
-  }
-
-  .hit:active:not(:disabled) {
-    transform: none;
-  }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }

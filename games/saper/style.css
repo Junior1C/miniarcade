@@ -1,63 +1,23 @@
-* {
-  box-sizing: border-box;
+:root {
+  --game: #84cc16;
+  --game-deep: #4d7c0f;
+  --game-ink: #1a2e05;
 }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: system-ui, sans-serif;
-  background: #365314;
-  color: #ecfccb;
-  text-align: center;
-}
-
-:focus-visible {
-  outline: 2px solid #fbbf24;
-  outline-offset: 2px;
-}
-
-.hud {
-  width: 100%;
-  padding: 0.75rem;
-  background: #1a2e05;
-}
-
-.hud h1 {
-  margin: 0;
-  font-size: 1.25rem;
-}
-
-.hud__score {
-  margin: 0.25rem 0 0;
-  font-size: 1rem;
-  font-variant-numeric: tabular-nums;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1rem;
-}
-
+/* Game-specific: board/tiles only. Shell: ../../assets/css/game-shared.css */
 .grid {
   display: grid;
   grid-template-columns: repeat(9, minmax(28px, 36px));
   gap: 3px;
   padding: 6px;
-  border-radius: 8px;
+  border-radius: 12px;
   background: #1a2e05;
 }
-
 .cell {
   aspect-ratio: 1;
   padding: 0;
   border: 0;
-  border-radius: 4px;
+  border-radius: 8px;
   background: #65a30d;
   color: #1a2e05;
   font: inherit;
@@ -69,28 +29,22 @@ main {
   -webkit-user-select: none;
   font-variant-numeric: tabular-nums;
 }
-
 .cell:hover:not(:disabled) {
   background: #84cc16;
 }
-
 .cell.open {
   background: #ecfccb;
   cursor: default;
 }
-
 .cell.flagged {
   background: #facc15;
 }
-
 .cell.boom {
   background: #ef4444;
 }
-
 .cell:disabled {
   cursor: default;
 }
-
 .n1 { color: #1d4ed8; }
 .n2 { color: #15803d; }
 .n3 { color: #dc2626; }
@@ -99,41 +53,15 @@ main {
 .n6 { color: #0e7490; }
 .n7 { color: #111827; }
 .n8 { color: #6b7280; }
-
-.status {
-  min-height: 1.5rem;
-  margin: 0;
-  font-weight: 600;
-}
-
 .controls {
   display: flex;
   gap: 0.75rem;
 }
-
-.button {
-  padding: 0.5rem 1.25rem;
-  border: 0;
-  border-radius: 8px;
-  background: #a3e635;
-  color: #1a2e05;
-  font: inherit;
-  font-weight: 600;
-  cursor: pointer;
-  touch-action: manipulation;
-}
-
-.button:hover {
-  background: #bef264;
-}
-
 .button[aria-pressed='true'] {
-  background: #facc15;
+  background: var(--game);
+  color: var(--game-ink);
 }
 
-.hint {
-  margin: 0;
-  max-width: 320px;
-  color: #d9f99d;
-  font-size: 0.875rem;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }

@@ -22,6 +22,7 @@ function templateHtml(title) {
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
   <meta name="referrer" content="no-referrer">
   <title>${safe} — MiniArcade</title>
+  <link rel="stylesheet" href="../../assets/css/game-shared.css">
   <link rel="stylesheet" href="style.css">
   <script src="game.js" defer></script>
 </head>
@@ -40,42 +41,17 @@ function templateHtml(title) {
 `;
 }
 
-const TEMPLATE_CSS = `body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem;
-  font-family: system-ui, Arial, sans-serif;
-  background: #111827;
-  color: #f3f4f6;
-  /* Кнопки без 300мс дабл-тап-зума на мобильных. */
-  touch-action: manipulation;
+const TEMPLATE_CSS = `:root {
+  --game: #4d7cff;
+  --game-deep: #1b2368;
+  --game-ink: #ffffff;
 }
 
-/* Canvas со свайпами — touch-action: none, чтобы палец не скроллил страницу. */
+/* Game-specific: board/tiles only. Shell lives in ../../assets/css/game-shared.css. */
 canvas {
-  touch-action: none;
+  width: 320px;
+  height: 320px;
   max-width: 100%;
-  height: auto;
-}
-
-.hud {
-  display: flex;
-  gap: 1rem;
-  align-items: baseline;
-}
-
-.hud h1 {
-  margin: 0;
-  font-size: 1.25rem;
-}
-
-.hud__score {
-  margin: 0;
-  font-variant-numeric: tabular-nums;
 }
 
 .status {
@@ -85,35 +61,13 @@ canvas {
 
 .hint {
   margin: 0;
-  color: #c4c9d4;
 }
 
 button {
   font: inherit;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid #4b5563;
-  background: #1f2937;
-  color: inherit;
-  cursor: pointer;
 }
 
-/* Видимый фокус только с клавиатуры: мышь не шумит обводкой. */
-button:focus-visible {
-  outline: 2px solid #60a5fa;
-  outline-offset: 2px;
-}
-
-/* Уважение к reduced-motion: без резких анимаций по умолчанию в шаблоне нет,
-   правило-маркер — чтобы автор не забыл обернуть свои keyframes. */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-}
+/* Видимый фокус и reduced-motion — в ../shared.css. */
 `;
 
 const TEMPLATE_JS = `(() => {

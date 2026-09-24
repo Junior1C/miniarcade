@@ -1,108 +1,27 @@
-* {
-  box-sizing: border-box;
+:root {
+  --game: #0ea5e9;
+  --game-deep: #0369a1;
+  --game-ink: #082f49;
 }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: system-ui, sans-serif;
-  background: #0f172a;
-  color: #e2e8f0;
-  text-align: center;
-}
-
-:focus-visible {
-  outline: 2px solid #fbbf24;
-  outline-offset: 2px;
-}
-
-.hud {
-  width: 100%;
-  padding: 0.75rem;
-  background: #1e293b;
-}
-
-.hud h1 {
-  margin: 0;
-  font-size: 1.25rem;
-}
-
-.hud__score {
-  margin: 0.25rem 0 0;
-  font-size: 1rem;
-  font-variant-numeric: tabular-nums;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem;
-}
-
+/* Game-specific: board/tiles only. Shell: ../../assets/css/game-shared.css */
 canvas {
-  display: block;
   width: 200px;
   height: 400px;
-  max-width: 100%;
-  background: #020617;
-  border: 2px solid #38bdf8;
-  border-radius: 4px;
-  touch-action: none;
-}
-
-.status {
-  min-height: 1.5rem;
-  margin: 0;
-  color: #fca5a5;
-  font-weight: 600;
-}
-
+  max-width: 100%;}
 .pad {
   display: grid;
-  grid-template-columns: repeat(3, 64px);
-  gap: 6px;
-}
-
-.pad__btn {
-  min-height: 44px;
-  border: 0;
-  border-radius: 10px;
-  background: #1e293b;
-  color: #e2e8f0;
-  font: inherit;
-  font-size: 1.1rem;
-  cursor: pointer;
-  touch-action: manipulation;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-.pad__btn:hover {
-  background: #334155;
-}
-
-.pad__btn:active {
-  background: #0ea5e9;
-}
-
+  grid-template-columns: repeat(3, 64px);}
 .pad__btn--wide {
   grid-column: 1 / -1;
-  background: #0ea5e9;
-  color: #082f49;
+  background: var(--game);
+  color: var(--game-ink);
   font-weight: 700;
 }
-
 .pad__btn--wide:hover {
-  background: #38bdf8;
+  filter: brightness(1.1);
 }
 
-.hint {
-  margin: 0;
-  color: #94a3b8;
-  font-size: 0.875rem;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
