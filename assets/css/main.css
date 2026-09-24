@@ -414,6 +414,11 @@ body {
   list-style: none;
 }
 
+/* Guard: card min-content widens 1fr tracks on mobile — reset it. */
+.game-grid > li {
+  min-width: 0;
+}
+
 /* Ряды главной: заголовок + карусель. */
 .home-rows {
   display: flex;
@@ -1024,15 +1029,49 @@ body {
   }
 }
 
-/* Мобильные и вертикальные экраны: drawer вместо сайдбара,
-   сетка по 2 квадратные карточки, ряды уже. */
+/* Mobile: two-row topbar (exact 6.5rem), drawer, 2-col grid, compact player bar. */
 @media (max-width: 767px) {
+  :root {
+    --topbar-h: 6.5rem;
+  }
+
   .sidebar {
     display: none;
   }
 
   .only-mobile {
     display: flex;
+  }
+
+  .topbar {
+    height: auto;
+    flex-wrap: wrap;
+    row-gap: var(--space-2);
+    padding-top: var(--space-2);
+    padding-bottom: var(--space-2);
+  }
+
+  .topbar__left {
+    flex: 0 0 auto;
+  }
+
+  .topbar__right {
+    margin-left: auto;
+  }
+
+  .search {
+    flex: 1 1 100%;
+    order: 3;
+    max-width: none;
+  }
+
+  .search__input {
+    min-width: 0;
+    height: 2.5rem;
+  }
+
+  .search__select {
+    height: 2.5rem;
   }
 
   .site-main {
@@ -1058,5 +1097,26 @@ body {
 
   .row-track > li {
     flex-basis: 150px;
+  }
+
+  .player__bar {
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .player__title {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 0.875rem;
+  }
+
+  .player__bar .button {
+    flex-shrink: 0;
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.8125rem;
+    white-space: nowrap;
   }
 }
