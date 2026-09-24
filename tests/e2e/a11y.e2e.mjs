@@ -15,7 +15,7 @@ test('каталог доступен с клавиатуры и скринри�
   await expect(page).toHaveURL(/#games$/);
 
   // Поиск доступен по имени, статус — живой регион.
-  await expect(page.locator('#search')).toHaveAccessibleName(/поиск/i);
+  await expect(page.locator('#search')).toHaveAccessibleName(/найти/i);
   await expect(page.locator('#results-status')).toHaveAttribute('role', 'status');
   await expect(page.locator('#results-status')).toHaveAttribute('aria-live', 'polite');
 

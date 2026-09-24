@@ -40,10 +40,12 @@
     </div>
 
     <div class="search" role="search">
-      <label class="visually-hidden" for="search">Поиск игры</label>
-      <input id="search" class="search__input" type="search" placeholder="Поиск игры или тега…" autocomplete="off" autocorrect="off" spellcheck="false">
-      <label class="sort-label" for="sort">Сортировка:</label>
-      <select id="sort" class="search__select">
+      <label class="visually-hidden" for="search">Найти игру или тег</label>
+      <span class="search__box">
+        <svg class="search__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
+        <input id="search" class="search__input" type="search" placeholder="Игра или тег…" autocomplete="off" autocorrect="off" spellcheck="false">
+      </span>
+      <select id="sort" class="search__select" aria-label="Сортировка">
         <option value="top">По рейтингу</option>
         <option value="popular">Популярное</option>
         <option value="alpha">По алфавиту</option>

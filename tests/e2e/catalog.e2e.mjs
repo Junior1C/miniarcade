@@ -22,6 +22,18 @@ test('карточки: свои игры с WebP-превью, мосты с э
   await expect(page.locator('#games .card__thumb')).toHaveCount(0);
 });
 
+test('поиск расширяется по фокусу и показывает лупу', async ({ page }) => {
+  await page.goto('/');
+  const box = page.locator('.search');
+  await expect(page.locator('.search__icon')).toBeVisible();
+  const before = await box.evaluate((el) => el.getBoundingClientRect().width);
+  await page.locator('#search').focus();
+  await expect
+    .poll(async () => box.evaluate((el) => el.getBoundingClientRect().width), { timeout: 2000 })
+    .toBeGreaterThan(before + 50);
+  await expect(page.locator('.sort-label')).not.toBeVisible();
+});
+
 test('поиск фильтрует каталог', async ({ page }) => {
   await page.goto('/');
   // Запрос с заведомо единственным хитом (уникальное название):

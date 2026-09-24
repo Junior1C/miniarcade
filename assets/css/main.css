@@ -205,17 +205,41 @@ body {
 .search {
   display: flex;
   flex: 1;
-  flex-wrap: wrap;
   gap: var(--space-3);
   align-items: center;
-  max-width: 36rem;
+  max-width: 26rem;
   margin: 0 auto;
+  transition: max-width .25s ease;
+}
+
+/* Focus: поле растёт (контейнер + схлопывание подписи сортировки). */
+.search:focus-within {
+  max-width: 36rem;
+}
+
+.search__box {
+  position: relative;
+  display: flex;
+  flex: 1 1 10rem;
+  min-width: 0;
+}
+
+.search__icon {
+  position: absolute;
+  left: var(--space-3);
+  top: 50%;
+  width: 1rem;
+  height: 1rem;
+  color: var(--text-muted);
+  pointer-events: none;
+  transform: translateY(-50%);
 }
 
 .search__input {
   flex: 1;
-  min-width: 10rem;
-  padding: var(--space-2) var(--space-4);
+  min-width: 0;
+  width: 100%;
+  padding: var(--space-2) var(--space-4) var(--space-2) 2.5rem;
   border: 1px solid var(--line-solid);
   border-radius: 999px;
   background: var(--surface);
@@ -236,12 +260,6 @@ body {
 }
 
 /* Селект сортировки: та же пилюля, что у поиска. */
-.sort-label {
-  color: var(--text-muted);
-  font-size: 0.875rem;
-  white-space: nowrap;
-}
-
 .search__select {
   padding: var(--space-2) var(--space-3);
   border: 1px solid var(--line-solid);
@@ -407,12 +425,18 @@ body {
   flex-direction: column;
   gap: var(--space-5);
   margin-bottom: var(--space-5);
+  /* Во всю ширину: зазоров между рядом и краями нет.
+     Справа — до края окна, слева — впритык к меню/краю экрана.
+     Заголовки ниже отдельно держат текстовый отступ. */
+  margin-right: calc(-1 * var(--space-4));
+  margin-left: calc(-1 * var(--space-4));
 }
 
 .row-head {
   display: flex;
   align-items: center;
   margin: 0 0 var(--space-2);
+  padding-left: var(--space-4);
   font-size: 0.875rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -427,8 +451,8 @@ body {
   display: flex;
   gap: var(--space-3);
   margin: 0;
-  /* Воздух по бокам: увеличенная крайняя карточка не режется маской. */
-  padding: var(--space-3) var(--space-3);
+  /* No side gaps: cards run flush to the edges. */
+  padding: var(--space-3) 0;
   overflow-x: auto;
   list-style: none;
   scroll-behavior: smooth;
@@ -490,21 +514,15 @@ body {
   border-radius: 14px;
   color: inherit;
   text-decoration: none;
-  /* Перевязь моста обрезается скруглением карточки. */
+  /* Below-fold rendering gate (keeps CLS stable). */
   overflow: hidden;
-  /* Сотни карточек: пропускаем внеэкранный рендеринг.
-     contain-intrinsic-size: auto сохраняет последний размер
-     после первого paint — без скачков layout (CLS). */
   content-visibility: auto;
   contain-intrinsic-size: auto 260px;
   box-shadow: 0 8px 24px rgb(0 0 0 / 0.55), 0 0 0 1px rgb(91 141 239 / 0.12);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Угловой треугольник моста: игра не с портала, а взята у сторонних
-   разработчиков, разрешивших бесплатное использование. Сплошная заливка
-   всего угла (без текста). Декоративен: смысл дублирует текстовая
-   строка .card__meta (aria-hidden в разметке). */
+/* Bridge corner ribbon (decorative; meaning duplicated in .card__meta). */
 .card__ribbon {
   position: absolute;
   top: 0;
@@ -521,8 +539,7 @@ body {
   box-shadow: 0 0 0 2px var(--accent), 0 0 26px rgb(77 124 255 / 0.5);
 }
 
-/* Обложка 3:2 (вертикальные — 1:1) на обёртке: место до загрузки,
-   оверлей не наезжает на подвал. */
+/* Cover 3:2 (portrait 1:1) reserves space; overlay keeps clear of footer. */
 .card__cover {
   position: relative;
   aspect-ratio: 3 / 2;
@@ -547,8 +564,7 @@ body {
   background: linear-gradient(180deg, var(--card-hi) 0%, var(--card-lo) 100%);
 }
 
-/* WebP-превью: cover на всю обложку. width/height-атрибуты 440
-   в разметке страхуют CLS до загрузки CSS. */
+/* WebP preview: cover fill; width/height attrs guard CLS pre-CSS. */
 .card__thumb {
   display: block;
   width: 100%;
@@ -562,8 +578,7 @@ body {
   transform: scale(1.05);
 }
 
-/* Название под обложкой: flex-строка, имя режется с точками
-   (полное — в подсказке title), бейджи прижаты вправо вниз. */
+/* Title row: name ellipsizes (full in title attr), badges pinned right. */
 .card__title {
   display: flex;
   align-items: center;
@@ -582,9 +597,7 @@ body {
   text-overflow: ellipsis;
 }
 
-/* Значок языка игры: RU / EN / 🌐 (без текста). Рядом с названием,
-   не интерактивен — клавиатурный путь тот же поиск. */
-/* Значок языка: контурная пилюля (как в макете), без заливки. */
+/* Lang pill: outline style, non-interactive (keyboard path is search). */
 .card__lang {
   display: inline-block;
   margin-left: auto;
@@ -598,7 +611,7 @@ body {
   vertical-align: middle;
 }
 
-/* Бейдж ИИ: залитый фиолет, без свечения. */
+/* AI badge: solid violet, no glow. */
 .card__ai {
   display: inline-block;
   margin-left: auto;
@@ -615,9 +628,7 @@ body {
   margin-left: var(--space-2);
 }
 
-/* Теги игры: видны на карточке, клик (мышь/тач) подставляет тег в поиск.
-   Не кнопки, а спаны: карточка уже ссылка, вложенные интерактивы нельзя;
-   клавиатурный путь — ввод тега в поиск вручную. */
+/* Tags: spans (card is already a link); click sets search via delegation. */
 .card__tags {
   display: flex;
   flex-wrap: wrap;
@@ -641,9 +652,7 @@ body {
   color: var(--text);
 }
 
-/* Описание/теги/CTA живут в DOM (скринридер, e2e), визуально скрыты:
-   обложка показывает название, бейджи и статистику.
-   Теги по-прежнему работают через поиск с клавиатуры. */
+/* Desc/tags/CTA stay in DOM (SR, e2e), visually clipped. */
 .card__desc,
 .card__tags,
 .card__cta {
@@ -658,8 +667,7 @@ body {
   border: 0;
 }
 
-/* Атрибуция моста (автор • лицензия): видимая вторая строка подвала —
-   честность перед авторами в новом дизайне тоже видна, не только в SR. */
+/* Bridge attribution: visible author/license line under the cover. */
 .card__meta {
   margin: 0;
   padding: 0 var(--space-3) var(--space-3);
@@ -1005,6 +1013,11 @@ body {
     transition: none;
   }
 
+  .search,
+  .search__select {
+    transition: none;
+  }
+
   .player__loading-fill {
     animation: none;
     width: 100%;
@@ -1030,10 +1043,6 @@ body {
     min-width: 0;
   }
 
-  .search__input {
-    min-width: 0;
-  }
-
   .search__select {
     flex-shrink: 0;
     max-width: 9rem;
@@ -1041,6 +1050,17 @@ body {
     font-size: 0.8125rem;
     overflow: hidden;
     text-overflow: ellipsis;
+    transition: width .25s ease, max-width .25s ease, padding .25s ease, border-radius .25s ease;
+  }
+
+  /* Фокус в поле ввода: селект схлопывается в кружок, место отдаёт поиску. */
+  .search:has(.search__input:focus) .search__select {
+    width: 2.5rem;
+    max-width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    font-size: 0;
+    border-radius: 50%;
   }
 
   .site-main {
@@ -1048,10 +1068,6 @@ body {
   }
 
   .brand__name {
-    display: none;
-  }
-
-  .sort-label {
     display: none;
   }
 
