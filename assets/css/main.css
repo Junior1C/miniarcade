@@ -1,13 +1,13 @@
 :root {
   color-scheme: dark;
-  --bg: #04060d;
-  --bg-header: #04060d;
-  --surface: #0a0f1e;
-  --surface-hover: #111a33;
-  --text: #e8edff;
-  --text-muted: #8b98b8;
-  --accent: #5b8def;
-  --accent-hover: #3f74d6;
+  --bg: #0c1132;
+  --bg-header: #0c1132;
+  --surface: #1b2368;
+  --surface-hover: #242c7d;
+  --text: #f2f4ff;
+  --text-muted: #aab4e0;
+  --accent: #4d7cff;
+  --accent-hover: #3b6bf0;
   --violet: #a78bfa;
   --violet-deep: #8b5cf6;
   --danger: #ef4444;
@@ -42,11 +42,12 @@ body {
   overflow-x: hidden;
 }
 
-/* Фон: приглушённые синие переливы + фиолетовая дымка. */
+/* Фон: глубокий королевский синий с переливами, статикой. */
 body {
   background:
-    radial-gradient(70rem 34rem at 80% -10%, rgb(91 141 239 / 0.12), transparent 62%),
-    radial-gradient(55rem 30rem at 8% 108%, rgb(139 92 246 / 0.1), transparent 60%),
+    radial-gradient(70rem 34rem at 80% -10%, rgb(64 86 200 / 0.4), transparent 62%),
+    radial-gradient(55rem 30rem at 8% 108%, rgb(40 56 160 / 0.35), transparent 60%),
+    linear-gradient(160deg, #141b52 0%, #0c1132 55%, #0a0e2c 100%),
     var(--bg);
 }
 
@@ -133,9 +134,9 @@ body {
   align-items: center;
   gap: var(--space-4);
   padding: 0 var(--space-4);
-  background: rgb(4 6 13 / 0.92);
+  background: rgb(13 19 50 / 0.94);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgb(91 141 239 / 0.18);
+  border-bottom: 1px solid rgb(93 120 255 / 0.22);
 }
 
 .topbar__left {
@@ -222,9 +223,9 @@ body {
   flex: 1;
   min-width: 10rem;
   padding: var(--space-2) var(--space-4);
-  border: 1px solid #1e2a4a;
+  border: 1px solid #2e3a8f;
   border-radius: 999px;
-  background: #0a0f1e;
+  background: #1a2170;
   color: var(--text);
   font: inherit;
   font-size: 0.875rem;
@@ -237,8 +238,8 @@ body {
 .search__input:focus {
   outline: none;
   border-color: var(--accent);
-  background: #0a0f1e;
-  box-shadow: 0 0 0 3px rgb(91 141 239 / 0.25);
+  background: #1a2170;
+  box-shadow: 0 0 0 3px rgb(77 124 255 / 0.3);
 }
 
 /* Селект сортировки: та же пилюля, что у поиска. */
@@ -250,9 +251,9 @@ body {
 
 .search__select {
   padding: var(--space-2) var(--space-3);
-  border: 1px solid #1e2a4a;
+  border: 1px solid #2e3a8f;
   border-radius: 999px;
-  background: #0a0f1e;
+  background: #1a2170;
   color: var(--text);
   font: inherit;
   font-size: 0.875rem;
@@ -307,7 +308,7 @@ body {
   z-index: 30;
   overflow: hidden;
   background: var(--bg);
-  border-right: 1px solid rgb(91 141 239 / 0.15);
+  border-right: 1px solid rgb(93 120 255 / 0.2);
   transition: width 0.25s ease;
 }
 
@@ -351,9 +352,9 @@ body {
 }
 
 .genre-button[aria-current="true"] {
-  color: #a78bfa;
+  color: #fff;
   font-weight: 700;
-  background: rgb(91 141 239 / 0.16);
+  background: rgb(77 124 255 / 0.25);
   border-left-color: var(--accent);
 }
 
@@ -372,7 +373,7 @@ body {
   z-index: 35;
   overflow-y: auto;
   padding: var(--space-4);
-  background: rgb(4 6 13 / 0.97);
+  background: rgb(13 19 50 / 0.97);
 }
 
 .results-status {
@@ -476,8 +477,8 @@ body {
   position: relative;
   display: block;
   height: 100%;
-  background: var(--surface);
-  border-radius: var(--radius);
+  background: linear-gradient(180deg, #232b7d 0%, #161c55 100%);
+  border-radius: 14px;
   color: inherit;
   text-decoration: none;
   /* Перевязь моста обрезается скруглением карточки. */
@@ -508,7 +509,7 @@ body {
 
 .card:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 0 2px var(--accent), 0 0 26px rgb(91 141 239 / 0.45);
+  box-shadow: 0 0 0 2px var(--accent), 0 0 26px rgb(77 124 255 / 0.5);
 }
 
 /* Обложка 3:2 (вертикальные — 1:1) на обёртке: место до загрузки,
@@ -534,7 +535,7 @@ body {
   height: 100%;
   font-size: 3.5rem;
   line-height: 1;
-  background: linear-gradient(135deg, #0d1530, #060a18);
+  background: linear-gradient(135deg, #2a3488, #141b52);
 }
 
 /* WebP-превью: cover на всю обложку. width/height-атрибуты 440
@@ -574,13 +575,15 @@ body {
 
 /* Значок языка игры: RU / EN / 🌐 (без текста). Рядом с названием,
    не интерактивен — клавиатурный путь тот же поиск. */
+/* Значок языка: контурная пилюля (как в макете), без заливки. */
 .card__lang {
   display: inline-block;
   margin-left: auto;
   padding: 0 var(--space-2);
+  border: 1px solid rgb(255 255 255 / 0.45);
   border-radius: 999px;
-  background: #134e4a;
-  color: #ccfbf1;
+  background: transparent;
+  color: #e8edff;
   font-size: 0.75rem;
   font-weight: 700;
   vertical-align: middle;
@@ -651,10 +654,9 @@ body {
    честность перед авторами в новом дизайне тоже видна, не только в SR. */
 .card__meta {
   margin: 0;
-  padding: 0 var(--space-3) var(--space-2);
+  padding: 0 var(--space-3) var(--space-3);
   font-size: 0.75rem;
-  color: var(--text-muted);
-  background: #070b16;
+  color: #c3cdf2;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -665,8 +667,7 @@ body {
   margin: 0;
   padding: var(--space-2) var(--space-3);
   font-size: 0.75rem;
-  color: var(--text-muted);
-  background: #070b16;
+  color: #c3cdf2;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
   overflow: hidden;
@@ -705,97 +706,16 @@ body {
   max-width: none;
   max-height: none;
   padding: 0;
-  border: 1px solid rgb(91 141 239 / 0.22);
+  border: 1px solid rgb(93 120 255 / 0.3);
   border-radius: 16px;
-  background: #05070d;
+  background: #0d1330;
   color: var(--text);
   overflow: hidden;
   box-shadow: 0 24px 64px rgb(0 0 0 / 0.6);
 }
 
 .player::backdrop {
-  background: rgb(2 4 10 / 0.8);
-}
-
-/* Панель оформления: диалог, строки палитры, экспорт. */
-.settings {
-  width: min(420px, 92vw);
-  padding: var(--space-4);
-  border: 1px solid rgb(91 141 239 / 0.25);
-  border-radius: 16px;
-  background: var(--surface);
-  color: var(--text);
-}
-
-.settings::backdrop {
-  background: rgb(2 4 10 / 0.7);
-}
-
-.settings__title {
-  margin: 0 0 var(--space-2);
-  font-size: 1.125rem;
-}
-
-.settings__hint {
-  margin: 0 0 var(--space-3);
-  font-size: 0.8125rem;
-  color: var(--text-muted);
-}
-
-.theme-row {
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-1) 0;
-}
-
-.theme-row__label {
-  font-size: 0.875rem;
-}
-
-.theme-row__picker {
-  width: 2.5rem;
-  height: 2rem;
-  padding: 0;
-  border: 1px solid rgb(91 141 239 / 0.3);
-  border-radius: 8px;
-  background: transparent;
-  cursor: pointer;
-}
-
-.theme-row__hex {
-  width: 5.5rem;
-  padding: var(--space-1) var(--space-2);
-  border: 1px solid rgb(91 141 239 / 0.3);
-  border-radius: 8px;
-  background: var(--bg);
-  color: var(--text);
-  font: inherit;
-  font-size: 0.8125rem;
-}
-
-.theme-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-top: var(--space-3);
-}
-
-.settings__export {
-  width: 100%;
-  margin-top: var(--space-3);
-  padding: var(--space-2);
-  border: 1px solid rgb(91 141 239 / 0.3);
-  border-radius: 8px;
-  background: var(--bg);
-  color: var(--text);
-  font: inherit;
-  font-size: 0.75rem;
-}
-
-.settings__export[hidden] {
-  display: none;
+  background: rgb(5 8 25 / 0.82);
 }
 
 /* Разворот на весь экран: диалог вписывается в окно (100dvw/dvh),
@@ -815,7 +735,8 @@ body {
   justify-content: space-between;
   gap: var(--space-3);
   padding: var(--space-3) var(--space-4);
-  background: #0a0f1e;
+  background: #131a4d;
+  border-bottom: 1px solid rgb(93 120 255 / 0.25);
 }
 
 .player__title {
@@ -855,7 +776,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: var(--space-3);
-  background: #000;
+  background: #0d1330;
   color: var(--text-muted);
   font-size: 0.9375rem;
   z-index: 2;
@@ -910,6 +831,7 @@ body {
   min-width: 140px;
   padding: var(--space-4);
   background: var(--surface);
+  border: 1px solid rgb(93 120 255 / 0.2);
   border-radius: var(--radius);
 }
 
@@ -974,7 +896,7 @@ body {
   display: block;
   height: 10px;
   border-radius: 999px;
-  background: var(--surface);
+  background: #10164e;
   overflow: hidden;
 }
 

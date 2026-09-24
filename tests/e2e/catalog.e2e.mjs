@@ -86,32 +86,6 @@ test('кнопка разворота вписывает игру в окно и
   await expect(expand).toHaveAttribute('aria-pressed', 'false');
 });
 
-test('панель оформления: палитра, сохранение, сброс', async ({ page }) => {
-  await page.goto('/');
-  await page.locator('#settings-open').click();
-  const dialog = page.locator('#settings');
-  await expect(dialog).toBeVisible();
-  await expect(dialog.locator('.theme-row')).toHaveCount(8);
-  // Меняем фон, перезагружаем — цвет запомнился (blur фиксирует hex).
-  await dialog.locator('.theme-row__hex').first().fill('#112233');
-  await page.keyboard.press('Tab');
-  await expect
-    .poll(() => page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--bg').trim()))
-    .toBe('#112233');
-  await page.reload();
-  await expect
-    .poll(() => page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--bg').trim()))
-    .toBe('#112233');
-  // Сброс возвращает стиль проекта.
-  await page.locator('#settings-open').click();
-  const reset = dialog.locator('.theme-actions .button--secondary').nth(1);
-  await expect(reset).toHaveText('Сбросить');
-  await reset.click();
-  await expect
-    .poll(() => page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--bg').trim()))
-    .not.toBe('#112233');
-});
-
 test('структурированные данные каталога валидны', async ({ page }) => {
   await page.goto('/');
   const ldText = await page.locator('script[type="application/ld+json"]').textContent();
