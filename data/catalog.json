@@ -1336,7 +1336,8 @@
       "license": "MIT",
       "repo": "https://github.com/victorqribeiro/isocity",
       "controls": "Мышь",
-      "lang": "en"
+      "lang": "en",
+      "thumb": "games/ext-isocity/thumb.webp"
     },
     {
       "id": "ext-patorjksnake",

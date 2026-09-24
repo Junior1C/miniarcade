@@ -37,9 +37,6 @@ const NOTHUMB_BRIDGES = new Set([
   'ext-duckhunt', // Чёрный пустой кадр (нужен клик для старта).
   'ext-masonicpacman', // Чёрный пустой кадр.
   'ext-emoji-mines', // Белый лист, игра ниже фолда.
-  // ext-isocity: headless даёт белый пустой кадр (WebGL без GPU),
-  // белый квадрат хуже честного эмодзи — перепроверить вручную.
-  'ext-isocity',
 ]);
 
 function run(cmd, args) {
