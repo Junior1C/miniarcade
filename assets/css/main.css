@@ -251,12 +251,19 @@ body {
 
 .search__select {
   padding: var(--space-2) var(--space-3);
-  border: 1px solid #2e3a8f;
+  border: 1px solid rgb(93 120 255 / 0.35);
   border-radius: 999px;
-  background: #1a2170;
+  background: #232b7d;
   color: var(--text);
   font: inherit;
   font-size: 0.875rem;
+  cursor: pointer;
+}
+
+/* Нативный выпадающий список: без системного серого, в гамме темы. */
+.search__select option {
+  background-color: #141b52;
+  color: #f2f4ff;
 }
 
 .site-main {
@@ -417,9 +424,8 @@ body {
   display: flex;
   gap: var(--space-3);
   margin: 0;
-  /* Вертикальный запас под hover-scale карточек: overflow-x уже режет
-     обрезку сверху/снизу, паддинги возвращают воздух (маска исчезает). */
-  padding: var(--space-3) var(--space-1);
+  /* Воздух по бокам: увеличенная крайняя карточка не режется маской. */
+  padding: var(--space-3) var(--space-3);
   overflow-x: auto;
   list-style: none;
   scroll-behavior: smooth;
@@ -589,7 +595,7 @@ body {
   vertical-align: middle;
 }
 
-/* Бейдж ИИ: светлый фиолет с неоновой тенью. */
+/* Бейдж ИИ: залитый фиолет, без свечения. */
 .card__ai {
   display: inline-block;
   margin-left: auto;
@@ -600,7 +606,6 @@ body {
   font-size: 0.75rem;
   font-weight: 700;
   vertical-align: middle;
-  box-shadow: 0 0 10px rgb(139 92 246 / 0.55);
 }
 
 .card__lang + .card__ai {
