@@ -246,6 +246,33 @@ npm run qa:bridges  # живой обход 124 мостов (сеть; в CI �
 
 **GitHub — источник истины**: репозиторий + GitHub Pages (основной дистрибутив). Остальные хостинги — зеркала: тот же push синхронизирует их git-интеграциями. CI на каждый push: build + unit-тесты (Actions), e2e (Playwright); ежедневный cron — smoke-проверка живых сайтов (`scripts/smoke.mjs`: 200, маркеры контента, CSP).
 
+### Диагностика Cloudflare (2026-09-24, факты)
+
+Зеркало `miniarcade.pages.dev` отдаёт все заголовки из `_headers`, **кроме
+`Content-Security-Policy`**, добавляет чужой `Access-Control-Allow-Origin: *`
+и отвечает SPA-index (`200 text/html`) на неизвестных путях — включая
+`/functions/*`. При этом `/api/hit` исполняет код приёмника, а CSP в
+`_headers` — всего ~2 КБ (теория «лимита длины» не проходит). Вывод: раздаёт
+не stock-Pages, а Workers-стиль. Чек-лист в dashboard перед лечением:
+тип проекта (Pages или Worker), коммит последнего деплоя = `main` HEAD?,
+лог обработки `_headers`, Response Header Transforms, к чему привязан
+домен `pages.dev`. Контентная защита до лечения держится на `<meta>` CSP.
+
+### Worker-зеркало (ручная активация, никакого авто cutover)
+
+`worker.mjs` — та же раздача, но заголовки ставятся программно из единого
+источника (`prodSecurityHeaders()`): полный CSP с `frame-src` мостов и
+рабочий `frame-ancestors 'self'`; `/api/hit` — тем же `stats/hit.mjs`;
+исходники/тулинг (`/functions/`, `/scripts/`, `/stats/*.mjs`, `meta.json`)
+отдают 404; неизвестные пути — 404, а не index. Покрыт `tests/worker.test.mjs`.
+
+1. Actions → `Deploy Worker (manual)` → `Run workflow` — воркер поднимется
+   на `miniarcade.<subdomain>.workers.dev`, `pages.dev` не тронется;
+2. прогнать smoke против workers.dev-адреса (CSP-заголовок обязан быть);
+3. в dashboard привязать D1 как `STATS_DB` (Worker → Settings → Bindings) —
+   без неё `/api/hit` отвечает 503, сайт работает;
+4. переключить роут на воркер в dashboard; откат — удалить роут.
+
 ## Аналитика
 
 Сквозной учёт визитов и игр со всех зеркал: каталог шлёт beacon на

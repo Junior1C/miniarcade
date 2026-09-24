@@ -1,11 +1,20 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "miniarcade",
+  // Ручная активация Worker-зеркала (см. README): без деплоя воркера
+  // это поле инертно — `wrangler d1 execute` (stats.yml) его игнорирует.
+  // После первого `wrangler deploy` воркер живёт на
+  // miniarcade.<subdomain>.workers.dev и НЕ трогает pages.dev,
+  // пока роут не переключен в dashboard. D1-привязку STATS_DB
+  // добавить там же в dashboard (Settings → Bindings) — без неё
+  // /api/hit отвечает 503, сайт при этом работает.
+  "main": "worker.mjs",
   "compatibility_date": "2026-09-21",
   "observability": {
     "enabled": true
   },
   "assets": {
-    "directory": "."
+    "directory": ".",
+    "binding": "ASSETS"
   }
 }
