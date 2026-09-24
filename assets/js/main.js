@@ -4,7 +4,7 @@ import { pluralizeRu } from './format.js';
 import { createPlayer } from './player.js';
 import { renderWithTransition } from './view-transition.js';
 import { sendStats, statsEnabled } from './stats.js';
-import { SORT_LABELS, buildGameStats, cardStatsLine, sortGames, validSortMode } from './sort.js';
+import { SORT_LABELS, SORT_MODES, buildGameStats, cardStatsLine, sortGames, validSortMode } from './sort.js';
 
 const PAGE_SIZE = 24;
 const HASH_PREFIX = '#/play/';
@@ -19,7 +19,9 @@ const elements = {
   loadMoreWrap: document.getElementById('load-more-wrap'),
   loadMore: document.getElementById('load-more'),
   search: document.getElementById('search'),
-  sort: document.getElementById('sort'),
+  sortButton: document.getElementById('sort-button'),
+  sortCurrent: document.getElementById('sort-current'),
+  sortList: document.getElementById('sort-list'),
   dialog: document.getElementById('player'),
   frame: document.getElementById('player-frame'),
   title: document.getElementById('player-name'),
@@ -482,17 +484,99 @@ function toggleDrawer() {
   else closeDrawer();
 }
 
+// Кастомный dropdown сортировки: нативный select убран — его попап
+// красит ОС (серый), а не сайт. Кнопка + listbox, клавиатура полная.
+function initSortDropdown() {
+  const { sortButton, sortCurrent, sortList } = elements;
+  if (!sortButton || !sortList) return;
+  for (const mode of SORT_MODES) {
+    const item = document.createElement('li');
+    item.setAttribute('role', 'presentation');
+    const option = document.createElement('button');
+    option.className = 'sort-option';
+    option.type = 'button';
+    option.dataset.sort = mode;
+    option.setAttribute('role', 'option');
+    option.textContent = SORT_LABELS[mode];
+    option.addEventListener('click', () => applySort(mode));
+    item.append(option);
+    sortList.append(item);
+  }
+  syncSortDropdown();
+  sortButton.addEventListener('click', () => toggleSortDropdown());
+  sortButton.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowDown' || event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      openSortDropdown();
+    }
+  });
+  sortList.addEventListener('keydown', (event) => {
+    const options = [...sortList.querySelectorAll('.sort-option')];
+    const at = options.indexOf(document.activeElement);
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closeSortDropdown();
+      sortButton.focus();
+    } else if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      (options[at + 1] || options[0]).focus();
+    } else if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      (options[at - 1] || options[options.length - 1]).focus();
+    } else if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      if (at >= 0) applySort(options[at].dataset.sort);
+    }
+  });
+  document.addEventListener('click', (event) => {
+    if (!sortList.hidden && !event.target.closest('.sort-wrap')) closeSortDropdown();
+  });
+}
+
+function syncSortDropdown() {
+  const { sortButton, sortCurrent, sortList } = elements;
+  if (!sortButton || !sortList) return;
+  if (sortCurrent) sortCurrent.textContent = SORT_LABELS[state.sort];
+  for (const option of sortList.querySelectorAll('.sort-option')) {
+    option.setAttribute('aria-selected', String(option.dataset.sort === state.sort));
+  }
+}
+
+function openSortDropdown() {
+  const { sortButton, sortList } = elements;
+  if (!sortButton || !sortList || !sortList.hidden) return;
+  sortList.hidden = false;
+  sortButton.setAttribute('aria-expanded', 'true');
+  const current = sortList.querySelector(`.sort-option[data-sort="${state.sort}"]`);
+  (current || sortList.querySelector('.sort-option')).focus();
+}
+
+function closeSortDropdown() {
+  const { sortButton, sortList } = elements;
+  if (!sortButton || !sortList || sortList.hidden) return;
+  sortList.hidden = true;
+  sortButton.setAttribute('aria-expanded', 'false');
+}
+
+function toggleSortDropdown() {
+  if (elements.sortList.hidden) openSortDropdown();
+  else closeSortDropdown();
+}
+
+function applySort(mode) {
+  state.sort = validSortMode(mode);
+  saveSortMode(state.sort);
+  state.shown = PAGE_SIZE;
+  // Смена сортировки — всегда сетка (ряды зафиксированы).
+  state.gridLock = true;
+  syncSortDropdown();
+  closeSortDropdown();
+  render();
+}
+
 async function init() {
   state.statsOn = statsEnabled();
-  elements.sort.value = state.sort;
-  elements.sort.addEventListener('change', () => {
-    state.sort = validSortMode(elements.sort.value);
-    saveSortMode(state.sort);
-    state.shown = PAGE_SIZE;
-    // Смена сортировки — всегда сетка (ряды зафиксированы).
-    state.gridLock = true;
-    render();
-  });
+  initSortDropdown();
   elements.menuToggle.addEventListener('click', toggleDrawer);
   elements.homeLogo.addEventListener('click', () => {
     elements.search.value = '';

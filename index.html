@@ -42,14 +42,14 @@
     <div class="search" role="search">
       <label class="visually-hidden" for="search">Поиск игры</label>
       <input id="search" class="search__input" type="search" placeholder="Поиск игры или тега…" autocomplete="off" autocorrect="off" spellcheck="false">
-      <label class="sort-label" for="sort">Сортировка:</label>
-      <select id="sort" class="search__select">
-        <option value="top">По рейтингу</option>
-        <option value="popular">Популярное</option>
-        <option value="alpha">По алфавиту</option>
-        <option value="new">Новые</option>
-        <option value="created">По дате создания</option>
-      </select>
+      <label class="sort-label" id="sort-label">Сортировка:</label>
+      <div class="sort-wrap">
+        <button id="sort-button" class="sort-button" type="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="sort-label sort-button">
+          <span id="sort-current">По рейтингу</span>
+          <span aria-hidden="true">▾</span>
+        </button>
+        <ul id="sort-list" class="sort-list" role="listbox" aria-labelledby="sort-label" hidden></ul>
+      </div>
     </div>
 
     <nav class="topbar__right" aria-label="Разделы сайта">

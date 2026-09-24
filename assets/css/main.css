@@ -249,8 +249,17 @@ body {
   white-space: nowrap;
 }
 
-.search__select {
-  padding: var(--space-2) var(--space-3);
+/* Кастомный dropdown сортировки: плоские заливки в гамме сайта,
+   нативный select убран — его попап красит ОС в серый. */
+.sort-wrap {
+  position: relative;
+}
+
+.sort-button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
   border: 1px solid rgb(93 120 255 / 0.35);
   border-radius: 999px;
   background: #232b7d;
@@ -258,22 +267,55 @@ body {
   font: inherit;
   font-size: 0.875rem;
   cursor: pointer;
+  white-space: nowrap;
 }
 
-/* Нативный выпадающий список: без системного серого, в гамме темы. */
-.search__select option {
-  background-color: #141b52;
+.sort-button:hover {
+  background: #2c3586;
+}
+
+.sort-list {
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  right: 0;
+  z-index: 50;
+  min-width: 100%;
+  margin: 0;
+  padding: var(--space-2);
+  list-style: none;
+  border: 1px solid rgb(93 120 255 / 0.35);
+  border-radius: var(--radius);
+  background: #141b52;
+  box-shadow: 0 16px 40px rgb(0 0 0 / 0.5);
+}
+
+.sort-list[hidden] {
+  display: none;
+}
+
+.sort-option {
+  display: block;
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
   color: #f2f4ff;
+  font: inherit;
+  font-size: 0.875rem;
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
 }
 
-.search__select option:hover {
-  background-color: #7fb3ff;
-  color: #0c1132;
+.sort-option:hover {
+  background: #2c3586;
 }
 
-.search__select option:checked {
-  background-color: #7fb3ff;
-  color: #0c1132;
+.sort-option[aria-selected="true"] {
+  background: var(--violet-deep);
+  color: #fff;
+  font-weight: 700;
 }
 
 .site-main {
