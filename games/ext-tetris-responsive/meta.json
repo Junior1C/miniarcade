@@ -1,0 +1,16 @@
+{
+  "id": "ext-tetris-responsive",
+  "title": "Тетрис (адаптивный)",
+  "emoji": "🧱",
+  "description": "Отзывчивый тетрис: свайпы, уровни, счёт.",
+  "tags": [
+    "аркада",
+    "тетрис"
+  ],
+  "controls": "Стрелки / свайпы",
+  "url": "https://musthofa-kamaluddin.github.io/Tetris/",
+  "author": "musthofa-kamaluddin",
+  "license": "MIT",
+  "repo": "https://github.com/musthofa-kamaluddin/Tetris",
+  "lang": "en"
+}

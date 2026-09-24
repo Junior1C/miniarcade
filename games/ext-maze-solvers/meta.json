@@ -1,0 +1,17 @@
+{
+  "id": "ext-maze-solvers",
+  "title": "Решатели лабиринтов",
+  "emoji": "🌀",
+  "description": "BFS, Dijkstra, A* и генераторы лабиринтов.",
+  "tags": [
+    "ии",
+    "лабиринт",
+    "обучение"
+  ],
+  "controls": "Мышь",
+  "url": "https://angeluriot.com/maze_solver",
+  "author": "angeluriot",
+  "license": "MIT",
+  "repo": "https://github.com/angeluriot/Maze_solver",
+  "lang": "en"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "ext-pool-8ball",
+  "title": "Бильярд 8",
+  "emoji": "🎱",
+  "description": "Бильярд против ИИ с уровнями сложности.",
+  "tags": [
+    "бильярд",
+    "спорт",
+    "ии"
+  ],
+  "controls": "Мышь / касание",
+  "url": "https://henshmi.github.io/Classic-Pool-Game/",
+  "author": "henshmi",
+  "license": "MIT",
+  "repo": "https://github.com/henshmi/Classic-Pool-Game",
+  "lang": "en"
+}

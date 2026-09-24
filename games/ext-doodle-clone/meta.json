@@ -1,0 +1,16 @@
+{
+  "id": "ext-doodle-clone",
+  "title": "Прыгун Дудл",
+  "emoji": "🟢",
+  "description": "Doodle-Jump клон: хрупкие платформы, тач и клавиатура.",
+  "tags": [
+    "раннер",
+    "платформер"
+  ],
+  "controls": "Стрелки / касание",
+  "url": "https://takosenpai2687.github.io/doodle-jump/",
+  "author": "takosenpai2687",
+  "license": "MIT",
+  "repo": "https://github.com/takosenpai2687/doodle-jump",
+  "lang": "en"
+}

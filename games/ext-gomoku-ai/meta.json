@@ -1,0 +1,17 @@
+{
+  "id": "ext-gomoku-ai",
+  "title": "Гомоку с ИИ",
+  "emoji": "⚫",
+  "description": "Пять в ряд против друга или ИИ трёх уровней.",
+  "tags": [
+    "гомоку",
+    "настольные",
+    "ии"
+  ],
+  "controls": "Мышь / касание",
+  "url": "https://nvios.github.io/gomoku/",
+  "author": "nvios",
+  "license": "MIT",
+  "repo": "https://github.com/nvios/gomoku",
+  "lang": "en"
+}

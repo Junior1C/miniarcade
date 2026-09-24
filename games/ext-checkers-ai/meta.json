@@ -1,0 +1,17 @@
+{
+  "id": "ext-checkers-ai",
+  "title": "Шашки с ИИ",
+  "emoji": "🏁",
+  "description": "Шашки против ИИ на чистом JS.",
+  "tags": [
+    "шашки",
+    "настольные",
+    "ии"
+  ],
+  "controls": "Мышь",
+  "url": "https://kschuetz.github.io/checkers/",
+  "author": "kschuetz",
+  "license": "Apache-2.0",
+  "repo": "https://github.com/kschuetz/checkers",
+  "lang": "en"
+}

@@ -41,6 +41,7 @@ const NOTHUMB_BRIDGES = new Set([
   'ext-duckhunt', // Чёрный пустой кадр (нужен клик для старта).
   'ext-masonicpacman', // Чёрный пустой кадр.
   'ext-emoji-mines', // Белый лист, игра ниже фолда.
+  'ext-netwalk', // Кадр выходит экраном «Loading...» (p5 с CDN не успевает за скриншот) — честнее эмодзи.
 ]);
 
 function run(cmd, args) {

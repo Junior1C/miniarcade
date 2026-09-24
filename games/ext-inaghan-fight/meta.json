@@ -1,0 +1,16 @@
+{
+  "id": "ext-inaghan-fight",
+  "title": "Инаган: бой",
+  "emoji": "🥊",
+  "description": "Спрайтовый файтинг с таймером 60 секунд.",
+  "tags": [
+    "файтинг",
+    "двое"
+  ],
+  "controls": "Клавиатура, двое",
+  "url": "https://marouanbouderz.github.io/Inaghan_2d/",
+  "author": "marouanbouderz",
+  "license": "MIT",
+  "repo": "https://github.com/marouanbouderz/Inaghan_2d",
+  "lang": "neutral"
+}

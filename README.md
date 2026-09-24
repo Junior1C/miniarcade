@@ -118,9 +118,9 @@ npm run og       # перегенерировать assets/og.png (если ме
 | `assets/css/main.css` | 20 КБ | один CSS на каталог |
 | `index.html` | 35 КБ | оболочка + JSON-LD и frame-src всех игр (на LCP не влияет) |
 | `stats.html` | 35 КБ | витрина статистики: та же CSP meta, без JSON-LD |
-| `games/*/thumb.webp` | 25 КБ/файл, 1.2 МБ суммарно (WARN 800 КБ) | WebP-превью карточек; q60 для новых (см. `gen-thumbs.mjs`); пустые кадры — эмодзи |
+| `games/*/thumb.webp` | 25 КБ/файл, 1.6 МБ суммарно (WARN 1.3 МБ) | WebP-превью карточек; q60 для новых (см. `gen-thumbs.mjs`); пустые кадры — эмодзи |
 | `assets/og.png` | 100 КБ | превью ссылок |
-| мосты (`games/ext-*/meta.json` с `url`) | WARN > 150 | каждый мост растит `frame-src` и `index.html` линейно — чистить мёртвые, строгий отчёт — артефакт `qa-bridges.yml` |
+| мосты (`games/ext-*/meta.json` с `url`) | WARN > 200 | каждый мост растит `frame-src` и `index.html` линейно — чистить мёртвые, строгий отчёт — артефакт `qa-bridges.yml` |
 
 E2E-дым (`tests/e2e/perf.e2e.mjs`): главная с карточками <8с на CI-раннере,
 `fetch catalog.json` <2с, ноль ошибок консоли. Жёсткие миллисекунды не фиксируем —
@@ -199,6 +199,9 @@ Cloudflare/Vercel — зеркала из того же коммита), а са
 отмечена угловой ленточкой-перевязью сбоку без текста (декоративна,
 `aria-hidden`; смысл дублирует текстовая строка) плюс бейдж `↗ GitHub`,
 автор и лицензия; в плеере — ссылка «исходник ↗» на репозиторий, если он указан.
+Игры с искусственным интеллектом (соперник-ИИ, нейроэволюция, солверы —
+тег `ии` в `meta.json`) дополнительно несут пилюлю `🤖 ИИ` рядом с названием
+(`.card__ai` в `main.js`/`main.css`) и ищутся по запросу «ии».
 
 Политика отбора: только встраиваемые игры (без `X-Frame-Options` /
 `frame-ancestors`-запрета) из GitHub-репозиториев со свободной лицензией —
@@ -217,7 +220,7 @@ Chess.com, TETR.IO), и проприетарные free-to-play без репо�
   единый источник для CSP (`_headers`, `vercel.json`, `<meta>` в `index.html`)
   и для валидации `build.mjs`; тесты валят оба перекоса (мост без origin,
   origin без моста). Заголовки в `_headers`/`vercel.json` руками не правим —
-  разносит `node scripts/sync-headers.mjs`; лимит — WARN >150 мостов
+  разносит `node scripts/sync-headers.mjs`; лимит — WARN >200 мостов
   (`npm run budgets`): каждый мост растит `frame-src` линейно;
 - конечный URL (после всех редиректов, включая JS) обязан разрешать встраивание
   с нашего origin: проверяем iframe-тестом, а не только HTTP-заголовками.
@@ -244,8 +247,16 @@ Chess.com, TETR.IO), и проприетарные free-to-play без репо�
 ```bash
 npm run qa          # все локальные боты (входит в npm run check, pre-push и CI)
 npm run qa:fix      # безопасный автофикс: только висячие пробелы
-npm run qa:bridges  # живой обход 124 мостов (сеть; в CI — еженедельный cron qa-bridges.yml, report-only + strict-артефакт)
+npm run qa:bridges  # живой обход всех мостов (сеть; в CI — еженедельный cron qa-bridges.yml, report-only + strict-артефакт)
 npm run qa:bridges:strict  # ручной строгий прогон: FAIL при мёртвых/закрытых мостах
+```
+
+Проверка новых мостов перед добавлением (все три ступени обязательны):
+
+```bash
+node scripts/verify-candidates.mjs candidates.json     # HTTP + фрейминг + заглушки
+node scripts/check-licenses.mjs candidates.json        # LICENSE-файл в репо-доноре
+node scripts/verify-iframe.mjs candidates.json         # живой iframe-тест встраивания
 ```
 
 Исключения документируются кодом, а не молчанием: `hangman` вправе использовать `e.key` (буквенный ввод). Комментарии-пояснения боты режут перед сканом, оправдания в коде их не обманывают.

@@ -1,0 +1,16 @@
+{
+  "id": "ext-neon-dungeon",
+  "title": "Неоновое подземелье",
+  "emoji": "🗡️",
+  "description": "Крошечный процедурный рогалик с js13k.",
+  "tags": [
+    "рогалик",
+    "подземелье"
+  ],
+  "controls": "WASD",
+  "url": "https://attilahorvath.github.io/neon-dungeon/",
+  "author": "attilahorvath",
+  "license": "MIT",
+  "repo": "https://github.com/attilahorvath/neon-dungeon",
+  "lang": "en"
+}

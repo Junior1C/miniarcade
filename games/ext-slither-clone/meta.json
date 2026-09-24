@@ -1,0 +1,16 @@
+{
+  "id": "ext-slither-clone",
+  "title": "Червячки ио",
+  "emoji": "🪱",
+  "description": "Slither-клон: ешь, расти, уворачивайся от ботов-змеек.",
+  "tags": [
+    "змейка",
+    "аркада"
+  ],
+  "controls": "Курсор / касание",
+  "url": "https://bibhuticoder.github.io/snake.io/",
+  "author": "bibhuticoder",
+  "license": "MIT",
+  "repo": "https://github.com/bibhuticoder/snake.io",
+  "lang": "en"
+}

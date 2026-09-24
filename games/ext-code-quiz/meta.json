@@ -1,0 +1,16 @@
+{
+  "id": "ext-code-quiz",
+  "title": "Код-викторина",
+  "emoji": "❓",
+  "description": "Викторина по JS на время со штрафами и рекордами.",
+  "tags": [
+    "викторина",
+    "обучение"
+  ],
+  "controls": "Мышь / клавиатура",
+  "url": "https://theinfamousgrim.github.io/code-quiz-vanilla-js/",
+  "author": "TheInfamousGrim",
+  "license": "MIT",
+  "repo": "https://github.com/TheInfamousGrim/code-quiz-vanilla-js",
+  "lang": "en"
+}

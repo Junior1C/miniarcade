@@ -154,6 +154,17 @@ function createCard(game) {
     title.append(lang);
   }
 
+  // Пометка ИИ-игр: соперник/движок — нейросеть, минимакс, эвристики
+  // (тег «ии» в meta.json). Отдельный бейдж, а не только тег-чип:
+  // видно сразу на карточке, ищется по «ии».
+  if (Array.isArray(game.tags) && game.tags.includes('ии')) {
+    const ai = document.createElement('span');
+    ai.className = 'card__ai';
+    ai.textContent = '🤖 ИИ';
+    ai.title = 'Игра с искусственным интеллектом';
+    title.append(ai);
+  }
+
   const description = document.createElement('p');
   description.className = 'card__desc';
   description.textContent = game.description;

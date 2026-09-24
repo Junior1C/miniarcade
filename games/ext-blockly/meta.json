@@ -1,0 +1,16 @@
+{
+  "id": "ext-blockly",
+  "title": "Блочные игры",
+  "emoji": "🧒",
+  "description": "Обучающие пазлы Google: лабиринт, черепаха, музыка.",
+  "tags": [
+    "обучение",
+    "головоломка"
+  ],
+  "controls": "Мышь",
+  "url": "https://blockly.games/",
+  "author": "google",
+  "license": "Apache-2.0",
+  "repo": "https://github.com/google/blockly-games",
+  "lang": "neutral"
+}

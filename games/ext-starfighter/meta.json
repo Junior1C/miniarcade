@@ -1,0 +1,16 @@
+{
+  "id": "ext-starfighter",
+  "title": "Старфайтер",
+  "emoji": "💥",
+  "description": "Космо-шутер с партиклами взрывов и пауэрапами.",
+  "tags": [
+    "шутер",
+    "аркада"
+  ],
+  "controls": "Стрелки / WASD, пробел",
+  "url": "https://bcastell.github.io/starfighter/",
+  "author": "bcastell",
+  "license": "MIT",
+  "repo": "https://github.com/bcastell/starfighter",
+  "lang": "en"
+}

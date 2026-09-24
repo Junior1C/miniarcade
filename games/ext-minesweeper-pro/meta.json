@@ -1,0 +1,17 @@
+{
+  "id": "ext-minesweeper-pro",
+  "title": "Сапёр Про",
+  "emoji": "💣",
+  "description": "Сапёр с солвером и анализатором, режимы без угадайки.",
+  "tags": [
+    "сапёр",
+    "головоломка",
+    "ии"
+  ],
+  "controls": "Мышь / касание",
+  "url": "https://davidnhill.github.io/JSMinesweeper/",
+  "author": "DavidNHill",
+  "license": "MIT",
+  "repo": "https://github.com/DavidNHill/JSMinesweeper",
+  "lang": "en"
+}

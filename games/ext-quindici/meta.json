@@ -1,0 +1,17 @@
+{
+  "id": "ext-quindici",
+  "title": "Квиндичи",
+  "emoji": "🧩",
+  "description": "Пятнашки с A*-солвером и подсказками.",
+  "tags": [
+    "пятнашки",
+    "головоломка",
+    "ии"
+  ],
+  "controls": "Стрелки / мышь",
+  "url": "https://quindici.io/",
+  "author": "justinpobrien",
+  "license": "MIT",
+  "repo": "https://github.com/justinpobrien/quindici",
+  "lang": "en"
+}

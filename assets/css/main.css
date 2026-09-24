@@ -265,6 +265,20 @@ body {
   vertical-align: middle;
 }
 
+/* Бейдж ИИ-игр (тег «ии»): фиолетовая пилюля рядом с названием,
+   парная к .card__lang — тот же масштаб, другой смысл. */
+.card__ai {
+  display: inline-block;
+  margin-left: var(--space-2);
+  padding: 0 var(--space-2);
+  border-radius: 999px;
+  background: #4c1d95;
+  color: #ede9fe;
+  font-size: 0.75rem;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
 /* Теги игры: видны на карточке, клик (мышь/тач) подставляет тег в поиск.
    Не кнопки, а спаны: карточка уже ссылка, вложенные интерактивы нельзя;
    клавиатурный путь — ввод тега в поиск вручную. */
