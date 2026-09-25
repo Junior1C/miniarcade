@@ -1,1 +1,5 @@
+# Байт-детерминизм: бюджеты меряют размеры файлов, pre-push и CI обязаны
+# видеть одинаковые байты на Windows (autocrlf) и Linux. Бинарники
+# (webp/png) git отличает сам через text=auto и не трогает.
+* text=auto eol=lf
 .githooks/* text eol=lf
