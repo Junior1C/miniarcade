@@ -104,6 +104,31 @@ const TEMPLATE_JS = `(() => {
   });
 
   statusEl.textContent = 'Нажмите Пробел, чтобы начать';
+
+  // Realtime-авторам: канонический цикл с фиксированным шагом (как в
+  // snake/tetris/dino). Без аккумулятора игра на 120 Гц идёт вдвое
+  // быстрее — см. game.js любой realtime-игры:
+  //
+  // const STEP_MS = 1000 / 120;
+  // let lastTime = 0, accumulator = 0;
+  // function frame(now) {
+  //   if (!lastTime) lastTime = now;
+  //   let delta = now - lastTime;
+  //   lastTime = now;
+  //   if (!(delta >= 0)) delta = 0;
+  //   if (delta > 250) delta = 250;
+  //   if (!paused) {
+  //     accumulator += delta;
+  //     let guard = 0;
+  //     while (accumulator >= STEP_MS && guard < 5) {
+  //       step(); accumulator -= STEP_MS; guard += 1;
+  //     }
+  //     if (guard >= 5) accumulator = 0;
+  //   }
+  //   draw();
+  //   requestAnimationFrame(frame);
+  // }
+  // requestAnimationFrame(frame);
 })();
 `;
 
@@ -158,7 +183,8 @@ if (invokedDirectly) {
     await createGame(process.cwd(), id, title);
     const payload = await buildCatalog(process.cwd());
     console.log(`Created games/${id}/ — catalog: ${payload.games.length} games`);
-    console.log('Next: заполните description/tags в meta.json и напишите игру.');
+    console.log('Next: заполните description/tags/controls/lang в meta.json,');
+    console.log('      напишите игру, затем: npm run thumbs -- --game=' + id + ' && npm run check');
   } catch (error) {
     console.error(error.message);
     process.exitCode = 1;

@@ -19,6 +19,12 @@
   <main>
     <canvas id="board" width="304" height="240" role="img" aria-label="Лабиринт пакмана"></canvas>
     <p id="status" class="status" role="status" aria-live="polite">Стрелка или свайп — начать. Съешьте все точки!</p>
+    <div class="pad" role="group" aria-label="Кнопки управления пакманом">
+      <button class="pad__btn pad__btn--up" type="button" data-dir="up" aria-label="Вверх">▲</button>
+      <button class="pad__btn pad__btn--left" type="button" data-dir="left" aria-label="Влево">◀</button>
+      <button class="pad__btn pad__btn--down" type="button" data-dir="down" aria-label="Вниз">▼</button>
+      <button class="pad__btn pad__btn--right" type="button" data-dir="right" aria-label="Вправо">▶</button>
+    </div>
     <p class="hint">Большие точки дают силу есть привидений. Управление: стрелки/WASD или свайпы</p>
   </main>
 </body>

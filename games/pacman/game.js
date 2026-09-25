@@ -57,9 +57,26 @@
   let wakaHigh = false;
 
   let audioCtx = null;
+  let muted = false;
 
-  function beep(freq, ms = 60) {
+  // M — глушить/вернуть звук (сессия). Вне игровых клавиш.
+  function toggleMute() {
+    muted = !muted;
+    statusEl.textContent = muted ? 'Звук выключен (M — вернуть).' : 'Звук включён.';
+  }
+
+  // Рекорд — в портал (портал хранит best, см. assets/js/best.js).
+  function reportScore(value) {
     try {
+      parent.postMessage({ type: 'miniarcade:score', game: 'pacman', score: value }, '*');
+    } catch {
+      // Вне каталога — некому слушать.
+    }
+  }
+
+  function beep(freq, ms = 60, type = 'square') {
+    try {
+      if (muted) return;
       if (!audioCtx) {
         const AC = window.AudioContext || window.webkitAudioContext;
         if (!AC) return;
@@ -71,7 +88,7 @@
       const now = audioCtx.currentTime;
       const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
-      osc.type = 'square';
+      osc.type = type;
       osc.frequency.value = freq;
       gain.gain.setValueAtTime(0.04, now);
       gain.gain.exponentialRampToValueAtTime(0.001, now + ms / 1000);
@@ -268,7 +285,7 @@
   function caught() {
     lives -= 1;
     livesEl.textContent = String(lives);
-    beep(160, 250);
+    beep(160, 250, 'sawtooth');
     if (lives <= 0) {
       gameState = 'over';
       if (score > best) {
@@ -278,6 +295,7 @@
       } else {
         statusEl.textContent = `Поймали! Счёт: ${score}. Стрелка или свайп — заново.`;
       }
+      reportScore(score);
       return;
     }
     resetActors();
@@ -308,11 +326,23 @@
   };
 
   document.addEventListener('keydown', (event) => {
+    if (event.code === 'KeyM') {
+      toggleMute();
+      return;
+    }
     if (event.code in KEY_DIRS) {
       event.preventDefault();
       steer(KEY_DIRS[event.code]);
     }
   });
+
+  // Dpad поверх свайпов: на маленьком iframe свайпы промахиваются.
+  for (const btn of document.querySelectorAll('.pad__btn')) {
+    btn.addEventListener('pointerdown', (event) => {
+      event.preventDefault();
+      steer(btn.dataset.dir);
+    });
+  }
 
   let touchStart = null;
   canvas.addEventListener('touchstart', (event) => {
@@ -385,17 +415,36 @@
     context.fill();
   }
 
+  // Фиксированный шаг симуляции: два подшага за кадр 60 Гц, чтобы сущности
+  // не пролетали друг сквозь друга. Аккумулятор отвязывает темп от частоты
+  // экрана: на 120 Гц игра идёт так же, как на 60.
+  const STEP_MS = 1000 / 120;
+  const MAX_DELTA_MS = 250;
   let lastTime = 0;
+  let accumulator = 0;
 
   function frame(now) {
     if (!lastTime) lastTime = now;
+    let delta = now - lastTime;
     lastTime = now;
+    if (!(delta >= 0)) delta = 0;
+    if (delta > MAX_DELTA_MS) delta = MAX_DELTA_MS;
     if (gameState === 'running' || gameState === 'fright') {
-      // Два подшага за кадр: сущности не пролетают друг сквозь друга.
-      step(now);
-      if (gameState === 'running' || gameState === 'fright') step(now);
+      accumulator += delta;
+      let guard = 0;
+      while (
+        accumulator >= STEP_MS &&
+        (gameState === 'running' || gameState === 'fright') &&
+        guard < 5
+      ) {
+        step(now);
+        accumulator -= STEP_MS;
+        guard += 1;
+      }
+      if (guard >= 5) accumulator = 0;
       draw(now);
     } else if (gameState === 'ready' || gameState === 'paused' || gameState === 'over') {
+      accumulator = 0;
       if (!dots) {
         buildDots();
         resetActors();

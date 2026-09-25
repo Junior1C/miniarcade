@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "node scripts/serve.mjs",
+    "setup": "node scripts/setup.mjs",
     "build": "node scripts/build.mjs",
     "new": "node scripts/new-game.mjs",
     "test": "node --test",
@@ -19,6 +20,8 @@
     "qa:fix": "node scripts/qa-repo.mjs --fix",
     "qa:bridges": "node scripts/qa-bridges.mjs",
     "qa:bridges:strict": "node scripts/qa-bridges.mjs --strict",
+    "qa:prune": "node scripts/prune-bridges.mjs",
+    "qa:changed": "node scripts/verify-changed.mjs",
     "qa:playable": "node scripts/qa-playable.mjs --bridges",
     "sync:headers": "node scripts/sync-headers.mjs",
     "check": "npm run build && npm test && npm run budgets && npm run qa",

@@ -1,8 +1,32 @@
 import { loadCatalog } from './catalog.js';
 import { filterGames, normalizeQuery } from './search.js';
 import { pluralizeRu } from './format.js';
-import { createPlayer } from './player.js';
+import { bestOf } from './best.js';
 import { gameSource } from './source.js';
+
+// Маяк аналитики — deferred-чанк: best-effort ping, первой отрисовке
+// не нужен. pv уходит чуть позже старта, opens/closes — по факту.
+let statsApi = null;
+let statsLoading = null;
+
+function getStats() {
+  if (statsApi) return Promise.resolve(statsApi);
+  statsLoading ??= import('./stats.js').then((module) => {
+    statsApi = module;
+    return statsApi;
+  });
+  return statsLoading;
+}
+
+function statsSend(event, data) {
+  getStats()
+    .then((module) => {
+      if (state.statsOn) module.sendStats(event, data);
+    })
+    .catch(() => {
+      // Аналитика никогда не ломает каталог.
+    });
+}
 import { renderWithTransition } from './view-transition.js';
 import { sendStats, statsEnabled } from './stats.js';
 import { SORT_LABELS, buildGameStats, cardStatsLine, sortGames, validSortMode } from './sort.js';
@@ -50,11 +74,8 @@ const state = {
   // Без цифр рейтинга честно: нули идут по алфавиту (см. sort.js).
   sort: initialSort,
   gameStats: null,
-  // Главная без запроса — ряды; запрос или смена сортировки — сетка.
-  // Сохранённая не-дефолтная сортировка сразу открывает сетку:
-  // иначе селект показывает «Новые», а вид — ряды, и повторный
-  // выбор того же пункта не стреляет change (мёртвый клик).
-  gridLock: initialSort !== 'top',
+  // Лендинг — всегда ряды главной; запрос или смена сортировки — сетка.
+  gridLock: false,
   genreTags: [],
 };
 
@@ -74,37 +95,51 @@ function saveSortMode(mode) {
   }
 }
 
-const player = createPlayer({
-  dialog: elements.dialog,
-  frame: elements.frame,
-  titleEl: elements.title,
-  emojiEl: elements.emoji,
-  closeBtn: elements.closeBtn,
-  expandBtn: elements.expandBtn,
-  sourceLink: elements.sourceLink,
-  loadingEl: elements.loading,
-  onOpen: (game) => {
-    document.title = `${game.title} — ${BASE_TITLE}`;
-    state.playStart = Date.now();
-    if (state.statsOn) sendStats('open', { game: game.id });
-  },
-  onClose: (id) => {
-    document.title = BASE_TITLE;
-    if (state.statsOn && state.playStart) {
-      sendStats('close', { game: id, secs: (Date.now() - state.playStart) / 1000 });
-    }
-    state.playStart = 0;
-    const openedInternally = state.openedInternally;
-    state.openedInternally = false;
-    if (location.hash === playHash(id)) {
-      if (openedInternally) {
-        history.back();
-      } else {
-        history.replaceState(null, '', location.pathname + location.search);
-      }
-    }
-  },
-});
+// Плеер — deferred-чанк: 5 КБ + sandbox-tokens вне критического пути.
+// Грузится при первом открытии игры (или диплинке #/play/); задержка
+// в один тик незаметна на фоне загрузки iframe. Повторные вызовы
+// переиспользуют созданный инстанс.
+let playerApi = null;
+let playerLoading = null;
+
+function getPlayer() {
+  if (playerApi) return Promise.resolve(playerApi);
+  playerLoading ??= import('./player.js').then(({ createPlayer }) => {
+    playerApi = createPlayer({
+      dialog: elements.dialog,
+      frame: elements.frame,
+      titleEl: elements.title,
+      emojiEl: elements.emoji,
+      closeBtn: elements.closeBtn,
+      expandBtn: elements.expandBtn,
+      sourceLink: elements.sourceLink,
+      loadingEl: elements.loading,
+      onOpen: (game) => {
+        document.title = `${game.title} — ${BASE_TITLE}`;
+        state.playStart = Date.now();
+        statsSend('open', { game: game.id });
+      },
+      onClose: (id) => {
+        document.title = BASE_TITLE;
+        if (state.playStart) {
+          statsSend('close', { game: id, secs: (Date.now() - state.playStart) / 1000 });
+        }
+        state.playStart = 0;
+        const openedInternally = state.openedInternally;
+        state.openedInternally = false;
+        if (location.hash === playHash(id)) {
+          if (openedInternally) {
+            history.back();
+          } else {
+            history.replaceState(null, '', location.pathname + location.search);
+          }
+        }
+      },
+    });
+    return playerApi;
+  });
+  return playerLoading;
+}
 
 function playHash(id) {
   return `${HASH_PREFIX}${id}`;
@@ -120,9 +155,41 @@ function findGame(id) {
   return state.games.find((game) => game.id === id) ?? null;
 }
 
-function syncFromHash() {
+// Карта переименований data/aliases.json (old -> new): грузится один раз
+// и только когда понадобилась (битый/старый hash). Нет файла — тихо.
+let aliasesPromise = null;
+
+function loadAliases() {
+  aliasesPromise ??= fetch('data/aliases.json', { headers: { Accept: 'application/json' } })
+    .then((response) => (response.ok ? response.json() : {}))
+    .catch(() => ({}));
+  return aliasesPromise;
+}
+
+async function resolveAlias(id) {
+  try {
+    const aliases = await loadAliases();
+    const target = aliases && typeof aliases[id] === 'string' ? aliases[id] : '';
+    return target || null;
+  } catch {
+    return null;
+  }
+}
+
+async function syncFromHash() {
   const id = parseHash();
   const game = findGame(id);
+  if (!game && id) {
+    // Старые закладки #/play/ext-* и история: редирект на канонический id.
+    // Карта тянется лениво (вне critical JS); дальше — обычный флоу:
+    // смена hash триггерит повторный syncFromHash уже с новым id.
+    const target = await resolveAlias(id);
+    if (target && findGame(target)) {
+      location.hash = playHash(target);
+      return;
+    }
+  }
+  const player = await getPlayer();
   if (game) {
     if (player.currentGameId() !== game.id) {
       player.open(game);
@@ -253,12 +320,17 @@ function createCard(game) {
   cta.textContent = 'Играть';
 
   // Строка честности на карточку — только при наличии plays.
+  // Личный рекорд портала (postMessage от игры) — своей строкой:
+  // виден и без серверной статистики.
   const statsLine = cardStatsLine(state.gameStats, game.id);
+  const personalBest = bestOf(game.id);
   let statsEl = null;
-  if (statsLine) {
+  if (statsLine || personalBest > 0) {
     statsEl = document.createElement('p');
     statsEl.className = 'card__stats';
-    statsEl.textContent = statsLine;
+    statsEl.textContent = [statsLine, personalBest > 0 ? `Ваш рекорд: ${personalBest}` : '']
+      .filter(Boolean)
+      .join(' · ');
   }
 
   const source = gameSource(game);
@@ -295,8 +367,12 @@ function createCard(game) {
 }
 
 function render() {
-  // View Transition — только анимация переключения списка;
-  // без поддержки API работаем как раньше, синхронно.
+  // Печать в поиске — горячий путь INP: синхронно без снапшота
+  // View Transition (каждый кейстрок со снапшотом лагает при сотнях игр).
+  if (state.query !== '') {
+    renderNow();
+    return;
+  }
   renderWithTransition(document, renderNow);
 }
 
@@ -309,6 +385,25 @@ function renderNow() {
   renderGrid();
 }
 
+// Мемоизация отсортированного списка: печать, «Показать ещё» и прочие
+// повторные рендеры без смены входа не пересортировывают O(n log n).
+let cachedSort = { games: null, query: null, sort: null, stats: null, result: null };
+
+function getSorted() {
+  const { games, query, sort, gameStats } = state;
+  if (
+    cachedSort.games === games &&
+    cachedSort.query === query &&
+    cachedSort.sort === sort &&
+    cachedSort.stats === gameStats
+  ) {
+    return cachedSort.result;
+  }
+  const result = sortGames(filterGames(games, query), sort, gameStats);
+  cachedSort = { games, query, sort, stats: gameStats, result };
+  return result;
+}
+
 function renderGrid() {
   if (elements.homeRows) {
     // Ряды выкидываем из DOM целиком: иначе дубли id-free карточек
@@ -317,7 +412,7 @@ function renderGrid() {
     elements.homeRows.hidden = true;
   }
   elements.grid.hidden = false;
-  const filtered = sortGames(filterGames(state.games, state.query), state.sort, state.gameStats);
+  const filtered = getSorted();
   const visible = filtered.slice(0, state.shown);
   const fragment = document.createDocumentFragment();
   for (const game of visible) {
@@ -512,10 +607,26 @@ function applySort(mode) {
 }
 
 async function init() {
-  state.statsOn = statsEnabled();
+  // Маяк — неблокирующе: pv уйдёт, когда чанк докачается.
+  getStats()
+    .then((module) => {
+      state.statsOn = module.statsEnabled();
+      if (state.statsOn) module.sendStats('pv');
+    })
+    .catch(() => {
+      state.statsOn = false;
+    });
   if (elements.sort) {
     elements.sort.value = state.sort;
     elements.sort.addEventListener('change', () => applySort(elements.sort.value));
+    // Повторный выбор уже показанного пункта не стреляет change (Firefox):
+    // вид приводим к селекту уже при открытии списка (pointerdown
+    // стреляет всегда). Клавиатурный выбор идёт через change штатно.
+    elements.sort.addEventListener('pointerdown', () => {
+      if (!state.gridLock && state.query === '' && elements.sort.value !== 'top') {
+        applySort(elements.sort.value);
+      }
+    });
   }
   elements.menuToggle.addEventListener('click', toggleDrawer);
   elements.homeLogo.addEventListener('click', () => {
@@ -528,17 +639,19 @@ async function init() {
     renderGenres();
   });
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && elements.mobileSidebar && !elements.mobileSidebar.hidden && !player.isOpen()) {
+    // Плеер может быть ещё не загружен (deferred): тогда диалог
+    // точно закрыт — открывать его нечему.
+    const playerOpen = playerApi ? playerApi.isOpen() : false;
+    if (event.key === 'Escape' && elements.mobileSidebar && !elements.mobileSidebar.hidden && !playerOpen) {
       closeDrawer();
     }
   });
-  if (state.statsOn) sendStats('pv');
   try {
     state.games = await loadCatalog();
     elements.error.hidden = true;
     renderGenres();
     render();
-    syncFromHash();
+    await syncFromHash();
     // Цифры рейтинга — неблокирующим запросом после первого рендера.
     loadGameStats();
   } catch (error) {
@@ -557,7 +670,17 @@ async function loadGameStats() {
     const totals = Array.isArray(payload.totals) ? payload.totals : payload;
     if (!Array.isArray(totals) || totals.length === 0) return;
     state.gameStats = buildGameStats(totals);
-    render();
+    // Цифры влияют на вид не всегда: порядок — только в top/popular,
+    // строки — только при opens > 0. Лишний render — лишний INP.
+    const affectsOrder = state.sort === 'top' || state.sort === 'popular';
+    let hasLines = false;
+    for (const entry of state.gameStats.values()) {
+      if (entry.opens > 0) {
+        hasLines = true;
+        break;
+      }
+    }
+    if (affectsOrder || hasLines) render();
   } catch {
     // Статистика никогда не ломает каталог.
   }
@@ -581,7 +704,10 @@ elements.loadMore.addEventListener('click', () => {
 
 elements.retry.addEventListener('click', init);
 
-elements.grid.addEventListener('click', (event) => {
+// Клик по карточке: тег — в поиск вместо перехода, ссылка игры —
+// флаг внутреннего открытия для истории. Один обработчик на оба
+// контейнера (сетка + ряды).
+function handleCardClick(event) {
   // Клик по тегу: вместо перехода в игру подставляем тег в поиск.
   const chip = event.target.closest('.card__tag');
   if (chip && chip.dataset.tag) {
@@ -593,24 +719,17 @@ elements.grid.addEventListener('click', (event) => {
   if (link) {
     state.openedInternally = true;
   }
-});
+}
+
+elements.grid.addEventListener('click', handleCardClick);
 
 // Теги работают и в рядах главной (делегирование на контейнер).
 if (elements.homeRows) {
-  elements.homeRows.addEventListener('click', (event) => {
-    const chip = event.target.closest('.card__tag');
-    if (chip && chip.dataset.tag) {
-      event.preventDefault();
-      applyGenre(chip.dataset.tag);
-      return;
-    }
-    const link = event.target.closest('a[href^="#/play/"]');
-    if (link) {
-      state.openedInternally = true;
-    }
-  });
+  elements.homeRows.addEventListener('click', handleCardClick);
 }
 
-window.addEventListener('hashchange', syncFromHash);
+window.addEventListener('hashchange', () => {
+  syncFromHash().catch((error) => console.error(error));
+});
 
 init();

@@ -31,12 +31,30 @@
   let best = 0;
   let gameState = 'ready';
   let spawnIn;
+  let spawned = 0;
   let legFrame;
 
   let audioCtx = null;
+  let muted = false;
 
-  function beep(freq, ms = 60) {
+  // M — глушить/вернуть звук (сессия). Вне игровых клавиш.
+  function toggleMute() {
+    muted = !muted;
+    statusEl.textContent = muted ? 'Звук выключен (M — вернуть).' : 'Звук включён.';
+  }
+
+  // Рекорд — в портал (портал хранит best, см. assets/js/best.js).
+  function reportScore(value) {
     try {
+      parent.postMessage({ type: 'miniarcade:score', game: 'dino', score: value }, '*');
+    } catch {
+      // Вне каталога — некому слушать.
+    }
+  }
+
+  function beep(freq, ms = 60, type = 'square') {
+    try {
+      if (muted) return;
       if (!audioCtx) {
         const AC = window.AudioContext || window.webkitAudioContext;
         if (!AC) return;
@@ -48,7 +66,7 @@
       const now = audioCtx.currentTime;
       const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
-      osc.type = 'square';
+      osc.type = type;
       osc.frequency.value = freq;
       gain.gain.setValueAtTime(0.05, now);
       gain.gain.exponentialRampToValueAtTime(0.001, now + ms / 1000);
@@ -71,7 +89,10 @@
     ducking = false;
     obstacles = [];
     distance = 0;
-    spawnIn = 60;
+    // Grace-период: первый кактус далеко, птеров в начале нет —
+    // новичок успевает понять управление до первого препятствия.
+    spawnIn = 110;
+    spawned = 0;
     scoreEl.textContent = '0';
   }
 
@@ -99,6 +120,12 @@
   }
 
   function spawnObstacle() {
+    spawned += 1;
+    // Первые два препятствия — низкие кактусы с запасом: вход мягкий.
+    if (spawned <= 2) {
+      obstacles.push({ kind: 'cactus', x: W, y: GROUND - 20, w: 12, h: 20 });
+      return;
+    }
     const fast = distance > 300;
     if (fast && Math.random() < 0.3) {
       obstacles.push({ kind: 'ptero', x: W, y: GROUND - 34 - Math.random() * 18, w: 26, h: 16 });
@@ -133,7 +160,8 @@
     } else {
       statusEl.textContent = `Столкновение! Счёт: ${score}. Прыжок — заново.`;
     }
-    beep(150, 250);
+    reportScore(score);
+    beep(150, 250, 'sawtooth');
   }
 
   function step() {
@@ -201,6 +229,10 @@
   }
 
   document.addEventListener('keydown', (event) => {
+    if (event.code === 'KeyM') {
+      toggleMute();
+      return;
+    }
     if (event.code === 'Space' || event.code === 'ArrowUp' || event.code === 'KeyW') {
       event.preventDefault();
       jump();
@@ -217,6 +249,23 @@
     jump();
   });
 
+  // Кнопка пригибания для тача: птеры после distance > 300 иначе
+  // непроходимы без клавиатуры. Удержание = ducking, отпускание = встать.
+  const duckBtn = document.getElementById('duck');
+  if (duckBtn) {
+    const duckDown = (event) => {
+      event.preventDefault();
+      if (gameState === 'running') ducking = true;
+    };
+    const duckUp = () => {
+      ducking = false;
+    };
+    duckBtn.addEventListener('pointerdown', duckDown);
+    duckBtn.addEventListener('pointerup', duckUp);
+    duckBtn.addEventListener('pointercancel', duckUp);
+    duckBtn.addEventListener('pointerleave', duckUp);
+  }
+
   document.addEventListener('visibilitychange', () => {
     if (document.hidden && gameState === 'running') {
       gameState = 'paused';
@@ -226,14 +275,31 @@
 
   reset();
 
+  // Фиксированный шаг симуляции: два подшага за кадр 60 Гц.
+  // Аккумулятор отвязывает скорость от частоты экрана: на 120 Гц
+  // игра идёт так же, как на 60 (как в snake/tetris).
+  const STEP_MS = 1000 / 120;
+  const MAX_DELTA_MS = 250;
   let lastTime = 0;
+  let accumulator = 0;
 
   function frame(now) {
     if (!lastTime) lastTime = now;
+    let delta = now - lastTime;
     lastTime = now;
+    if (!(delta >= 0)) delta = 0;
+    if (delta > MAX_DELTA_MS) delta = MAX_DELTA_MS;
     if (gameState === 'running') {
-      step();
-      if (gameState === 'running') step();
+      accumulator += delta;
+      let guard = 0;
+      while (accumulator >= STEP_MS && gameState === 'running' && guard < 5) {
+        step();
+        accumulator -= STEP_MS;
+        guard += 1;
+      }
+      if (guard >= 5) accumulator = 0;
+    } else {
+      accumulator = 0;
     }
     draw();
     requestAnimationFrame(frame);

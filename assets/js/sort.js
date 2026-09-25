@@ -38,7 +38,25 @@ function statsOf(stats, id) {
   return (stats && stats.get(id)) || { opens: 0, uniques: 0, secs: 0 };
 }
 
+// Один Intl.Collator на модуль: localeCompare в горячем пути сортировки
+// (каждый ввод в поиск) создавал бы коллатор на сравнение — INP-регресс
+// при сотнях игр. try/catch: без Intl — деградация к localeCompare.
+let titleCollator = null;
+
+function getCollator() {
+  if (!titleCollator) {
+    try {
+      titleCollator = new Intl.Collator('ru');
+    } catch {
+      titleCollator = null;
+    }
+  }
+  return titleCollator;
+}
+
 function compareTitle(a, b) {
+  const collator = getCollator();
+  if (collator) return collator.compare(String(a.title), String(b.title));
   return String(a.title).localeCompare(String(b.title), 'ru');
 }
 

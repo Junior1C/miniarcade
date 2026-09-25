@@ -25,3 +25,18 @@ jobs:
       - run: npm run budgets
       - run: npm run qa
       - run: npm run test:e2e
+
+  # Точечный блокер для новых мостов: полный обход (qa-bridges) — report-only
+  # по дизайну, но изменённые meta.json проверяются живьём и валят CI.
+  changed-bridges:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - run: node scripts/verify-changed.mjs --base=origin/main

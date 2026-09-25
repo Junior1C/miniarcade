@@ -1,4 +1,6 @@
 import { test, expect } from '@playwright/test';
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 
 test('каталог рендерит карточки и статус', async ({ page }) => {
   await page.goto('/');
@@ -8,17 +10,68 @@ test('каталог рендерит карточки и статус', async (
   await expect(page.locator('#error-state')).toBeHidden();
 });
 
-test('сохранённая сортировка открывается сеткой, а не рядами', async ({ page }) => {
-  // Кейс мёртвого клика: селект показывает «Новые» из localStorage,
-  // стартовая отрисовка обязана совпадать — иначе повторный выбор
-  // того же пункта не стреляет change и сортировка «не работает».
+test('диплинк #/play/ открывает игру со старта (ленивый плеер)', async ({ page }) => {
+  await page.goto('/#/play/fifteen');
+  await expect(page.locator('#player')).toBeVisible();
+  await expect(page.locator('#player-frame')).toHaveAttribute('src', /fifteen/);
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#player')).toBeHidden();
+});
+
+test('рекорд из игры сохраняется в портал и виден на карточке', async ({ page }) => {
+  await page.goto('/');
+  // Грузим deferred-плеер (слушатель postMessage живёт в нём),
+  // сразу закрываем: слать рекорду уже есть куда.
+  await page.locator('.row-track .card__link').first().click();
+  await expect(page.locator('#player')).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#player')).toBeHidden();
+  // Синтетика вместо живой партии: origin 'null' как у sandbox-iframe.
+  await page.evaluate(() => {
+    window.dispatchEvent(
+      new MessageEvent('message', {
+        origin: 'null',
+        data: { type: 'miniarcade:score', game: 'fifteen', score: 42 },
+      }),
+    );
+  });
+  await expect(page.evaluate(() => localStorage.getItem('miniarcade-best:fifteen'))).resolves.toBe('42');
+  await page.fill('#search', 'пятнашки');
+  await expect(page.locator('#games .card__stats').first()).toContainText('Ваш рекорд: 42');
+});
+
+test('старый хеш редиректит на канонический id (aliases.json)', async ({ page }) => {
+  // Без хардкода id: первая пара из живой карты переименований.
+  const aliases = JSON.parse(await readFile('data/aliases.json', 'utf8'));
+  const catalog = JSON.parse(await readFile('data/catalog.json', 'utf8'));
+  const [oldId, newId] = Object.entries(aliases)[0];
+  const target = catalog.games.find((game) => game.id === newId);
+  assert.ok(target, 'alias target must exist in catalog');
+  await page.goto(`/#/play/${oldId}`);
+  await expect(page.locator('#player')).toBeVisible();
+  await expect(page.locator('#player-frame')).toHaveAttribute('src', target.url ?? target.file);
+  expect(new URL(await page.url()).hash).toBe(`#/play/${newId}`);
+});
+
+test('лендинг всегда ряды; повторный выбор сортировки работает', async ({ page }) => {
+  // Селект помнит «Новые», но первая всегда главная-ряды.
+  // Открытие списка (pointerdown) приводит вид к селекту, поэтому
+  // повторный выбор того же пункта не мёртвый (change бы не стрельнул).
   await page.addInitScript(() => localStorage.setItem('miniarcade-sort', 'new'));
   await page.goto('/');
   await expect(page.locator('#sort')).toHaveValue('new');
+  await expect(page.locator('.row-track .card__link').first()).toBeVisible();
+  await page.locator('#sort').dispatchEvent('pointerdown');
   await expect(page.locator('#home-rows')).toBeHidden();
-  await expect(page.locator('#games .card__link').first()).toBeVisible();
+  // Ожидание — из живого каталога (зеркало sort.js new: added ↓, title ↑),
+  // а не захардкоженный id: переименования больше не ломают тест.
+  const live = JSON.parse(await readFile('data/catalog.json', 'utf8'));
+  const maxAdded = live.games.map((game) => game.added || '').sort().at(-1);
+  const expected = live.games
+    .filter((game) => (game.added || '') === maxAdded)
+    .sort((a, b) => String(a.title).localeCompare(String(b.title), 'ru'))[0];
   const first = await page.locator('#games .card__link').first().getAttribute('href');
-  expect(first).toBe('#/play/asteroids-christianpaul');
+  expect(first).toBe(`#/play/${expected.id}`);
   await expect(page.locator('#results-status')).toContainText('Новые');
 });
 

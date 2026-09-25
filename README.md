@@ -19,16 +19,19 @@ stats.html                 — витрина аналитики: карточк
 assets/
   css/main.css             — тёмная тема стора без внешних зависимостей (без Tailwind/CDN по CSP): обложки 3:2, на вертикальных — 1:1
   js/
-    main.js                — точка входа: состояние, роутинг по hash, ряды главной, сетка, сайдбар/drawer, карусели
+    main.js                — точка входа: состояние, роутинг по hash (+редирект старых id), ряды главной, сетка, сайдбар/drawer, карусели
     catalog.js             — загрузка и валидация data/catalog.json
     search.js              — поиск с мемоизированным индексом (тестируется отдельно)
     format.js              — русская плюрализация
-    player.js              — <dialog>-плеер, sandbox iframe (закрытие выкидывает узел кадра целиком — звук/процессы игры умирают детерминированно; кнопка ⛶/🗗 разворачивает диалог на весь экран)
-    sandbox-tokens.js      — единый allowlist sandbox-токенов (build + player)
+    player.js              — <dialog>-плеер, sandbox iframe (deferred-чанк: грузится при первом открытии; закрытие выкидывает узел кадра целиком; иконки ⛶/✕; принимает рекорды postMessage)
+    best.js                — личные рекорды портала (localStorage; читает и critical-путь, и плеер)
+    source.js              — портал игры по репо-донору: GitHub/GitLab/MiniArcade/домен (тестируется отдельно)
+    sandbox-tokens.js      — единый allowlist sandbox-токенов (build + player; deferred-чанк)
     view-transition.js     — same-document View Transitions с фолбэком (main.js)
-    stats.js               — beacon аналитики: pv/open/close, без cookies (см. § Аналитика)
-    stats-page.js          — витрина статистики: чистые функции + DOM-рендер (тестируется отдельно)
+    stats.js               — beacon аналитики: pv/open/close, без cookies (deferred-чанк; см. § Аналитика)
+    stats-page.js          — витрина статистики: чистые функции + DOM-рендер (deferred-чанк, тестируется отдельно)
 data/catalog.json          — генерируется из games/*/meta.json (коммитится)
+data/aliases.json          — карта переименований old → new (редиректы хешей, схлопывание статистики; тест aliases)
 data/stats/                — агрегаты аналитики из nightly Action (коммитятся)
 functions/api/hit.js       — приёмник beacon на Cloudflare Pages (POST /api/hit)
 stats/
@@ -38,7 +41,7 @@ games/
   <id>/
     index.html             — игра (standalone)
     style.css, game.js     — внешние файлы (CSP требует внешних источников)
-    thumb.webp             — превью карточки 440px (генерирует npm run thumbs [--bridges])
+    thumb.webp             — превью карточки 400px (генерирует npm run thumbs [--bridges])
     meta.json              — метаданные: id, title, emoji, description, tags, …
 scripts/
   build.mjs                — скан games/*/ → data/catalog.json + sitemap.xml + JSON-LD в index.html + CSP meta в index.html/stats.html (валидация)
@@ -50,14 +53,16 @@ tests/                     — node --test, без зависимостей
 tests/e2e/                 — Playwright: каталог, поиск, плеер, perf, a11y (npm run test:e2e)
 playwright.config.mjs      — конфиг e2e (webServer сам поднимает dev-сервер)
 scripts/new-game.mjs       — скелетер игры (npm run new)
+scripts/setup.mjs          — one-time setup контрибьютора (npm run setup: хуки + chromium + cwebp)
+scripts/verify-changed.mjs — живые проверки только изменённых мостов (npm run qa:changed; CI-блокер)
 scripts/smoke.mjs          — проверка живых хостингов (npm run smoke)
 scripts/gen-og.mjs         — генератор превью assets/og.png (npm run og)
-scripts/gen-thumbs.mjs     — WebP-превью игр 440px (npm run thumbs [--bridges]; нужен cwebp)
+scripts/gen-thumbs.mjs     — WebP-превью игр 400px (npm run thumbs [--bridges]; нужен cwebp)
 robots.txt                 — индексация + ссылка на sitemap
 sitemap.xml                — генерируется build.mjs: корень + stats.html + свои игры (URLы основного хостинга)
 assets/og.png              — превью ссылок (og:image)
 .githooks/pre-push         — npm run check перед каждым push
-.github/workflows/         — deploy-cloudflare (build+test+budgets), e2e (Playwright+budgets), smoke (cron), stats (ночной забор аналитики)
+.github/workflows/         — deploy-cloudflare (build+test+budgets+qa), e2e (Playwright+changed-bridges), deploy-worker (ручной), qa-bridges (cron), lighthouse, smoke (cron), stats (ночной забор аналитики)
 _headers, vercel.json      — security-заголовки для Vercel / Cloudflare
 .assetsignore              — что НЕ загружать на Cloudflare (gitignore-синтаксис)
 wrangler.jsonc             — Cloudflare Workers Assets (directory: ".")
@@ -69,22 +74,31 @@ wrangler.jsonc             — Cloudflare Workers Assets (directory: ".")
 Требуется Node.js 20+. Runtime-зависимостей нет. dev-зависимости нужны только для e2e:
 
 ```bash
-npm ci                      # один раз: ставит @playwright/test
-npx playwright install chromium
-git config core.hooksPath .githooks   # один раз: pre-push гоняет npm run check
+npm ci && npm run setup   # один раз: хуки + chromium + проверка cwebp
 ```
+
+Быстрый контур (5 команд до первой игры):
 
 ```bash
 npm run build    # сгенерировать data/catalog.json + sitemap.xml
+npm run new -- <id> "Название"  # скелетер: заполните description/tags/controls/lang в meta.json
+npm run thumbs -- --game=<id>   # превью карточки (нужен cwebp)
+npm run check    # build + test + budgets + qa (то же гоняет pre-push hook)
+npm start        # http://localhost:4173 с боевыми security-заголовками
+```
+
+```bash
 npm test         # unit-тесты (node --test)
 npm run budgets  # perf-бюджеты размеров (catalog, JS, CSS, HTML, og.png)
 npm run test:e2e # Playwright: каталог, поиск, плеер, perf, a11y (сам поднимает сервер)
-npm run smoke    # проверить все 4 живых хостинга
-npm run new -- <id> "Название"  # скелетер новой игры
-npm start        # http://localhost:4173 с боевыми security-заголовками
-npm run check    # build + test + budgets (запускает pre-push hook)
+npm run smoke    # проверить живые хостинги
 npm run og       # перегенерировать assets/og.png (если меняется палитра)
 ```
+
+Параллельные PR конфликтуют в generated-файлах (`catalog.json`, `sitemap.xml`,
+`index.html`, `stats.html`, `_headers`, `vercel.json` — все коммитятся):
+перед push — `git pull --rebase --autostash origin main && npm run build`
+(и закоммитить результат, если сборка что-то обновила).
 
 ## Поддержка платформ
 
@@ -113,14 +127,18 @@ npm run og       # перегенерировать assets/og.png (если ме
 | Артефакт | Max | Зачем |
 |---|---|---|
 | `data/catalog.json` | 250 КБ (warn 200 КБ) | поиск в памяти, LCP каталога |
-| `assets/js/*.js` суммарно | 52 КБ | критический путь + витрина + ленивая панель оформления (редизайн, сортировки, тема) |
-| `assets/js/*` критический (без `stats-page.js`) | 40 КБ (warn 37 КБ) | главная: витрина грузится только на `stats.html` (deferred), рост `main.js` виден отдельно |
+| `assets/js/*.js` суммарно | 55 КБ | критический путь + deferred-чанки (витрина, плеер, маяк); поднято 52→55 протоколом рекордов и INP-защитой — вес ушёл в ленивое, critical похудел |
+| `assets/js/*` критический (без deferred: `stats-page.js`, `player.js`, `sandbox-tokens.js`, `stats.js`) | 40 КБ (warn 37 КБ) | главная: витрина — только на `stats.html`, плеер и маяк — динамический `import` по факту; рост `main.js` виден отдельно |
 | `assets/css/main.css` | 26 КБ (warn 24 КБ) | один CSS на каталог: тёмная неон-тема + панель оформления |
 | `index.html` | 35 КБ | оболочка + JSON-LD и frame-src всех игр (на LCP не влияет) |
 | `stats.html` | 35 КБ | витрина статистики: та же CSP meta, без JSON-LD |
 | `games/*/thumb.webp` | 25 КБ/файл, 1.6 МБ суммарно (WARN 1.3 МБ) | WebP-превью 400px по ширине, q68 (см. `gen-thumbs.mjs`); 5 мостов без превью осознанно — пустой кадр (см. `NOTHUMB_BRIDGES` в генераторе), карточка показывает эмодзи |
 | `assets/og.png` | 100 КБ | превью ссылок |
 | внешние игры (`games/*/meta.json` с `url`) | WARN > 200, FAIL > 300 | каждая игра растит `frame-src` и `index.html` линейно (166 origin на 194 внешние — дедуп по origin) — чистить мёртвые, строгий отчёт — артефакт `qa-bridges.yml` |
+
+Процедура лимитов (заморозка critical): новое — только в deferred-чанки
+(`JS_DEFERRED` в `check-budgets.mjs`); поднятие любого `maxBytes` — отдельным
+коммитом с замером до/после и причиной, почему нельзя в deferred/чистку.
 
 E2E-дым (`tests/e2e/perf.e2e.mjs`): главная с карточками <8с на CI-раннере,
 `fetch catalog.json` <2с, ноль ошибок консоли. Жёсткие миллисекунды не фиксируем —
@@ -188,9 +206,9 @@ SEO без цены рантайма: `npm run build` вшивает в `index.h
 
 Правила для игр (проверяются архитектурой, не ревью):
 
-- iframe работает в sandbox с **opaque origin**: нельзя `localStorage`, куки, обращения к `parent`, ES-модули (`import`). Только классические скрипты и стили из своих файлов. Рекорды — только на сессию (in-memory) или ретрансляция в портал.
-- игра не должна иметь сетевых запросов — CSP `default-src 'none'` это блокирует. Звук — только синтезированный WebAudio без файлов (ленивый `AudioContext` по первому жесту, весь SFX в `try/catch`).
-- фокус-стили (`:focus-visible`), `<output>` / роли `role="status"` для вывода счёта, без `alert()`.
+- iframe работает в sandbox с **opaque origin**: нельзя `localStorage`, куки, обращения к `parent`, ES-модули (`import`). Только классические скрипты и стили из своих файлов. Рекорд сессии — in-memory; в портал уходит протоколом `parent.postMessage({type:'miniarcade:score', game, score})` (портал хранит best и показывает на карточке).
+- игра не должна иметь сетевых запросов — CSP `default-src 'none'` это блокирует. Звук — только синтезированный WebAudio без файлов (ленивый `AudioContext` по первому жесту, весь SFX в `try/catch`); `M` — глушить/вернуть звук.
+- фокус-стили (`:focus-visible`), `<output>` / роли `role="status"` для вывода счёта, без `alert()`. HUD-строка едина: `Счёт • [Уровень|Жизни] • Рекорд сессии`; старт — только с `ready`-экрана (поле отрисовано, игра ждёт ввода), не автостартом.
 - `e.code` вместо `e.key` для клавиш (раскладка/Caps Lock не ломают управление). Пробел: только `keydown` + `preventDefault` — инкремент на Enter удвоил бы очки с нативным кликом сфокусированной кнопки.
 - тач: `touch-action: manipulation` на кнопках (нет 300мс зуму), `touch-action: none` на canvas со свайпами; описание в `meta.json` обязано совпадать с реальным управлением и механикой (счётчики, которые обещаны, — считать).
 - анимации за `prefers-reduced-motion`-гардом; пауза по `visibilitychange`, если игра реального времени.
@@ -250,6 +268,21 @@ Chess.com, TETR.IO), и проприетарные free-to-play без репо�
   (`page.route`), а не живой сетью. Зато `smoke.mjs` проверяет, что зеркала
   отдают CSP с `frame-src` мостов — иначе каталог един, а игры на нём молчат.
 
+Жизненный цикл: новые мосты проверяет CI (`verify-changed`: candidates +
+лицензии, валит merge); живность всех — еженедельный `qa-bridges.yml`
+(report-only + strict-артефакт). Решение об удалении — за человеком
+(мёртв 2 недели подряд / закрыт фрейминг / редирект на заглушку),
+механика — за скриптом: `node scripts/prune-bridges.mjs <id...>`
+(папки + неиспользуемые origin + заголовки + пересборка; дальше
+`npm run check`). Цель — держаться ниже ~170 при WARN 200.
+
+Именование: `id` = `[игра-словами-через-дефис]-[авторслитно]`, всё
+lowercase-kebab (валидация + Linux-деплой не пропускают заглавные);
+свои игры — одним словом без автора. Переименование — только через
+`git mv` + правка `id` в `meta.json`, плюс строка `old → new`
+в `data/aliases.json` (редирект старых `#/play/` и схлопывание статистики;
+тест `tests/aliases.test.mjs` проверяет, что цели живы).
+
 ## Стенд QA-ботов
 
 Семь скриптов — ловят то, что не видят unit/e2e: нарушение контрактов игр, битые внутренние ссылки, секреты в коде, протухшие мосты, битые превью, лицензии мостов, неиграбельность. FAIL валит `npm run qa` (а значит pre-push и CI), WARN только шумит. Исключения: `qa-bridges` — report-only по умолчанию (аптайм третьих сторон не валит push, строгий режим — `--strict`/недельный cron), `qa-playable` требует playwright и сеть, поэтому живёт отдельно (`npm run qa:playable`) и в `npm run qa` не входит.
@@ -268,6 +301,8 @@ Chess.com, TETR.IO), и проприетарные free-to-play без репо�
 npm run qa          # все локальные боты (входит в npm run check, pre-push и CI)
 npm run qa:licenses # офлайн-аудит лицензий мостов (входит в qa)
 npm run qa:fix      # безопасный автофикс: только висячие пробелы
+npm run qa:changed  # живые проверки только изменённых мостов (CI-блокер для новых)
+npm run qa:prune -- <id...>  # удалить мёртвые мосты (папки + allowlist + сборка)
 npm run qa:bridges  # живой обход всех мостов (сеть; в CI — еженедельный cron qa-bridges.yml, report-only + strict-артефакт)
 npm run qa:bridges:strict  # ручной строгий прогон: FAIL при мёртвых/закрытых мостах
 ```
@@ -306,7 +341,7 @@ CSP на месте, актуален (есть переезд `muan.github.io`,
 исходники/тулинг (`/functions/`, `/scripts/`, `/stats/*.mjs`, `meta.json`)
 отдают 404; неизвестные пути — 404, а не index. Покрыт `tests/worker.test.mjs`.
 
-1. Actions → `Deploy Worker (manual)` → `Run workflow` — воркер поднимется
+1. Actions → `Deploy Worker (manual)` (`.github/workflows/deploy-worker.yml`) → `Run workflow` — воркер поднимется
    на `miniarcade.<subdomain>.workers.dev`, `pages.dev` не тронется;
 2. прогнать smoke против workers.dev-адреса (CSP-заголовок обязан быть);
 3. в dashboard привязать D1 как `STATS_DB` (Worker → Settings → Bindings) —

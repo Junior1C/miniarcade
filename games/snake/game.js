@@ -24,14 +24,18 @@
   const canvas = document.getElementById('board');
   const context = canvas.getContext('2d');
   const scoreEl = document.getElementById('score');
+  const bestEl = document.getElementById('best');
   const statusEl = document.getElementById('status');
   const padBtns = [...document.querySelectorAll('.pad__btn')];
 
   // SFX без ассетов: чистый WebAudio, офлайн и CSP-safe.
+  // M — глушить/вернуть звук (сессия); глаголы различаются тембром.
   let audioCtx = null;
+  let muted = false;
 
-  function beep(freq, ms = 80) {
+  function beep(freq, ms = 80, type = 'triangle') {
     try {
+      if (muted) return;
       if (!audioCtx) {
         const AC = window.AudioContext || window.webkitAudioContext;
         if (!AC) return;
@@ -43,7 +47,7 @@
       const now = audioCtx.currentTime;
       const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
-      osc.type = 'triangle';
+      osc.type = type;
       osc.frequency.value = freq;
       gain.gain.setValueAtTime(0.09, now);
       gain.gain.exponentialRampToValueAtTime(0.001, now + ms / 1000);
@@ -56,6 +60,11 @@
     }
   }
 
+  function toggleMute() {
+    muted = !muted;
+    statusEl.textContent = muted ? 'Звук выключен (M — вернуть).' : 'Звук включён.';
+  }
+
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
   canvas.width = BOARD_SIZE * dpr;
   canvas.height = BOARD_SIZE * dpr;
@@ -66,7 +75,60 @@
   let queuedDirection;
   let food;
   let score;
+  let best = 0;
   let gameState;
+
+  // Juice: пул частиц без аллокаций в кадре + тряска экрана на смерть.
+  // Всё за гардом reduced-motion (CSS-медиа canvas-цикл не глушит).
+  const reduceMotion =
+    typeof window.matchMedia === 'function' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const particles = [];
+  let shakeUntil = 0;
+
+  function burst(x, y, color, count = 10) {
+    if (reduceMotion) return;
+    for (let i = 0; i < count; i += 1) {
+      if (particles.length >= 40) particles.shift();
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 40 + Math.random() * 90;
+      particles.push({
+        x,
+        y,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        life: 300,
+        color,
+      });
+    }
+  }
+
+  function tickParticles(dtMs) {
+    for (let i = particles.length - 1; i >= 0; i -= 1) {
+      const part = particles[i];
+      part.life -= dtMs;
+      if (part.life <= 0) {
+        particles.splice(i, 1);
+        continue;
+      }
+      part.x += (part.vx * dtMs) / 1000;
+      part.y += (part.vy * dtMs) / 1000;
+    }
+  }
+
+  // Протокол рекордов каталога: портал хранит best в своём localStorage
+  // (игре storage недоступен — opaque origin), внутриигровой best — сессия.
+  function reportScore() {
+    if (score > best) {
+      best = score;
+      if (bestEl) bestEl.textContent = String(best);
+    }
+    try {
+      parent.postMessage({ type: 'miniarcade:score', game: 'snake', score }, '*');
+    } catch {
+      // Вне каталога (прямая страница) — некому слушать.
+    }
+  }
 
   function placeFood() {
     do {
@@ -90,18 +152,42 @@
     scoreEl.textContent = '0';
     statusEl.textContent = '';
     placeFood();
-    beep(520, 90);
+    beep(520, 90, 'square');
+  }
+
+  function showReady() {
+    snake = [
+      { x: 5, y: 5 },
+      { x: 4, y: 5 },
+      { x: 3, y: 5 },
+    ];
+    direction = { x: 1, y: 0 };
+    queuedDirection = null;
+    score = 0;
+    gameState = 'ready';
+    scoreEl.textContent = '0';
+    if (bestEl) bestEl.textContent = String(best);
+    statusEl.textContent = 'Нажмите клавишу, стрелку, кнопку или свайп — старт.';
+    placeFood();
   }
 
   function endGame() {
     gameState = 'over';
-    statusEl.textContent = `Игра окончена. Счёт: ${score}. Нажмите клавишу или кнопку, чтобы начать заново.`;
-    beep(160, 250);
+    const isRecord = score > best && score > 0;
+    reportScore();
+    if (!reduceMotion) shakeUntil = performance.now() + 150;
+    if (isRecord) {
+      statusEl.textContent = `Игра окончена. Новый рекорд: ${score}! Клавиша или кнопка — заново.`;
+    } else {
+      statusEl.textContent = `Игра окончена. Счёт: ${score}. Нажмите клавишу или кнопку, чтобы начать заново.`;
+    }
+    beep(160, 250, 'sawtooth');
   }
 
-  // Разгон: каждая еда ускоряет шаг, пол — 60мс. Кривая сложности без левел-дизайна.
+  // Разгон: каждая еда ускоряет шаг, пол — 60мс. Первые 3 еды —
+  // grace-период без ускорения: новичок осваивается до разгона.
   function stepInterval() {
-    return Math.max(MIN_STEP_MS, STEP_MS - score * SPEEDUP_PER_FOOD);
+    return Math.max(MIN_STEP_MS, STEP_MS - Math.max(0, score - 3) * SPEEDUP_PER_FOOD);
   }
 
   function step() {
@@ -127,7 +213,8 @@
     if (head.x === food.x && head.y === food.y) {
       score += 1;
       scoreEl.textContent = String(score);
-      beep(600 + Math.min(score, 20) * 15, 70);
+      beep(600 + Math.min(score, 20) * 15, 70, 'square');
+      burst(food.x * CELL + CELL / 2, food.y * CELL + CELL / 2, '#ef4444');
       placeFood();
     } else {
       snake.pop();
@@ -142,7 +229,12 @@
   }
 
   // Единая точка ввода: клавиатура, dpad-кнопки и свайпы идут сюда.
+  // M — звук вкл/выкл (вне directions, чтобы не стартовать игру).
   function press(code) {
+    if (code === 'KeyM') {
+      toggleMute();
+      return;
+    }
     const turn = DIRECTIONS[code];
     if (turn) {
       if (gameState === 'paused') {
@@ -156,7 +248,7 @@
       queueTurn(turn);
       return;
     }
-    if (gameState === 'over') {
+    if (gameState === 'over' || gameState === 'ready') {
       startGame();
     } else if (gameState === 'paused') {
       resumeGame();
@@ -185,8 +277,12 @@
   }
 
   function draw() {
+    context.save();
+    if (!reduceMotion && performance.now() < shakeUntil) {
+      context.translate((Math.random() - 0.5) * 6, (Math.random() - 0.5) * 6);
+    }
     context.fillStyle = '#111';
-    context.fillRect(0, 0, BOARD_SIZE, BOARD_SIZE);
+    context.fillRect(-8, -8, BOARD_SIZE + 16, BOARD_SIZE + 16);
 
     context.fillStyle = '#ef4444';
     context.fillRect(food.x * CELL, food.y * CELL, CELL, CELL);
@@ -195,6 +291,13 @@
     for (const part of snake) {
       context.fillRect(part.x * CELL, part.y * CELL, CELL - 1, CELL - 1);
     }
+    for (const part of particles) {
+      context.globalAlpha = Math.max(0, part.life / 300);
+      context.fillStyle = part.color;
+      context.fillRect(part.x - 2, part.y - 2, 4, 4);
+    }
+    context.globalAlpha = 1;
+    context.restore();
   }
 
   let lastTime = 0;
@@ -217,6 +320,7 @@
       accumulator = 0;
     }
 
+    tickParticles(delta);
     draw();
     requestAnimationFrame(frame);
   }
@@ -265,6 +369,6 @@
   });
 
   document.addEventListener('keydown', onKeyDown);
-  startGame();
+  showReady();
   requestAnimationFrame(frame);
 })();

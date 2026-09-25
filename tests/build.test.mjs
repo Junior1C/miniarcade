@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { buildCatalog, buildCspMeta, sortLangsByPopularity } from '../scripts/build.mjs';
+import { buildCardHtml, buildCatalog, buildCspMeta, buildHomeRowsHtml, sortLangsByPopularity } from '../scripts/build.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -275,4 +275,52 @@ test('buildCatalog syncs CSP meta into index.html/stats.html and lists stats in 
   await buildCatalog(dir);
   assert.equal(await readFile(path.join(dir, 'stats.html'), 'utf8'), statsHtml);
   assert.equal(await readFile(path.join(dir, 'index.html'), 'utf8'), indexHtml);
+});
+
+test('buildCardHtml mirrors createCard: classes, badges, escaping', () => {
+  const native = {
+    id: 'demo',
+    title: 'Демо <игра>',
+    emoji: '🚀',
+    description: 'Описание & детали',
+    tags: ['аркада', 'ии'],
+    lang: 'ru',
+  };
+  const html = buildCardHtml(native);
+  assert.ok(html.includes('<li class="card"><a class="card__link" href="#/play/demo">'));
+  assert.ok(html.includes('<span class="card__badge card__badge--miniarcade"'));
+  assert.ok(!html.includes('<игра>'), 'markup must be escaped');
+  assert.ok(html.includes('&lt;игра&gt;'));
+  assert.ok(html.includes('<span class="card__ai"'), 'ии tag must render the AI pill');
+  assert.ok(html.includes('card__lang'), 'lang badge must render');
+  assert.ok(!html.includes('card__stats'), 'no server stats at build time');
+});
+
+test('buildCardHtml renders donor link for external games', () => {
+  const bridge = {
+    id: 'trex-wayou',
+    title: 'T-Rex',
+    emoji: '🦖',
+    description: 'Беги',
+    tags: ['раннер'],
+    lang: 'en',
+    url: 'https://wayou.github.io/t-rex-runner/',
+    author: 'wayou',
+    license: 'MIT',
+    repo: 'https://github.com/wayou/t-rex-runner',
+    thumb: 'games/trex-wayou/thumb.webp',
+  };
+  const html = buildCardHtml(bridge);
+  assert.ok(html.includes('href="https://github.com/wayou/t-rex-runner" target="_blank"'));
+  assert.ok(html.includes('>↗ GitHub</a>'), 'portal badge must link the donor repo');
+  assert.ok(html.includes('loading="lazy" decoding="async"'), 'preview must be lazy and CLS-safe');
+});
+
+test('buildHomeRowsHtml renders 12 top cards in catalog order', async () => {
+  const catalog = JSON.parse(await readFile(path.join(ROOT, 'data', 'catalog.json'), 'utf8'));
+  const html = buildHomeRowsHtml(catalog.games);
+  const cards = html.match(/<li class="card">/g) || [];
+  assert.equal(cards.length, 12);
+  assert.ok(html.includes('<h2 class="row-head">Популярное</h2>'));
+  assert.ok(html.includes('id="row-track-0"'), 'track id must match runtime renderRows');
 });

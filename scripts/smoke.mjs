@@ -39,6 +39,17 @@ async function checkHome(host) {
         throw new Error(`CSP header is missing "${token}" (bridge origins out of sync?)`);
       }
     }
+    // Заголовок обязан покрывать meta-политику страницы (GH Pages живёт
+    // только на meta): каждая директива из <meta> должна быть в header,
+    // иначе зеркала разъезжаются молча (прецедент 2026-09-24).
+    const meta = text.match(/<meta http-equiv="Content-Security-Policy" content="([^"]+)">/);
+    if (meta) {
+      for (const directive of meta[1].split(';').map((part) => part.trim()).filter(Boolean)) {
+        if (!csp.includes(directive)) {
+          throw new Error(`CSP header is missing meta directive "${directive.slice(0, 60)}"`);
+        }
+      }
+    }
     const hsts = response.headers.get('strict-transport-security');
     if (!hsts || !hsts.includes('max-age=')) {
       throw new Error('missing Strict-Transport-Security header');
@@ -66,11 +77,45 @@ async function checkStats(host) {
   }
 }
 
+async function checkNotFound(host) {
+  // Неизвестный путь обязан быть 404, а не SPA-index: иначе битый деплой
+  // маскируется под живую главную (прецедент pages.dev 2026-09-24).
+  const { response } = await fetchText(new URL('definitely-not-a-page-xyz123', host.url));
+  if (response.status !== 404) throw new Error(`unknown path returned ${response.status}, want 404`);
+}
+
+async function checkApi(host) {
+  // Только preflight: OPTIONS ничего не пишет в D1, но проверяет,
+  // что приёмник жив и CORS-контракт на месте. POST здесь не делаем —
+  // каждый POST создал бы строку в прод-статистике.
+  // Архитектура — единый коллектор на Cloudflare Pages: у GitHub Pages
+  // и Vercel своего /api/hit нет (каталог шлёт beacon на pages.dev).
+  if (host.name === 'GitHub Pages') return;
+  const { status, headers } = await (async () => {
+    const response = await fetch(new URL('api/hit', host.url), {
+      method: 'OPTIONS',
+      signal: AbortSignal.timeout(25000),
+    });
+    await response.text().catch(() => {});
+    return { status: response.status, headers: response.headers };
+  })();
+  if (host.name === 'Vercel') {
+    if (status !== 404) throw new Error(`/api/hit OPTIONS returned ${status}, want 404 (no collector on Vercel)`);
+    return;
+  }
+  if (status !== 204) throw new Error(`/api/hit OPTIONS returned ${status}, want 204`);
+  if (!headers.get('access-control-allow-origin')) {
+    throw new Error('/api/hit OPTIONS has no CORS headers');
+  }
+}
+
 const CHECKS = [
   ['home page', checkHome],
   ['robots.txt', checkRobots],
   ['sitemap.xml', checkSitemap],
   ['stats.html', checkStats],
+  ['unknown path 404', checkNotFound],
+  ['api/hit OPTIONS', checkApi],
 ];
 
 const failures = [];

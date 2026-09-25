@@ -2,6 +2,8 @@ import { mkdir, readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { SANDBOX_TOKENS } from '../assets/js/sandbox-tokens.js';
+import { sortGames } from '../assets/js/sort.js';
+import { gameSource } from '../assets/js/source.js';
 import { CSP_META, FRAME_SRC_ORIGINS } from './security-headers.mjs';
 
 const ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -374,6 +376,131 @@ export function buildLdJson(games) {
   });
 }
 
+// Пререндер первого ряда главной («Популярное», 12 карточек) в index.html:
+// LCP без ожидания fetch catalog.json; JS при старте заменяет узел целиком.
+// Разметка обязана повторять createCard() из assets/js/main.js 1:1 —
+// рассинхрон даст визуальный скачок при гидрации. Порядок — тот же
+// sortGames 'top' без статистики, что и первый рендер в браузере
+// (до приезда totals.json), поэтому стартовый кадр совпадает.
+const HOME_ROW_SIZE = 12; // === ROW_SIZE в main.js
+const ROWS_START = '<!-- HOME-ROWS-START -->';
+const ROWS_END = '<!-- HOME-ROWS-END -->';
+
+// === LANG_NAMES в main.js: подписи языковых пилюль.
+const LANG_NAMES = {
+  ru: 'русский',
+  en: 'английский',
+  zh: 'китайский',
+  ja: 'японский',
+  it: 'итальянский',
+  tr: 'турецкий',
+  uk: 'украинский',
+  es: 'испанский',
+  fr: 'французский',
+  de: 'немецкий',
+  pt: 'португальский',
+  pl: 'польский',
+  nl: 'нидерландский',
+  ko: 'корейский',
+};
+
+function escapeHtml(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function buildLangHtml(game) {
+  if (typeof game.lang !== 'string' || !game.lang || game.lang === 'neutral') return '';
+  const all = Array.isArray(game.langs) && game.langs.length > 1 ? game.langs : [game.lang];
+  const text = all.length > 1 ? `${game.lang.toUpperCase()}+` : game.lang.toUpperCase();
+  const title = `Языки игры: ${all.map((code) => LANG_NAMES[code] ?? code).join(', ')}`;
+  return `<span class="card__lang" title="${escapeHtml(title)}">${escapeHtml(text)}</span>`;
+}
+
+function buildTagsHtml(game) {
+  if (!Array.isArray(game.tags) || game.tags.length === 0) return '';
+  const items = game.tags
+    .map((tag) => `<li><span class="card__tag" data-tag="${escapeHtml(tag)}">#${escapeHtml(tag)}</span></li>`)
+    .join('');
+  return `<ul class="card__tags">${items}</ul>`;
+}
+
+function buildMetaHtml(game) {
+  const source = gameSource(game);
+  if (source.external) {
+    const shown = String(game.author).split(/\s+/)[0];
+    const authorTitle = shown !== game.author ? ` title="${escapeHtml(game.author)}"` : '';
+    return (
+      `<p class="card__meta"><a class="card__badge card__badge--${source.key}"` +
+      ` href="${escapeHtml(source.href)}" target="_blank" rel="noopener"` +
+      ` title="Источник: ${escapeHtml(source.label)} — ${escapeHtml(source.href)}">` +
+      `↗ ${escapeHtml(source.label)}</a> <span${authorTitle}>${escapeHtml(shown)}</span>` +
+      ` • ${escapeHtml(game.license)}</p>`
+    );
+  }
+  return (
+    '<p class="card__meta"><span class="card__badge card__badge--miniarcade"' +
+    ' title="Встроенная игра MiniArcade">MiniArcade</span> • встроенная</p>'
+  );
+}
+
+export function buildCardHtml(game) {
+  const visual =
+    typeof game.thumb === 'string' && game.thumb
+      ? `<img class="card__thumb" src="${escapeHtml(game.thumb)}" alt="" aria-hidden="true"` +
+        ' loading="lazy" decoding="async" width="400" height="300">'
+      : `<span class="card__emoji" aria-hidden="true">${escapeHtml(game.emoji ?? '🎮')}</span>`;
+  const ai = Array.isArray(game.tags) && game.tags.includes('ии')
+    ? '<span class="card__ai" title="Игра с искусственным интеллектом">ИИ</span>'
+    : '';
+  return (
+    `<li class="card"><a class="card__link" href="#/play/${escapeHtml(game.id)}">` +
+    `<div class="card__cover">${visual}` +
+    `<h3 class="card__title" title="${escapeHtml(game.title)}">` +
+    `<span class="card__name">${escapeHtml(game.title)}</span>${buildLangHtml(game)}${ai}</h3></div>` +
+    `<p class="card__desc">${escapeHtml(game.description)}</p>${buildTagsHtml(game)}` +
+    `<span class="card__cta">Играть</span></a>${buildMetaHtml(game)}</li>`
+  );
+}
+
+export function buildHomeRowsHtml(games) {
+  const top = sortGames(games, 'top', null).slice(0, HOME_ROW_SIZE);
+  const cards = top.map((game) => buildCardHtml(game)).join('');
+  return (
+    '<section class="row-section"><h2 class="row-head">Популярное</h2>' +
+    '<div class="row-carousel">' +
+    '<button class="scroll-btn scroll-btn--left" type="button" aria-label="Листать «Популярное» назад">‹</button>' +
+    `<ul class="row-track" id="row-track-0" aria-label="Популярное">${cards}</ul>` +
+    '<button class="scroll-btn scroll-btn--right" type="button" aria-label="Листать «Популярное» вперёд">›</button>' +
+    '</div></section>'
+  );
+}
+
+async function injectHomeRows(rootDir, games) {
+  const indexPath = path.join(rootDir, 'index.html');
+  let html;
+  try {
+    html = await readFile(indexPath, 'utf8');
+  } catch {
+    return;
+  }
+  if (!html.includes(ROWS_START) || !html.includes(ROWS_END)) {
+    // Ряды — progressive enhancement, а не контракт (в отличие от LD-JSON):
+    // минимальные фикстуры и чужие шаблоны молча пропускаются с WARN.
+    console.error('WARN index.html has no HOME-ROWS markers: prerender skipped');
+    return;
+  }
+  const eol = detectEol(html);
+  const block = `${ROWS_START}${eol}${buildHomeRowsHtml(games)}${eol}  ${ROWS_END}`;
+  const pattern = new RegExp(`${escapeRegExp(ROWS_START)}[\\s\\S]*?${escapeRegExp(ROWS_END)}`);
+  const next = normalizeEol(html.replace(pattern, () => block), eol);
+  if (next !== html) await writeFile(indexPath, next, 'utf8');
+}
+
 async function injectLdJson(rootDir, games) {
   const indexPath = path.join(rootDir, 'index.html');
   let html;
@@ -444,6 +571,7 @@ export async function buildCatalog(rootDir) {
   ];
   await writeFile(path.join(rootDir, 'sitemap.xml'), sitemapLines.join('\n'), 'utf8');
   await injectLdJson(rootDir, games);
+  await injectHomeRows(rootDir, games);
   await syncCspMeta(rootDir);
   return payload;
 }

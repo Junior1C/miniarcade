@@ -49,3 +49,14 @@
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+/* Исторический фон страницы (до unified shell): shell даёт layout,
+   доступность и HUD-структуру, цвет страницы — из истории игры. */
+body {
+  background: #fef9c3;
+  color: #422006;
+}
+
+.hud {
+  background: #a16207;
+  color: #fefce8;
+}

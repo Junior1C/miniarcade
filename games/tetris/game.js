@@ -41,9 +41,26 @@
   let gameState = 'idle';
 
   let audioCtx = null;
+  let muted = false;
 
-  function beep(freq, ms = 80) {
+  // M — глушить/вернуть звук (сессия). Вне игровых клавиш.
+  function toggleMute() {
+    muted = !muted;
+    statusEl.textContent = muted ? 'Звук выключен (M — вернуть).' : 'Звук включён.';
+  }
+
+  // Рекорд — в портал (портал хранит best, см. assets/js/best.js).
+  function reportScore(value) {
     try {
+      parent.postMessage({ type: 'miniarcade:score', game: 'tetris', score: value }, '*');
+    } catch {
+      // Вне каталога — некому слушать.
+    }
+  }
+
+  function beep(freq, ms = 80, type = 'square') {
+    try {
+      if (muted) return;
       if (!audioCtx) {
         const AC = window.AudioContext || window.webkitAudioContext;
         if (!AC) return;
@@ -55,7 +72,7 @@
       const now = audioCtx.currentTime;
       const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
-      osc.type = 'square';
+      osc.type = type;
       osc.frequency.value = freq;
       gain.gain.setValueAtTime(0.06, now);
       gain.gain.exponentialRampToValueAtTime(0.001, now + ms / 1000);
@@ -208,7 +225,8 @@
       statusEl.textContent = `Игра окончена. Счёт: ${score}. Кнопка или клавиша — заново.`;
     }
     startBtn.textContent = 'Старт';
-    beep(160, 250);
+    reportScore(score);
+    beep(160, 250, 'sawtooth');
   }
 
   function togglePause() {
@@ -244,6 +262,10 @@
   }
 
   document.addEventListener('keydown', (event) => {
+    if (event.code === 'KeyM') {
+      toggleMute();
+      return;
+    }
     switch (event.code) {
       case 'ArrowLeft':
       case 'KeyA':

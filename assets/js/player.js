@@ -1,8 +1,22 @@
 import { SANDBOX_TOKENS } from './sandbox-tokens.js';
+import { isScoreMessage, storeBest } from './best.js';
 
 const BASE_SANDBOX = ['allow-scripts'];
 
 export const SANDBOX_ALLOWLIST = new Set(SANDBOX_TOKENS);
+
+// Приём рекордов от игр: легитимный отправитель — песочница
+// с opaque origin (event.origin 'null'); чужой origin режем,
+// счёт валидирует storeBest. Модуль грузится лениво (deferred),
+// поэтому слушатель живёт с первого открытия плеера — раньше
+// игре и слать некуда.
+if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') {
+  window.addEventListener('message', (event) => {
+    if (event.origin !== 'null') return;
+    if (!isScoreMessage(event.data)) return;
+    storeBest(event.data.game, event.data.score);
+  });
+}
 
 function buildSandbox(game) {
   const extras = Array.isArray(game.sandbox) ? game.sandbox : [];

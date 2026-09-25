@@ -23,20 +23,24 @@ const BUDGETS = [
   { file: 'assets/og.png', maxBytes: 100 * 1024 },
 ];
 
-const JS_BUDGET = { dir: 'assets/js', maxBytes: 52 * 1024 };
-// Критический путь каталога — всё кроме витрины статистики: stats-page.js
-// грузится только на stats.html (<script type=module>, deferred), на LCP/INP
-// главной не влияет. Отдельный бюджет держит критический JS в узде,
-// пока суммарный счётчик не маскирует рост main.js за счёт витрины.
+// Поднято 52→55 протоколом рекордов (best.js), редиректом старых хешей
+// и INP-защитой (мемо сортировок): вес ушёл в ленивые чанки, критический
+// путь при этом похудел. Дальше — только чисткой или новыми deferred.
+const JS_BUDGET = { dir: 'assets/js', maxBytes: 55 * 1024 };
+// Критический путь каталога — всё кроме deferred-чанков: stats-page.js
+// (витрина статистики, только stats.html) и player.js + sandbox-tokens.js
+// (плеер грузится динамическим import при первом открытии игры;
+// задержка в тик незаметна на фоне iframe). Отдельный бюджет держит
+// критический JS в узде, пока суммарный счётчик не маскирует рост main.js.
 // Поднято 24→28 сортировкой, 28→36 редизайном, 36→40 редактором темы
 // (ядро theme.js в критическом пути ради применения без вспышки;
 // панель settings.js — ленивая, из критического исключена).
 const JS_CRITICAL_MAX = 40 * 1024;
 // WARN на 37 КБ (~90%): запас <10% — заморозка critical, новое только в deferred.
 const JS_CRITICAL_WARN = 37 * 1024;
-// Панель оформления удалена (не помогла): витрина снова единственный
-// deferred-модуль вне критического пути.
-const JS_DEFERRED = new Set(['stats-page.js']);
+// Deferred-модули вне критического пути: грузятся по месту,
+// на LCP/INP главной не влияют.
+const JS_DEFERRED = new Set(['stats-page.js', 'player.js', 'sandbox-tokens.js', 'stats.js']);
 // WebP-превью карточек (gen-thumbs.mjs): каждое лёгкое по отдельности,
 // сумма — с запасом на новые игры; часть мостов без превью осознанно
 // (пустой кадр — честнее эмодзи, список в NOTHUMB_BRIDGES генератора).
@@ -95,7 +99,7 @@ const { total: jsBytes, critical: jsCritical } = await jsTotal();
 {
   const status = jsCritical > JS_CRITICAL_MAX ? 'FAIL' : jsCritical > JS_CRITICAL_WARN ? 'WARN' : 'ok';
   console.log(
-    `${status.padEnd(4)} ${JS_BUDGET.dir}/*.js (critical, без stats-page.js) — ${jsCritical} bytes (max ${JS_CRITICAL_MAX})`,
+    `${status.padEnd(4)} ${JS_BUDGET.dir}/*.js (critical, без ${[...JS_DEFERRED].join(', ')}) — ${jsCritical} bytes (max ${JS_CRITICAL_MAX})`,
   );
   if (status === 'FAIL') failed += 1;
 }

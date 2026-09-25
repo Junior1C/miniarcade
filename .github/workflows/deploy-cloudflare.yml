@@ -25,6 +25,8 @@ jobs:
         run: node --test
       - name: Performance budgets
         run: node scripts/check-budgets.mjs
+      - name: QA bots (offline)
+        run: npm run qa
       - name: Deploy
         # Деплой идёт через Cloudflare Pages git-интеграцию (тот же коммит,
         # что GitHub Pages и Vercel). wrangler.jsonc оставлен только для

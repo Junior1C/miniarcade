@@ -5,7 +5,12 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
-export function summarize(wranglerJson) {
+// aliases: карта переименований data/aliases.json (old -> new).
+// Сырые строки D1 хранят id на момент события; при агрегации схлопываем
+// по канону, иначе переименованные игры стартуют рейтинги с нуля,
+// а старые строки висят мертвым грузом 90 дней.
+export function summarize(wranglerJson, aliases = {}) {
+  const canon = (game) => (typeof aliases[game] === 'string' && aliases[game]) || game;
   const results = Array.isArray(wranglerJson) ? wranglerJson[0]?.results : wranglerJson.results;
   const rows = Array.isArray(results) ? results : [];
   const daily = rows
@@ -13,7 +18,7 @@ export function summarize(wranglerJson) {
     .map((row) => ({
       day: row.day,
       host: String(row.host || ''),
-      game: String(row.game || ''),
+      game: canon(String(row.game || '')),
       event: String(row.event || ''),
       n: Number(row.n) || 0,
       secs: Number(row.secs) || 0,
@@ -59,7 +64,10 @@ if (invokedDirectly) {
     console.error('Usage: node scripts/pull-stats.mjs <wrangler-output.json> <data/stats dir>');
     process.exitCode = 1;
   } else {
-    const summary = summarize(JSON.parse(await readFile(inputPath, 'utf8')));
+    const aliases = await readFile(path.join(path.dirname(outDir), 'aliases.json'), 'utf8')
+      .then((text) => JSON.parse(text))
+      .catch(() => ({}));
+    const summary = summarize(JSON.parse(await readFile(inputPath, 'utf8')), aliases);
     await writeStats(outDir, summary);
     console.log(`stats: ${summary.daily.length} daily rows, ${summary.totals.length} totals`);
     // Усечение выборки LIMIT в stats.yml: 50000 строк — потолок одного запроса.

@@ -40,9 +40,26 @@
   let keysRight = false;
 
   let audioCtx = null;
+  let muted = false;
 
-  function beep(freq, ms = 60) {
+  // M — глушить/вернуть звук (сессия). Вне игровых клавиш.
+  function toggleMute() {
+    muted = !muted;
+    statusEl.textContent = muted ? 'Звук выключен (M — вернуть).' : 'Звук включён.';
+  }
+
+  // Рекорд — в портал (портал хранит best, см. assets/js/best.js).
+  function reportScore(value) {
     try {
+      parent.postMessage({ type: 'miniarcade:score', game: 'breakout', score: value }, '*');
+    } catch {
+      // Вне каталога — некому слушать.
+    }
+  }
+
+  function beep(freq, ms = 60, type = 'square') {
+    try {
+      if (muted) return;
       if (!audioCtx) {
         const AC = window.AudioContext || window.webkitAudioContext;
         if (!AC) return;
@@ -54,7 +71,7 @@
       const now = audioCtx.currentTime;
       const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
-      osc.type = 'square';
+      osc.type = type;
       osc.frequency.value = freq;
       gain.gain.setValueAtTime(0.05, now);
       gain.gain.exponentialRampToValueAtTime(0.001, now + ms / 1000);
@@ -124,7 +141,7 @@
   function loseLife() {
     lives -= 1;
     livesEl.textContent = String(lives);
-    beep(180, 200);
+      beep(180, 200, 'sawtooth');
     if (lives <= 0) {
       gameState = 'over';
       if (score > best) {
@@ -134,6 +151,7 @@
       } else {
         statusEl.textContent = `Игра окончена. Счёт: ${score}.`;
       }
+      reportScore(score);
       return;
     }
     resetBall();
@@ -228,15 +246,31 @@
     }
   }
 
+  // Фиксированный шаг симуляции: два подшага за кадр 60 Гц, чтобы мяч
+  // не пролетал сквозь кирпич на скорости. Аккумулятор отвязывает темп
+  // от частоты экрана: на 120 Гц игра идёт так же, как на 60.
+  const STEP_MS = 1000 / 120;
+  const MAX_DELTA_MS = 250;
   let lastTime = 0;
+  let accumulator = 0;
 
   function frame(now) {
     if (!lastTime) lastTime = now;
+    let delta = now - lastTime;
     lastTime = now;
+    if (!(delta >= 0)) delta = 0;
+    if (delta > MAX_DELTA_MS) delta = MAX_DELTA_MS;
     if (gameState === 'running') {
-      // Два подшага за кадр: мяч не пролетает сквозь кирпич на скорости.
-      step();
-      if (gameState === 'running') step();
+      accumulator += delta;
+      let guard = 0;
+      while (accumulator >= STEP_MS && gameState === 'running' && guard < 5) {
+        step();
+        accumulator -= STEP_MS;
+        guard += 1;
+      }
+      if (guard >= 5) accumulator = 0;
+    } else {
+      accumulator = 0;
     }
     draw();
     requestAnimationFrame(frame);
@@ -266,6 +300,10 @@
   }, { passive: false });
 
   document.addEventListener('keydown', (event) => {
+    if (event.code === 'KeyM') {
+      toggleMute();
+      return;
+    }
     if (event.code === 'ArrowLeft' || event.code === 'KeyA') {
       event.preventDefault();
       keysLeft = true;
