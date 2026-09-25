@@ -19,7 +19,7 @@
       "thumb": "games/2048/thumb.webp"
     },
     {
-      "id": "ext-2048-ai",
+      "id": "2048-ovolve",
       "title": "2048 решает сам",
       "emoji": "🎲",
       "description": "Альфа-бета поиск собирает 2048 с кнопкой auto-run.",
@@ -36,10 +36,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2014-03-11",
-      "thumb": "games/ext-2048-ai/thumb.webp"
+      "thumb": "games/2048-ovolve/thumb.webp"
     },
     {
-      "id": "ext-2048-expectimax",
+      "id": "2048-expectimax-samuelz12",
       "title": "2048 Экспектимакс",
       "emoji": "🎲",
       "description": "Expectimax с диплёрнингом: ИИ собирает 2048 сам.",
@@ -55,17 +55,16 @@
       "controls": "Без управления: ИИ играет сам",
       "lang": "en",
       "created": "2025-01-12",
-      "thumb": "games/ext-2048-expectimax/thumb.webp"
+      "thumb": "games/2048-expectimax-samuelz12/thumb.webp"
     },
     {
-      "id": "ext-2048react",
+      "id": "2048react-mateuszsokola",
       "title": "2048 in React",
       "emoji": "🔢",
       "description": "Легендарные 2048 на React: сдвигайте и складывайте. Внешняя игра — код остаётся у автора.",
       "tags": [
         "головоломка",
-        "логика",
-        "мост"
+        "логика"
       ],
       "url": "https://mateuszsokola.github.io/2048-in-react/",
       "author": "mateuszsokola",
@@ -75,7 +74,7 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2021-07-29",
-      "thumb": "games/ext-2048react/thumb.webp"
+      "thumb": "games/2048react-mateuszsokola/thumb.webp"
     },
     {
       "id": "connect4",
@@ -94,7 +93,7 @@
       "thumb": "games/connect4/thumb.webp"
     },
     {
-      "id": "ext-agar-clone",
+      "id": "agar-clone-alperencbn05",
       "title": "Агарио-клон",
       "emoji": "🦠",
       "description": "Agar.io клон: сплит, боты, динамический зум.",
@@ -110,7 +109,7 @@
       "lang": "tr",
       "added": "2026-09-24",
       "created": "2026-01-29",
-      "thumb": "games/ext-agar-clone/thumb.webp"
+      "thumb": "games/agar-clone-alperencbn05/thumb.webp"
     },
     {
       "id": "breakout",
@@ -130,7 +129,7 @@
       "thumb": "games/breakout/thumb.webp"
     },
     {
-      "id": "ext-breakout-modes",
+      "id": "breakout-modes-bodhiprotocol",
       "title": "Арканоид: Дети/Про",
       "emoji": "🎯",
       "description": "Арканоид с режимами для детей и взрослых, пауэрапы, офлайн.",
@@ -146,7 +145,7 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2026-07-10",
-      "thumb": "games/ext-breakout-modes/thumb.webp"
+      "thumb": "games/breakout-modes-bodhiprotocol/thumb.webp"
     },
     {
       "id": "asteroids",
@@ -166,7 +165,7 @@
       "thumb": "games/asteroids/thumb.webp"
     },
     {
-      "id": "ext-air-hockey",
+      "id": "air-hockey-arminpanahi",
       "title": "Аэрохоккей Неон",
       "emoji": "🏒",
       "description": "Аэрохоккей: CPU трёх сложностей и локальный 2P.",
@@ -183,10 +182,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2026-07-05",
-      "thumb": "games/ext-air-hockey/thumb.webp"
+      "thumb": "games/air-hockey-arminpanahi/thumb.webp"
     },
     {
-      "id": "ext-drumbeast",
+      "id": "drumbeast-pemmyz",
       "title": "Барабанный зверь",
       "emoji": "🥁",
       "description": "Барабанные пады на Web Audio: запись и луп.",
@@ -201,10 +200,10 @@
       "controls": "Клавиатура / касание",
       "lang": "en",
       "created": "2025-06-23",
-      "thumb": "games/ext-drumbeast/thumb.webp"
+      "thumb": "games/drumbeast-pemmyz/thumb.webp"
     },
     {
-      "id": "ext-stack-tower",
+      "id": "stack-tower-liukun2634",
       "title": "Башня-стройка",
       "emoji": "🏗️",
       "description": "Тайминг-башня: срезай свес краном, комбо и процедурная музыка.",
@@ -220,10 +219,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2026-04-01",
-      "thumb": "games/ext-stack-tower/thumb.webp"
+      "thumb": "games/stack-tower-liukun2634/thumb.webp"
     },
     {
-      "id": "ext-pool-8ball",
+      "id": "pool-8ball-henshmi",
       "title": "Бильярд 8",
       "emoji": "🎱",
       "description": "Бильярд против ИИ с уровнями сложности.",
@@ -240,10 +239,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2018-02-24",
-      "thumb": "games/ext-pool-8ball/thumb.webp"
+      "thumb": "games/pool-8ball-henshmi/thumb.webp"
     },
     {
-      "id": "ext-bingo",
+      "id": "bingo-avdheshvarshney",
       "title": "Бинго",
       "emoji": "🍀",
       "description": "Бинго до десяти игроков локально.",
@@ -258,10 +257,10 @@
       "controls": "Мышь",
       "lang": "en",
       "created": "2023-06-26",
-      "thumb": "games/ext-bingo/thumb.webp"
+      "thumb": "games/bingo-avdheshvarshney/thumb.webp"
     },
     {
-      "id": "ext-blockly",
+      "id": "blockly-google",
       "title": "Блочные игры",
       "emoji": "🧒",
       "description": "Обучающие пазлы Google: лабиринт, черепаха, музыка.",
@@ -288,10 +287,10 @@
         "pl",
         "tr"
       ],
-      "thumb": "games/ext-blockly/thumb.webp"
+      "thumb": "games/blockly-google/thumb.webp"
     },
     {
-      "id": "ext-blackjack",
+      "id": "blackjack-segheysens",
       "title": "Блэкджек",
       "emoji": "🃏",
       "description": "Классический блекджек против дилера.",
@@ -307,10 +306,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2015-07-11",
-      "thumb": "games/ext-blackjack/thumb.webp"
+      "thumb": "games/blackjack-segheysens/thumb.webp"
     },
     {
-      "id": "ext-boggle",
+      "id": "boggle-scheibo",
       "title": "Боггл",
       "emoji": "🔤",
       "description": "Боггл: составляй слова из букв.",
@@ -325,10 +324,10 @@
       "controls": "Клавиатура / мышь",
       "lang": "en",
       "created": "2019-12-16",
-      "thumb": "games/ext-boggle/thumb.webp"
+      "thumb": "games/boggle-scheibo/thumb.webp"
     },
     {
-      "id": "ext-boxing-retro",
+      "id": "boxing-retro-gabitoesmiapodo",
       "title": "Бокс ретро",
       "emoji": "🥊",
       "description": "Ретро-бокс в духе Atari 2600.",
@@ -343,10 +342,10 @@
       "controls": "WASD + P",
       "lang": "en",
       "created": "2025-03-27",
-      "thumb": "games/ext-boxing-retro/thumb.webp"
+      "thumb": "games/boxing-retro-gabitoesmiapodo/thumb.webp"
     },
     {
-      "id": "ext-heli-rescue",
+      "id": "heli-rescue-didifive",
       "title": "Вертолёт-спасатель",
       "emoji": "🚁",
       "description": "Вертолёт-спасатель: вывози выживших.",
@@ -361,7 +360,7 @@
       "controls": "W/S/D",
       "lang": "pt",
       "created": "2022-01-26",
-      "thumb": "games/ext-heli-rescue/thumb.webp"
+      "thumb": "games/heli-rescue-didifive/thumb.webp"
     },
     {
       "id": "hangman",
@@ -381,7 +380,7 @@
       "thumb": "games/hangman/thumb.webp"
     },
     {
-      "id": "ext-wordle-plus",
+      "id": "wordle-plus-leandrosq",
       "title": "Вордли плюс",
       "emoji": "🟩",
       "description": "Вордли-клон: словари EN+PT, три сложности.",
@@ -402,7 +401,7 @@
       ]
     },
     {
-      "id": "ext-hexorius",
+      "id": "hexorius-andreyakinshin",
       "title": "Гексориус",
       "emoji": "⬡",
       "description": "Гекс-стратегия против minimax с альфа-бета.",
@@ -417,10 +416,10 @@
       "controls": "Мышь",
       "lang": "en",
       "created": "2025-01-23",
-      "thumb": "games/ext-hexorius/thumb.webp"
+      "thumb": "games/hexorius-andreyakinshin/thumb.webp"
     },
     {
-      "id": "ext-gomoku-ai",
+      "id": "gomoku-nvios",
       "title": "Гомоку с ИИ",
       "emoji": "⚫",
       "description": "Пять в ряд против друга или ИИ трёх уровней.",
@@ -437,10 +436,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2021-01-06",
-      "thumb": "games/ext-gomoku-ai/thumb.webp"
+      "thumb": "games/gomoku-nvios/thumb.webp"
     },
     {
-      "id": "ext-darts",
+      "id": "darts-raulr",
       "title": "Дартс",
       "emoji": "🎯",
       "description": "Дартс на Canvas: меткость и счёт.",
@@ -455,10 +454,10 @@
       "controls": "Мышь",
       "lang": "en",
       "created": "2016-10-14",
-      "thumb": "games/ext-darts/thumb.webp"
+      "thumb": "games/darts-raulr/thumb.webp"
     },
     {
-      "id": "ext-dino-neat",
+      "id": "dino-neat-akashkarnatak",
       "title": "Дино NEAT",
       "emoji": "🦖",
       "description": "NEAT с нуля: нейросети учатся играть в дино.",
@@ -474,7 +473,7 @@
       "controls": "Без управления: ИИ играет сам",
       "lang": "en",
       "created": "2020-07-27",
-      "thumb": "games/ext-dino-neat/thumb.webp"
+      "thumb": "games/dino-neat-akashkarnatak/thumb.webp"
     },
     {
       "id": "dino",
@@ -494,7 +493,7 @@
       "thumb": "games/dino/thumb.webp"
     },
     {
-      "id": "ext-durak-ai",
+      "id": "durak-vladbrok",
       "title": "Дурак с ИИ",
       "emoji": "🃏",
       "description": "Дурак против ИИ.",
@@ -510,10 +509,10 @@
       "controls": "Мышь",
       "lang": "ru",
       "created": "2023-05-10",
-      "thumb": "games/ext-durak-ai/thumb.webp"
+      "thumb": "games/durak-vladbrok/thumb.webp"
     },
     {
-      "id": "ext-star-battle",
+      "id": "star-battle-gd4ark",
       "title": "Звёздный бой",
       "emoji": "🚀",
       "description": "Шутер на Canvas: топливо, планеты, союзники и враги.",
@@ -529,10 +528,10 @@
       "lang": "zh",
       "added": "2026-09-24",
       "created": "2018-10-11",
-      "thumb": "games/ext-star-battle/thumb.webp"
+      "thumb": "games/star-battle-gd4ark/thumb.webp"
     },
     {
-      "id": "ext-snakes-ladders",
+      "id": "snakes-ladders-priyanshurav",
       "title": "Змеи и лестницы",
       "emoji": "🪜",
       "description": "Змеи и лестницы против компьютера.",
@@ -547,7 +546,7 @@
       "controls": "Мышь",
       "lang": "en",
       "created": "2021-03-14",
-      "thumb": "games/ext-snakes-ladders/thumb.webp"
+      "thumb": "games/snakes-ladders-priyanshurav/thumb.webp"
     },
     {
       "id": "snake",
@@ -567,7 +566,7 @@
       "thumb": "games/snake/thumb.webp"
     },
     {
-      "id": "ext-snake-ai",
+      "id": "snake-jonatan5524",
       "title": "Змейка учится",
       "emoji": "🐍",
       "description": "Нейросеть с генетическим алгоритмом учится есть яблоки.",
@@ -584,10 +583,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2020-09-13",
-      "thumb": "games/ext-snake-ai/thumb.webp"
+      "thumb": "games/snake-jonatan5524/thumb.webp"
     },
     {
-      "id": "ext-zombie-phaser",
+      "id": "zombie-phaser-flpfar",
       "title": "Зомби-атака",
       "emoji": "🧟",
       "description": "Phaser-шутер: волны зомби сверху, счёт.",
@@ -603,10 +602,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2020-07-21",
-      "thumb": "games/ext-zombie-phaser/thumb.webp"
+      "thumb": "games/zombie-phaser-flpfar/thumb.webp"
     },
     {
-      "id": "ext-inaghan-fight",
+      "id": "inaghan-fight-marouanbouderz",
       "title": "Инаган: бой",
       "emoji": "🥊",
       "description": "Спрайтовый файтинг с таймером 60 секунд.",
@@ -622,10 +621,10 @@
       "lang": "neutral",
       "added": "2026-09-24",
       "created": "2026-05-01",
-      "thumb": "games/ext-inaghan-fight/thumb.webp"
+      "thumb": "games/inaghan-fight-marouanbouderz/thumb.webp"
     },
     {
-      "id": "ext-kaboom",
+      "id": "kaboom-pwmarcz",
       "title": "Кабум",
       "emoji": "🧨",
       "description": "Честный сапёр без угадайки: undo и подсказки.",
@@ -641,10 +640,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2019-11-19",
-      "thumb": "games/ext-kaboom/thumb.webp"
+      "thumb": "games/kaboom-pwmarcz/thumb.webp"
     },
     {
-      "id": "ext-kakuro",
+      "id": "kakuro-kimmania",
       "title": "Какуро",
       "emoji": "🔢",
       "description": "Какуро: 600 пазлов, заметки-кандидаты.",
@@ -659,10 +658,10 @@
       "controls": "Мышь / клавиатура",
       "lang": "en",
       "created": "2026-05-31",
-      "thumb": "games/ext-kakuro/thumb.webp"
+      "thumb": "games/kakuro-kimmania/thumb.webp"
     },
     {
-      "id": "ext-quindici",
+      "id": "quindici-justinpobrien",
       "title": "Квиндичи",
       "emoji": "🧩",
       "description": "Пятнашки с A*-солвером и подсказками.",
@@ -679,7 +678,7 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2024-10-09",
-      "thumb": "games/ext-quindici/thumb.webp"
+      "thumb": "games/quindici-justinpobrien/thumb.webp"
     },
     {
       "id": "clicker",
@@ -699,7 +698,7 @@
       "thumb": "games/clicker/thumb.webp"
     },
     {
-      "id": "ext-code-quiz",
+      "id": "code-quiz-theinfamousgrim",
       "title": "Код-викторина",
       "emoji": "❓",
       "description": "Викторина по JS на время со штрафами и рекордами.",
@@ -715,10 +714,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2022-07-24",
-      "thumb": "games/ext-code-quiz/thumb.webp"
+      "thumb": "games/code-quiz-theinfamousgrim/thumb.webp"
     },
     {
-      "id": "ext-hoops",
+      "id": "hoops-douvy",
       "title": "Кольцо",
       "emoji": "🏀",
       "description": "Баскетбол: шесть уровней по одному броску.",
@@ -733,7 +732,7 @@
       "controls": "Мышь (тяни и отпускай)",
       "lang": "en",
       "created": "2026-07-08",
-      "thumb": "games/ext-hoops/thumb.webp"
+      "thumb": "games/hoops-douvy/thumb.webp"
     },
     {
       "id": "invaders",
@@ -769,7 +768,7 @@
       "thumb": "games/tictactoe/thumb.webp"
     },
     {
-      "id": "ext-astar",
+      "id": "astar-adamstirtan",
       "title": "Лабиринт A*",
       "emoji": "🗺️",
       "description": "Визуализация поиска пути A* на Canvas.",
@@ -786,10 +785,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2024-01-02",
-      "thumb": "games/ext-astar/thumb.webp"
+      "thumb": "games/astar-adamstirtan/thumb.webp"
     },
     {
-      "id": "ext-mah",
+      "id": "mah-ffalt",
       "title": "Маджонг-пасьянс",
       "emoji": "🀄",
       "description": "Маджонг-солитёр на SVG без рекламы и трекинга.",
@@ -805,10 +804,10 @@
       "lang": "neutral",
       "added": "2026-09-24",
       "created": "2017-11-04",
-      "thumb": "games/ext-mah/thumb.webp"
+      "thumb": "games/mah-ffalt/thumb.webp"
     },
     {
-      "id": "ext-mancala-ai",
+      "id": "mancala-virgs",
       "title": "Манкала с ИИ",
       "emoji": "🫘",
       "description": "Манкала против minimax-ИИ в воркере.",
@@ -824,10 +823,10 @@
       "controls": "Мышь",
       "lang": "en",
       "created": "2023-11-17",
-      "thumb": "games/ext-mancala-ai/thumb.webp"
+      "thumb": "games/mancala-virgs/thumb.webp"
     },
     {
-      "id": "ext-mastermind-ai",
+      "id": "mastermind-glennchia",
       "title": "Мастермайнд с ИИ",
       "emoji": "🧠",
       "description": "Мастермайнд против генетического солвера.",
@@ -842,7 +841,7 @@
       "controls": "Мышь",
       "lang": "en",
       "created": "2021-07-31",
-      "thumb": "games/ext-mastermind-ai/thumb.webp"
+      "thumb": "games/mastermind-glennchia/thumb.webp"
     },
     {
       "id": "memory",
@@ -862,7 +861,7 @@
       "thumb": "games/memory/thumb.webp"
     },
     {
-      "id": "ext-mini-golf",
+      "id": "mini-golf-jackkraus",
       "title": "Мини-гольф",
       "emoji": "⛳",
       "description": "7 лунок: песок, вода, батуты, удар перетаскиванием.",
@@ -878,10 +877,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2024-02-12",
-      "thumb": "games/ext-mini-golf/thumb.webp"
+      "thumb": "games/mini-golf-jackkraus/thumb.webp"
     },
     {
-      "id": "ext-moka-go",
+      "id": "moka-go-millionco",
       "title": "Мока-го 9×9",
       "emoji": "⚪",
       "description": "Го 9×9 против нейробота (наследник KataGo).",
@@ -897,10 +896,10 @@
       "controls": "Мышь",
       "lang": "en",
       "created": "2026-07-27",
-      "thumb": "games/ext-moka-go/thumb.webp"
+      "thumb": "games/moka-go-millionco/thumb.webp"
     },
     {
-      "id": "ext-battleship-odin",
+      "id": "battleship-odin-gideonadeti",
       "title": "Морской бой",
       "emoji": "🚢",
       "description": "Морской бой против умного ИИ с добиванием.",
@@ -917,10 +916,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2025-04-18",
-      "thumb": "games/ext-battleship-odin/thumb.webp"
+      "thumb": "games/battleship-odin-gideonadeti/thumb.webp"
     },
     {
-      "id": "ext-neuro-racer",
+      "id": "neuro-racer-blizzeq",
       "title": "Нейро-гонщик",
       "emoji": "🏎️",
       "description": "Нейро-водители с лучевыми сенсорами учатся ездить.",
@@ -936,10 +935,10 @@
       "controls": "Без управления: ИИ учится сам",
       "lang": "en",
       "created": "2026-04-28",
-      "thumb": "games/ext-neuro-racer/thumb.webp"
+      "thumb": "games/neuro-racer-blizzeq/thumb.webp"
     },
     {
-      "id": "ext-neon-dungeon",
+      "id": "neon-dungeon-attilahorvath",
       "title": "Неоновое подземелье",
       "emoji": "🗡️",
       "description": "Крошечный процедурный рогалик с js13k.",
@@ -955,10 +954,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2017-08-16",
-      "thumb": "games/ext-neon-dungeon/thumb.webp"
+      "thumb": "games/neon-dungeon-attilahorvath/thumb.webp"
     },
     {
-      "id": "ext-canvas-td",
+      "id": "canvas-td-tddyco",
       "title": "Оборона башен",
       "emoji": "🏰",
       "description": "Полноценная tower defense: 4 башни, апгрейды со спецабилками.",
@@ -974,10 +973,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2011-06-04",
-      "thumb": "games/ext-canvas-td/thumb.webp"
+      "thumb": "games/canvas-td-tddyco/thumb.webp"
     },
     {
-      "id": "ext-jigsaw",
+      "id": "jigsaw-code4fukui",
       "title": "Пазл-конструктор",
       "emoji": "🧩",
       "description": "Пазл-конструктор: свои картинки, снап деталей.",
@@ -992,26 +991,7 @@
       "controls": "Мышь",
       "lang": "ja",
       "created": "2026-01-09",
-      "thumb": "games/ext-jigsaw/thumb.webp"
-    },
-    {
-      "id": "ext-pacman-cc0",
-      "title": "Пакман",
-      "emoji": "👻",
-      "description": "Зрелый Пакман: 4 призрака с ИИ, 10 уровней, свайпы на мобильных.",
-      "tags": [
-        "аркада",
-        "лабиринт"
-      ],
-      "url": "https://pacman.platzh1rsch.ch/",
-      "author": "platzhersh",
-      "license": "CC0",
-      "repo": "https://github.com/platzhersh/pacman-canvas",
-      "controls": "Стрелки / свайпы",
-      "lang": "en",
-      "added": "2026-09-24",
-      "created": "2012-07-20",
-      "thumb": "games/ext-pacman-cc0/thumb.webp"
+      "thumb": "games/jigsaw-code4fukui/thumb.webp"
     },
     {
       "id": "pacman",
@@ -1031,7 +1011,26 @@
       "thumb": "games/pacman/thumb.webp"
     },
     {
-      "id": "ext-matter-sandbox",
+      "id": "pacman-cc0-platzhersh",
+      "title": "Пакман",
+      "emoji": "👻",
+      "description": "Зрелый Пакман: 4 призрака с ИИ, 10 уровней, свайпы на мобильных.",
+      "tags": [
+        "аркада",
+        "лабиринт"
+      ],
+      "url": "https://pacman.platzh1rsch.ch/",
+      "author": "platzhersh",
+      "license": "CC0",
+      "repo": "https://github.com/platzhersh/pacman-canvas",
+      "controls": "Стрелки / свайпы",
+      "lang": "en",
+      "added": "2026-09-24",
+      "created": "2012-07-20",
+      "thumb": "games/pacman-cc0-platzhersh/thumb.webp"
+    },
+    {
+      "id": "matter-sandbox-liabru",
       "title": "Песочница физики",
       "emoji": "⚙️",
       "description": "Десятки интерактивных дем движка Matter.js: тряпки, мосты, пулы.",
@@ -1047,10 +1046,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2014-02-19",
-      "thumb": "games/ext-matter-sandbox/thumb.webp"
+      "thumb": "games/matter-sandbox-liabru/thumb.webp"
     },
     {
-      "id": "ext-piano-tiles",
+      "id": "piano-tiles-zardoy",
       "title": "Пианино-тайлы",
       "emoji": "🎹",
       "description": "Пианино-тайлы: жми чёрные клавиши в ритме.",
@@ -1065,10 +1064,10 @@
       "controls": "Клавиатура / касание",
       "lang": "en",
       "created": "2020-02-04",
-      "thumb": "games/ext-piano-tiles/thumb.webp"
+      "thumb": "games/piano-tiles-zardoy/thumb.webp"
     },
     {
-      "id": "ext-pixel-run",
+      "id": "pixel-run-jimm144",
       "title": "Пиксель-ран",
       "emoji": "🏃",
       "description": "Скоростной раннер: 4 биома, двойной прыжок, чиптюн.",
@@ -1084,10 +1083,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2026-08-11",
-      "thumb": "games/ext-pixel-run/thumb.webp"
+      "thumb": "games/pixel-run-jimm144/thumb.webp"
     },
     {
-      "id": "ext-plinko",
+      "id": "plinko-jasonhand",
       "title": "Плинко",
       "emoji": "⚪",
       "description": "Плинко: своя физика, буст-пеги.",
@@ -1102,10 +1101,10 @@
       "controls": "Клик",
       "lang": "en",
       "created": "2025-12-08",
-      "thumb": "games/ext-plinko/thumb.webp"
+      "thumb": "games/plinko-jasonhand/thumb.webp"
     },
     {
-      "id": "ext-getaway",
+      "id": "getaway-les",
       "title": "Побег",
       "emoji": "🚗",
       "description": "Гонки с видом сверху: уходи от погони, собирай монеты.",
@@ -1120,7 +1119,7 @@
       "controls": "Стрелки / WASD",
       "lang": "en",
       "created": "2019-01-09",
-      "thumb": "games/ext-getaway/thumb.webp"
+      "thumb": "games/getaway-les/thumb.webp"
     },
     {
       "id": "pong",
@@ -1140,7 +1139,7 @@
       "thumb": "games/pong/thumb.webp"
     },
     {
-      "id": "ext-pong-ai",
+      "id": "pong-akkijaiswal",
       "title": "Понг с ИИ",
       "emoji": "🏓",
       "description": "Понг против компьютера: 3 уровня сложности.",
@@ -1157,10 +1156,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2025-07-02",
-      "thumb": "games/ext-pong-ai/thumb.webp"
+      "thumb": "games/pong-akkijaiswal/thumb.webp"
     },
     {
-      "id": "ext-dino-platformer",
+      "id": "dino-platformer-akaspanion",
       "title": "Приключения Дино",
       "emoji": "🦖",
       "description": "Пиксельный платформер: монеты, враги, уровни.",
@@ -1175,10 +1174,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2021-01-31",
-      "thumb": "games/ext-dino-platformer/thumb.webp"
+      "thumb": "games/dino-platformer-akaspanion/thumb.webp"
     },
     {
-      "id": "ext-doodle-clone",
+      "id": "doodle-clone-takosenpai2687",
       "title": "Прыгун Дудл",
       "emoji": "🟢",
       "description": "Doodle-Jump клон: хрупкие платформы, тач и клавиатура.",
@@ -1194,7 +1193,7 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2020-06-23",
-      "thumb": "games/ext-doodle-clone/thumb.webp"
+      "thumb": "games/doodle-clone-takosenpai2687/thumb.webp"
     },
     {
       "id": "fifteen",
@@ -1214,7 +1213,7 @@
       "thumb": "games/fifteen/thumb.webp"
     },
     {
-      "id": "ext-fifteen-maker",
+      "id": "fifteen-maker-krishealty",
       "title": "Пятнашки-конструктор",
       "emoji": "🖼️",
       "description": "Пятнашки с редактором: собери пазл из своей картинки.",
@@ -1230,10 +1229,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2024-05-20",
-      "thumb": "games/ext-fifteen-maker/thumb.webp"
+      "thumb": "games/fifteen-maker-krishealty/thumb.webp"
     },
     {
-      "id": "ext-reversi-ai",
+      "id": "reversi-ogeon",
       "title": "Реверси: Ботхелло",
       "emoji": "🔄",
       "description": "Реверси против эвристического движка Bothello.",
@@ -1250,10 +1249,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2019-08-25",
-      "thumb": "games/ext-reversi-ai/thumb.webp"
+      "thumb": "games/reversi-ogeon/thumb.webp"
     },
     {
-      "id": "ext-maze-solvers",
+      "id": "maze-solvers-angeluriot",
       "title": "Решатели лабиринтов",
       "emoji": "🌀",
       "description": "BFS, Dijkstra, A* и генераторы лабиринтов.",
@@ -1270,10 +1269,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2020-01-03",
-      "thumb": "games/ext-maze-solvers/thumb.webp"
+      "thumb": "games/maze-solvers-angeluriot/thumb.webp"
     },
     {
-      "id": "ext-rhythm",
+      "id": "rhythm-chloeliang",
       "title": "Ритм-игра",
       "emoji": "🎵",
       "description": "7-дорожечный ритм-гейм: жми в такт.",
@@ -1289,7 +1288,7 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2018-09-20",
-      "thumb": "games/ext-rhythm/thumb.webp"
+      "thumb": "games/rhythm-chloeliang/thumb.webp"
     },
     {
       "id": "simon",
@@ -1325,7 +1324,7 @@
       "thumb": "games/saper/thumb.webp"
     },
     {
-      "id": "ext-minesweeper-pro",
+      "id": "minesweeper-pro-davidnhill",
       "title": "Сапёр Про",
       "emoji": "💣",
       "description": "Сапёр с солвером и анализатором, режимы без угадайки.",
@@ -1342,10 +1341,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2019-05-21",
-      "thumb": "games/ext-minesweeper-pro/thumb.webp"
+      "thumb": "games/minesweeper-pro-davidnhill/thumb.webp"
     },
     {
-      "id": "ext-netwalk",
+      "id": "netwalk-frosetrain",
       "title": "Сеть",
       "emoji": "🔌",
       "description": "Соедини все терминалы с сервером вращениями.",
@@ -1363,7 +1362,7 @@
       "created": "2024-03-05"
     },
     {
-      "id": "ext-synth-racer",
+      "id": "synth-racer-lrq3000",
       "title": "Синтвейв-гонки",
       "emoji": "🌆",
       "description": "Тот же движок гонок плюс ночной синтвейв-режим, процедурные трассы и тач-управление.",
@@ -1379,10 +1378,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2018-03-22",
-      "thumb": "games/ext-synth-racer/thumb.webp"
+      "thumb": "games/synth-racer-lrq3000/thumb.webp"
     },
     {
-      "id": "ext-speed-racer",
+      "id": "speed-racer-steveix",
       "title": "Скоростной гонщик",
       "emoji": "🏁",
       "description": "Кольцевые гонки: три машины, чекпоинты.",
@@ -1397,10 +1396,10 @@
       "controls": "Стрелки",
       "lang": "en",
       "created": "2025-06-19",
-      "thumb": "games/ext-speed-racer/thumb.webp"
+      "thumb": "games/speed-racer-steveix/thumb.webp"
     },
     {
-      "id": "ext-slots",
+      "id": "slots-danziger",
       "title": "Слоты",
       "emoji": "🎰",
       "description": "Эмодзи-слоты на 60fps.",
@@ -1415,10 +1414,10 @@
       "controls": "Клик",
       "lang": "en",
       "created": "2018-12-28",
-      "thumb": "games/ext-slots/thumb.webp"
+      "thumb": "games/slots-danziger/thumb.webp"
     },
     {
-      "id": "ext-starfighter",
+      "id": "starfighter-bcastell",
       "title": "Старфайтер",
       "emoji": "💥",
       "description": "Космо-шутер с партиклами взрывов и пауэрапами.",
@@ -1434,7 +1433,7 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2017-06-30",
-      "thumb": "games/ext-starfighter/thumb.webp"
+      "thumb": "games/starfighter-bcastell/thumb.webp"
     },
     {
       "id": "sudoku",
@@ -1454,7 +1453,7 @@
       "thumb": "games/sudoku/thumb.webp"
     },
     {
-      "id": "ext-sudoku-solver",
+      "id": "sudoku-solver-pieterd7",
       "title": "Судоку с солвером",
       "emoji": "🔢",
       "description": "Судоку: генерация, встроенный солвер, заметки.",
@@ -1471,7 +1470,7 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2022-04-19",
-      "thumb": "games/ext-sudoku-solver/thumb.webp"
+      "thumb": "games/sudoku-solver-pieterd7/thumb.webp"
     },
     {
       "id": "tetris",
@@ -1491,7 +1490,7 @@
       "thumb": "games/tetris/thumb.webp"
     },
     {
-      "id": "ext-tetris-ai",
+      "id": "tetris-tetrisai",
       "title": "Тетрис думает",
       "emoji": "🧠",
       "description": "ИИ перебирает ходы по эвристикам и играет сам.",
@@ -1508,10 +1507,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2016-11-17",
-      "thumb": "games/ext-tetris-ai/thumb.webp"
+      "thumb": "games/tetris-tetrisai/thumb.webp"
     },
     {
-      "id": "ext-dot-box",
+      "id": "dot-box-chromegaming",
       "title": "Точки и квадраты",
       "emoji": "⬜",
       "description": "Точки и квадраты: до 6 игроков, уровни сложности.",
@@ -1527,10 +1526,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2024-04-23",
-      "thumb": "games/ext-dot-box/thumb.webp"
+      "thumb": "games/dot-box-chromegaming/thumb.webp"
     },
     {
-      "id": "ext-dots-ai",
+      "id": "dots-zshall",
       "title": "Точки и квадраты с ИИ",
       "emoji": "▦",
       "description": "Точки и квадраты против ИИ с просмотром ходов.",
@@ -1545,10 +1544,10 @@
       "controls": "Мышь",
       "lang": "en",
       "created": "2013-11-18",
-      "thumb": "games/ext-dots-ai/thumb.webp"
+      "thumb": "games/dots-zshall/thumb.webp"
     },
     {
-      "id": "ext-match3",
+      "id": "match3-bazhanius",
       "title": "Три в ряд",
       "emoji": "💎",
       "description": "«Три в ряд» 8×8 на canvas: бустеры, рекорды, русский и английский.",
@@ -1568,10 +1567,10 @@
         "en",
         "ru"
       ],
-      "thumb": "games/ext-match3/thumb.webp"
+      "thumb": "games/match3-bazhanius/thumb.webp"
     },
     {
-      "id": "ext-pipe-puzzle",
+      "id": "pipe-puzzle-tassaron",
       "title": "Трубы",
       "emoji": "🔧",
       "description": "Веди воду до стрелки до конца таймера.",
@@ -1587,7 +1586,7 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2022-03-30",
-      "thumb": "games/ext-pipe-puzzle/thumb.webp"
+      "thumb": "games/pipe-puzzle-tassaron/thumb.webp"
     },
     {
       "id": "whack",
@@ -1607,7 +1606,7 @@
       "thumb": "games/whack/thumb.webp"
     },
     {
-      "id": "ext-ultimate-ttt",
+      "id": "ultimate-ttt-ishandutta2007",
       "title": "Ультимативные крестики",
       "emoji": "❌",
       "description": "Ультимативные крестики против MCTS-движка.",
@@ -1624,7 +1623,7 @@
       "created": "2025-11-06"
     },
     {
-      "id": "ext-uno-pro",
+      "id": "uno-pro-mtg2000",
       "title": "УНО Про",
       "emoji": "🎴",
       "description": "УНО против ИИ или с друзьями.",
@@ -1639,10 +1638,10 @@
       "controls": "Мышь",
       "lang": "en",
       "created": "2021-11-04",
-      "thumb": "games/ext-uno-pro/thumb.webp"
+      "thumb": "games/uno-pro-mtg2000/thumb.webp"
     },
     {
-      "id": "ext-farkle",
+      "id": "farkle-hotdice",
       "title": "Фаркл",
       "emoji": "⚀",
       "description": "Фаркл: риск и комбинаторика кубиков.",
@@ -1657,7 +1656,7 @@
       "controls": "Мышь",
       "lang": "en",
       "created": "2021-02-28",
-      "thumb": "games/ext-farkle/thumb.webp"
+      "thumb": "games/farkle-hotdice/thumb.webp"
     },
     {
       "id": "flappy",
@@ -1677,7 +1676,7 @@
       "thumb": "games/flappy/thumb.webp"
     },
     {
-      "id": "ext-flappy-ai",
+      "id": "flappy-xviniette",
       "title": "Флэппи учится",
       "emoji": "🤖",
       "description": "Нейроэволюция учит популяцию играть во Flappy Bird прямо в браузере.",
@@ -1694,10 +1693,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2016-07-24",
-      "thumb": "games/ext-flappy-ai/thumb.webp"
+      "thumb": "games/flappy-xviniette/thumb.webp"
     },
     {
-      "id": "ext-slither-clone",
+      "id": "slither-clone-bibhuticoder",
       "title": "Червячки ио",
       "emoji": "🪱",
       "description": "Slither-клон: ешь, расти, уворачивайся от ботов-змеек.",
@@ -1713,10 +1712,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2017-09-03",
-      "thumb": "games/ext-slither-clone/thumb.webp"
+      "thumb": "games/slither-clone-bibhuticoder/thumb.webp"
     },
     {
-      "id": "ext-chess-tactics",
+      "id": "chess-tactics-danieltomaro13",
       "title": "Шахматные задачи",
       "emoji": "♞",
       "description": "Шахматные задачи Lichess + Stockfish в браузере.",
@@ -1731,10 +1730,10 @@
       "controls": "Мышь",
       "lang": "en",
       "created": "2026-06-29",
-      "thumb": "games/ext-chess-tactics/thumb.webp"
+      "thumb": "games/chess-tactics-danieltomaro13/thumb.webp"
     },
     {
-      "id": "ext-chess-ultimate",
+      "id": "chess-ultimate-voxdroid",
       "title": "Шахматы Ультиматум",
       "emoji": "♟️",
       "description": "Шахматы против ИИ или друга: темы оформления, таймеры.",
@@ -1760,10 +1759,10 @@
         "zh",
         "ko"
       ],
-      "thumb": "games/ext-chess-ultimate/thumb.webp"
+      "thumb": "games/chess-ultimate-voxdroid/thumb.webp"
     },
     {
-      "id": "ext-damka",
+      "id": "damka-antonmedv",
       "title": "Шашки (русские)",
       "emoji": "⛀",
       "description": "Русские шашки на canvas: минимализм, быстрый старт.",
@@ -1779,10 +1778,10 @@
       "lang": "neutral",
       "added": "2026-09-24",
       "created": "2022-12-27",
-      "thumb": "games/ext-damka/thumb.webp"
+      "thumb": "games/damka-antonmedv/thumb.webp"
     },
     {
-      "id": "ext-checkers-ai",
+      "id": "checkers-kschuetz",
       "title": "Шашки с ИИ",
       "emoji": "🏁",
       "description": "Шашки против ИИ на чистом JS.",
@@ -1799,10 +1798,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2016-05-27",
-      "thumb": "games/ext-checkers-ai/thumb.webp"
+      "thumb": "games/checkers-kschuetz/thumb.webp"
     },
     {
-      "id": "ext-spike-sprint",
+      "id": "spike-sprint-shifulegend",
       "title": "Шипастый спринт",
       "emoji": "⚡",
       "description": "Однофайловый пиксель-раннер: прыжки с переменной высотой.",
@@ -1818,10 +1817,10 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2026-07-07",
-      "thumb": "games/ext-spike-sprint/thumb.webp"
+      "thumb": "games/spike-sprint-shifulegend/thumb.webp"
     },
     {
-      "id": "ext-yahtzee",
+      "id": "yahtzee-99fk",
       "title": "Ятзи",
       "emoji": "🎲",
       "description": "Ятзи: кости против ИИ или вдвоём.",
@@ -1837,17 +1836,16 @@
       "controls": "Мышь",
       "lang": "en",
       "created": "2025-09-17",
-      "thumb": "games/ext-yahtzee/thumb.webp"
+      "thumb": "games/yahtzee-99fk/thumb.webp"
     },
     {
-      "id": "ext-abgame",
+      "id": "abgame-muan",
       "title": "AB Game",
       "emoji": "🔢",
       "description": "Угадайте число: быки и коровы в минимализме. Внешняя игра — код остаётся у автора.",
       "tags": [
         "логика",
-        "казуал",
-        "мост"
+        "казуал"
       ],
       "url": "https://ab.muan.co",
       "author": "muan",
@@ -1857,17 +1855,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2014-03-21",
-      "thumb": "games/ext-abgame/thumb.webp"
+      "thumb": "games/abgame-muan/thumb.webp"
     },
     {
-      "id": "ext-acesup",
+      "id": "acesup-milsaware",
       "title": "Aces Up Solitaire",
       "emoji": "🂡",
       "description": "Пасьянс «Тузы вверх»: сбрасывайте младшие карты мастей. Внешняя игра — код остаётся у автора.",
       "tags": [
         "карты",
-        "пасьянс",
-        "мост"
+        "пасьянс"
       ],
       "url": "https://milsaware.github.io/Javascript-Aces-Up-Solitaire/",
       "author": "milsaware",
@@ -1877,17 +1874,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2022-07-07",
-      "thumb": "games/ext-acesup/thumb.webp"
+      "thumb": "games/acesup-milsaware/thumb.webp"
     },
     {
-      "id": "ext-aiasteroids",
+      "id": "aiasteroids-richlewis007",
       "title": "AI Asteroids",
       "emoji": "🤖",
       "description": "Астероиды с автопилотом: смотрите, как ИИ уворачивается. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "нейросеть",
-        "мост"
+        "нейросеть"
       ],
       "url": "https://ai-asteroids.richlewis007.com/",
       "author": "RichLewis007",
@@ -1897,17 +1893,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2025-08-07",
-      "thumb": "games/ext-aiasteroids/thumb.webp"
+      "thumb": "games/aiasteroids-richlewis007/thumb.webp"
     },
     {
-      "id": "ext-airps",
+      "id": "airps-milsaware",
       "title": "AI Rock Paper Scissors",
       "emoji": "🤖",
       "description": "Камень-ножницы-бумага против обучающегося ИИ. Внешняя игра — код остаётся у автора.",
       "tags": [
         "казуал",
-        "нейросеть",
-        "мост"
+        "нейросеть"
       ],
       "url": "https://milsaware.github.io/Javascript-AI-Rock-Paper-Scissors/",
       "author": "milsaware",
@@ -1917,17 +1912,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2023-03-06",
-      "thumb": "games/ext-airps/thumb.webp"
+      "thumb": "games/airps-milsaware/thumb.webp"
     },
     {
-      "id": "ext-aimandshoot",
+      "id": "aimandshoot-victorqribeiro",
       "title": "Aim and Shoot",
       "emoji": "🎯",
       "description": "Нейроэволюционный тир: точность против алгоритма. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "нейросеть",
-        "мост"
+        "нейросеть"
       ],
       "url": "https://victorribeiro.com/aimAndShoot",
       "author": "victorqribeiro",
@@ -1937,17 +1931,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2019-10-19",
-      "thumb": "games/ext-aimandshoot/thumb.webp"
+      "thumb": "games/aimandshoot-victorqribeiro/thumb.webp"
     },
     {
-      "id": "ext-alphagottt",
+      "id": "alphagottt-grimmerk",
       "title": "AlphaGo TicTacToe",
       "emoji": "🧠",
       "description": "Крестики-нолики с алгоритмом AlphaGo: попробуйте обыграть. Внешняя игра — код остаётся у автора.",
       "tags": [
         "логика",
-        "нейросеть",
-        "мост"
+        "нейросеть"
       ],
       "url": "https://grimmer.io/alphago-zero-tictactoe-js/",
       "author": "grimmerk",
@@ -1957,17 +1950,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2018-04-22",
-      "thumb": "games/ext-alphagottt/thumb.webp"
+      "thumb": "games/alphagottt-grimmerk/thumb.webp"
     },
     {
-      "id": "ext-antipacman",
+      "id": "antipacman-vmikhav",
       "title": "AntiPacMan",
       "emoji": "👻",
       "description": "Вы — привидение: ловите пакмана в его же лабиринте. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "лабиринт",
-        "мост"
+        "лабиринт"
       ],
       "url": "https://vmikhav.github.io/AntiPacMan/",
       "author": "vmikhav",
@@ -1977,16 +1969,15 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2017-11-19",
-      "thumb": "games/ext-antipacman/thumb.webp"
+      "thumb": "games/antipacman-vmikhav/thumb.webp"
     },
     {
-      "id": "ext-boc-arkanoid",
+      "id": "arkanoid-bocalettoluca",
       "title": "Arkanoid (Bocaletto)",
       "emoji": "🔷",
       "description": "Современный ремейк арканоида: отбивайте мяч и разбивайте кирпичи. Внешняя игра — код остаётся у автора.",
       "tags": [
-        "аркада",
-        "мост"
+        "аркада"
       ],
       "url": "https://bocaletto-luca.github.io/Arkanoid/",
       "author": "Bocaletto Luca",
@@ -1996,17 +1987,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2025-05-22",
-      "thumb": "games/ext-boc-arkanoid/thumb.webp"
+      "thumb": "games/arkanoid-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-3kh0asteroids",
+      "id": "3kh0asteroids-3kh0",
       "title": "Asteroids (3kh0)",
       "emoji": "☄️",
       "description": "Расстреливайте астероиды и уворачивайтесь от осколков. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "шутер",
-        "мост"
+        "шутер"
       ],
       "url": "https://3kh0.github.io/asteroids/",
       "author": "3kh0",
@@ -2016,17 +2006,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2021-09-04",
-      "thumb": "games/ext-3kh0asteroids/thumb.webp"
+      "thumb": "games/3kh0asteroids-3kh0/thumb.webp"
     },
     {
-      "id": "ext-ryanasteroids",
+      "id": "ryanasteroids-ryanmenezes",
       "title": "Asteroids (Ryan)",
       "emoji": "🛸",
       "description": "Классика жанра: корабль против каменного роя. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "шутер",
-        "мост"
+        "шутер"
       ],
       "url": "https://ryan-menezes.github.io/Asteroids/",
       "author": "Ryan-Menezes",
@@ -2036,17 +2025,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2021-08-12",
-      "thumb": "games/ext-ryanasteroids/thumb.webp"
+      "thumb": "games/ryanasteroids-ryanmenezes/thumb.webp"
     },
     {
-      "id": "ext-gitlab-asteroids",
+      "id": "asteroids-christianpaul",
       "title": "Asteroids Extended",
       "emoji": "🚀",
       "description": "Векторный космос с гравитацией планет: расстреливайте астероиды и летайте между мирами. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "космос",
-        "мост"
+        "космос"
       ],
       "url": "https://jaller94.gitlab.io/line-factory/",
       "author": "Christian Paul",
@@ -2054,19 +2042,18 @@
       "repo": "https://gitlab.com/jaller94/line-factory",
       "controls": "Стрелки, Пробел",
       "lang": "en",
-      "added": "2026-09-24",
+      "added": "2026-09-25",
       "created": "2021-08-27",
-      "thumb": "games/ext-gitlab-asteroids/thumb.webp"
+      "thumb": "games/asteroids-christianpaul/thumb.webp"
     },
     {
-      "id": "ext-astray",
+      "id": "astray-wwwtyro",
       "title": "Astray",
       "emoji": "🏎️",
       "description": "Минималистичная 3D-гонка по бесконечному лабиринту. Нужен WebGL. Внешняя игра — код остаётся у автора.",
       "tags": [
         "гонка",
-        "3d",
-        "мост"
+        "3d"
       ],
       "url": "https://wwwtyro.github.io/Astray/",
       "author": "wwwtyro",
@@ -2076,17 +2063,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2012-07-15",
-      "thumb": "games/ext-astray/thumb.webp"
+      "thumb": "games/astray-wwwtyro/thumb.webp"
     },
     {
-      "id": "ext-boc-backgammon",
+      "id": "backgammon-bocalettoluca",
       "title": "Backgammon",
       "emoji": "🎲",
       "description": "Нарды против бота по полным правилам: шашки, кубы, вывод. Внешняя игра — код остаётся у автора.",
       "tags": [
         "настолки",
-        "логика",
-        "мост"
+        "логика"
       ],
       "url": "https://bocaletto-luca.github.io/Backgammon/",
       "author": "Bocaletto Luca",
@@ -2096,17 +2082,16 @@
       "lang": "it",
       "added": "2026-09-23",
       "created": "2025-05-26",
-      "thumb": "games/ext-boc-backgammon/thumb.webp"
+      "thumb": "games/backgammon-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-bangbang",
+      "id": "bangbang-victorqribeiro",
       "title": "BangBang",
       "emoji": "🎯",
       "description": "Тир против нейросети: стреляйте точнее алгоритма. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "нейросеть",
-        "мост"
+        "нейросеть"
       ],
       "url": "https://victorribeiro.com/bangBang/",
       "author": "victorqribeiro",
@@ -2116,17 +2101,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2021-12-24",
-      "thumb": "games/ext-bangbang/thumb.webp"
+      "thumb": "games/bangbang-victorqribeiro/thumb.webp"
     },
     {
-      "id": "ext-battleboat",
+      "id": "battleboat-billmei",
       "title": "Battleboat",
       "emoji": "🚢",
       "description": "Морской бой против ИИ, который обыгрывает людей. Расставьте флот и потопите врага. Внешняя игра — код остаётся у автора.",
       "tags": [
         "стратегия",
-        "классика",
-        "мост"
+        "классика"
       ],
       "url": "https://billmei.github.io/battleboat",
       "author": "billmei",
@@ -2136,17 +2120,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2013-01-21",
-      "thumb": "games/ext-battleboat/thumb.webp"
+      "thumb": "games/battleboat-billmei/thumb.webp"
     },
     {
-      "id": "ext-blasteroids",
+      "id": "blasteroids-rfranks",
       "title": "Blasteroids",
       "emoji": "💥",
       "description": "Неоновые астероиды: вращайтесь и палите во всё. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "шутер",
-        "мост"
+        "шутер"
       ],
       "url": "https://rfranks.github.io/blasteroids/",
       "author": "rfranks",
@@ -2156,17 +2139,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2019-03-31",
-      "thumb": "games/ext-blasteroids/thumb.webp"
+      "thumb": "games/blasteroids-rfranks/thumb.webp"
     },
     {
-      "id": "ext-blockrain",
+      "id": "blockrain-aerolab",
       "title": "Blockrain",
       "emoji": "🟪",
       "description": "Тетрис на jQuery с автоигрой для разминки. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "головоломка",
-        "мост"
+        "головоломка"
       ],
       "url": "https://aerolab.github.io/blockrain.js",
       "author": "Aerolab",
@@ -2176,17 +2158,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2015-01-07",
-      "thumb": "games/ext-blockrain/thumb.webp"
+      "thumb": "games/blockrain-aerolab/thumb.webp"
     },
     {
-      "id": "ext-boc-bomberman",
+      "id": "bomberman-bocalettoluca",
       "title": "Bomberman",
       "emoji": "💣",
       "description": "Динабластер: закладывайте бомбы и открывайте проход. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "лабиринт",
-        "мост"
+        "лабиринт"
       ],
       "url": "https://bocaletto-luca.github.io/Bomberman/",
       "author": "Bocaletto Luca",
@@ -2196,17 +2177,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2025-05-26",
-      "thumb": "games/ext-boc-bomberman/thumb.webp"
+      "thumb": "games/bomberman-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-boc-bouble",
+      "id": "bouble-bocalettoluca",
       "title": "Bouble",
       "emoji": "🫧",
       "description": "Бабл-шутер: цельтесь и лопайте цветные шары. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "казуал",
-        "мост"
+        "казуал"
       ],
       "url": "https://bocaletto-luca.github.io/Bouble/",
       "author": "Bocaletto Luca",
@@ -2216,17 +2196,16 @@
       "lang": "it",
       "added": "2026-09-23",
       "created": "2025-05-24",
-      "thumb": "games/ext-boc-bouble/thumb.webp"
+      "thumb": "games/bouble-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-bounceback",
+      "id": "bounceback-killedbyapixel",
       "title": "BounceBack",
       "emoji": "🪃",
       "description": "Бумеранг в духе Zelda: кидайте и ловите на возврате. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "приключение",
-        "мост"
+        "приключение"
       ],
       "url": "https://killedbyapixel.github.io/BounceBack/",
       "author": "KilledByAPixel",
@@ -2236,17 +2215,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2019-09-12",
-      "thumb": "games/ext-bounceback/thumb.webp"
+      "thumb": "games/bounceback-killedbyapixel/thumb.webp"
     },
     {
-      "id": "ext-breaklock",
+      "id": "breaklock-maxwellito",
       "title": "BreakLock",
       "emoji": "🔓",
       "description": "Гибрид мастермайнда и графического ключа: взломайте код из цветных точек. Внешняя игра — код остаётся у автора.",
       "tags": [
         "головоломка",
-        "логика",
-        "мост"
+        "логика"
       ],
       "url": "https://maxwellito.github.io/breaklock/",
       "author": "maxwellito",
@@ -2256,17 +2234,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2017-04-03",
-      "thumb": "games/ext-breaklock/thumb.webp"
+      "thumb": "games/breaklock-maxwellito/thumb.webp"
     },
     {
-      "id": "ext-bullethell",
+      "id": "bullethell-selenebun",
       "title": "Bullet Hell",
       "emoji": "🔥",
       "description": "Уворачивайтесь от плотного огня в аду пуль. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "шутер",
-        "мост"
+        "шутер"
       ],
       "url": "https://selenebun.github.io/bullethell/",
       "author": "selenebun",
@@ -2276,10 +2253,10 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2018-03-24",
-      "thumb": "games/ext-bullethell/thumb.webp"
+      "thumb": "games/bullethell-selenebun/thumb.webp"
     },
     {
-      "id": "ext-bullethell-ts",
+      "id": "bullethell-ts-wdfeer",
       "title": "Bullet Hell TS",
       "emoji": "☄️",
       "description": "Минималистичный bullet-hell: уворачивайся и зачищай поле EMP.",
@@ -2295,17 +2272,16 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2021-10-26",
-      "thumb": "games/ext-bullethell-ts/thumb.webp"
+      "thumb": "games/bullethell-ts-wdfeer/thumb.webp"
     },
     {
-      "id": "ext-calc24",
+      "id": "calc24-mumuy",
       "title": "Calc24",
       "emoji": "🧮",
       "description": "Соберите 24 из четырёх чисел действиями. Внешняя игра — код остаётся у автора.",
       "tags": [
         "математика",
-        "логика",
-        "мост"
+        "логика"
       ],
       "url": "https://passer-by.com/calc24/",
       "author": "mumuy",
@@ -2315,17 +2291,16 @@
       "lang": "zh",
       "added": "2026-09-23",
       "created": "2015-12-22",
-      "thumb": "games/ext-calc24/thumb.webp"
+      "thumb": "games/calc24-mumuy/thumb.webp"
     },
     {
-      "id": "ext-cardmemory",
+      "id": "cardmemory-milsaware",
       "title": "Card Memory (milsaware)",
       "emoji": "🃏",
       "description": "Карточное мемори с бесконечными уровнями. Внешняя игра — код остаётся у автора.",
       "tags": [
         "память",
-        "казуал",
-        "мост"
+        "казуал"
       ],
       "url": "https://milsaware.github.io/Javascript-Card-Memory-Game/",
       "author": "milsaware",
@@ -2335,17 +2310,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2022-06-19",
-      "thumb": "games/ext-cardmemory/thumb.webp"
+      "thumb": "games/cardmemory-milsaware/thumb.webp"
     },
     {
-      "id": "ext-boc-chess",
+      "id": "chess-bocalettoluca",
       "title": "Chess (Bocaletto)",
       "emoji": "♟️",
       "description": "Шахматы против компьютера со всеми правилами. Внешняя игра — код остаётся у автора.",
       "tags": [
         "шахматы",
-        "логика",
-        "мост"
+        "логика"
       ],
       "url": "https://bocaletto-luca.github.io/Chess/",
       "author": "Bocaletto Luca",
@@ -2355,17 +2329,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2025-05-24",
-      "thumb": "games/ext-boc-chess/thumb.webp"
+      "thumb": "games/chess-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-itlweichess",
+      "id": "itlweichess-itlwei",
       "title": "Chinese Chess",
       "emoji": "♟️",
       "description": "Китайские шахматы сянци в HTML5. Внешняя игра — код остаётся у автора.",
       "tags": [
         "шахматы",
-        "логика",
-        "мост"
+        "логика"
       ],
       "url": "https://itlwei.github.io/Chess/",
       "author": "itlwei",
@@ -2375,17 +2348,16 @@
       "lang": "zh",
       "added": "2026-09-23",
       "created": "2013-08-20",
-      "thumb": "games/ext-itlweichess/thumb.webp"
+      "thumb": "games/itlweichess-itlwei/thumb.webp"
     },
     {
-      "id": "ext-clashjs",
+      "id": "clashjs-javierbyte",
       "title": "ClashJS",
       "emoji": "⚔️",
       "description": "Программируйте бойца на JavaScript и отправляйте на арену. Внешняя игра — код остаётся у автора.",
       "tags": [
         "код",
-        "арена",
-        "мост"
+        "арена"
       ],
       "url": "https://clashjs.com/",
       "author": "javierbyte",
@@ -2395,17 +2367,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2015-05-31",
-      "thumb": "games/ext-clashjs/thumb.webp"
+      "thumb": "games/clashjs-javierbyte/thumb.webp"
     },
     {
-      "id": "ext-clock",
+      "id": "clock-milsaware",
       "title": "Clock Patience",
       "emoji": "🕐",
       "description": "Пасьянс «Часы»: разложите колоду по циферблату. Внешняя игра — код остаётся у автора.",
       "tags": [
         "карты",
-        "пасьянс",
-        "мост"
+        "пасьянс"
       ],
       "url": "https://milsaware.github.io/Javascript-Clock-Patience-Solitaire/",
       "author": "milsaware",
@@ -2415,18 +2386,17 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2022-07-05",
-      "thumb": "games/ext-clock/thumb.webp"
+      "thumb": "games/clock-milsaware/thumb.webp"
     },
     {
-      "id": "ext-gitlab-tetris",
+      "id": "tetris-martynas",
       "title": "Clojure Tetris",
       "emoji": "🧱",
       "description": "Тетрис на ClojureScript: складывайте линии сами или включите ИИ и смотрите его мысли. Внешняя игра — код остаётся у автора.",
       "tags": [
         "головоломка",
         "тетрис",
-        "ии",
-        "мост"
+        "ии"
       ],
       "url": "https://invertisment.gitlab.io/cljs-tetris/",
       "author": "Martynas",
@@ -2434,19 +2404,18 @@
       "repo": "https://gitlab.com/invertisment/cljs-tetris",
       "controls": "Стрелки, WASD, Пробел",
       "lang": "en",
-      "added": "2026-09-24",
+      "added": "2026-09-25",
       "created": "2022-10-18",
-      "thumb": "games/ext-gitlab-tetris/thumb.webp"
+      "thumb": "games/tetris-martynas/thumb.webp"
     },
     {
-      "id": "ext-clumsy",
+      "id": "clumsy-ellisonleao",
       "title": "Clumsy Bird",
       "emoji": "🐤",
       "description": "Оригинальный клон Flappy Bird на HTML5: ведите птичку сквозь трубы. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "реакция",
-        "мост"
+        "реакция"
       ],
       "url": "https://ellisonleao.github.io/clumsy-bird/",
       "author": "ellisonleao",
@@ -2456,17 +2425,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2014-02-04",
-      "thumb": "games/ext-clumsy/thumb.webp"
+      "thumb": "games/clumsy-ellisonleao/thumb.webp"
     },
     {
-      "id": "ext-colonizers",
+      "id": "colonizers-sibartlett",
       "title": "Colonizers",
       "emoji": "🏝️",
       "description": "Осваивайте острова: поселения и торговля в духе Катана. Внешняя игра — код остаётся у автора.",
       "tags": [
         "стратегия",
-        "настолки",
-        "мост"
+        "настолки"
       ],
       "url": "https://sibartlett.github.io/colonizers/",
       "author": "sibartlett",
@@ -2476,10 +2444,10 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2014-12-03",
-      "thumb": "games/ext-colonizers/thumb.webp"
+      "thumb": "games/colonizers-sibartlett/thumb.webp"
     },
     {
-      "id": "ext-css-diner",
+      "id": "css-diner-flukeout",
       "title": "CSS-закусочная",
       "emoji": "🍽️",
       "description": "Игра-учебник CSS-селекторов: 32 уровня в закусочной.",
@@ -2495,17 +2463,16 @@
       "lang": "en",
       "added": "2026-09-24",
       "created": "2014-02-08",
-      "thumb": "games/ext-css-diner/thumb.webp"
+      "thumb": "games/css-diner-flukeout/thumb.webp"
     },
     {
-      "id": "ext-boc-dama",
+      "id": "dama-bocalettoluca",
       "title": "Dama",
       "emoji": "⚫",
       "description": "Итальянские шашки против компьютера по полным правилам. Внешняя игра — код остаётся у автора.",
       "tags": [
         "настолки",
-        "логика",
-        "мост"
+        "логика"
       ],
       "url": "https://bocaletto-luca.github.io/Dama/",
       "author": "Bocaletto Luca",
@@ -2515,17 +2482,16 @@
       "lang": "it",
       "added": "2026-09-23",
       "created": "2025-05-24",
-      "thumb": "games/ext-boc-dama/thumb.webp"
+      "thumb": "games/dama-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-datacenter",
+      "id": "datacenter-pshenok",
       "title": "Datacenter Survival",
       "emoji": "🖥️",
       "description": "Выживание дата-центра: питание, тепло и аптайм. Внешняя игра — код остаётся у автора.",
       "tags": [
         "стратегия",
-        "симулятор",
-        "мост"
+        "симулятор"
       ],
       "url": "https://pshenok.github.io/datacenter-survival/",
       "author": "pshenok",
@@ -2535,17 +2501,16 @@
       "lang": "neutral",
       "added": "2026-09-23",
       "created": "2026-08-01",
-      "thumb": "games/ext-datacenter/thumb.webp"
+      "thumb": "games/datacenter-pshenok/thumb.webp"
     },
     {
-      "id": "ext-demogame",
+      "id": "demogame-asteinheiser",
       "title": "Demo Game (ASteinheiser)",
       "emoji": "🎮",
       "description": "Демо-игра на Phaser: пример жанра для изучения кода. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "демо",
-        "мост"
+        "демо"
       ],
       "url": "https://asteinheiser.github.io/demo-game/",
       "author": "ASteinheiser",
@@ -2555,17 +2520,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2025-04-02",
-      "thumb": "games/ext-demogame/thumb.webp"
+      "thumb": "games/demogame-asteinheiser/thumb.webp"
     },
     {
-      "id": "ext-gitlab-dino",
+      "id": "dino-ccm27",
       "title": "Dino Runner",
       "emoji": "🦖",
       "description": "Дино-раннер с днём и ночью: прыгайте через кактусы и пригибайтесь под птеродактилями. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "раннер",
-        "мост"
+        "раннер"
       ],
       "url": "https://dino-runner-79dd43.gitlab.io/",
       "author": "ccm27",
@@ -2573,19 +2537,18 @@
       "repo": "https://gitlab.com/ccm27/dino-runner",
       "controls": "Пробел, стрелки, свайпы",
       "lang": "en",
-      "added": "2026-09-24",
+      "added": "2026-09-25",
       "created": "2026-08-20",
-      "thumb": "games/ext-gitlab-dino/thumb.webp"
+      "thumb": "games/dino-ccm27/thumb.webp"
     },
     {
-      "id": "ext-boc-domino",
+      "id": "domino-bocalettoluca",
       "title": "Domino",
       "emoji": "🁫",
       "description": "Классическое домино: выкладывайте кости по мастям. Внешняя игра — код остаётся у автора.",
       "tags": [
         "настолки",
-        "классика",
-        "мост"
+        "классика"
       ],
       "url": "https://bocaletto-luca.github.io/Domino/",
       "author": "Bocaletto Luca",
@@ -2595,17 +2558,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2025-06-02",
-      "thumb": "games/ext-boc-domino/thumb.webp"
+      "thumb": "games/domino-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-duckhunt",
+      "id": "duckhunt-mattsurabian",
       "title": "DuckHuntJS",
       "emoji": "🦆",
       "description": "Охота на уток как на Dendy: успейте подстрелить, пока не улетели. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "реакция",
-        "мост"
+        "реакция"
       ],
       "url": "https://duckhuntjs.com/",
       "author": "MattSurabian",
@@ -2617,14 +2579,13 @@
       "created": "2011-10-17"
     },
     {
-      "id": "ext-emoji-mines",
+      "id": "emoji-mines-muan",
       "title": "Emoji Minesweeper",
       "emoji": "💥",
       "description": "Сапёр на эмодзи: классические правила, весёлое оформление. Внешняя игра — код остаётся у автора.",
       "tags": [
         "логика",
-        "классика",
-        "мост"
+        "классика"
       ],
       "url": "https://muan.github.io/emoji-minesweeper/",
       "author": "muan",
@@ -2636,14 +2597,13 @@
       "created": "2015-05-22"
     },
     {
-      "id": "ext-gitlab-flappy",
+      "id": "flappy-dexoron",
       "title": "Flappy Bird",
       "emoji": "🐤",
       "description": "Флэппи на Godot: пролетите как можно дальше между трубами. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "флэппи",
-        "мост"
+        "флэппи"
       ],
       "url": "https://site-db2fb3.gitlab.io/flappy-bird",
       "author": "Dexoron",
@@ -2651,18 +2611,17 @@
       "repo": "https://gitlab.com/dexoron-dev/dexoron-games/flappy-bird",
       "controls": "Пробел, клик",
       "lang": "en",
-      "added": "2026-09-24",
+      "added": "2026-09-25",
       "created": "2026-07-09"
     },
     {
-      "id": "ext-omarioflappy",
+      "id": "omarioflappy-omariosouto",
       "title": "Flappy Bird Tutorial",
       "emoji": "🐤",
       "description": "Флэппи из туториала: взмахи между трубами. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "казуал",
-        "мост"
+        "казуал"
       ],
       "url": "https://omariosouto.github.io/flappy-bird-devsoutinho/",
       "author": "omariosouto",
@@ -2672,17 +2631,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2020-03-06",
-      "thumb": "games/ext-omarioflappy/thumb.webp"
+      "thumb": "games/omarioflappy-omariosouto/thumb.webp"
     },
     {
-      "id": "ext-froggy",
+      "id": "froggy-thomaspark",
       "title": "Flexbox Froggy",
       "emoji": "🐸",
       "description": "Обучающая игра по CSS Flexbox: расставляйте лягушек на кувшинки кодом. Внешняя игра — код остаётся у автора.",
       "tags": [
         "обучение",
-        "css",
-        "мост"
+        "css"
       ],
       "url": "https://flexboxfroggy.com/",
       "author": "thomaspark",
@@ -2705,17 +2663,16 @@
         "tr",
         "uk"
       ],
-      "thumb": "games/ext-froggy/thumb.webp"
+      "thumb": "games/froggy-thomaspark/thumb.webp"
     },
     {
-      "id": "ext-boc-connect4",
+      "id": "connect4-bocalettoluca",
       "title": "Forza 4",
       "emoji": "🔴",
       "description": "Соберите четыре фишки в линию раньше соперника. Внешняя игра — код остаётся у автора.",
       "tags": [
         "логика",
-        "классика",
-        "мост"
+        "классика"
       ],
       "url": "https://bocaletto-luca.github.io/Connect-Four/",
       "author": "Bocaletto Luca",
@@ -2725,17 +2682,16 @@
       "lang": "it",
       "added": "2026-09-23",
       "created": "2025-05-24",
-      "thumb": "games/ext-boc-connect4/thumb.webp"
+      "thumb": "games/connect4-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-boc-c42p",
+      "id": "c42p-bocalettoluca",
       "title": "Forza 4 2P",
       "emoji": "🔴",
       "description": "Четыре в ряд для двоих на одном экране. Внешняя игра — код остаётся у автора.",
       "tags": [
         "логика",
-        "для двоих",
-        "мост"
+        "для двоих"
       ],
       "url": "https://bocaletto-luca.github.io/Connect-Four-Two-Player/",
       "author": "Bocaletto Luca",
@@ -2745,17 +2701,16 @@
       "lang": "it",
       "added": "2026-09-23",
       "created": "2025-05-24",
-      "thumb": "games/ext-boc-c42p/thumb.webp"
+      "thumb": "games/c42p-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-adrianfrogger",
+      "id": "adrianfrogger-adrianeyre",
       "title": "Frogger",
       "emoji": "🐸",
       "description": "Переведите лягушку через дорогу и реку. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "классика",
-        "мост"
+        "классика"
       ],
       "url": "https://frogger.adrianeyre.co.uk/",
       "author": "adrianeyre",
@@ -2765,17 +2720,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2019-12-23",
-      "thumb": "games/ext-adrianfrogger/thumb.webp"
+      "thumb": "games/adrianfrogger-adrianeyre/thumb.webp"
     },
     {
-      "id": "ext-fruitmatcher",
+      "id": "fruitmatcher-mmenavas",
       "title": "Fruit Matcher",
       "emoji": "🍎",
       "description": "Найдите парные фрукты за минимум ходов. Внешняя игра — код остаётся у автора.",
       "tags": [
         "память",
-        "казуал",
-        "мост"
+        "казуал"
       ],
       "url": "https://www.iammaximo.com/memory-game/",
       "author": "mmenavas",
@@ -2785,17 +2739,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2014-12-16",
-      "thumb": "games/ext-fruitmatcher/thumb.webp"
+      "thumb": "games/fruitmatcher-mmenavas/thumb.webp"
     },
     {
-      "id": "ext-boc-games2vs",
+      "id": "games2vs-bocalettoluca",
       "title": "Games 2VS",
       "emoji": "⚔️",
       "description": "Соревновательная платформа мини-игр для двоих. Внешняя игра — код остаётся у автора.",
       "tags": [
         "для двоих",
-        "казуал",
-        "мост"
+        "казуал"
       ],
       "url": "https://bocaletto-luca.github.io/Games-2VS/",
       "author": "Bocaletto Luca",
@@ -2805,17 +2758,16 @@
       "lang": "it",
       "added": "2026-09-23",
       "created": "2025-05-24",
-      "thumb": "games/ext-boc-games2vs/thumb.webp"
+      "thumb": "games/games2vs-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-gobang",
+      "id": "gobang-mumuy",
       "title": "Gobang",
       "emoji": "⚫",
       "description": "Гомоку против ИИ: соберите пять камней в ряд. Внешняя игра — код остаётся у автора.",
       "tags": [
         "настолки",
-        "логика",
-        "мост"
+        "логика"
       ],
       "url": "https://passer-by.com/gobang/",
       "author": "mumuy",
@@ -2825,17 +2777,16 @@
       "lang": "zh",
       "added": "2026-09-23",
       "created": "2024-09-19",
-      "thumb": "games/ext-gobang/thumb.webp"
+      "thumb": "games/gobang-mumuy/thumb.webp"
     },
     {
-      "id": "ext-golfsol",
+      "id": "golfsol-milsaware",
       "title": "Golf Solitaire",
       "emoji": "⛳",
       "description": "Гольф-пасьянс: уберите все карты со стола по старшинству. Внешняя игра — код остаётся у автора.",
       "tags": [
         "карты",
-        "пасьянс",
-        "мост"
+        "пасьянс"
       ],
       "url": "https://milsaware.github.io/Javascript-Golf-Solitaire/",
       "author": "milsaware",
@@ -2845,17 +2796,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2022-07-04",
-      "thumb": "games/ext-golfsol/thumb.webp"
+      "thumb": "games/golfsol-milsaware/thumb.webp"
     },
     {
-      "id": "ext-boc-goose",
+      "id": "goose-bocalettoluca",
       "title": "Goose Game",
       "emoji": "🪿",
       "description": "Игра гусёк: кидайте кубик и мчитесь к финишу. Внешняя игра — код остаётся у автора.",
       "tags": [
         "настолки",
-        "казуал",
-        "мост"
+        "казуал"
       ],
       "url": "https://bocaletto-luca.github.io/Goose-Game-Two-Player/",
       "author": "Bocaletto Luca",
@@ -2865,17 +2815,16 @@
       "lang": "it",
       "added": "2026-09-23",
       "created": "2025-05-24",
-      "thumb": "games/ext-boc-goose/thumb.webp"
+      "thumb": "games/goose-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-garden",
+      "id": "garden-thomaspark",
       "title": "Grid Garden",
       "emoji": "🥕",
       "description": "Обучающая игра по CSS Grid: выращивайте морковь сеткой. Внешняя игра — код остаётся у автора.",
       "tags": [
         "обучение",
-        "css",
-        "мост"
+        "css"
       ],
       "url": "https://cssgridgarden.com/",
       "author": "thomaspark",
@@ -2899,17 +2848,16 @@
         "uk",
         "ko"
       ],
-      "thumb": "games/ext-garden/thumb.webp"
+      "thumb": "games/garden-thomaspark/thumb.webp"
     },
     {
-      "id": "ext-boc-flag",
+      "id": "flag-bocalettoluca",
       "title": "Guess the Flag",
       "emoji": "🏳️",
       "description": "Угадайте страну по флагу: география-викторина. Внешняя игра — код остаётся у автора.",
       "tags": [
         "викторина",
-        "география",
-        "мост"
+        "география"
       ],
       "url": "https://bocaletto-luca.github.io/Guess-The-Flag/",
       "author": "Bocaletto Luca",
@@ -2919,17 +2867,16 @@
       "lang": "it",
       "added": "2026-09-23",
       "created": "2025-05-24",
-      "thumb": "games/ext-boc-flag/thumb.webp"
+      "thumb": "games/flag-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-boc-guesspair",
+      "id": "guesspair-bocalettoluca",
       "title": "Guess the Pair",
       "emoji": "🃏",
       "description": "Найдите все парные карты за минимум ходов. Внешняя игра — код остаётся у автора.",
       "tags": [
         "память",
-        "казуал",
-        "мост"
+        "казуал"
       ],
       "url": "https://bocaletto-luca.github.io/Guess-the-pair-two-player/",
       "author": "Bocaletto Luca",
@@ -2939,17 +2886,16 @@
       "lang": "it",
       "added": "2026-09-23",
       "created": "2025-05-24",
-      "thumb": "games/ext-boc-guesspair/thumb.webp"
+      "thumb": "games/guesspair-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-boc-guesswho",
+      "id": "guesswho-bocalettoluca",
       "title": "Guess Who",
       "emoji": "🕵️",
       "description": "Угадайте персонажа вопросами «да/нет». Внешняя игра — код остаётся у автора.",
       "tags": [
         "логика",
-        "казуал",
-        "мост"
+        "казуал"
       ],
       "url": "https://bocaletto-luca.github.io/Guess-Who/",
       "author": "Bocaletto Luca",
@@ -2959,17 +2905,16 @@
       "lang": "it",
       "added": "2026-09-23",
       "created": "2025-05-26",
-      "thumb": "games/ext-boc-guesswho/thumb.webp"
+      "thumb": "games/guesswho-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-boc-hangman",
+      "id": "hangman-bocalettoluca",
       "title": "Hangman (Bocaletto)",
       "emoji": "🪢",
       "description": "Виселица: угадайте слово по буквам раньше шести ошибок. Внешняя игра — код остаётся у автора.",
       "tags": [
         "слова",
-        "логика",
-        "мост"
+        "логика"
       ],
       "url": "https://bocaletto-luca.github.io/hangman-two-player/",
       "author": "Bocaletto Luca",
@@ -2979,17 +2924,16 @@
       "lang": "it",
       "added": "2026-09-23",
       "created": "2025-05-24",
-      "thumb": "games/ext-boc-hangman/thumb.webp"
+      "thumb": "games/hangman-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-hanoi",
+      "id": "hanoi-ajlovechina",
       "title": "Hanoi",
       "emoji": "🗼",
       "description": "Ханойская башня: перенесите диски за минимум ходов. Внешняя игра — код остаётся у автора.",
       "tags": [
         "головоломка",
-        "логика",
-        "мост"
+        "логика"
       ],
       "url": "https://ajlovechina.github.io/Hanoi/",
       "author": "AJLoveChina",
@@ -2999,17 +2943,16 @@
       "lang": "zh",
       "added": "2026-09-23",
       "created": "2017-02-20",
-      "thumb": "games/ext-hanoi/thumb.webp"
+      "thumb": "games/hanoi-ajlovechina/thumb.webp"
     },
     {
-      "id": "ext-headbreaker",
+      "id": "headbreaker-flbulgarelli",
       "title": "Headbreaker",
       "emoji": "🧩",
       "description": "Фреймворк-головоломка: соберите мозаику из фрагментов. Внешняя игра — код остаётся у автора.",
       "tags": [
         "головоломка",
-        "казуал",
-        "мост"
+        "казуал"
       ],
       "url": "https://flbulgarelli.github.io/headbreaker/",
       "author": "flbulgarelli",
@@ -3019,17 +2962,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2020-06-03",
-      "thumb": "games/ext-headbreaker/thumb.webp"
+      "thumb": "games/headbreaker-flbulgarelli/thumb.webp"
     },
     {
-      "id": "ext-checkers",
+      "id": "checkers-codethejason",
       "title": "HTML5 Checkers",
       "emoji": "♟️",
       "description": "Английские шашки против компьютера. Внешняя игра — код остаётся у автора.",
       "tags": [
         "настолки",
-        "логика",
-        "мост"
+        "логика"
       ],
       "url": "https://jasonlawrencewong.com/checkers/",
       "author": "codethejason",
@@ -3039,17 +2981,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2016-01-01",
-      "thumb": "games/ext-checkers/thumb.webp"
+      "thumb": "games/checkers-codethejason/thumb.webp"
     },
     {
-      "id": "ext-invaderz",
+      "id": "invaderz-victorqribeiro",
       "title": "InvaderZ",
       "emoji": "🛸",
       "description": "Космозахватчики с эволюцией: рой учится на ваших выстрелах через генетический алгоритм. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "шутер",
-        "мост"
+        "шутер"
       ],
       "url": "https://victorribeiro.com/invaderz/",
       "author": "victorqribeiro",
@@ -3059,17 +3000,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2018-10-30",
-      "thumb": "games/ext-invaderz/thumb.webp"
+      "thumb": "games/invaderz-victorqribeiro/thumb.webp"
     },
     {
-      "id": "ext-isocity",
+      "id": "isocity-victorqribeiro",
       "title": "IsoCity",
       "emoji": "🏙️",
       "description": "Изометрический градостроитель: зоны, дороги и баланс бюджета. Внешняя игра — код остаётся у автора.",
       "tags": [
         "стратегия",
-        "стройка",
-        "мост"
+        "стройка"
       ],
       "url": "https://victorribeiro.com/isocity/",
       "author": "victorqribeiro",
@@ -3079,17 +3019,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2019-12-31",
-      "thumb": "games/ext-isocity/thumb.webp"
+      "thumb": "games/isocity-victorqribeiro/thumb.webp"
     },
     {
-      "id": "ext-patorjksnake",
+      "id": "patorjksnake-patorjk",
       "title": "JavaScript Snake",
       "emoji": "🐍",
       "description": "Классическая змейка на чистом JavaScript. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "классика",
-        "мост"
+        "классика"
       ],
       "url": "https://patorjk.github.io/JavaScript-Snake/",
       "author": "patorjk",
@@ -3099,17 +3038,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2012-09-09",
-      "thumb": "games/ext-patorjksnake/thumb.webp"
+      "thumb": "games/patorjksnake-patorjk/thumb.webp"
     },
     {
-      "id": "ext-jokenpo",
+      "id": "jokenpo-victorqribeiro",
       "title": "JoKePo",
       "emoji": "✊",
       "description": "Камень-ножницы-бумага против нейросети, угадывающей ходы. Внешняя игра — код остаётся у автора.",
       "tags": [
         "казуал",
-        "нейросеть",
-        "мост"
+        "нейросеть"
       ],
       "url": "https://victorribeiro.com/jokenpo",
       "author": "victorqribeiro",
@@ -3119,16 +3057,15 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2019-03-16",
-      "thumb": "games/ext-jokenpo/thumb.webp"
+      "thumb": "games/jokenpo-victorqribeiro/thumb.webp"
     },
     {
-      "id": "ext-gitlab-rooster",
+      "id": "rooster-ryanmooney",
       "title": "Karooster",
       "emoji": "🐓",
       "description": "Интерактивная игрушка: петух бегает по странице, клюёт курсор и крадёт заголовки. Внешняя игра — код остаётся у автора.",
       "tags": [
-        "забава",
-        "мост"
+        "забава"
       ],
       "url": "https://karooster-4a8611.gitlab.io/",
       "author": "Ryan Mooney",
@@ -3136,19 +3073,18 @@
       "repo": "https://gitlab.com/Ryan-Mooney/karooster",
       "controls": "Мышь",
       "lang": "neutral",
-      "added": "2026-09-24",
+      "added": "2026-09-25",
       "created": "2026-08-04",
-      "thumb": "games/ext-gitlab-rooster/thumb.webp"
+      "thumb": "games/rooster-ryanmooney/thumb.webp"
     },
     {
-      "id": "ext-boc-solitaire",
+      "id": "solitaire-bocalettoluca",
       "title": "Klondike Solitaire",
       "emoji": "🃏",
       "description": "Пасьянс «Косынка»: разложите колоду по мастям. Внешняя игра — код остаётся у автора.",
       "tags": [
         "карты",
-        "пасьянс",
-        "мост"
+        "пасьянс"
       ],
       "url": "https://bocaletto-luca.github.io/Solitaire/",
       "author": "Bocaletto Luca",
@@ -3158,17 +3094,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2025-05-26",
-      "thumb": "games/ext-boc-solitaire/thumb.webp"
+      "thumb": "games/solitaire-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-boc-labyrinth",
+      "id": "labyrinth-bocalettoluca",
       "title": "Labyrinth",
       "emoji": "🌀",
       "description": "Исследователь лабиринта: найдите выход из закоулков. Внешняя игра — код остаётся у автора.",
       "tags": [
         "лабиринт",
-        "казуал",
-        "мост"
+        "казуал"
       ],
       "url": "https://bocaletto-luca.github.io/Labyrinth/",
       "author": "Bocaletto Luca",
@@ -3178,17 +3113,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2025-06-01",
-      "thumb": "games/ext-boc-labyrinth/thumb.webp"
+      "thumb": "games/labyrinth-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-lightsout",
+      "id": "lightsout-sepandhaghighi",
       "title": "Lights Out",
       "emoji": "💡",
       "description": "Погасите все огни: клик переключает клетку и соседей. Внешняя игра — код остаётся у автора.",
       "tags": [
         "головоломка",
-        "логика",
-        "мост"
+        "логика"
       ],
       "url": "https://www.lightsout.ir/",
       "author": "sepandhaghighi",
@@ -3198,17 +3132,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2017-08-10",
-      "thumb": "games/ext-lightsout/thumb.webp"
+      "thumb": "games/lightsout-sepandhaghighi/thumb.webp"
     },
     {
-      "id": "ext-boc-ludo",
+      "id": "ludo-bocalettoluca",
       "title": "Ludo",
       "emoji": "🎲",
       "description": "Классическое лудо: выведите все фишки домой первым. Внешняя игра — код остаётся у автора.",
       "tags": [
         "настолки",
-        "классика",
-        "мост"
+        "классика"
       ],
       "url": "https://bocaletto-luca.github.io/Ludo/",
       "author": "Bocaletto Luca",
@@ -3218,17 +3151,16 @@
       "lang": "it",
       "added": "2026-09-23",
       "created": "2025-05-26",
-      "thumb": "games/ext-boc-ludo/thumb.webp"
+      "thumb": "games/ludo-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-boc-mahjong",
+      "id": "mahjong-bocalettoluca",
       "title": "Mahjong Solitaire",
       "emoji": "🀄",
       "description": "Маджонг-пасьянс: разбирайте пирамиду парными костями. Внешняя игра — код остаётся у автора.",
       "tags": [
         "пасьянс",
-        "логика",
-        "мост"
+        "логика"
       ],
       "url": "https://bocaletto-luca.github.io/Mahjong-Solitaire/",
       "author": "Bocaletto Luca",
@@ -3238,17 +3170,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2025-05-26",
-      "thumb": "games/ext-boc-mahjong/thumb.webp"
+      "thumb": "games/mahjong-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-gitlab-memory",
+      "id": "memory-christianalexanderdudek",
       "title": "Memory",
       "emoji": "🃏",
       "description": "Мемори на AlpineJS: открывайте пары одинаковых карточек и очистите поле. Внешняя игра — код остаётся у автора.",
       "tags": [
         "головоломка",
-        "мемори",
-        "мост"
+        "мемори"
       ],
       "url": "https://memory-chdudek-51a581c2ca0807987f2b98cf8a3f9436635f9c50b93d4671.gitlab.io/",
       "author": "Christian-Alexander Dudek",
@@ -3256,19 +3187,18 @@
       "repo": "https://gitlab.com/chdudek/memory",
       "controls": "Мышь",
       "lang": "en",
-      "added": "2026-09-24",
+      "added": "2026-09-25",
       "created": "2023-09-28",
-      "thumb": "games/ext-gitlab-memory/thumb.webp"
+      "thumb": "games/memory-christianalexanderdudek/thumb.webp"
     },
     {
-      "id": "ext-taniamemory",
+      "id": "taniamemory-taniarascia",
       "title": "Memory Game (Tania)",
       "emoji": "🃏",
       "description": "Культовое мемори из туториала: пары карт на поле. Внешняя игра — код остаётся у автора.",
       "tags": [
         "память",
-        "казуал",
-        "мост"
+        "казуал"
       ],
       "url": "https://taniarascia.github.io/memory/",
       "author": "taniarascia",
@@ -3278,17 +3208,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2018-01-11",
-      "thumb": "games/ext-taniamemory/thumb.webp"
+      "thumb": "games/taniamemory-taniarascia/thumb.webp"
     },
     {
-      "id": "ext-boc-millionaire",
+      "id": "millionaire-bocalettoluca",
       "title": "Millionaire Quiz",
       "emoji": "💰",
       "description": "Викторина «Кто хочет стать миллионером»: вопросы и несгораемые суммы. Внешняя игра — код остаётся у автора.",
       "tags": [
         "викторина",
-        "казуал",
-        "мост"
+        "казуал"
       ],
       "url": "https://bocaletto-luca.github.io/Who-Wants-To-Be-A-Millionaire/",
       "author": "Bocaletto Luca",
@@ -3298,17 +3227,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2025-05-21",
-      "thumb": "games/ext-boc-millionaire/thumb.webp"
+      "thumb": "games/millionaire-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-boc-minesweeper",
+      "id": "minesweeper-bocalettoluca",
       "title": "Minesweeper 2.0",
       "emoji": "💥",
       "description": "Современный сапёр: откройте все клетки без мин. Внешняя игра — код остаётся у автора.",
       "tags": [
         "логика",
-        "классика",
-        "мост"
+        "классика"
       ],
       "url": "https://bocaletto-luca.github.io/Mine-Sweeper/",
       "author": "Bocaletto Luca",
@@ -3318,17 +3246,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2025-05-26",
-      "thumb": "games/ext-boc-minesweeper/thumb.webp"
+      "thumb": "games/minesweeper-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-minimax",
+      "id": "minimax-ucfx",
       "title": "Minimax TicTacToe",
       "emoji": "⭕",
       "description": "Крестики-нолики на минимаксе: ИИ не прощает ошибок. Внешняя игра — код остаётся у автора.",
       "tags": [
         "логика",
-        "нейросеть",
-        "мост"
+        "нейросеть"
       ],
       "url": "https://tictactoe.ucef.dev/",
       "author": "ucfx",
@@ -3338,17 +3265,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2022-09-15",
-      "thumb": "games/ext-minimax/thumb.webp"
+      "thumb": "games/minimax-ucfx/thumb.webp"
     },
     {
-      "id": "ext-mnimi",
+      "id": "mnimi-sepandhaghighi",
       "title": "Mnimi",
       "emoji": "🧠",
       "description": "Игра на память и внимание с нарастающей сложностью. Внешняя игра — код остаётся у автора.",
       "tags": [
         "память",
-        "казуал",
-        "мост"
+        "казуал"
       ],
       "url": "https://www.mnimi.ir/",
       "author": "sepandhaghighi",
@@ -3358,17 +3284,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2019-11-07",
-      "thumb": "games/ext-mnimi/thumb.webp"
+      "thumb": "games/mnimi-sepandhaghighi/thumb.webp"
     },
     {
-      "id": "ext-nonogram",
+      "id": "nonogram-monkeyarms",
       "title": "Nonogram",
       "emoji": "⬛",
       "description": "Библиотека японских кроссвордов с решателем и игровыми примерами. Внешняя игра — код остаётся у автора.",
       "tags": [
         "головоломка",
-        "логика",
-        "мост"
+        "логика"
       ],
       "url": "https://monkeyarms.github.io/nonogram/",
       "author": "monkeyArms",
@@ -3378,17 +3303,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2019-04-19",
-      "thumb": "games/ext-nonogram/thumb.webp"
+      "thumb": "games/nonogram-monkeyarms/thumb.webp"
     },
     {
-      "id": "ext-handsomenonogram",
+      "id": "handsomenonogram-handsomeone",
       "title": "Nonogram (HandsomeOne)",
       "emoji": "⬛",
       "description": "Японский кроссворд: закрашивайте клетки по числам. Внешняя игра — код остаётся у автора.",
       "tags": [
         "головоломка",
-        "логика",
-        "мост"
+        "логика"
       ],
       "url": "https://handsomeone.github.io/Nonogram/",
       "author": "HandsomeOne",
@@ -3398,17 +3322,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2015-12-14",
-      "thumb": "games/ext-handsomenonogram/thumb.webp"
+      "thumb": "games/handsomenonogram-handsomeone/thumb.webp"
     },
     {
-      "id": "ext-gitlab-rpg",
+      "id": "rpg-richardschwarting",
       "title": "Patch Friends",
       "emoji": "🗺️",
       "description": "Демо классической RPG в браузере: исследуйте карту, говорите с NPC и сражайтесь. Внешняя игра — код остаётся у автора.",
       "tags": [
         "рпг",
-        "приключение",
-        "мост"
+        "приключение"
       ],
       "url": "https://aquarichy.gitlab.io/patch-friends/",
       "author": "Richard Schwarting",
@@ -3416,19 +3339,18 @@
       "repo": "https://gitlab.com/aquarichy/patch-friends",
       "controls": "Клавиатура",
       "lang": "en",
-      "added": "2026-09-24",
+      "added": "2026-09-25",
       "created": "2023-04-27",
-      "thumb": "games/ext-gitlab-rpg/thumb.webp"
+      "thumb": "games/rpg-richardschwarting/thumb.webp"
     },
     {
-      "id": "ext-boc-pong",
+      "id": "pong-bocalettoluca",
       "title": "Pong (Bocaletto)",
       "emoji": "🏓",
       "description": "Классический понг против компьютера. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "классика",
-        "мост"
+        "классика"
       ],
       "url": "https://bocaletto-luca.github.io/Pong/",
       "author": "Bocaletto Luca",
@@ -3438,17 +3360,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2025-05-24",
-      "thumb": "games/ext-boc-pong/thumb.webp"
+      "thumb": "games/pong-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-boc-pong2p",
+      "id": "pong2p-bocalettoluca",
       "title": "Pong 2 Players",
       "emoji": "🏓",
       "description": "Понг для двоих на одной клавиатуре. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "для двоих",
-        "мост"
+        "для двоих"
       ],
       "url": "https://bocaletto-luca.github.io/Pong-Two-Player/",
       "author": "Bocaletto Luca",
@@ -3458,17 +3379,16 @@
       "lang": "it",
       "added": "2026-09-23",
       "created": "2025-05-24",
-      "thumb": "games/ext-boc-pong2p/thumb.webp"
+      "thumb": "games/pong2p-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-boc-puzzlenumbers",
+      "id": "puzzlenumbers-bocalettoluca",
       "title": "Puzzle Numbers",
       "emoji": "🔢",
       "description": "Числовые головоломки: логика и счёт в каждой задаче. Внешняя игра — код остаётся у автора.",
       "tags": [
         "головоломка",
-        "математика",
-        "мост"
+        "математика"
       ],
       "url": "https://bocaletto-luca.github.io/Puzzle-Numbers/",
       "author": "Bocaletto Luca",
@@ -3478,17 +3398,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2025-06-02",
-      "thumb": "games/ext-boc-puzzlenumbers/thumb.webp"
+      "thumb": "games/puzzlenumbers-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-boc-quizplayer",
+      "id": "quizplayer-bocalettoluca",
       "title": "Quiz Player",
       "emoji": "❓",
       "description": "Викторина с вопросами на эрудицию и счёт. Внешняя игра — код остаётся у автора.",
       "tags": [
         "викторина",
-        "казуал",
-        "мост"
+        "казуал"
       ],
       "url": "https://bocaletto-luca.github.io/QuizCreatorPlayer/",
       "author": "Bocaletto Luca",
@@ -3498,17 +3417,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2025-07-20",
-      "thumb": "games/ext-boc-quizplayer/thumb.webp"
+      "thumb": "games/quizplayer-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-solitaire",
+      "id": "solitaire-gcedo",
       "title": "React Solitaire",
       "emoji": "🎴",
       "description": "Пасьянс «Косынка» на React с drag-and-drop. Внешняя игра — код остаётся у автора.",
       "tags": [
         "карты",
-        "пасьянс",
-        "мост"
+        "пасьянс"
       ],
       "url": "https://gcedo.github.io/react-solitaire/",
       "author": "gcedo",
@@ -3518,17 +3436,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2015-10-07",
-      "thumb": "games/ext-solitaire/thumb.webp"
+      "thumb": "games/solitaire-gcedo/thumb.webp"
     },
     {
-      "id": "ext-boc-rps",
+      "id": "rps-bocalettoluca",
       "title": "Rock Paper Scissors",
       "emoji": "✌️",
       "description": "Камень-ножницы-бумага против компьютера. Внешняя игра — код остаётся у автора.",
       "tags": [
         "казуал",
-        "классика",
-        "мост"
+        "классика"
       ],
       "url": "https://bocaletto-luca.github.io/Rock-Paper-Scissors/",
       "author": "Bocaletto Luca",
@@ -3538,17 +3455,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2025-05-26",
-      "thumb": "games/ext-boc-rps/thumb.webp"
+      "thumb": "games/rps-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-sand",
+      "id": "sand-maxbittker",
       "title": "Sandspiel",
       "emoji": "⏳",
       "description": "Песочница падающего песка: сыпьте элементы и смотрите, как они взаимодействуют. Внешняя игра — код остаётся у автора.",
       "tags": [
         "песочница",
-        "симуляция",
-        "мост"
+        "симуляция"
       ],
       "url": "https://sandspiel.club/",
       "author": "MaxBittker",
@@ -3558,17 +3474,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2018-10-20",
-      "thumb": "games/ext-sand/thumb.webp"
+      "thumb": "games/sand-maxbittker/thumb.webp"
     },
     {
-      "id": "ext-boc-scopa",
+      "id": "scopa-bocalettoluca",
       "title": "Scopa",
       "emoji": "🂡",
       "description": "Итальянская карточная скопа: забирайте карты со стола. Внешняя игра — код остаётся у автора.",
       "tags": [
         "карты",
-        "классика",
-        "мост"
+        "классика"
       ],
       "url": "https://bocaletto-luca.github.io/Scopa/",
       "author": "Bocaletto Luca",
@@ -3578,17 +3493,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2025-05-24",
-      "thumb": "games/ext-boc-scopa/thumb.webp"
+      "thumb": "games/scopa-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-serversurv",
+      "id": "serversurv-pshenok",
       "title": "Server Survival",
       "emoji": "☁️",
       "description": "Tower defense про облачную архитектуру: стройте инфраструктуру и отбивайте атаки. Внешняя игра — код остаётся у автора.",
       "tags": [
         "стратегия",
-        "tower-defense",
-        "мост"
+        "tower-defense"
       ],
       "url": "https://pshenok.github.io/server-survival/",
       "author": "pshenok",
@@ -3598,17 +3512,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2025-11-21",
-      "thumb": "games/ext-serversurv/thumb.webp"
+      "thumb": "games/serversurv-pshenok/thumb.webp"
     },
     {
-      "id": "ext-shenzhen",
+      "id": "shenzhen-nickardson",
       "title": "SHENZHEN Solitaire",
       "emoji": "🀄",
       "description": "Пасьянс в духе Shenzhen I/O: карты и логические цепочки. Внешняя игра — код остаётся у автора.",
       "tags": [
         "карты",
-        "пасьянс",
-        "мост"
+        "пасьянс"
       ],
       "url": "https://shenzhen-solitaire.tgratzer.com/",
       "author": "Nickardson",
@@ -3618,17 +3531,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2016-11-24",
-      "thumb": "games/ext-shenzhen/thumb.webp"
+      "thumb": "games/shenzhen-nickardson/thumb.webp"
     },
     {
-      "id": "ext-shogi",
+      "id": "shogi-akicho8",
       "title": "Shogi Player",
       "emoji": "♞",
       "description": "Японские шахматы сёги: доска и разбор партий. Внешняя игра — код остаётся у автора.",
       "tags": [
         "шахматы",
-        "логика",
-        "мост"
+        "логика"
       ],
       "url": "https://akicho8.github.io/shogi-player/",
       "author": "akicho8",
@@ -3638,17 +3550,16 @@
       "lang": "ja",
       "added": "2026-09-23",
       "created": "2018-01-02",
-      "thumb": "games/ext-shogi/thumb.webp"
+      "thumb": "games/shogi-akicho8/thumb.webp"
     },
     {
-      "id": "ext-boc-simon",
+      "id": "simon-bocalettoluca",
       "title": "Simon Says",
       "emoji": "🔴",
       "description": "Повторяйте растущую мелодию цветных кнопок. Внешняя игра — код остаётся у автора.",
       "tags": [
         "память",
-        "музыка",
-        "мост"
+        "музыка"
       ],
       "url": "https://bocaletto-luca.github.io/Symon-Says/",
       "author": "Bocaletto Luca",
@@ -3658,17 +3569,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2025-05-26",
-      "thumb": "games/ext-boc-simon/thumb.webp"
+      "thumb": "games/simon-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-boc-snake",
+      "id": "snake-bocalettoluca",
       "title": "Snake (Bocaletto)",
       "emoji": "🐍",
       "description": "Змейка: ешьте и растите, не врезайтесь. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "классика",
-        "мост"
+        "классика"
       ],
       "url": "https://bocaletto-luca.github.io/Snake/",
       "author": "Bocaletto Luca",
@@ -3678,17 +3588,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2025-05-24",
-      "thumb": "games/ext-boc-snake/thumb.webp"
+      "thumb": "games/snake-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-sokoban",
+      "id": "sokoban-taniarascia",
       "title": "Sokoban.js",
       "emoji": "📦",
       "description": "Классический сокобан: толкайте ящики на цели, не загоняйте в угол. Внешняя игра — код остаётся у автора.",
       "tags": [
         "головоломка",
-        "логика",
-        "мост"
+        "логика"
       ],
       "url": "https://taniarascia.github.io/sokoban/index.html",
       "author": "taniarascia",
@@ -3698,17 +3607,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2021-07-22",
-      "thumb": "games/ext-sokoban/thumb.webp"
+      "thumb": "games/sokoban-taniarascia/thumb.webp"
     },
     {
-      "id": "ext-milsolitaire",
+      "id": "milsolitaire-milsaware",
       "title": "Solitaire (milsaware)",
       "emoji": "🃏",
       "description": "Пасьянс «Косынка» на чистом JavaScript без картинок. Внешняя игра — код остаётся у автора.",
       "tags": [
         "карты",
-        "пасьянс",
-        "мост"
+        "пасьянс"
       ],
       "url": "https://milsaware.github.io/Javascript-Solitaire/",
       "author": "milsaware",
@@ -3718,17 +3626,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2022-07-02",
-      "thumb": "games/ext-milsolitaire/thumb.webp"
+      "thumb": "games/milsolitaire-milsaware/thumb.webp"
     },
     {
-      "id": "ext-boc-invaders",
+      "id": "invaders-bocalettoluca",
       "title": "Space Invaders (Bocaletto)",
       "emoji": "👾",
       "description": "Классические захватчики: держите строй под огнём. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "шутер",
-        "мост"
+        "шутер"
       ],
       "url": "https://bocaletto-luca.github.io/Space-Invaders/",
       "author": "Bocaletto Luca",
@@ -3738,17 +3645,16 @@
       "lang": "it",
       "added": "2026-09-23",
       "created": "2025-05-24",
-      "thumb": "games/ext-boc-invaders/thumb.webp"
+      "thumb": "games/invaders-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-spacehuggers",
+      "id": "spacehuggers-killedbyapixel",
       "title": "SpaceHuggers",
       "emoji": "👾",
       "description": "Роглайк-платформер с разрушаемым окружением. Внешняя игра — код остаётся у автора.",
       "tags": [
         "рогалик",
-        "платформер",
-        "мост"
+        "платформер"
       ],
       "url": "https://killedbyapixel.github.io/SpaceHuggers/",
       "author": "KilledByAPixel",
@@ -3758,17 +3664,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2021-09-13",
-      "thumb": "games/ext-spacehuggers/thumb.webp"
+      "thumb": "games/spacehuggers-killedbyapixel/thumb.webp"
     },
     {
-      "id": "ext-spookyball",
+      "id": "spookyball-toji",
       "title": "SpookyBall",
       "emoji": "🎃",
       "description": "Хэллоуин-арканоид на WebGPU: отбивайте тыквы платформой. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "webgpu",
-        "мост"
+        "webgpu"
       ],
       "url": "https://spookyball.com/",
       "author": "toji",
@@ -3778,17 +3683,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2021-10-13",
-      "thumb": "games/ext-spookyball/thumb.webp"
+      "thumb": "games/spookyball-toji/thumb.webp"
     },
     {
-      "id": "ext-boc-squaredodger",
+      "id": "squaredodger-bocalettoluca",
       "title": "Square Dodger",
       "emoji": "🟥",
       "description": "Уворачивайтесь квадратом от летящих препятствий. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "реакция",
-        "мост"
+        "реакция"
       ],
       "url": "https://bocaletto-luca.github.io/Square-Dodger/",
       "author": "Bocaletto Luca",
@@ -3798,17 +3702,16 @@
       "lang": "it",
       "added": "2026-09-23",
       "created": "2025-05-24",
-      "thumb": "games/ext-boc-squaredodger/thumb.webp"
+      "thumb": "games/squaredodger-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-boc-sudoku",
+      "id": "sudoku-bocalettoluca",
       "title": "Sudoku (Bocaletto)",
       "emoji": "🔢",
       "description": "Судоку: заполните сетку 9×9 без повторов. Внешняя игра — код остаётся у автора.",
       "tags": [
         "головоломка",
-        "логика",
-        "мост"
+        "логика"
       ],
       "url": "https://bocaletto-luca.github.io/Sudoku/",
       "author": "Bocaletto Luca",
@@ -3818,17 +3721,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2025-05-26",
-      "thumb": "games/ext-boc-sudoku/thumb.webp"
+      "thumb": "games/sudoku-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-trex",
+      "id": "trex-wayou",
       "title": "T-Rex Runner",
       "emoji": "🦖",
       "description": "Легендарный бегущий динозавр из Chrome: прыгайте через кактусы. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "раннер",
-        "мост"
+        "раннер"
       ],
       "url": "https://wayou.github.io/t-rex-runner/",
       "author": "wayou",
@@ -3838,17 +3740,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2014-11-29",
-      "thumb": "games/ext-trex/thumb.webp"
+      "thumb": "games/trex-wayou/thumb.webp"
     },
     {
-      "id": "ext-boc-tama",
+      "id": "tama-bocalettoluca",
       "title": "Tama-Pets",
       "emoji": "🐣",
       "description": "Виртуальный питомец: кормите, играйте и укладывайте спать. Внешняя игра — код остаётся у автора.",
       "tags": [
         "казуал",
-        "симулятор",
-        "мост"
+        "симулятор"
       ],
       "url": "https://bocaletto-luca.github.io/Tama-Pets/",
       "author": "Bocaletto Luca",
@@ -3858,17 +3759,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2025-05-16",
-      "thumb": "games/ext-boc-tama/thumb.webp"
+      "thumb": "games/tama-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-boc-tetris",
+      "id": "tetris-bocalettoluca",
       "title": "Tetris (Bocaletto)",
       "emoji": "🟪",
       "description": "Падающие фигуры и линии: классика жанра. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "головоломка",
-        "мост"
+        "головоломка"
       ],
       "url": "https://bocaletto-luca.github.io/Tetris/",
       "author": "Bocaletto Luca",
@@ -3878,17 +3778,16 @@
       "lang": "it",
       "added": "2026-09-23",
       "created": "2025-05-24",
-      "thumb": "games/ext-boc-tetris/thumb.webp"
+      "thumb": "games/tetris-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-boc-tictactoe",
+      "id": "tictactoe-bocalettoluca",
       "title": "Tic Tac Toe (Bocaletto)",
       "emoji": "⭕",
       "description": "Крестики-нолики против компьютера. Внешняя игра — код остаётся у автора.",
       "tags": [
         "логика",
-        "классика",
-        "мост"
+        "классика"
       ],
       "url": "https://bocaletto-luca.github.io/Tic-Tac-Toe/",
       "author": "Bocaletto Luca",
@@ -3898,17 +3797,16 @@
       "lang": "it",
       "added": "2026-09-23",
       "created": "2025-05-24",
-      "thumb": "games/ext-boc-tictactoe/thumb.webp"
+      "thumb": "games/tictactoe-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-milttt",
+      "id": "milttt-milsaware",
       "title": "Tic Tac Toe (milsaware)",
       "emoji": "⭕",
       "description": "Простые крестики-нолики на JavaScript. Внешняя игра — код остаётся у автора.",
       "tags": [
         "логика",
-        "классика",
-        "мост"
+        "классика"
       ],
       "url": "https://milsaware.github.io/javascript-tic-tac-toe/",
       "author": "milsaware",
@@ -3918,17 +3816,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2022-01-27",
-      "thumb": "games/ext-milttt/thumb.webp"
+      "thumb": "games/milttt-milsaware/thumb.webp"
     },
     {
-      "id": "ext-taniattt",
+      "id": "taniattt-taniarascia",
       "title": "Tic Tac Toe (Tania)",
       "emoji": "⭕",
       "description": "Крестики-нолики из знаменитого туториала. Внешняя игра — код остаётся у автора.",
       "tags": [
         "логика",
-        "классика",
-        "мост"
+        "классика"
       ],
       "url": "https://taniarascia.github.io/tictactoe/",
       "author": "taniarascia",
@@ -3938,17 +3835,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2019-04-23",
-      "thumb": "games/ext-taniattt/thumb.webp"
+      "thumb": "games/taniattt-taniarascia/thumb.webp"
     },
     {
-      "id": "ext-boc-ttt2p",
+      "id": "ttt2p-bocalettoluca",
       "title": "Tic Tac Toe 2P",
       "emoji": "⭕",
       "description": "Крестики-нолики для двоих на одном экране. Внешняя игра — код остаётся у автора.",
       "tags": [
         "логика",
-        "для двоих",
-        "мост"
+        "для двоих"
       ],
       "url": "https://bocaletto-luca.github.io/Tic-Tac-Toe-Two-Player/",
       "author": "Bocaletto Luca",
@@ -3958,17 +3854,16 @@
       "lang": "it",
       "added": "2026-09-23",
       "created": "2025-05-24",
-      "thumb": "games/ext-boc-ttt2p/thumb.webp"
+      "thumb": "games/ttt2p-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-ramattt",
+      "id": "ramattt-ramazancetinkaya",
       "title": "Tic-Tac-Toe AI",
       "emoji": "⭕",
       "description": "Крестики-нолики против эвристического ИИ. Внешняя игра — код остаётся у автора.",
       "tags": [
         "логика",
-        "нейросеть",
-        "мост"
+        "нейросеть"
       ],
       "url": "https://ramazancetinkaya.github.io/tictactoe/",
       "author": "ramazancetinkaya",
@@ -3978,17 +3873,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2023-11-22",
-      "thumb": "games/ext-ramattt/thumb.webp"
+      "thumb": "games/ramattt-ramazancetinkaya/thumb.webp"
     },
     {
-      "id": "ext-gitlab-tix",
+      "id": "tix-liamhegarty",
       "title": "Tix",
       "emoji": "🐈",
       "description": "Ритм-игра с Gamedev.js Jam: ведите кота через завод в такт музыке. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "ритм",
-        "мост"
+        "ритм"
       ],
       "url": "https://heggroup.gitlab.io/tix/",
       "author": "Liam Hegarty",
@@ -3996,19 +3890,18 @@
       "repo": "https://gitlab.com/heggroup/tix",
       "controls": "Клавиатура",
       "lang": "en",
-      "added": "2026-09-24",
+      "added": "2026-09-25",
       "created": "2023-04-13",
-      "thumb": "games/ext-gitlab-tix/thumb.webp"
+      "thumb": "games/tix-liamhegarty/thumb.webp"
     },
     {
-      "id": "ext-tower",
+      "id": "tower-iamkun",
       "title": "Tower Building",
       "emoji": "🏢",
       "description": "Стройте башню из падающих блоков: чем выше, тем капризнее кран. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "казуал",
-        "мост"
+        "казуал"
       ],
       "url": "https://iamkun.github.io/tower_game/",
       "author": "iamkun",
@@ -4018,17 +3911,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2018-03-19",
-      "thumb": "games/ext-tower/thumb.webp"
+      "thumb": "games/tower-iamkun/thumb.webp"
     },
     {
-      "id": "ext-selenebuntd",
+      "id": "selenebuntd-selenebun",
       "title": "Tower Defense (Selenebun)",
       "emoji": "🗼",
       "description": "Башенная оборона: стройте турели против волн. Внешняя игра — код остаётся у автора.",
       "tags": [
         "стратегия",
-        "tower-defense",
-        "мост"
+        "tower-defense"
       ],
       "url": "https://selenebun.github.io/towerdefense/",
       "author": "selenebun",
@@ -4038,17 +3930,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2017-12-02",
-      "thumb": "games/ext-selenebuntd/thumb.webp"
+      "thumb": "games/selenebuntd-selenebun/thumb.webp"
     },
     {
-      "id": "ext-ttc",
+      "id": "ttc-yelynn1",
       "title": "TTC TicTacToe",
       "emoji": "⭕",
       "description": "Минималистичные крестики-нолики: партия за минуту. Внешняя игра — код остаётся у автора.",
       "tags": [
         "логика",
-        "классика",
-        "мост"
+        "классика"
       ],
       "url": "https://yelynn1.github.io/tictactoe/",
       "author": "yelynn1",
@@ -4058,17 +3949,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2020-05-30",
-      "thumb": "games/ext-ttc/thumb.webp"
+      "thumb": "games/ttc-yelynn1/thumb.webp"
     },
     {
-      "id": "ext-typer",
+      "id": "typer-berkerol",
       "title": "Typer",
       "emoji": "⌨️",
       "description": "Печатайте код башен быстрее волн врагов. Внешняя игра — код остаётся у автора.",
       "tags": [
         "печать",
-        "tower-defense",
-        "мост"
+        "tower-defense"
       ],
       "url": "https://berkerol.github.io/typer/",
       "author": "berkerol",
@@ -4078,17 +3968,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2017-09-30",
-      "thumb": "games/ext-typer/thumb.webp"
+      "thumb": "games/typer-berkerol/thumb.webp"
     },
     {
-      "id": "ext-boc-typing",
+      "id": "typing-bocalettoluca",
       "title": "Typing Tutor",
       "emoji": "⌨️",
       "description": "Тренажёр слепой печати на скорость и точность. Внешняя игра — код остаётся у автора.",
       "tags": [
         "обучение",
-        "печать",
-        "мост"
+        "печать"
       ],
       "url": "https://bocaletto-luca.github.io/Typing-Tutor/",
       "author": "Bocaletto Luca",
@@ -4098,17 +3987,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2025-06-02",
-      "thumb": "games/ext-boc-typing/thumb.webp"
+      "thumb": "games/typing-bocalettoluca/thumb.webp"
     },
     {
-      "id": "ext-gitlab-vase",
+      "id": "vase-bixense",
       "title": "Vase Wave",
       "emoji": "🏺",
       "description": "Ретро-игра с PULS Game Jam: пиксельная ваза, старт — пробел. Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "ретро",
-        "мост"
+        "ретро"
       ],
       "url": "https://vase-c329c5.gitlab.io/",
       "author": "Bixense",
@@ -4116,18 +4004,17 @@
       "repo": "https://gitlab.com/bixense/vase",
       "controls": "Пробел",
       "lang": "de",
-      "added": "2026-09-24",
+      "added": "2026-09-25",
       "created": "2025-03-14"
     },
     {
-      "id": "ext-vuesolitaire",
+      "id": "vuesolitaire-silentlad",
       "title": "Vue Solitaire",
       "emoji": "🃏",
       "description": "Пасьянс на Vue: классическая косынка в браузере. Внешняя игра — код остаётся у автора.",
       "tags": [
         "карты",
-        "пасьянс",
-        "мост"
+        "пасьянс"
       ],
       "url": "https://silent-lad.github.io/VueSolitaire/",
       "author": "silent-lad",
@@ -4137,17 +4024,16 @@
       "lang": "en",
       "added": "2026-09-23",
       "created": "2019-03-31",
-      "thumb": "games/ext-vuesolitaire/thumb.webp"
+      "thumb": "games/vuesolitaire-silentlad/thumb.webp"
     },
     {
-      "id": "ext-vuetetris",
+      "id": "vuetetris-binaryify",
       "title": "Vue Tetris",
       "emoji": "🟪",
       "description": "Тетрис на Vue с красивой анимацией (интерфейс на китайском, но всё понятно). Внешняя игра — код остаётся у автора.",
       "tags": [
         "аркада",
-        "головоломка",
-        "мост"
+        "головоломка"
       ],
       "url": "https://binaryify.github.io/vue-tetris/",
       "author": "Binaryify",
@@ -4157,16 +4043,15 @@
       "lang": "zh",
       "added": "2026-09-23",
       "created": "2017-06-12",
-      "thumb": "games/ext-vuetetris/thumb.webp"
+      "thumb": "games/vuetetris-binaryify/thumb.webp"
     },
     {
-      "id": "ext-gitlab-typing",
+      "id": "typing-christianpaul",
       "title": "We Fight Back",
       "emoji": "⌨️",
       "description": "Апокалиптическая печаталка с js13k: отбивайтесь от конца света скоростью печати. Внешняя игра — код остаётся у автора.",
       "tags": [
-        "печаталка",
-        "мост"
+        "печаталка"
       ],
       "url": "https://jaller94.gitlab.io/we-fight-back/",
       "author": "Christian Paul",
@@ -4174,9 +4059,9 @@
       "repo": "https://gitlab.com/jaller94/we-fight-back",
       "controls": "Клавиатура",
       "lang": "en",
-      "added": "2026-09-24",
+      "added": "2026-09-25",
       "created": "2019-08-14",
-      "thumb": "games/ext-gitlab-typing/thumb.webp"
+      "thumb": "games/typing-christianpaul/thumb.webp"
     }
   ]
 }

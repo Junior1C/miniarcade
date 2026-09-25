@@ -1,0 +1,17 @@
+{
+  "id": "dino-platformer-akaspanion",
+  "title": "Приключения Дино",
+  "emoji": "🦖",
+  "description": "Пиксельный платформер: монеты, враги, уровни.",
+  "tags": [
+    "платформер"
+  ],
+  "controls": "Стрелки / WASD, пробел",
+  "url": "https://akaspanion.github.io/platformer-game/",
+  "author": "AKAspanion",
+  "license": "MIT",
+  "repo": "https://github.com/AKAspanion/platformer-game",
+  "lang": "en",
+  "added": "2026-09-24",
+  "created": "2021-01-31"
+}

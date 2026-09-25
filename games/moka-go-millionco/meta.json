@@ -1,0 +1,18 @@
+{
+  "id": "moka-go-millionco",
+  "title": "Мока-го 9×9",
+  "emoji": "⚪",
+  "description": "Го 9×9 против нейробота (наследник KataGo).",
+  "tags": [
+    "ии",
+    "го",
+    "настольные"
+  ],
+  "controls": "Мышь",
+  "url": "https://million.dev/moka",
+  "author": "millionco",
+  "license": "MIT",
+  "repo": "https://github.com/millionco/moka",
+  "lang": "en",
+  "created": "2026-07-27"
+}

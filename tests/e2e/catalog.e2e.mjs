@@ -8,6 +8,20 @@ test('каталог рендерит карточки и статус', async (
   await expect(page.locator('#error-state')).toBeHidden();
 });
 
+test('сохранённая сортировка открывается сеткой, а не рядами', async ({ page }) => {
+  // Кейс мёртвого клика: селект показывает «Новые» из localStorage,
+  // стартовая отрисовка обязана совпадать — иначе повторный выбор
+  // того же пункта не стреляет change и сортировка «не работает».
+  await page.addInitScript(() => localStorage.setItem('miniarcade-sort', 'new'));
+  await page.goto('/');
+  await expect(page.locator('#sort')).toHaveValue('new');
+  await expect(page.locator('#home-rows')).toBeHidden();
+  await expect(page.locator('#games .card__link').first()).toBeVisible();
+  const first = await page.locator('#games .card__link').first().getAttribute('href');
+  expect(first).toBe('#/play/asteroids-christianpaul');
+  await expect(page.locator('#results-status')).toContainText('Новые');
+});
+
 test('карточки: свои игры с WebP-превью, мосты с эмодзи', async ({ page }) => {
   await page.goto('/');
   const thumbs = page.locator('.row-track .card__thumb');
@@ -79,11 +93,14 @@ test('кнопка закрытия плеера работает мышью (in
 test('кнопка разворота вписывает игру в окно и видна справа', async ({ page }) => {
   await page.goto('/');
   await page.fill('#search', 'квиндичи');
-  await page.locator('#games .card').first().click();
+  await page.locator('#games .card__link').first().click();
   const dialog = page.locator('#player');
   await expect(dialog).toBeVisible();
   const expand = page.locator('#player-expand');
   await expect(expand).toBeVisible();
+  // Иконки без видимых слов: имя — через aria-label.
+  await expect(expand).toHaveAttribute('aria-label', 'Развернуть на весь экран');
+  await expect(page.locator('#player-close')).toHaveAttribute('aria-label', 'Закрыть игру');
   const bar = await page.locator('.player__bar').boundingBox();
   const box = await expand.boundingBox();
   expect(box.x + box.width).toBeLessThanOrEqual(bar.x + bar.width + 1);

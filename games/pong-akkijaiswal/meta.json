@@ -1,0 +1,19 @@
+{
+  "id": "pong-akkijaiswal",
+  "title": "Понг с ИИ",
+  "emoji": "🏓",
+  "description": "Понг против компьютера: 3 уровня сложности.",
+  "tags": [
+    "ии",
+    "понг",
+    "аркада"
+  ],
+  "controls": "Мышь / касание",
+  "url": "https://akki-jaiswal.github.io/pong-game/",
+  "author": "Akki-jaiswal",
+  "license": "MIT",
+  "repo": "https://github.com/Akki-jaiswal/pong-game",
+  "lang": "en",
+  "added": "2026-09-24",
+  "created": "2025-07-02"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mah-ffalt",
+  "title": "Маджонг-пасьянс",
+  "emoji": "🀄",
+  "description": "Маджонг-солитёр на SVG без рекламы и трекинга.",
+  "tags": [
+    "маджонг",
+    "пасьянс"
+  ],
+  "controls": "Мышь / касание",
+  "url": "https://ffalt.github.io/mah/",
+  "author": "ffalt",
+  "license": "MIT",
+  "repo": "https://github.com/ffalt/mah",
+  "lang": "neutral",
+  "added": "2026-09-24",
+  "created": "2017-11-04"
+}

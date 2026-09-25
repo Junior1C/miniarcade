@@ -1,0 +1,17 @@
+{
+  "id": "slots-danziger",
+  "title": "Слоты",
+  "emoji": "🎰",
+  "description": "Эмодзи-слоты на 60fps.",
+  "tags": [
+    "казино",
+    "аркада"
+  ],
+  "controls": "Клик",
+  "url": "https://danziger.github.io/slotjs/",
+  "author": "Danziger",
+  "license": "MIT",
+  "repo": "https://github.com/Danziger/slotjs",
+  "lang": "en",
+  "created": "2018-12-28"
+}

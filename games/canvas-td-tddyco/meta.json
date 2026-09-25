@@ -1,0 +1,18 @@
+{
+  "id": "canvas-td-tddyco",
+  "title": "Оборона башен",
+  "emoji": "🏰",
+  "description": "Полноценная tower defense: 4 башни, апгрейды со спецабилками.",
+  "tags": [
+    "стратегия",
+    "оборона"
+  ],
+  "controls": "Мышь",
+  "url": "https://canvas-td.teddy.io/",
+  "author": "tddyco",
+  "license": "MIT",
+  "repo": "https://github.com/tddyco/canvas-td",
+  "lang": "en",
+  "added": "2026-09-24",
+  "created": "2011-06-04"
+}

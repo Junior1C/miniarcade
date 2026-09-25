@@ -25,10 +25,14 @@ export function summarize(wranglerJson) {
   const totals = new Map();
   for (const row of daily) {
     const key = `${row.host}\n${row.game}\n${row.event}`;
-    const entry = totals.get(key) || { host: row.host, game: row.game, event: row.event, n: 0, secs: 0, uniques: 0 };
+    const entry = totals.get(key) || { host: row.host, game: row.game, event: row.event, n: 0, secs: 0, uniques: 0, days: 0 };
     entry.n += row.n;
     entry.secs += row.secs;
+    // uniques за 90 дней — сумма дневных DISTINCT: оценка СВЕРХУ (человек,
+    // заходивший в разные дни, посчитан несколько раз). Поле days рядом —
+    // видимый размер выборки для честной витрины (см. README § «Рейтинг»).
     entry.uniques += row.uniques;
+    entry.days += 1;
     totals.set(key, entry);
   }
   return {
@@ -58,5 +62,10 @@ if (invokedDirectly) {
     const summary = summarize(JSON.parse(await readFile(inputPath, 'utf8')));
     await writeStats(outDir, summary);
     console.log(`stats: ${summary.daily.length} daily rows, ${summary.totals.length} totals`);
+    // Усечение выборки LIMIT в stats.yml: 50000 строк — потолок одного запроса.
+    // Точное попадание = возможно обрезали хвост окна, нужен чанкинг по месяцам.
+    if (summary.daily.length >= 50000) {
+      console.error('WARN stats pull hit 50000 rows: выборка может быть усечена, разбейте окно на чанки');
+    }
   }
 }

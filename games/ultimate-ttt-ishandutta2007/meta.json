@@ -1,0 +1,17 @@
+{
+  "id": "ultimate-ttt-ishandutta2007",
+  "title": "Ультимативные крестики",
+  "emoji": "❌",
+  "description": "Ультимативные крестики против MCTS-движка.",
+  "tags": [
+    "ии",
+    "настольные"
+  ],
+  "controls": "Мышь",
+  "url": "https://ishandutta2007.github.io/uttt/",
+  "author": "ishandutta2007",
+  "license": "AGPL-3.0",
+  "repo": "https://github.com/ishandutta2007/uttt",
+  "lang": "en",
+  "created": "2025-11-06"
+}

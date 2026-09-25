@@ -1,0 +1,18 @@
+{
+  "id": "isocity-victorqribeiro",
+  "title": "IsoCity",
+  "emoji": "🏙️",
+  "description": "Изометрический градостроитель: зоны, дороги и баланс бюджета. Внешняя игра — код остаётся у автора.",
+  "tags": [
+    "стратегия",
+    "стройка"
+  ],
+  "controls": "Мышь",
+  "url": "https://victorribeiro.com/isocity/",
+  "author": "victorqribeiro",
+  "license": "MIT",
+  "repo": "https://github.com/victorqribeiro/isocity",
+  "lang": "en",
+  "added": "2026-09-23",
+  "created": "2019-12-31"
+}

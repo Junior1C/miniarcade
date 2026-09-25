@@ -107,7 +107,11 @@ export function createPlayer({ dialog, frame, titleEl, emojiEl, closeBtn, expand
     if (!expandBtn) return;
     const on = dialog.classList.contains('player--fullscreen');
     expandBtn.setAttribute('aria-pressed', String(on));
-    expandBtn.textContent = on ? '🗗 Свернуть' : '⛶ Развернуть';
+    // Иконки без видимых слов: имя — через aria-label/title (скринридер + тултип).
+    expandBtn.textContent = on ? '🗗' : '⛶';
+    const name = on ? 'Свернуть окно игры' : 'Развернуть на весь экран';
+    expandBtn.setAttribute('aria-label', name);
+    expandBtn.title = name;
   }
 
   function toggleExpand() {

@@ -2,6 +2,7 @@ import { loadCatalog } from './catalog.js';
 import { filterGames, normalizeQuery } from './search.js';
 import { pluralizeRu } from './format.js';
 import { createPlayer } from './player.js';
+import { gameSource } from './source.js';
 import { renderWithTransition } from './view-transition.js';
 import { sendStats, statsEnabled } from './stats.js';
 import { SORT_LABELS, buildGameStats, cardStatsLine, sortGames, validSortMode } from './sort.js';
@@ -36,6 +37,8 @@ const elements = {
   homeLogo: document.getElementById('home-logo'),
 };
 
+const initialSort = loadSortMode();
+
 const state = {
   games: [],
   query: '',
@@ -45,10 +48,13 @@ const state = {
   statsOn: false,
   // Сортировка переживает перезагрузку (localStorage каталога, не игр).
   // Без цифр рейтинга честно: нули идут по алфавиту (см. sort.js).
-  sort: loadSortMode(),
+  sort: initialSort,
   gameStats: null,
   // Главная без запроса — ряды; запрос или смена сортировки — сетка.
-  gridLock: false,
+  // Сохранённая не-дефолтная сортировка сразу открывает сетку:
+  // иначе селект показывает «Новые», а вид — ряды, и повторный
+  // выбор того же пункта не стреляет change (мёртвый клик).
+  gridLock: initialSort !== 'top',
   genreTags: [],
 };
 
@@ -140,10 +146,13 @@ function describeCount(count) {
 
 function createCard(game) {
   const item = document.createElement('li');
+  // Все игры в одном ряду: деления интерфейса нет, источник виден
+  // по бейджу в строке meta (GitHub/GitLab/MiniArcade/домен).
+  // Строка meta — ВНЕ ссылки карточки: бейдж — настоящая ссылка
+  // на донора (вложенная ссылка внутри <a> невалидна и ломает клавиатуру).
+  item.className = 'card';
   const link = document.createElement('a');
-  // Мост: угловая ленточка-перевязь (CSS) + класс-модификатор.
-  const isExternal = Boolean(game.url);
-  link.className = isExternal ? 'card card--bridge' : 'card';
+  link.className = 'card__link';
   link.href = playHash(game.id);
 
   const emoji = document.createElement('span');
@@ -236,8 +245,9 @@ function createCard(game) {
     }
   }
 
-  // Мост: честная атрибуция прямо на карточке — автор и лицензия,
-  // код остаётся у автора, мы только ссылаемся.
+  // Источник игры — бейджем в строке meta: откуда взято и куда ссылаюсь.
+  // У внешних бейдж — ссылка на донора (тот же URL, что «исходник ↗» в плеере),
+  // рядом автор и лицензия; у встроенных — пометка MiniArcade без ссылки.
   const cta = document.createElement('span');
   cta.className = 'card__cta';
   cta.textContent = 'Играть';
@@ -251,29 +261,36 @@ function createCard(game) {
     statsEl.textContent = statsLine;
   }
 
-  if (isExternal) {
-    // Декоративная перевязь сбоку без текста: распределяет визуально
-    // внешние игры; смысл для скринридеров уже есть в строке meta ниже.
-    const ribbon = document.createElement('span');
-    ribbon.className = 'card__ribbon';
-    ribbon.setAttribute('aria-hidden', 'true');
-    const meta = document.createElement('p');
-    meta.className = 'card__meta';
-    const badge = document.createElement('span');
-    badge.className = 'card__badge';
-    badge.textContent = '↗ GitHub';
-    meta.append(badge, ` ${game.author} • ${game.license}`);
-    link.append(ribbon, cover, title, description);
-    if (tagsList) link.append(tagsList);
-    if (statsEl) link.append(statsEl);
-    link.append(meta, cta);
+  const source = gameSource(game);
+  const meta = document.createElement('p');
+  meta.className = 'card__meta';
+  if (source.external) {
+    const badge = document.createElement('a');
+    badge.className = `card__badge card__badge--${source.key}`;
+    badge.href = source.href;
+    badge.target = '_blank';
+    badge.rel = 'noopener';
+    badge.textContent = `↗ ${source.label}`;
+    badge.title = `Источник: ${source.label} — ${source.href}`;
+    // В строке — имя (первое слово) либо логин целиком;
+    // полное имя — в подсказке.
+    const shown = String(game.author).split(/\s+/)[0];
+    const authorEl = document.createElement('span');
+    authorEl.textContent = shown;
+    if (shown !== game.author) authorEl.title = game.author;
+    meta.append(badge, ' ', authorEl, ` • ${game.license}`);
   } else {
-    link.append(cover, title, description);
-    if (tagsList) link.append(tagsList);
-    if (statsEl) link.append(statsEl);
-    link.append(cta);
+    const badge = document.createElement('span');
+    badge.className = 'card__badge card__badge--miniarcade';
+    badge.textContent = 'MiniArcade';
+    badge.title = 'Встроенная игра MiniArcade';
+    meta.append(badge, ' • встроенная');
   }
-  item.append(link);
+  link.append(cover, title, description);
+  if (tagsList) link.append(tagsList);
+  if (statsEl) link.append(statsEl);
+  link.append(cta);
+  item.append(link, meta);
   return item;
 }
 

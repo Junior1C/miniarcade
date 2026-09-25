@@ -1,0 +1,18 @@
+{
+  "id": "snake-bocalettoluca",
+  "title": "Snake (Bocaletto)",
+  "emoji": "🐍",
+  "description": "Змейка: ешьте и растите, не врезайтесь. Внешняя игра — код остаётся у автора.",
+  "tags": [
+    "аркада",
+    "классика"
+  ],
+  "controls": "Стрелки",
+  "url": "https://bocaletto-luca.github.io/Snake/",
+  "author": "Bocaletto Luca",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/bocaletto-luca/Snake",
+  "lang": "en",
+  "added": "2026-09-23",
+  "created": "2025-05-24"
+}

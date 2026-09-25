@@ -1,0 +1,18 @@
+{
+  "id": "ttc-yelynn1",
+  "title": "TTC TicTacToe",
+  "emoji": "⭕",
+  "description": "Минималистичные крестики-нолики: партия за минуту. Внешняя игра — код остаётся у автора.",
+  "tags": [
+    "логика",
+    "классика"
+  ],
+  "controls": "Мышь",
+  "url": "https://yelynn1.github.io/tictactoe/",
+  "author": "yelynn1",
+  "license": "MIT",
+  "repo": "https://github.com/yelynn1/tictactoe",
+  "lang": "en",
+  "added": "2026-09-23",
+  "created": "2020-05-30"
+}

@@ -18,7 +18,8 @@ const BUDGETS = [
   { file: 'stats.html', maxBytes: 35 * 1024 },
   // Тёмная неон-тема + панель оформления: поднято 20→24 редизайном,
   // 24→26 панелью (диалог, палитра, экспорт). Дальше — с обоснованием.
-  { file: 'assets/css/main.css', maxBytes: 26 * 1024 },
+  // WARN на 24 КБ: запас <10%, редизайн упрётся — чистить/выносить deferred.
+  { file: 'assets/css/main.css', maxBytes: 26 * 1024, warnBytes: 24 * 1024 },
   { file: 'assets/og.png', maxBytes: 100 * 1024 },
 ];
 
@@ -31,6 +32,8 @@ const JS_BUDGET = { dir: 'assets/js', maxBytes: 52 * 1024 };
 // (ядро theme.js в критическом пути ради применения без вспышки;
 // панель settings.js — ленивая, из критического исключена).
 const JS_CRITICAL_MAX = 40 * 1024;
+// WARN на 37 КБ (~90%): запас <10% — заморозка critical, новое только в deferred.
+const JS_CRITICAL_WARN = 37 * 1024;
 // Панель оформления удалена (не помогла): витрина снова единственный
 // deferred-модуль вне критического пути.
 const JS_DEFERRED = new Set(['stats-page.js']);
@@ -49,7 +52,10 @@ const THUMBS_TOTAL_WARN = 1300 * 1024;
 // сигнал чистить мёртвые и резать allowlist, а не растить дальше.
 // (Поднято со 150 после волны +50 лёгких мостов 2026-09: индекс и CSP
 // всё ещё с запасом — см. budgets-прогон.)
+// FAIL >300 — жёсткий потолок: дальше CSP/HTML не масштабируются статикой,
+// нужен шардинг allowlist или вынос каталога мостов в отдельный чанк.
 const BRIDGES_WARN = 200;
+const BRIDGES_FAIL = 300;
 // При >3000 игр каталог перестанет помещаться в разумный бюджет —
 // сигнал к переходу на Worker+KV (см. README § "Масштабирование").
 const CATALOG_COUNT_WARN = 3000;
@@ -87,7 +93,7 @@ const { total: jsBytes, critical: jsCritical } = await jsTotal();
   if (status === 'FAIL') failed += 1;
 }
 {
-  const status = jsCritical > JS_CRITICAL_MAX ? 'FAIL' : 'ok';
+  const status = jsCritical > JS_CRITICAL_MAX ? 'FAIL' : jsCritical > JS_CRITICAL_WARN ? 'WARN' : 'ok';
   console.log(
     `${status.padEnd(4)} ${JS_BUDGET.dir}/*.js (critical, без stats-page.js) — ${jsCritical} bytes (max ${JS_CRITICAL_MAX})`,
   );
@@ -132,8 +138,11 @@ const { total: jsBytes, critical: jsCritical } = await jsTotal();
     console.error(`WARN catalog has ${count} games (> ${CATALOG_COUNT_WARN}): пора выносить поиск в Worker+KV`);
   }
   const bridges = catalog.games?.filter((game) => game.url)?.length ?? 0;
-  console.log(`info bridges — ${bridges} external (warn > ${BRIDGES_WARN})`);
-  if (bridges > BRIDGES_WARN) {
+  console.log(`info bridges — ${bridges} external (warn > ${BRIDGES_WARN}, fail > ${BRIDGES_FAIL})`);
+  if (bridges > BRIDGES_FAIL) {
+    console.error(`FAIL bridges ${bridges} (> ${BRIDGES_FAIL}): потолок статического CSP — чистить мёртвые или шардировать allowlist`);
+    failed += 1;
+  } else if (bridges > BRIDGES_WARN) {
     console.error(`WARN bridges ${bridges} (> ${BRIDGES_WARN}): CSP frame-src и index.html растут линейно — чистить мёртвые`);
   }
 }

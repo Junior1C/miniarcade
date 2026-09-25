@@ -4,7 +4,7 @@ name: QA Bridges
 # REPORT-ONLY: аптайм третьих сторон — не наша ответственность
 # (см. README § "Мосты"), воркфлоу не валит CI, но строгий отчёт
 # прикладывается артефактом — раз в неделю глазами чистим мёртвые мосты
-# (лимит 150 в budgets: каждый мост растит frame-src и index.html).
+# (WARN >200, FAIL >300 в budgets: каждый мост растит frame-src и index.html).
 # Ручной строгий прогон: npm run qa:bridges:strict
 on:
   schedule:

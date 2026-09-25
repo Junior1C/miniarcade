@@ -1,0 +1,18 @@
+{
+  "id": "sokoban-taniarascia",
+  "title": "Sokoban.js",
+  "emoji": "📦",
+  "description": "Классический сокобан: толкайте ящики на цели, не загоняйте в угол. Внешняя игра — код остаётся у автора.",
+  "tags": [
+    "головоломка",
+    "логика"
+  ],
+  "controls": "Стрелки/WASD",
+  "url": "https://taniarascia.github.io/sokoban/index.html",
+  "author": "taniarascia",
+  "license": "MIT",
+  "repo": "https://github.com/taniarascia/sokoban",
+  "lang": "en",
+  "added": "2026-09-23",
+  "created": "2021-07-22"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "pipe-puzzle-tassaron",
+  "title": "Трубы",
+  "emoji": "🔧",
+  "description": "Веди воду до стрелки до конца таймера.",
+  "tags": [
+    "головоломка",
+    "трубы"
+  ],
+  "controls": "Мышь / касание",
+  "url": "https://tassaron.com/game/pipe-puzzle.html",
+  "author": "tassaron",
+  "license": "MIT",
+  "repo": "https://github.com/tassaron/pipe-puzzle",
+  "lang": "en",
+  "added": "2026-09-24",
+  "created": "2022-03-30"
+}

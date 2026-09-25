@@ -55,6 +55,17 @@ test('search matches bridge author', () => {
   assert.deepEqual(filterGames(bridges, 'тетрис'), []);
 });
 
+test('search matches source label (github/gitlab/miniarcade)', () => {
+  const mixed = [
+    { id: 'a', title: 'Alpha', description: 'd', url: 'https://jaller94.gitlab.io/g/' },
+    { id: 'b', title: 'Beta', description: 'd', url: 'https://wayou.github.io/g/' },
+    { id: 'c', title: 'Gamma', description: 'd' },
+  ];
+  assert.equal(filterGames(mixed, 'gitlab')[0].id, 'a');
+  assert.equal(filterGames(mixed, 'github')[0].id, 'b');
+  assert.equal(filterGames(mixed, 'miniarcade')[0].id, 'c');
+});
+
 test('getHaystack memoizes the normalized index per game object', () => {
   const game = { id: 'x', title: 'ЗМЕЙКА', description: 'Описание', tags: ['Аркада'] };
   const first = getHaystack(game);

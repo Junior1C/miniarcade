@@ -512,8 +512,6 @@ body {
   height: 100%;
   background: linear-gradient(180deg, var(--card-hi) 0%, var(--card-lo) 100%);
   border-radius: 14px;
-  color: inherit;
-  text-decoration: none;
   /* Below-fold rendering gate (keeps CLS stable). */
   overflow: hidden;
   content-visibility: auto;
@@ -522,16 +520,32 @@ body {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Bridge corner ribbon (decorative; meaning duplicated in .card__meta). */
-.card__ribbon {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 46px 46px 0;
-  border-color: transparent var(--violet-deep) transparent transparent;
+/* Ссылка карточки (обложка+название): meta-строка с бейджем — снаружи,
+   чтобы бейдж-ссылка на донора не была вложена в ссылку (невалидно). */
+.card__link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Кнопки прибиты к правому верхнему углу бара: группа не сжимается,
+   длинное название обрезается многоточием, а не теснит иконки. */
+.player__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* Icon-only player buttons (accessible name via aria-label, not visible text). */
+.player__icon-btn {
+  min-width: 2.5rem;
+  padding-left: 0;
+  padding-right: 0;
+  font-size: 1.125rem;
+  line-height: 1;
+  text-align: center;
 }
 
 .card:hover {
@@ -697,6 +711,11 @@ body {
   background: var(--surface-hover);
   color: var(--text);
   font-weight: 700;
+  text-decoration: none;
+}
+
+a.card__badge:hover {
+  text-decoration: underline;
 }
 
 .empty-state,
@@ -762,6 +781,13 @@ body {
   margin: 0;
   font-size: 1rem;
   font-weight: 600;
+  min-width: 0;
+}
+
+#player-name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .player__source {

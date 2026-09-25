@@ -1,0 +1,18 @@
+{
+  "id": "2048-expectimax-samuelz12",
+  "title": "2048 Экспектимакс",
+  "emoji": "🎲",
+  "description": "Expectimax с диплёрнингом: ИИ собирает 2048 сам.",
+  "tags": [
+    "ии",
+    "2048",
+    "головоломка"
+  ],
+  "controls": "Без управления: ИИ играет сам",
+  "url": "https://samuelz12.github.io/2048-ai/",
+  "author": "SamuelZ12",
+  "license": "MIT",
+  "repo": "https://github.com/SamuelZ12/2048-ai",
+  "lang": "en",
+  "created": "2025-01-12"
+}

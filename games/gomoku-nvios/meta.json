@@ -1,0 +1,19 @@
+{
+  "id": "gomoku-nvios",
+  "title": "Гомоку с ИИ",
+  "emoji": "⚫",
+  "description": "Пять в ряд против друга или ИИ трёх уровней.",
+  "tags": [
+    "гомоку",
+    "настольные",
+    "ии"
+  ],
+  "controls": "Мышь / касание",
+  "url": "https://nvios.github.io/gomoku/",
+  "author": "nvios",
+  "license": "MIT",
+  "repo": "https://github.com/nvios/gomoku",
+  "lang": "en",
+  "added": "2026-09-24",
+  "created": "2021-01-06"
+}

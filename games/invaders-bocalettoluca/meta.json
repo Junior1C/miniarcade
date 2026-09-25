@@ -1,0 +1,18 @@
+{
+  "id": "invaders-bocalettoluca",
+  "title": "Space Invaders (Bocaletto)",
+  "emoji": "👾",
+  "description": "Классические захватчики: держите строй под огнём. Внешняя игра — код остаётся у автора.",
+  "tags": [
+    "аркада",
+    "шутер"
+  ],
+  "controls": "Стрелки + пробел",
+  "url": "https://bocaletto-luca.github.io/Space-Invaders/",
+  "author": "Bocaletto Luca",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/bocaletto-luca/Space-Invaders",
+  "lang": "it",
+  "added": "2026-09-23",
+  "created": "2025-05-24"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "yahtzee-99fk",
+  "title": "Ятзи",
+  "emoji": "🎲",
+  "description": "Ятзи: кости против ИИ или вдвоём.",
+  "tags": [
+    "кости",
+    "настольные",
+    "ии"
+  ],
+  "controls": "Мышь",
+  "url": "https://99fk.github.io/yahtzee-html/",
+  "author": "99fk",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/99fk/yahtzee-html",
+  "lang": "en",
+  "created": "2025-09-17"
+}

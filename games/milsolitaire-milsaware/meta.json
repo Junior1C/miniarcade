@@ -1,0 +1,18 @@
+{
+  "id": "milsolitaire-milsaware",
+  "title": "Solitaire (milsaware)",
+  "emoji": "🃏",
+  "description": "Пасьянс «Косынка» на чистом JavaScript без картинок. Внешняя игра — код остаётся у автора.",
+  "tags": [
+    "карты",
+    "пасьянс"
+  ],
+  "controls": "Мышь",
+  "url": "https://milsaware.github.io/Javascript-Solitaire/",
+  "author": "milsaware",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/milsaware/Javascript-Solitaire",
+  "lang": "en",
+  "added": "2026-09-23",
+  "created": "2022-07-02"
+}

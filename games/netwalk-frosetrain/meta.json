@@ -1,0 +1,18 @@
+{
+  "id": "netwalk-frosetrain",
+  "title": "Сеть",
+  "emoji": "🔌",
+  "description": "Соедини все терминалы с сервером вращениями.",
+  "tags": [
+    "головоломка",
+    "сеть"
+  ],
+  "controls": "Мышь / касание",
+  "url": "https://frosetrain.github.io/netwalk/",
+  "author": "frosetrain",
+  "license": "MIT",
+  "repo": "https://github.com/frosetrain/netwalk",
+  "lang": "neutral",
+  "added": "2026-09-24",
+  "created": "2024-03-05"
+}

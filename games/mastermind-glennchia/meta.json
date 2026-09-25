@@ -1,0 +1,17 @@
+{
+  "id": "mastermind-glennchia",
+  "title": "Мастермайнд с ИИ",
+  "emoji": "🧠",
+  "description": "Мастермайнд против генетического солвера.",
+  "tags": [
+    "ии",
+    "головоломка"
+  ],
+  "controls": "Мышь",
+  "url": "https://glennchia.github.io/mastermind-react/",
+  "author": "GlennChia",
+  "license": "MIT",
+  "repo": "https://github.com/GlennChia/mastermind-react",
+  "lang": "en",
+  "created": "2021-07-31"
+}

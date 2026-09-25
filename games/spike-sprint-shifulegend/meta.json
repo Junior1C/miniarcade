@@ -1,0 +1,18 @@
+{
+  "id": "spike-sprint-shifulegend",
+  "title": "Шипастый спринт",
+  "emoji": "⚡",
+  "description": "Однофайловый пиксель-раннер: прыжки с переменной высотой.",
+  "tags": [
+    "раннер",
+    "аркада"
+  ],
+  "controls": "Пробел / касание",
+  "url": "https://shifulegend.github.io/spike-sprint/",
+  "author": "shifulegend",
+  "license": "MIT",
+  "repo": "https://github.com/shifulegend/spike-sprint",
+  "lang": "en",
+  "added": "2026-09-24",
+  "created": "2026-07-07"
+}

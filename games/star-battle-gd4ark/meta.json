@@ -1,0 +1,18 @@
+{
+  "id": "star-battle-gd4ark",
+  "title": "Звёздный бой",
+  "emoji": "🚀",
+  "description": "Шутер на Canvas: топливо, планеты, союзники и враги.",
+  "tags": [
+    "шутер",
+    "аркада"
+  ],
+  "controls": "Стрелки / WASD, пробел",
+  "url": "https://4ark.me/star-battle/",
+  "author": "gd4Ark",
+  "license": "MIT",
+  "repo": "https://github.com/gd4Ark/star-battle",
+  "lang": "zh",
+  "added": "2026-09-24",
+  "created": "2018-10-11"
+}

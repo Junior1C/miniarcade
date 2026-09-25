@@ -1,0 +1,19 @@
+{
+  "id": "battleship-odin-gideonadeti",
+  "title": "Морской бой",
+  "emoji": "🚢",
+  "description": "Морской бой против умного ИИ с добиванием.",
+  "tags": [
+    "морской-бой",
+    "стратегия",
+    "ии"
+  ],
+  "controls": "Мышь",
+  "url": "https://gideonadeti.github.io/battleship/",
+  "author": "gideonadeti",
+  "license": "MIT",
+  "repo": "https://github.com/gideonadeti/battleship",
+  "lang": "en",
+  "added": "2026-09-24",
+  "created": "2025-04-18"
+}

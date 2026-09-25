@@ -1,0 +1,17 @@
+{
+  "id": "hexorius-andreyakinshin",
+  "title": "Гексориус",
+  "emoji": "⬡",
+  "description": "Гекс-стратегия против minimax с альфа-бета.",
+  "tags": [
+    "ии",
+    "стратегия"
+  ],
+  "controls": "Мышь",
+  "url": "https://andreyakinshin.github.io/hexorius/",
+  "author": "AndreyAkinshin",
+  "license": "MIT",
+  "repo": "https://github.com/AndreyAkinshin/hexorius",
+  "lang": "en",
+  "created": "2025-01-23"
+}

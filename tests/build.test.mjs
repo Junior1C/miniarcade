@@ -56,7 +56,7 @@ test('buildCatalog succeeds on the real games folder', async (t) => {
     }
     assert.equal('order' in game, false);
   }
-  assert.ok(ids.includes('ext-trex'));
+  assert.ok(ids.includes('trex-wayou'));
 });
 
 test('buildCatalog rejects id that does not match folder', async (t) => {
@@ -181,7 +181,7 @@ test('buildCatalog rejects stray files in games/', async (t) => {
 });
 
 const bridgeMeta = {
-  id: 'ext-demo',
+  id: 'demo-bridge',
   title: 'Демо',
   emoji: '🚀',
   description: 'Описание',
@@ -193,7 +193,7 @@ const bridgeMeta = {
 
 test('buildCatalog accepts a bridge entry without index.html', async (t) => {
   const dir = await makeFixture(t, {
-    'ext-demo': { 'meta.json': JSON.stringify(bridgeMeta) },
+    'demo-bridge': { 'meta.json': JSON.stringify(bridgeMeta) },
   });
   const payload = await buildCatalog(dir);
   assert.equal(payload.games.length, 1);
@@ -204,14 +204,14 @@ test('buildCatalog accepts a bridge entry without index.html', async (t) => {
 
 test('buildCatalog rejects bridge with non-https url', async (t) => {
   const dir = await makeFixture(t, {
-    'ext-demo': { 'meta.json': JSON.stringify({ ...bridgeMeta, url: 'http://example.com/game' }) },
+    'demo-bridge': { 'meta.json': JSON.stringify({ ...bridgeMeta, url: 'http://example.com/game' }) },
   });
   await assert.rejects(() => buildCatalog(dir), /https URL/);
 });
 
 test('buildCatalog rejects bridge with non-allowlisted origin', async (t) => {
   const dir = await makeFixture(t, {
-    'ext-demo': { 'meta.json': JSON.stringify({ ...bridgeMeta, url: 'https://evil.example/game' }) },
+    'demo-bridge': { 'meta.json': JSON.stringify({ ...bridgeMeta, url: 'https://evil.example/game' }) },
   });
   await assert.rejects(() => buildCatalog(dir), /FRAME_SRC_ORIGINS/);
 });
@@ -219,7 +219,7 @@ test('buildCatalog rejects bridge with non-allowlisted origin', async (t) => {
 test('buildCatalog rejects bridge without attribution', async (t) => {
   const { author, ...noAuthor } = bridgeMeta;
   const dir = await makeFixture(t, {
-    'ext-demo': { 'meta.json': JSON.stringify(noAuthor) },
+    'demo-bridge': { 'meta.json': JSON.stringify(noAuthor) },
   });
   await assert.rejects(() => buildCatalog(dir), /attribution/);
 });

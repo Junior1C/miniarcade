@@ -1,0 +1,18 @@
+{
+  "id": "hanoi-ajlovechina",
+  "title": "Hanoi",
+  "emoji": "🗼",
+  "description": "Ханойская башня: перенесите диски за минимум ходов. Внешняя игра — код остаётся у автора.",
+  "tags": [
+    "головоломка",
+    "логика"
+  ],
+  "controls": "Мышь",
+  "url": "https://ajlovechina.github.io/Hanoi/",
+  "author": "AJLoveChina",
+  "license": "MIT",
+  "repo": "https://github.com/AJLoveChina/Hanoi",
+  "lang": "zh",
+  "added": "2026-09-23",
+  "created": "2017-02-20"
+}

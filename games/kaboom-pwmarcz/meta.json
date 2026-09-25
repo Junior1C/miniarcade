@@ -1,0 +1,18 @@
+{
+  "id": "kaboom-pwmarcz",
+  "title": "Кабум",
+  "emoji": "🧨",
+  "description": "Честный сапёр без угадайки: undo и подсказки.",
+  "tags": [
+    "сапёр",
+    "головоломка"
+  ],
+  "controls": "Мышь / касание",
+  "url": "https://pwmarcz.pl/kaboom",
+  "author": "pwmarcz",
+  "license": "MIT",
+  "repo": "https://github.com/pwmarcz/kaboom",
+  "lang": "en",
+  "added": "2026-09-24",
+  "created": "2019-11-19"
+}

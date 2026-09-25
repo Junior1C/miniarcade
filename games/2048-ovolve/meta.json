@@ -1,0 +1,19 @@
+{
+  "id": "2048-ovolve",
+  "title": "2048 решает сам",
+  "emoji": "🎲",
+  "description": "Альфа-бета поиск собирает 2048 с кнопкой auto-run.",
+  "tags": [
+    "ии",
+    "2048",
+    "головоломка"
+  ],
+  "controls": "Мышь; есть auto-run",
+  "url": "https://ovolve.github.io/2048-AI/",
+  "author": "ovolve",
+  "license": "MIT",
+  "repo": "https://github.com/ovolve/2048-AI",
+  "lang": "en",
+  "added": "2026-09-24",
+  "created": "2014-03-11"
+}

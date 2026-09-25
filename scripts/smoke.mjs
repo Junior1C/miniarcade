@@ -17,6 +17,11 @@ async function checkHome(host) {
   for (const marker of BODY_MARKERS) {
     if (!text.includes(marker)) throw new Error(`home page is missing marker "${marker}" (stale content?)`);
   }
+  // SEO-дубли зеркал гасятся каноникалом на основной хостинг: все три
+  // хоста обязаны отдавать одинаковый canonical, иначе — рассинхрон сборки.
+  if (!text.includes('<link rel="canonical" href="https://junior1c.github.io/miniarcade/">')) {
+    throw new Error('home page canonical is not the GitHub Pages URL (mirror desync?)');
+  }
   if (host.cspHeader) {
     const csp = response.headers.get('content-security-policy');
     if (!csp) {

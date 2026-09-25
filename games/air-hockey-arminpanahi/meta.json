@@ -1,0 +1,19 @@
+{
+  "id": "air-hockey-arminpanahi",
+  "title": "Аэрохоккей Неон",
+  "emoji": "🏒",
+  "description": "Аэрохоккей: CPU трёх сложностей и локальный 2P.",
+  "tags": [
+    "аэрохоккей",
+    "спорт",
+    "ии"
+  ],
+  "controls": "Мышь / касание",
+  "url": "https://armin-panahi.github.io/hockey-game/",
+  "author": "armin-panahi",
+  "license": "MIT",
+  "repo": "https://github.com/armin-panahi/hockey-game",
+  "lang": "en",
+  "added": "2026-09-24",
+  "created": "2026-07-05"
+}

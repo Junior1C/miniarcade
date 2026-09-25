@@ -1,0 +1,17 @@
+{
+  "id": "darts-raulr",
+  "title": "Дартс",
+  "emoji": "🎯",
+  "description": "Дартс на Canvas: меткость и счёт.",
+  "tags": [
+    "дартс",
+    "спорт"
+  ],
+  "controls": "Мышь",
+  "url": "https://raulr.github.io/darts",
+  "author": "raulr",
+  "license": "MIT",
+  "repo": "https://github.com/raulr/darts",
+  "lang": "en",
+  "created": "2016-10-14"
+}

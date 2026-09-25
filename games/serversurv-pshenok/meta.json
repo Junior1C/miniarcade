@@ -1,0 +1,18 @@
+{
+  "id": "serversurv-pshenok",
+  "title": "Server Survival",
+  "emoji": "☁️",
+  "description": "Tower defense про облачную архитектуру: стройте инфраструктуру и отбивайте атаки. Внешняя игра — код остаётся у автора.",
+  "tags": [
+    "стратегия",
+    "tower-defense"
+  ],
+  "controls": "Мышь",
+  "url": "https://pshenok.github.io/server-survival/",
+  "author": "pshenok",
+  "license": "MIT",
+  "repo": "https://github.com/pshenok/server-survival",
+  "lang": "en",
+  "added": "2026-09-23",
+  "created": "2025-11-21"
+}

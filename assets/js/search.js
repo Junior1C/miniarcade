@@ -3,6 +3,8 @@
 // lower-case'ит одни и те же строки заново — важно для INP.
 // Кэш привязан к объекту игры, поэтому пересборка каталога
 // (новые объекты) автоматически даёт свежий индекс.
+import { gameSource } from './source.js';
+
 const haystackCache = new WeakMap();
 
 export function normalizeQuery(value) {
@@ -12,7 +14,9 @@ export function normalizeQuery(value) {
 export function getHaystack(game) {
   let cached = haystackCache.get(game);
   if (cached === undefined) {
-    cached = [game.title, game.description, ...(game.tags ?? []), ...(game.author ? [game.author] : [])]
+    // Источник (GitHub/GitLab/MiniArcade/домен) — часть индекса:
+    // запрос «gitlab» находит игры с GitLab.
+    cached = [game.title, game.description, ...(game.tags ?? []), ...(game.author ? [game.author] : []), gameSource(game).label]
       .join('\n')
       .toLocaleLowerCase('ru');
     haystackCache.set(game, cached);

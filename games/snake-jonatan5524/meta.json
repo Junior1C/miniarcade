@@ -1,0 +1,19 @@
+{
+  "id": "snake-jonatan5524",
+  "title": "Змейка учится",
+  "emoji": "🐍",
+  "description": "Нейросеть с генетическим алгоритмом учится есть яблоки.",
+  "tags": [
+    "ии",
+    "нейроэволюция",
+    "змейка"
+  ],
+  "controls": "Без управления: ИИ играет сам",
+  "url": "https://jonatan5524.github.io/SnakeAI/Snake",
+  "author": "jonatan5524",
+  "license": "MIT",
+  "repo": "https://github.com/jonatan5524/SnakeAI",
+  "lang": "en",
+  "added": "2026-09-24",
+  "created": "2020-09-13"
+}

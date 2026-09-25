@@ -1,0 +1,18 @@
+{
+  "id": "dot-box-chromegaming",
+  "title": "Точки и квадраты",
+  "emoji": "⬜",
+  "description": "Точки и квадраты: до 6 игроков, уровни сложности.",
+  "tags": [
+    "настольные",
+    "головоломка"
+  ],
+  "controls": "Мышь, до 6 игроков",
+  "url": "https://chromegaming.github.io/Dot-Box/",
+  "author": "ChromeGaming",
+  "license": "MIT",
+  "repo": "https://github.com/ChromeGaming/Dot-Box",
+  "lang": "en",
+  "added": "2026-09-24",
+  "created": "2024-04-23"
+}

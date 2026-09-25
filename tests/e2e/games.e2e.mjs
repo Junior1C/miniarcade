@@ -68,12 +68,16 @@ test('мост: внешняя игра открывается в том же sa
   );
   await page.goto('/');
   await page.fill('#search', 'rex');
-  const card = page.locator('a[href="#/play/ext-trex"]');
-  await expect(card.locator('.card__ribbon')).toBeAttached();
-  await expect(card.locator('.card__ribbon')).toBeEmpty();
-  await expect(card.locator('.card__badge')).toHaveText('↗ GitHub');
-  await expect(card.locator('.card__meta')).toContainText('wayou');
-  await expect(card.locator('.card__meta')).toContainText('BSD-3-Clause');
+  // Единый ряд без деления интерфейса: meta-строка с бейджем — рядом
+  // со ссылкой карточки (бейдж-ссылка не может быть вложена в ссылку).
+  const item = page.locator('li:has(> a[href="#/play/trex-wayou"])');
+  const card = item.locator('> a[href="#/play/trex-wayou"]');
+  await expect(item.locator('.card__ribbon')).toHaveCount(0);
+  await expect(item.locator('.card__badge')).toHaveText('↗ GitHub');
+  await expect(item.locator('.card__badge')).toHaveAttribute('href', 'https://github.com/wayou/t-rex-runner');
+  await expect(item.locator('.card__badge')).toHaveAttribute('target', '_blank');
+  await expect(item.locator('.card__meta')).toContainText('wayou');
+  await expect(item.locator('.card__meta')).toContainText('BSD-3-Clause');
   // Детерминированный клик: важен сам факт открытия плеера по hash,
   // живой клик мыши покрыт тестами каталога/a11y.
   await card.evaluate((el) => el.click());
@@ -87,6 +91,10 @@ test('мост: внешняя игра открывается в том же sa
   const source = page.locator('#player-source');
   await expect(source).toBeVisible();
   await expect(source).toHaveAttribute('href', 'https://github.com/wayou/t-rex-runner');
+  await page.keyboard.press('Escape');
+  // Встроенная игра помечена MiniArcade тем же бейджем (единый ряд).
+  await page.fill('#search', 'пятнашки');
+  await expect(page.locator('li:has(> a[href="#/play/fifteen"]) .card__badge')).toHaveText('MiniArcade');
 });
 
 test('кликер: пробел даёт очки после старта, счёт — output', async ({ page }) => {

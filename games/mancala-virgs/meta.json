@@ -1,0 +1,18 @@
+{
+  "id": "mancala-virgs",
+  "title": "Манкала с ИИ",
+  "emoji": "🫘",
+  "description": "Манкала против minimax-ИИ в воркере.",
+  "tags": [
+    "манкала",
+    "настольные",
+    "ии"
+  ],
+  "controls": "Мышь",
+  "url": "https://virgs.github.io/mancala/",
+  "author": "virgs",
+  "license": "MIT",
+  "repo": "https://github.com/virgs/mancala",
+  "lang": "en",
+  "created": "2023-11-17"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "tama-bocalettoluca",
+  "title": "Tama-Pets",
+  "emoji": "🐣",
+  "description": "Виртуальный питомец: кормите, играйте и укладывайте спать. Внешняя игра — код остаётся у автора.",
+  "tags": [
+    "казуал",
+    "симулятор"
+  ],
+  "controls": "Мышь",
+  "url": "https://bocaletto-luca.github.io/Tama-Pets/",
+  "author": "Bocaletto Luca",
+  "license": "GPL-3.0",
+  "repo": "https://github.com/bocaletto-luca/Tama-Pets",
+  "lang": "en",
+  "added": "2026-09-23",
+  "created": "2025-05-16"
+}

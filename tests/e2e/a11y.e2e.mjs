@@ -20,7 +20,7 @@ test('каталог доступен с клавиатуры и скринри�
   await expect(page.locator('#results-status')).toHaveAttribute('aria-live', 'polite');
 
   // Карточки — настоящие ссылки с понятными именами (главная — ряды).
-  const firstCard = page.locator('.row-track .card').first();
+  const firstCard = page.locator('.row-track .card__link').first();
   await expect(firstCard).toBeVisible();
   const name = await firstCard.evaluate((el) => el.textContent?.trim() ?? '');
   expect(name.length).toBeGreaterThan(0);

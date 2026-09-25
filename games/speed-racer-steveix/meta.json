@@ -1,0 +1,17 @@
+{
+  "id": "speed-racer-steveix",
+  "title": "Скоростной гонщик",
+  "emoji": "🏁",
+  "description": "Кольцевые гонки: три машины, чекпоинты.",
+  "tags": [
+    "гонки",
+    "аркада"
+  ],
+  "controls": "Стрелки",
+  "url": "https://speed-racer-game.vercel.app",
+  "author": "Steve-IX",
+  "license": "MIT",
+  "repo": "https://github.com/Steve-IX/Speed_Racer_Game",
+  "lang": "en",
+  "created": "2025-06-19"
+}

@@ -1,3 +1,6 @@
+# Каноникал — GitHub Pages (источник истины git). Зеркала (Cloudflare/Vercel)
+# отдают тот же файл: Sitemap осознанно указывает на основной хостинг,
+# дубли контента гасятся <link rel=canonical> в index.html/stats.html.
 User-agent: *
 Allow: /
 

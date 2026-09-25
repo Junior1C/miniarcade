@@ -96,8 +96,10 @@
         <span id="player-name"></span>
         <a id="player-source" class="player__source" href="#" hidden>исходник ↗</a>
       </p>
-      <button id="player-expand" class="button button--secondary" type="button" aria-pressed="false" title="Развернуть окно игры на весь экран">⛶ Развернуть</button>
-      <button id="player-close" class="button button--danger" type="button" commandfor="player" command="close">✕ Закрыть</button>
+      <div class="player__actions">
+        <button id="player-expand" class="button button--secondary player__icon-btn" type="button" aria-pressed="false" aria-label="Развернуть на весь экран" title="Развернуть на весь экран">⛶</button>
+        <button id="player-close" class="button button--danger player__icon-btn" type="button" commandfor="player" command="close" aria-label="Закрыть игру" title="Закрыть игру">✕</button>
+      </div>
     </div>
     <div id="player-loading" class="player__loading" hidden>
       <span class="player__loading-track" aria-hidden="true"><span class="player__loading-fill"></span></span>

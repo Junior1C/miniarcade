@@ -11,7 +11,7 @@ test('framingVerdict отличает запрет встраивания от �
   assert.equal(framingVerdict({ 'x-frame-options': 'ALLOWALL' }), null);
 });
 
-test('bodyVerdict ловит meta-refresh на чужой origin (кейс ext-td)', () => {
+test('bodyVerdict ловит meta-refresh на чужой origin (исторический кейс мёртвого моста)', () => {
   const stub = '<html><head><meta http-equiv="refresh" content="0; url=https://github.com/someone/game"></head></html>';
   const verdict = bodyVerdict(stub, 'https://oldj.net/static/game/td.html');
   assert.ok(verdict && verdict.includes('meta-refresh'), 'external refresh must be flagged');

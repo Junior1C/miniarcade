@@ -1,0 +1,17 @@
+{
+  "id": "boggle-scheibo",
+  "title": "Боггл",
+  "emoji": "🔤",
+  "description": "Боггл: составляй слова из букв.",
+  "tags": [
+    "слова",
+    "головоломка"
+  ],
+  "controls": "Клавиатура / мышь",
+  "url": "https://scheibo.github.io/boggle/",
+  "author": "scheibo",
+  "license": "MIT",
+  "repo": "https://github.com/scheibo/boggle",
+  "lang": "en",
+  "created": "2019-12-16"
+}

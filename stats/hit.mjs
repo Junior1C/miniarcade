@@ -166,9 +166,26 @@ export function statsSalt(env) {
   return salt || 'miniarcade-dev-salt-v1';
 }
 
-export function corsHeaders() {
+export const DEV_SALT = 'miniarcade-dev-salt-v1';
+
+export function isDevSalt(env) {
+  return statsSalt(env) === DEV_SALT;
+}
+
+export function corsHeaders(request) {
+  // Beacon летит с 3 зеркал на один collector (pages.dev): вместо слепого
+  // `*` отдаём эхо проверенного Origin (браузеры кэшируют по Vary: Origin),
+  // пустой Origin (curl/beacon без заголовка) — как раньше `*`.
+  // Учётных данных нет, поэтому `*` остаётся безопасным фолбэком.
+  let allow = '*';
+  try {
+    const origin = request ? requestOrigin(request) : '';
+    if (origin && ALLOWED_HIT_ORIGINS.has(origin)) allow = origin;
+  } catch {
+    // Фолбэк `*` ниже.
+  }
   return {
-    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Origin': allow,
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'content-type',
     'Access-Control-Max-Age': '86400',
@@ -178,42 +195,52 @@ export function corsHeaders() {
 
 export async function handleHit(request, env) {
   if (request.method === 'OPTIONS') {
-    return new Response(null, { status: 204, headers: corsHeaders() });
+    return new Response(null, { status: 204, headers: corsHeaders(request) });
   }
   if (request.method !== 'POST') {
-    return new Response('Method Not Allowed', { status: 405, headers: corsHeaders() });
+    return new Response('Method Not Allowed', { status: 405, headers: corsHeaders(request) });
   }
   // DNT уважаем и на сервере (второй рубеж после клиентского).
   if (request.headers.get('dnt') === '1') {
-    return new Response(null, { status: 204, headers: corsHeaders() });
+    return new Response(null, { status: 204, headers: corsHeaders(request) });
   }
   if (isBot(request.headers.get('user-agent'))) {
-    return new Response(null, { status: 204, headers: corsHeaders() });
+    return new Response(null, { status: 204, headers: corsHeaders(request) });
   }
   // Чужой Origin/Referer с телом — не наша статистика: 403 до чтения D1.
   // Пустой Origin (curl, часть beacon) пропускаем — валидация тела ниже.
   const origin = requestOrigin(request);
   if (origin && !ALLOWED_HIT_ORIGINS.has(origin)) {
-    return new Response('Forbidden', { status: 403, headers: corsHeaders() });
+    return new Response('Forbidden', { status: 403, headers: corsHeaders(request) });
   }
   if (isRateLimited(request)) {
     return new Response('Too Many Requests', {
       status: 429,
-      headers: { ...corsHeaders(), 'Retry-After': '60' },
+      headers: { ...corsHeaders(request), 'Retry-After': '60' },
     });
   }
   if (!env || !env.STATS_DB) {
-    return new Response('Stats DB is not bound', { status: 503, headers: corsHeaders() });
+    return new Response('Stats DB is not bound', { status: 503, headers: corsHeaders(request) });
+  }
+  // Прод без STATS_SALT: хеши посетителей считаются на публичной соли —
+  // брутфорс словаря IP/UA становится возможен. Сайт работает, но в лог
+  // пишем предупреждение (видно в Pages/Worker Observability).
+  if (isDevSalt(env) && (origin === 'https://miniarcade.pages.dev' || origin === 'https://junior1c.github.io' || origin === 'https://miniarcades.vercel.app')) {
+    try {
+      console.warn('STATS_SALT is not set: visitor hashes use public dev salt');
+    } catch {
+      // Логгер недоступен — статистика важнее.
+    }
   }
   let body = null;
   try {
     body = await request.json();
   } catch {
-    return new Response('Bad Request', { status: 400, headers: corsHeaders() });
+    return new Response('Bad Request', { status: 400, headers: corsHeaders(request) });
   }
   const parsed = parseHit(body);
   if (!parsed.ok) {
-    return new Response('Bad Request', { status: 400, headers: corsHeaders() });
+    return new Response('Bad Request', { status: 400, headers: corsHeaders(request) });
   }
   // Host из проверенного Origin надёжнее тела: разбивку по зеркалам
   // нельзя отравить поддельным host в JSON.
@@ -227,9 +254,9 @@ export async function handleHit(request, env) {
   try {
     await insertHit(db(env), parsed.data, { now, day, country: countryOf(request.headers) });
   } catch {
-    return new Response('Internal Server Error', { status: 500, headers: corsHeaders() });
+    return new Response('Internal Server Error', { status: 500, headers: corsHeaders(request) });
   }
-  return new Response(null, { status: 204, headers: corsHeaders() });
+  return new Response(null, { status: 204, headers: corsHeaders(request) });
 }
 
 function db(env) {
