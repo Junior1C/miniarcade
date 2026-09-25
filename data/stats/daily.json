@@ -4,24 +4,621 @@
     "host": "junior1c.github.io",
     "game": "",
     "event": "pv",
+    "n": 14,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "2048",
+    "event": "close",
+    "n": 2,
+    "secs": 5,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "2048",
+    "event": "open",
+    "n": 2,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "breakout",
+    "event": "close",
     "n": 1,
-    "secs": 0
+    "secs": 2,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "breakout",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "clicker",
+    "event": "close",
+    "n": 1,
+    "secs": 17,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "clicker",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "connect4",
+    "event": "close",
+    "n": 1,
+    "secs": 4,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "connect4",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-2048react",
+    "event": "close",
+    "n": 1,
+    "secs": 2,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-2048react",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-aiasteroids",
+    "event": "close",
+    "n": 2,
+    "secs": 24,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-aiasteroids",
+    "event": "open",
+    "n": 2,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-aimandshoot",
+    "event": "close",
+    "n": 1,
+    "secs": 17,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-aimandshoot",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-ballwall",
+    "event": "close",
+    "n": 2,
+    "secs": 7,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-ballwall",
+    "event": "open",
+    "n": 2,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-blackjack",
+    "event": "close",
+    "n": 1,
+    "secs": 113,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-blackjack",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-boc-itadv",
+    "event": "close",
+    "n": 1,
+    "secs": 6,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-boc-itadv",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-dino-platformer",
+    "event": "close",
+    "n": 1,
+    "secs": 26,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-dino-platformer",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-gomoku-ai",
+    "event": "close",
+    "n": 1,
+    "secs": 26,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-gomoku-ai",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-isocity",
+    "event": "close",
+    "n": 2,
+    "secs": 9,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-isocity",
+    "event": "open",
+    "n": 2,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-itlweichess",
+    "event": "close",
+    "n": 1,
+    "secs": 2,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-itlweichess",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-kaboom",
+    "event": "close",
+    "n": 1,
+    "secs": 15,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-kaboom",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-masonicpacman",
+    "event": "close",
+    "n": 1,
+    "secs": 48,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-masonicpacman",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-matter-sandbox",
+    "event": "close",
+    "n": 1,
+    "secs": 43,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-matter-sandbox",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-mini-golf",
+    "event": "close",
+    "n": 1,
+    "secs": 43,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-mini-golf",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-rhythm",
+    "event": "close",
+    "n": 2,
+    "secs": 32,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-rhythm",
+    "event": "open",
+    "n": 2,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-urlife",
+    "event": "close",
+    "n": 2,
+    "secs": 5,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-urlife",
+    "event": "open",
+    "n": 2,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-urlsnake",
+    "event": "close",
+    "n": 1,
+    "secs": 4,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-urlsnake",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-vuesolitaire",
+    "event": "close",
+    "n": 1,
+    "secs": 9,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-vuesolitaire",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-vuetetris",
+    "event": "close",
+    "n": 1,
+    "secs": 7,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-vuetetris",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-wordle",
+    "event": "close",
+    "n": 3,
+    "secs": 24,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-wordle",
+    "event": "open",
+    "n": 3,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-zombie-phaser",
+    "event": "close",
+    "n": 1,
+    "secs": 379,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "ext-zombie-phaser",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "memory",
+    "event": "close",
+    "n": 1,
+    "secs": 2,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "memory",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "snake",
+    "event": "close",
+    "n": 1,
+    "secs": 2,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "junior1c.github.io",
+    "game": "snake",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
   },
   {
     "day": "2026-09-24",
     "host": "miniarcade.pages.dev",
     "game": "",
     "event": "pv",
+    "n": 3,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcade.pages.dev",
+    "game": "connect4",
+    "event": "close",
     "n": 1,
-    "secs": 0
+    "secs": 4,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcade.pages.dev",
+    "game": "connect4",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcade.pages.dev",
+    "game": "ext-2048react",
+    "event": "close",
+    "n": 1,
+    "secs": 4,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcade.pages.dev",
+    "game": "ext-2048react",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcade.pages.dev",
+    "game": "ext-wordle",
+    "event": "close",
+    "n": 1,
+    "secs": 6,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcade.pages.dev",
+    "game": "ext-wordle",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
   },
   {
     "day": "2026-09-24",
     "host": "miniarcades.vercel.app",
     "game": "",
     "event": "pv",
+    "n": 6,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-acesup",
+    "event": "close",
     "n": 2,
-    "secs": 0
+    "secs": 3,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-acesup",
+    "event": "open",
+    "n": 2,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-aiasteroids",
+    "event": "close",
+    "n": 1,
+    "secs": 3,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-aiasteroids",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-boc-bomberman",
+    "event": "close",
+    "n": 1,
+    "secs": 8,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-boc-bomberman",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
   },
   {
     "day": "2026-09-24",
@@ -29,7 +626,8 @@
     "game": "ext-boc-c42p",
     "event": "close",
     "n": 1,
-    "secs": 4
+    "secs": 4,
+    "uniques": 0
   },
   {
     "day": "2026-09-24",
@@ -37,7 +635,80 @@
     "game": "ext-boc-c42p",
     "event": "open",
     "n": 1,
-    "secs": 0
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-bounceback",
+    "event": "close",
+    "n": 1,
+    "secs": 12,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-bounceback",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-breaklock",
+    "event": "close",
+    "n": 2,
+    "secs": 31,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-breaklock",
+    "event": "open",
+    "n": 2,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-cardmemory",
+    "event": "close",
+    "n": 1,
+    "secs": 26,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-cardmemory",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-clashjs",
+    "event": "close",
+    "n": 1,
+    "secs": 39,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "ext-clashjs",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
   },
   {
     "day": "2026-09-24",
@@ -45,7 +716,8 @@
     "game": "ext-masonicpacman",
     "event": "close",
     "n": 2,
-    "secs": 16
+    "secs": 16,
+    "uniques": 0
   },
   {
     "day": "2026-09-24",
@@ -53,7 +725,8 @@
     "game": "ext-masonicpacman",
     "event": "open",
     "n": 2,
-    "secs": 0
+    "secs": 0,
+    "uniques": 0
   },
   {
     "day": "2026-09-24",
@@ -61,7 +734,8 @@
     "game": "ext-mrdoobracing",
     "event": "close",
     "n": 1,
-    "secs": 6
+    "secs": 6,
+    "uniques": 0
   },
   {
     "day": "2026-09-24",
@@ -69,7 +743,8 @@
     "game": "ext-mrdoobracing",
     "event": "open",
     "n": 1,
-    "secs": 0
+    "secs": 0,
+    "uniques": 0
   },
   {
     "day": "2026-09-24",
@@ -77,7 +752,8 @@
     "game": "ext-urlife",
     "event": "close",
     "n": 1,
-    "secs": 11
+    "secs": 11,
+    "uniques": 0
   },
   {
     "day": "2026-09-24",
@@ -85,7 +761,8 @@
     "game": "ext-urlife",
     "event": "open",
     "n": 1,
-    "secs": 0
+    "secs": 0,
+    "uniques": 0
   },
   {
     "day": "2026-09-24",
@@ -93,7 +770,8 @@
     "game": "ext-urlsnake",
     "event": "close",
     "n": 1,
-    "secs": 5
+    "secs": 5,
+    "uniques": 0
   },
   {
     "day": "2026-09-24",
@@ -101,7 +779,8 @@
     "game": "ext-urlsnake",
     "event": "open",
     "n": 1,
-    "secs": 0
+    "secs": 0,
+    "uniques": 0
   },
   {
     "day": "2026-09-24",
@@ -109,7 +788,8 @@
     "game": "ext-vuesolitaire",
     "event": "close",
     "n": 1,
-    "secs": 37
+    "secs": 37,
+    "uniques": 0
   },
   {
     "day": "2026-09-24",
@@ -117,7 +797,8 @@
     "game": "ext-vuesolitaire",
     "event": "open",
     "n": 1,
-    "secs": 0
+    "secs": 0,
+    "uniques": 0
   },
   {
     "day": "2026-09-24",
@@ -125,7 +806,8 @@
     "game": "ext-vuetetris",
     "event": "close",
     "n": 2,
-    "secs": 18
+    "secs": 18,
+    "uniques": 0
   },
   {
     "day": "2026-09-24",
@@ -133,7 +815,8 @@
     "game": "ext-vuetetris",
     "event": "open",
     "n": 2,
-    "secs": 0
+    "secs": 0,
+    "uniques": 0
   },
   {
     "day": "2026-09-24",
@@ -141,7 +824,8 @@
     "game": "ext-wordle",
     "event": "close",
     "n": 1,
-    "secs": 8
+    "secs": 8,
+    "uniques": 0
   },
   {
     "day": "2026-09-24",
@@ -149,7 +833,8 @@
     "game": "ext-wordle",
     "event": "open",
     "n": 1,
-    "secs": 0
+    "secs": 0,
+    "uniques": 0
   },
   {
     "day": "2026-09-24",
@@ -157,7 +842,8 @@
     "game": "ext-xx142",
     "event": "close",
     "n": 1,
-    "secs": 7
+    "secs": 7,
+    "uniques": 0
   },
   {
     "day": "2026-09-24",
@@ -165,7 +851,80 @@
     "game": "ext-xx142",
     "event": "open",
     "n": 1,
-    "secs": 0
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "flappy",
+    "event": "close",
+    "n": 2,
+    "secs": 3,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "flappy",
+    "event": "open",
+    "n": 2,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "hangman",
+    "event": "close",
+    "n": 1,
+    "secs": 2,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "hangman",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "memory",
+    "event": "close",
+    "n": 1,
+    "secs": 2,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "memory",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "whack",
+    "event": "close",
+    "n": 1,
+    "secs": 2,
+    "uniques": 0
+  },
+  {
+    "day": "2026-09-24",
+    "host": "miniarcades.vercel.app",
+    "game": "whack",
+    "event": "open",
+    "n": 1,
+    "secs": 0,
+    "uniques": 0
   },
   {
     "day": "2026-09-23",
@@ -173,7 +932,8 @@
     "game": "",
     "event": "pv",
     "n": 4,
-    "secs": 0
+    "secs": 0,
+    "uniques": 0
   },
   {
     "day": "2026-09-23",
@@ -181,7 +941,8 @@
     "game": "connect4",
     "event": "close",
     "n": 1,
-    "secs": 3
+    "secs": 3,
+    "uniques": 0
   },
   {
     "day": "2026-09-23",
@@ -189,7 +950,8 @@
     "game": "connect4",
     "event": "open",
     "n": 1,
-    "secs": 0
+    "secs": 0,
+    "uniques": 0
   },
   {
     "day": "2026-09-23",
@@ -197,7 +959,8 @@
     "game": "dino",
     "event": "close",
     "n": 1,
-    "secs": 2
+    "secs": 2,
+    "uniques": 0
   },
   {
     "day": "2026-09-23",
@@ -205,7 +968,8 @@
     "game": "dino",
     "event": "open",
     "n": 1,
-    "secs": 0
+    "secs": 0,
+    "uniques": 0
   },
   {
     "day": "2026-09-23",
@@ -213,7 +977,8 @@
     "game": "pong",
     "event": "close",
     "n": 1,
-    "secs": 2
+    "secs": 2,
+    "uniques": 0
   },
   {
     "day": "2026-09-23",
@@ -221,6 +986,7 @@
     "game": "pong",
     "event": "open",
     "n": 1,
-    "secs": 0
+    "secs": 0,
+    "uniques": 0
   }
 ]
